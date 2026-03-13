@@ -3,7 +3,7 @@ import Button from '../ui/Button';
 
 const CTA = () => {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 relative">
+    <section className="py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-5xl mx-auto relative z-10">
         <Reveal direction="up" width="100%">
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">

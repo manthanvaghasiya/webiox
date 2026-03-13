@@ -27,7 +27,7 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-24 bg-gray-900 text-white relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-teal-400/5 blur-[120px] rounded-full pointer-events-none" />

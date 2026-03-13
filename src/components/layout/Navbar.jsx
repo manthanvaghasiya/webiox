@@ -81,37 +81,49 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-100"
+            initial={{ opacity: 0, height: 0, y: -10 }}
+            animate={{ opacity: 1, height: 'auto', y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -10 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-t border-gray-100 shadow-[0_20px_40px_rgba(0,0,0,0.1)] overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-1 shadow-xl bg-brand-gray">
-              {navLinks.map((link) => (
-                <NavLink
+            <div className="px-6 pt-6 pb-10 space-y-2">
+              {navLinks.map((link, i) => (
+                <motion.div
                   key={link.name}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
-                    `block px-3 py-3 rounded-md text-base font-bold ${
-                      isActive
-                        ? 'bg-brand-blue/10 text-brand-blue'
-                        : 'text-gray-700 hover:bg-gray-100/50 hover:text-brand-blue font-medium'
-                    }`
-                  }
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + i * 0.05, duration: 0.3 }}
                 >
-                  {link.name}
-                </NavLink>
+                  <NavLink
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={({ isActive }) =>
+                      `block px-4 py-3 rounded-xl text-lg font-bold transition-all duration-300 ${
+                        isActive
+                          ? 'bg-brand-blue/10 text-brand-blue translate-x-2'
+                          : 'text-gray-700 hover:bg-gray-50 hover:text-brand-blue'
+                      }`
+                    }
+                  >
+                    {link.name}
+                  </NavLink>
+                </motion.div>
               ))}
-              <div className="pt-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
+                className="pt-6"
+              >
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="block w-full text-center px-5 py-3 bg-brand-yellow text-brand-blue rounded-md font-bold shadow-[0_0_15px_rgba(255,184,0,0.3)]"
+                  className="block w-full text-center px-6 py-4 bg-brand-yellow text-brand-blue rounded-xl font-bold shadow-[0_10px_20px_rgba(255,184,0,0.2)] hover:shadow-[0_15px_25px_rgba(255,184,0,0.4)] hover:-translate-y-1 transition-all duration-300"
                 >
                   Start Project
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}
