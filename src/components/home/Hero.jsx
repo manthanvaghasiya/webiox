@@ -2,6 +2,9 @@ import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'fram
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
+// --- Premium Easing for Cinematic Reveals ---
+const ease = [0.76, 0, 0.24, 1];
+
 // --- Magnetic Button Component ---
 const MagneticButton = ({ children }) => {
   const ref = useRef(null);
@@ -44,19 +47,15 @@ const MagneticButton = ({ children }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ x: isTouchDevice ? 0 : smoothX, y: isTouchDevice ? 0 : smoothY }}
-      className="inline-block w-full sm:w-auto"
+      className="inline-block mt-12 md:mt-16"
     >
       <motion.button 
-        className="group relative flex items-center justify-center w-full sm:w-auto gap-3 bg-brand-blue text-white px-8 py-4 rounded-full text-lg font-bold overflow-hidden shadow-2xl"
+        className="group relative flex items-center justify-center gap-4 bg-[#FFB800] text-[#002583] px-10 py-5 rounded-full text-lg lg:text-xl font-bold overflow-hidden shadow-[0_20px_40px_rgba(255,184,0,0.3)] hover:shadow-[0_25px_50px_rgba(255,184,0,0.4)] transition-shadow duration-500"
         whileHover={isTouchDevice ? {} : { scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        {/* Glow effect inside button */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-yellow/0 via-brand-yellow/20 to-brand-yellow/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-        
         <span className="relative z-10">{children}</span>
-        
-        <div className="relative z-10 w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center text-brand-blue group-hover:rotate-[-45deg] transition-transform duration-300">
+        <div className="relative z-10 w-10 h-10 rounded-full bg-[#002583] flex items-center justify-center text-white group-hover:-rotate-45 transition-transform duration-500">
           <ArrowRight className="w-5 h-5" />
         </div>
       </motion.button>
@@ -64,35 +63,37 @@ const MagneticButton = ({ children }) => {
   );
 };
 
-// --- Kinetic Typography Component ---
-const KineticText = ({ text }) => {
+// --- Cinematic Masked Text Reveal Component ---
+const CinematicText = ({ text }) => {
   const words = text.split(" ");
   
   const containerVars = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1, 
-      transition: { staggerChildren: 0.12, delayChildren: 0.2 } 
+      transition: { staggerChildren: 0.15, delayChildren: 0.3 } 
     }
   };
 
   const wordVars = {
-    hidden: { y: "100%", opacity: 0, rotate: 5 },
+    hidden: { y: "100%", rotate: 5, opacity: 0 },
     visible: { 
       y: 0, 
-      opacity: 1, 
       rotate: 0,
-      transition: { duration: 1, ease: [0.2, 0.8, 0.2, 1] } 
+      opacity: 1,
+      transition: { duration: 1.4, ease: ease } 
     }
   };
 
   return (
     <motion.div 
-      variants={containerVars} initial="hidden" animate="visible"
-      className="flex flex-wrap gap-x-4 gap-y-2 lg:gap-x-6 lg:gap-y-4 mb-8"
+      variants={containerVars} 
+      initial="hidden" 
+      animate="visible"
+      className="flex flex-wrap justify-center gap-x-4 gap-y-2 lg:gap-x-8 lg:gap-y-4"
     >
       {words.map((word, i) => (
-        <div key={i} className="overflow-hidden pb-4 -mb-4 inline-block">
+        <div key={i} className="overflow-hidden pb-4 md:pb-6 -mb-4 md:-mb-6">
           <motion.span variants={wordVars} className="inline-block">
             {word}
           </motion.span>
@@ -106,139 +107,107 @@ const KineticText = ({ text }) => {
 // --- Main Hero Component ---
 const Hero = () => {
   const { scrollY } = useScroll();
-  
-  // Parallax for scroll
-  const scrollY1 = useTransform(scrollY, [0, 1000], [0, 200]);
-  const scrollY2 = useTransform(scrollY, [0, 1000], [0, -150]);
-  const scrollY3 = useTransform(scrollY, [0, 1000], [0, 300]);
-  
-  // Mouse tracking variables
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Smooth mouse coordinates for parallax elements
-  const smoothConfig = { damping: 20, stiffness: 100, mass: 0.5 };
-  const smoothMouseX = useSpring(mouseX, smoothConfig);
-  const smoothMouseY = useSpring(mouseY, smoothConfig);
-  
-  // Raw window tracker for spotlight to be immediate or slightly smoothed
-  const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      // 1. Raw coordinates for background spotlight
-      setSpotlight({ x: e.clientX, y: e.clientY });
-      
-      // 2. Normalized coordinates for 3D parallax shapes (-1 to 1)
-      const nx = (e.clientX / window.innerWidth - 0.5) * 2;
-      const ny = (e.clientY / window.innerHeight - 0.5) * 2;
-      mouseX.set(nx * 100); // 100px movement range
-      mouseY.set(ny * 100);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
+  const yParallax = useTransform(scrollY, [0, 1000], [0, 300]);
 
   return (
-    <section className="relative min-h-[100vh] w-full bg-brand-gray overflow-hidden selection:bg-brand-blue selection:text-white flex items-center">
+    <section className="relative min-h-[100vh] w-full bg-[#E5E8EF] overflow-hidden selection:bg-[#002583] selection:text-white flex items-center justify-center text-center">
       
-      {/* 1. Interactive Cursor Spotlight (Hidden on Mobile) */}
-      <motion.div 
-        className="pointer-events-none absolute inset-0 z-0 opacity-80 mix-blend-color-burn hidden md:block"
-        animate={{
-          background: `radial-gradient(800px circle at ${spotlight.x}px ${spotlight.y}px, rgba(255,184,0,0.15), rgba(0,37,131,0.05) 40%, transparent 80%)`
-        }}
-        transition={{ type: 'tween', ease: 'linear', duration: 0.1 }}
-      />
-      
-      {/* Background soft grid pattern */}
-      <div 
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
-        style={{ 
-          backgroundImage: 'linear-gradient(rgba(0, 37, 131, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 37, 131, 0.05) 1px, transparent 1px)', 
-          backgroundSize: '100px 100px' 
-        }}
-      />
-
-      {/* 4. 3D Parallax Floating Glass Shapes (Opposite mouse direction) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10 hidden md:block">
-        {/* Shape 1: Blur-glass orb top right */}
+      {/* 1. Cinematic Background Glowing Orbs (Mustard Yellow and Soft Blue) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        
+        {/* Soft floating orb 1 (Mustard Yellow) */}
         <motion.div 
-          style={{ x: useTransform(smoothMouseX, v => -v * 0.8), y: useTransform(smoothMouseY, v => -v * 0.8 + scrollY1.get()) }}
-          className="absolute top-[10%] -right-[5%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-gradient-to-tr from-brand-blue/10 to-brand-yellow/5 backdrop-blur-3xl border border-white/20 shadow-2xl"
+          animate={{ 
+            x: [0, 100, -50, 0],
+            y: [0, -50, 100, 0],
+            scale: [1, 1.2, 0.9, 1]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-[#FFB800] rounded-full mix-blend-multiply opacity-[0.08] blur-[120px]"
         />
         
-        {/* Shape 2: Sharp glass polygon bottom left */}
+        {/* Soft floating orb 2 (Strong Blue) */}
         <motion.div 
-          style={{ x: useTransform(smoothMouseX, v => -v * 1.5), y: useTransform(smoothMouseY, v => -v * 1.5 + scrollY2.get()) }}
-          className="absolute -bottom-[10%] -left-[5%] w-[30vw] h-[30vw] max-w-[400px] max-h-[400px] bg-brand-blue/5 rounded-[4rem] rotate-12 backdrop-blur-xl border border-white/40"
+          animate={{ 
+            x: [0, -100, 50, 0],
+            y: [0, 100, -50, 0],
+            scale: [1, 0.8, 1.1, 1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-1/4 right-1/4 w-[45vw] h-[45vw] max-w-[700px] max-h-[700px] bg-[#002583] rounded-full mix-blend-multiply opacity-[0.06] blur-[140px]"
         />
 
-        {/* Shape 3: Small floating accent */}
-        <motion.div 
-          style={{ x: useTransform(smoothMouseX, v => -v * 2), y: useTransform(smoothMouseY, v => -v * 2 + scrollY3.get()) }}
-          className="absolute top-[30%] left-[15%] w-24 h-24 bg-brand-yellow/20 rounded-2xl rotate-45 backdrop-blur-md shadow-[0_0_50px_rgba(255,184,0,0.3)] hidden md:block"
-        />
       </div>
 
-
-      {/* Main Content Area */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24 pt-24 md:pt-32">
-        <div className="max-w-5xl">
-          
+      {/* Main Centered Content */}
+      <motion.div 
+        style={{ y: yParallax }}
+        className="relative z-10 w-full max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 pt-16 flex flex-col items-center"
+      >
+        
+        {/* Pre-title Reveal */}
+        <div className="overflow-hidden mb-8 md:mb-12">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.1 }}
-            className="flex items-center gap-4 mb-8"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.1, ease: ease }}
+            className="flex items-center gap-4 justify-center"
           >
-            <div className="w-12 h-[2px] bg-brand-yellow" />
-            <span className="text-brand-blue font-bold tracking-widest uppercase text-sm md:text-base">
-              Digital Masterpiece
+            <div className="w-12 h-[2px] bg-[#FFB800]" />
+            <span className="text-[#002583] font-bold tracking-[0.2em] uppercase text-xs md:text-sm">
+              The Digital Masterpiece
             </span>
+            <div className="w-12 h-[2px] bg-[#FFB800]" />
           </motion.div>
-
-          {/* 2. Kinetic Typography: Multi-million dollar headline */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-brand-blue leading-[1.1] md:leading-[1] tracking-tighter uppercase mb-6 drop-shadow-sm break-words">
-            <KineticText text="Designing The" />
-            <KineticText text="Digital Future." />
-          </h1>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.5 }}
-            className="text-xl md:text-2xl lg:text-3xl text-gray-600 font-medium max-w-2xl mt-8 mb-16 leading-relaxed border-l-4 border-brand-yellow pl-6"
-          >
-            We build breathtaking, production-ready web experiences for brands that refuse to be ordinary.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.8 }}
-          >
-            {/* 3. Magnetic Button */}
-            <MagneticButton>Start a Project</MagneticButton>
-          </motion.div>
-
         </div>
-      </div>
+
+        {/* 2. Massive Cinematic Headline */}
+        <h1 className="text-5xl md:text-7xl lg:text-9xl font-black text-[#002583] leading-[1.05] tracking-tight uppercase max-w-7xl mx-auto">
+          <CinematicText text="Designing The Digital Future." />
+        </h1>
+
+        {/* Subtitle Reveal */}
+        <div className="overflow-hidden mt-10 md:mt-16 max-w-3xl mx-auto">
+          <motion.p 
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5, ease: ease }}
+            className="text-lg md:text-2xl lg:text-3xl text-gray-600 font-medium leading-relaxed px-4"
+          >
+            We engineer breathtaking web experiences for brands that refuse to be ordinary.
+          </motion.p>
+        </div>
+
+        {/* 3. Reveal Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.8, ease: ease }}
+        >
+          <MagneticButton>Start a Project</MagneticButton>
+        </motion.div>
+
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3"
       >
-        <span className="uppercase text-[10px] font-bold tracking-widest text-brand-blue">Scroll</span>
+        <span className="uppercase text-[10px] sm:text-xs font-bold tracking-[0.2em] text-[#002583]/60">Scroll to Explore</span>
         <motion.div 
-          animate={{ y: [0, 10, 0] }}
+          animate={{ height: ["0%", "100%", "0%"], y: [0, 0, 40] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="w-[1px] h-12 bg-gradient-to-b from-brand-blue to-transparent"
-        />
+          className="w-[1px] h-16 bg-[#002583]/30 overflow-hidden relative"
+        >
+           <motion.div 
+              animate={{ y: [-40, 40] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="w-full h-1/2 bg-[#002583]"
+           />
+        </motion.div>
       </motion.div>
       
     </section>
