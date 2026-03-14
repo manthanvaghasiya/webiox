@@ -12,17 +12,18 @@ const Hero = () => {
           {/* Left Column: Text Content */}
           <div className="flex flex-col justify-center text-white">
             <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-              <span className="block mb-2">Developing</span>
-              <span className="block text-[#eab308] min-h-[1.2em]">
-                <Typewriter
-                  words={['Web Platforms', 'Custom Software', 'AI Workflows']}
-                  loop={true}
-                  cursor
-                  cursorStyle="|"
-                  typeSpeed={70}
-                  deleteSpeed={50}
-                  delaySpeed={2000}
-                />
+              <span className="block mb-2 min-h-[1.2em]">
+                Developing <span className="text-[#eab308]">
+                  <Typewriter
+                    words={['Web Platforms', 'Custom Software', 'AI Workflows']}
+                    loop={true}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={2000}
+                  />
+                </span>
               </span>
               <span className="block mt-2">For Industry Leaders.</span>
             </h1>
