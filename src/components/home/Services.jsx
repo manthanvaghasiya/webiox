@@ -64,10 +64,10 @@ const Services = () => {
   return (
     <section className="py-12 md:py-16 lg:py-24 bg-brand-gray overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="mb-16 md:mb-24 max-w-3xl">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -75,13 +75,13 @@ const Services = () => {
           >
             Digital Ecosystem
           </motion.p>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-brand-blue tracking-tight leading-tight"
-            >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-brand-blue tracking-tight leading-tight"
+          >
             Capabilities that define <br className="hidden md:block" /> the future.
           </motion.h2>
         </div>
@@ -94,8 +94,8 @@ const Services = () => {
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ 
-                duration: 0.5, 
+              transition={{
+                duration: 0.5,
                 delay: index * 0.1,
                 type: "spring",
                 stiffness: 100
@@ -111,7 +111,7 @@ const Services = () => {
                   <ArrowRight className="w-5 h-5" />
                 </div>
               </div>
-              
+
               <div className="mt-8">
                 <h3 className={`text-2xl font-bold mb-3 ${service.textColor}`}>{service.title}</h3>
                 <p className={`text-base leading-relaxed max-w-md ${service.descColor}`}>
