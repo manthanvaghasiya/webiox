@@ -3,6 +3,7 @@ import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import Scene from './Scene';
+import DeveloperScene from './DeveloperScene';
 
 const Hero = () => {
   return (
@@ -18,7 +19,7 @@ const Hero = () => {
       </div>
 
       {/* The Content Grid (pointer-events-none so mouse passes through to Canvas) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center pt-20 pb-32 pointer-events-none">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center pt-10 pb-32 pointer-events-none">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full">
 
           {/* Left Column: Typography & CTA */}
@@ -70,44 +71,11 @@ const Hero = () => {
 
           </div>
 
-          {/* Right Column: Floating Glassmorphic Cards */}
-          <div className="hidden lg:flex flex-col items-end justify-center w-full h-full pointer-events-none relative pr-4 lg:pr-10">
-
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-2xl w-72 mb-8 pointer-events-auto"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-[#eab308]/20 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-[#eab308]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                </div>
-                <div>
-                  <p className="text-white font-bold text-lg">AI Automation</p>
-                  <p className="text-white/60 text-sm">Active Agents</p>
-                </div>
-              </div>
-              <div className="w-full bg-white/10 rounded-full h-2">
-                <div className="bg-[#eab308] h-2 rounded-full w-[90%]"></div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-2xl w-72 pointer-events-auto -mr-12"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
-                </div>
-                <div>
-                  <p className="text-white font-bold text-lg">Global Scale</p>
-                  <p className="text-white/60 text-sm">Cloud Infrastructure</p>
-                </div>
-              </div>
-            </motion.div>
-
+          {/* Right Column: 3D Developer Scene */}
+          <div className="hidden lg:flex items-center justify-end w-full h-full pointer-events-none relative pr-4 lg:pr-10">
+            <div className="w-full max-w-lg aspect-square rounded-3xl overflow-hidden shadow-2xl pointer-events-auto border border-white/20">
+              <DeveloperScene />
+            </div>
           </div>
 
         </div>
