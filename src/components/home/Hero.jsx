@@ -11,10 +11,10 @@ const Hero = () => {
 
           {/* Left Column: Text Content */}
           {/* We added tracking-tight for the premium font look and made it 6xl instead of 7xl */}
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
-            <span className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-2 md:mb-4">
+          <h1 className="text-5xl lg:text-[80px] font-extrabold text-white leading-[1.1] tracking-tight mb-6">
+            <span className="flex flex-col md:flex-row md:items-center md:flex-nowrap whitespace-nowrap gap-2 md:gap-4 mb-2 md:mb-6">
               <span>Developing</span>
-              <span className="text-[#eab308] min-w-[280px] md:min-w-[400px]">
+              <span className="text-[#eab308] min-w-[300px] lg:min-w-[500px] xl:min-w-[600px]">
                 <Typewriter
                   words={['Web Platforms', 'Custom Software', 'AI Workflows']}
                   loop={true}
