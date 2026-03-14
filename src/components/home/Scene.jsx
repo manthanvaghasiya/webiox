@@ -6,7 +6,7 @@ import { Float } from '@react-three/drei';
 const TechNetwork = () => {
   const pointsRef = useRef();
   const linesRef = useRef();
-  
+
   const PARTICLE_COUNT = 150;
   const MAX_DISTANCE = 1.4;
 
@@ -28,23 +28,23 @@ const TechNetwork = () => {
   const { positions, colors } = useMemo(() => {
     const positionsArray = new Float32Array(PARTICLE_COUNT * 3);
     const colorsArray = new Float32Array(PARTICLE_COUNT * 3);
-    
+
     const colorPrimary = new THREE.Color("#eab308"); // Brand Yellow
     const colorSecondary = new THREE.Color("#ffffff"); // Bright White
-    
+
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-       const mixRatio = Math.random();
-       const mixedColor = colorPrimary.clone().lerp(colorSecondary, mixRatio);
-       
-       colorsArray[i * 3] = mixedColor.r;
-       colorsArray[i * 3 + 1] = mixedColor.g;
-       colorsArray[i * 3 + 2] = mixedColor.b;
+      const mixRatio = Math.random();
+      const mixedColor = colorPrimary.clone().lerp(colorSecondary, mixRatio);
+
+      colorsArray[i * 3] = mixedColor.r;
+      colorsArray[i * 3 + 1] = mixedColor.g;
+      colorsArray[i * 3 + 2] = mixedColor.b;
     }
     return { positions: positionsArray, colors: colorsArray };
   }, []);
 
   const lineGeometry = useMemo(() => new THREE.BufferGeometry(), []);
-  
+
   const { viewport } = useThree();
   const mouse3D = new THREE.Vector3(0, 0, 0);
 
@@ -74,8 +74,8 @@ const TechNetwork = () => {
       const dx = mouse3D.x - p.x;
       const dy = mouse3D.y - p.y;
       const distToMouse = Math.sqrt(dx * dx + dy * dy);
-      
-      const reactionRadius = 2.5; 
+
+      const reactionRadius = 2.5;
       if (distToMouse < reactionRadius) {
         const force = (reactionRadius - distToMouse) * 0.06;
         p.x -= (dx / distToMouse) * force;
@@ -105,7 +105,7 @@ const TechNetwork = () => {
             particles[i].x, particles[i].y, particles[i].z,
             particles[j].x, particles[j].y, particles[j].z
           );
-          
+
           // Fade lines based on distance. Make them glow slightly white/yellow
           const alpha = 1.0 - (dist / MAX_DISTANCE);
           lineColors.push(
