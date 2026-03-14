@@ -3,6 +3,7 @@ import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import Scene from './Scene';
+import DeveloperScene from './DeveloperScene';
 
 const Hero = () => {
   return (
@@ -70,19 +71,11 @@ const Hero = () => {
 
           </div>
 
-          {/* Right Column: 3D Illustration */}
+          {/* Right Column: 3D Developer Scene */}
           <div className="hidden lg:flex items-center justify-end w-full h-full pointer-events-none relative pr-4 lg:pr-10">
-            <motion.div 
-              animate={{ y: [0, -20, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="w-full max-w-lg aspect-square rounded-3xl pointer-events-auto flex items-center justify-center"
-            >
-              <img 
-                src="/hero-illustration.png" 
-                alt="3D isometric vector illustration of professional team collaborating" 
-                className="w-full h-full object-contain drop-shadow-2xl scale-110"
-              />
-            </motion.div>
+            <Suspense fallback={null}>
+              <DeveloperScene />
+            </Suspense>
           </div>
 
         </div>
