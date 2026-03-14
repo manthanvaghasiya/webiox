@@ -1,4 +1,5 @@
 import React from 'react';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Hero = () => {
   return (
@@ -8,10 +9,22 @@ const Hero = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center pt-20 pb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
           
-          {/* Left Column: Text Placeholder */}
+          {/* Left Column: Text Content */}
           <div className="flex flex-col justify-center text-white">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Your Massive Main Headline.
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+              <span className="block mb-2">Developing</span>
+              <span className="block text-[#eab308] min-h-[1.2em]">
+                <Typewriter
+                  words={['Web Platforms', 'Custom Software', 'AI Workflows']}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={2000}
+                />
+              </span>
+              <span className="block mt-2">For Industry Leaders.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
               This is the left column dummy text. It will hold the beautiful Typography and the main Call-to-Action button.
