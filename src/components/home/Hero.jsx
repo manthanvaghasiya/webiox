@@ -19,8 +19,8 @@ const Hero = () => {
       </div>
 
       {/* The Content Grid (pointer-events-none so mouse passes through to Canvas) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center pt-10 pb-32 pointer-events-none">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center pt-20 pb-32 pointer-events-none">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full mt-10 lg:mt-0">
 
           {/* Left Column: Typography & CTA */}
           <div className="flex flex-col justify-center text-white">
@@ -72,7 +72,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column: 3D Developer Scene */}
-          <div className="hidden lg:flex items-center justify-end w-full h-full pointer-events-none relative pr-4 lg:pr-10">
+          <div className="flex items-center justify-center lg:justify-end w-full h-[400px] sm:h-[500px] lg:h-full pointer-events-none relative pr-0 lg:pr-10 mt-10 lg:mt-0">
             <Suspense fallback={null}>
               <DeveloperScene />
             </Suspense>
