@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
 import {
@@ -136,7 +137,16 @@ export default function Footer() {
         >
           {/* ── Brand block ── */}
           <motion.div variants={itemAnim} className="lg:col-span-4">
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-flex items-center gap-2.5 mb-6 group">
+              <div className="relative w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors duration-300">
+                <Image
+                  src="/logo_without_background.png"
+                  alt="Webiox Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+              </div>
               <span className="text-3xl font-bold tracking-tight font-[Zain]">
                 WEB<span className="text-[#FFBF00]">IOX</span>
               </span>
