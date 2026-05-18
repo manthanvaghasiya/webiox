@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, AnimatePresence, Variants } from 'framer-motion';
 import { allProjects } from '@/data/projects';
 
 const JourneyHero = () => {
@@ -40,7 +40,7 @@ const JourneyHero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const textVariants = {
+  const textVariants: Variants = {
     hidden: { y: 100, opacity: 0, scale: 0.95 },
     show: { y: 0, opacity: 1, scale: 1, transition: { type: "spring", damping: 25, stiffness: 80, mass: 1 } }
   };
