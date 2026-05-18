@@ -1,6 +1,8 @@
-export const premiumEase = [0.22, 1, 0.36, 1];
+import { Variants } from 'framer-motion';
 
-export const blogHeroVariants = {
+export const premiumEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+export const blogHeroVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { 
     opacity: 1, 
@@ -12,7 +14,7 @@ export const blogHeroVariants = {
   }
 };
 
-export const blogStaggerContainer = {
+export const blogStaggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -23,7 +25,7 @@ export const blogStaggerContainer = {
   }
 };
 
-export const blogPostItemVariants = {
+export const blogPostItemVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { 
     opacity: 1, 
@@ -35,7 +37,7 @@ export const blogPostItemVariants = {
   }
 };
 
-export const imageHoverVariants = {
+export const imageHoverVariants: Variants = {
   rest: { scale: 1 },
   hover: { scale: 1.05, transition: { duration: 0.8, ease: premiumEase } }
 };
