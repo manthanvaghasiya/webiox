@@ -6,8 +6,8 @@ import * as THREE from 'three';
 import { Float } from '@react-three/drei';
 
 const TechNetwork = () => {
-  const pointsRef = useRef();
-  const linesRef = useRef();
+  const pointsRef = useRef<THREE.Points>(null);
+  const linesRef = useRef<THREE.LineSegments>(null);
 
   const PARTICLE_COUNT = 150;
   const MAX_DISTANCE = 1.4;
@@ -127,15 +127,11 @@ const TechNetwork = () => {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={PARTICLE_COUNT}
-            array={positions}
-            itemSize={3}
+            args={[positions, 3]}
           />
           <bufferAttribute
             attach="attributes-color"
-            count={PARTICLE_COUNT}
-            array={colors}
-            itemSize={3}
+            args={[colors, 3]}
           />
         </bufferGeometry>
         <pointsMaterial

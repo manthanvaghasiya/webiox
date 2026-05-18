@@ -48,10 +48,10 @@ const JourneyHero = () => {
   const getAnimation = (index: number) => {
     const type = index % 4;
     switch (type) {
-      case 0: return { initial: { opacity: 0, y: "100%", scale: 1.1 }, animate: { opacity: 1, y: "0%", scale: 1 }, exit: { opacity: 0, y: "-100%", scale: 0.9 }, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } };
-      case 1: return { initial: { opacity: 0, x: "-100%" }, animate: { opacity: 1, x: "0%" }, exit: { opacity: 0, x: "100%" }, transition: { duration: 1.2, ease: "anticipate" } };
-      case 2: return { initial: { opacity: 0, scale: 1.5, filter: "blur(20px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, exit: { opacity: 0, scale: 0.5, filter: "blur(20px)" }, transition: { duration: 1.5, ease: "easeOut" } };
-      case 3: return { initial: { opacity: 0, rotate: 20, scale: 0.8 }, animate: { opacity: 1, rotate: 0, scale: 1 }, exit: { opacity: 0, rotate: -20, scale: 0.8 }, transition: { type: "spring", bounce: 0.4, duration: 1.5 } };
+      case 0: return { initial: { opacity: 0, y: "100%", scale: 1.1 }, animate: { opacity: 1, y: "0%", scale: 1 }, exit: { opacity: 0, y: "-100%", scale: 0.9 }, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } };
+      case 1: return { initial: { opacity: 0, x: "-100%" }, animate: { opacity: 1, x: "0%" }, exit: { opacity: 0, x: "100%" }, transition: { duration: 1.2, ease: "anticipate" as const } };
+      case 2: return { initial: { opacity: 0, scale: 1.5, filter: "blur(20px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, exit: { opacity: 0, scale: 0.5, filter: "blur(20px)" }, transition: { duration: 1.5, ease: "easeOut" as const } };
+      case 3: return { initial: { opacity: 0, rotate: 20, scale: 0.8 }, animate: { opacity: 1, rotate: 0, scale: 1 }, exit: { opacity: 0, rotate: -20, scale: 0.8 }, transition: { type: "spring" as const, bounce: 0.4, duration: 1.5 } };
       default: return {};
     }
   };

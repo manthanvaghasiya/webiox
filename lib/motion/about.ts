@@ -1,7 +1,7 @@
 import { Variants } from 'framer-motion';
 
 // Premium Awwwards-style easing curve
-const ease = [0.16, 1, 0.3, 1];
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export const fadeUpVariant: Variants = {
   hidden: { opacity: 0, y: 40 },
