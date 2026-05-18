@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand-blue: #0E5E64;
+  --brand-yellow: #FFBF00;
+  --brand-gray: #F9FAFB;
+  --accent-teal: #0f7a81;
 }
 
 @theme inline {
@@ -10,6 +17,23 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-brand-blue: #0E5E64;
+  --color-brand-yellow: #FFBF00;
+  --color-brand-gray: #F9FAFB;
+  --color-primary: #0E5E64;
+
+  --color-primary-50: #eef6f6;
+  --color-primary-100: #d5e9ea;
+  --color-primary-200: #aed4d7;
+  --color-primary-300: #7bb7bc;
+  --color-primary-400: #4f979e;
+  --color-primary-500: #357d84;
+  --color-primary-600: #2b646a;
+  --color-primary-700: #0E5E64;
+  --color-primary-800: #234a4f;
+  --color-primary-900: #1f3e43;
+  --color-primary-950: #10272b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +47,23 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
