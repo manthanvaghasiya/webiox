@@ -17,6 +17,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Webiox Digital Solutions",
   description: "Premium digital solutions for modern businesses",
+  icons: {
+    icon: [
+      { url: '/webiox32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/webiox48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/webiox96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/webiox192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/webiox512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/webiox192.png' },
+    ],
+  },
 };
 
 export default function RootLayout({
