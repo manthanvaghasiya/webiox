@@ -94,7 +94,7 @@ export const allProjects: Project[] = [
     },
     {
         id: 5,
-        title: 'Sadguru Car Melo',
+        title: 'Sadguru Car Surat',
         category: 'Web Development',
         year: '2024',
         shortDescription: "Surat's trusted pre-owned car dealership platform with robust inventory and staff management.",

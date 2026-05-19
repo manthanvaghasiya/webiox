@@ -27,9 +27,9 @@ radial-gradient(at 85% 32%, rgba(255,191,0,0.06) 0px, transparent 50%),
 radial-gradient(at 50% 95%, rgba(199,232,155,0.32) 0px, transparent 55%)`;
 
 const stats = [
-  { icon: Briefcase, value: 50, suffix: '+', label: 'Projects Delivered', desc: 'From MVPs to enterprise platforms' },
-  { icon: Users, value: 100, suffix: '+', label: 'Happy Clients', desc: 'Across countries worldwide' },
-  { icon: Calendar, value: 8, suffix: '', label: 'Years of Excellence', desc: 'Building products since 2026' },
+  { icon: Briefcase, value: 5, suffix: '+', label: 'Projects Delivered', desc: 'From MVPs to enterprise platforms' },
+  { icon: Users, value: 5, suffix: '+', label: 'Happy Clients', desc: 'Across countries worldwide' },
+  { icon: Calendar, value: 5, suffix: '', label: 'Months of Excellence', desc: 'Building products since 2026' },
   { icon: ThumbsUp, value: 100, suffix: '%', label: 'Client Satisfaction', desc: '5-star rated on every delivery' },
 ];
 
