@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://webiox.tech'),
   title: "Webiox Digital Solutions",
   description: "Premium digital solutions for modern businesses",
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: [
       { url: '/webiox32.png', sizes: '32x32', type: 'image/png' },
