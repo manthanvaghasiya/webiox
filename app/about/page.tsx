@@ -7,7 +7,7 @@ import AboutCTA from '@/components/about/AboutCTA';
 
 export default function About() {
   return (
-    <div className="-mt-20 overflow-x-hidden w-full">
+    <div className="overflow-x-hidden w-full">
       <AboutHero />
       <AboutStats />
       <AboutStory />

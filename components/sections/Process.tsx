@@ -4,11 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Search, PenTool, CodeXml, Rocket, Activity, MoveRight, LineChart, ShieldCheck } from 'lucide-react';
 import { Typewriter } from 'react-simple-typewriter';
-import dynamic from 'next/dynamic';
 
-const ProcessCanvas = dynamic(() => import('./ProcessCanvas'), {
-  ssr: false,
-});
 
 const processes = [
   {
@@ -85,11 +81,12 @@ export default function Process() {
       {/* The sticky container holds the unified 100vh viewport */}
       <div className="sticky top-0 h-[100dvh] w-full flex flex-col py-8 md:py-12 overflow-hidden">
         
-        <ProcessCanvas />
-
-        {/* Overlay grid */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]"
-          style={{ backgroundImage: 'radial-gradient(#0E5E64 2px, transparent 2px)', backgroundSize: '40px 40px' }} />
+        {/* Background Elements (Static) */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute top-0 -left-4 w-72 h-72 bg-[#0E5E64]/5 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
+          <div className="absolute top-0 -right-4 w-72 h-72 bg-[#FFBF00]/10 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-300/10 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
+        </div>
 
         {/* 1. Header Section - Locked to the top of the viewport */}
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 shrink-0">
@@ -170,14 +167,14 @@ export default function Process() {
         {/* 2. Horizontal Track Section - Takes up the bottom space */}
         <div className="relative z-20 w-full flex-1 flex flex-col justify-center mt-4">
           <motion.div style={{ x }} className="flex w-max">
-            <div ref={scrollRef} className="flex pl-4 sm:pl-6 lg:pl-[calc((100vw-80rem)/2+1rem)] pr-[5vw] lg:pr-[calc((100vw-80rem)/2)] items-center py-12">
+            <div ref={scrollRef} className="flex pl-4 sm:pl-6 lg:pl-[calc((100vw-80rem)/2+1rem)] pr-[5vw] lg:pr-[calc((100vw-80rem)/2)] items-center py-4 md:py-8">
               {processes.map((process, index) => {
                 const IconComponent = process.icon;
                 const isLast = index === processes.length - 1;
                 return (
                   <div key={index} className="flex items-center shrink-0">
                     <div
-                      className="relative group w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[380px] xl:w-[420px] h-[55vh] min-h-[300px] max-h-[400px] shrink-0"
+                      className="relative group w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[380px] xl:w-[420px] h-[45vh] min-h-[280px] max-h-[350px] shrink-0"
                     >
                       {/* Ultra-Glassmorphic Card */}
                       <div className="absolute inset-0 bg-white/40 backdrop-blur-3xl rounded-3xl p-6 md:p-8 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(14,94,100,0.1)] transition-all duration-500 overflow-hidden flex flex-col justify-between hover:-translate-y-2">

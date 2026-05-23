@@ -69,7 +69,7 @@ export default async function BlogPostPage({
   };
 
   return (
-    <div className="-mt-20 overflow-x-hidden w-full">
+    <div className="overflow-x-hidden w-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

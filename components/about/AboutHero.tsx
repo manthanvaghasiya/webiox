@@ -53,7 +53,7 @@ export default function AboutHero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-screen bg-[#0E5E64] flex flex-col justify-between overflow-hidden rounded-b-[8rem]"
+      className="relative w-full min-h-[80vh] md:min-h-[85vh] bg-[#0E5E64] flex flex-col justify-between overflow-hidden rounded-b-[8rem]"
     >
       {/* Interactive Spotlight Overlay */}
       <motion.div
@@ -69,26 +69,7 @@ export default function AboutHero() {
         }}
       />
 
-      {/* Infinite Marquee Top Bar */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden whitespace-nowrap bg-[#0E5E64]/50 backdrop-blur-sm border-b border-[#F9FAFB]/10 py-3 z-20 flex items-center">
-        <motion.div
-          animate={{ x: [0, -1035] }} // Adjust based on text width
-          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
-          className="flex whitespace-nowrap text-[#F9FAFB]/60 font-[IBM_Plex_Sans] text-xs tracking-[0.2em] uppercase"
-        >
-          {/* Duplicate text 4 times for infinite loop illusion */}
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="flex items-center">
-              <span className="mx-8">Digital Agency</span>
-              <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
-              <span className="mx-8">Established 2026</span>
-              <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
-              <span className="mx-8">Global Reach</span>
-              <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
-            </div>
-          ))}
-        </motion.div>
-      </div>
+
 
       {/* Main Content Container */}
       <motion.div
@@ -96,7 +77,7 @@ export default function AboutHero() {
         initial="hidden"
         animate="visible"
         style={{ y: yParallax, opacity: opacityParallax }}
-        className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col items-center justify-center h-full flex-grow pt-32 pb-16"
+        className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col items-center justify-center h-full flex-grow pt-16 pb-8"
       >
         {/* Center Massive Typography */}
         <div className="flex flex-col justify-center items-center w-full relative group">
@@ -132,11 +113,36 @@ export default function AboutHero() {
             </motion.div>
           </div>
 
-          {/* Crafting Digital Excellence — Centered below headline */}
-          <div className="w-full mt-12 relative z-20">
-            <motion.div variants={lineDrawVariant} className="w-full h-[1px] bg-[#F9FAFB]/20 mb-6 lg:mb-10" />
+          {/* Crafting Digital Excellence — with Marquee above */}
+          <div className="w-full mt-4 lg:mt-6 relative z-20 flex flex-col">
+            
+            {/* Infinite Marquee - Breaks out of container, sits above Crafting */}
+            <div className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden whitespace-nowrap bg-[#0E5E64]/60 backdrop-blur-md border-y border-[#FFBF00]/20 py-4 flex items-center shadow-[0_0_30px_rgba(14,94,100,0.5)] mb-4 lg:mb-6">
+              <motion.div
+                animate={{ x: [0, -1035] }} // Adjust based on text width
+                transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+                className="flex whitespace-nowrap text-[#F9FAFB]/60 font-[IBM_Plex_Sans] text-xs tracking-[0.2em] uppercase"
+              >
+                {/* Duplicate text 4 times for infinite loop illusion */}
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="flex items-center">
+                    <span className="mx-8">Digital Agency</span>
+                    <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
+                    <span className="mx-8">Established 2026</span>
+                    <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
+                    <span className="mx-8">Global Reach</span>
+                    <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
+                    <span className="mx-8 text-[#FFBF00] font-bold">Crafting Elite Experiences</span>
+                    <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
 
-            <div className="flex w-full justify-end">
+            <div className="flex w-full items-center justify-end">
+              {/* Line in front of crafting */}
+              <motion.div variants={lineDrawVariant} className="flex-grow h-[1px] bg-[#F9FAFB]/30 mr-6 md:mr-12" />
+
               <motion.div variants={fadeUpVariant} className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-[Alice] text-[#F9FAFB] leading-[1.1] whitespace-nowrap">
                 <span>Crafting </span>
                 <span className="relative inline-block w-[280px] sm:w-[380px] lg:w-[480px] xl:w-[670px] h-[1.1em] overflow-hidden align-bottom">

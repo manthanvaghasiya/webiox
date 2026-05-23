@@ -1,173 +1,184 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, AnimatePresence, Variants } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { allProjects } from '@/data/projects';
+import { ArrowDownRight, Sparkles } from 'lucide-react';
 
-const JourneyHero = () => {
-  const containerRef = useRef(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+export default function JourneyHero() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  const images = allProjects.map(p => p.image);
+  const images = allProjects.map((p) => p.image);
 
-  // Slideshow Logic - Swaps image every 4 seconds
   useEffect(() => {
     if (!images || images.length === 0) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, 4500);
     return () => clearInterval(timer);
   }, [images.length]);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, { damping: 20, stiffness: 100 });
-
-  // Tie text slightly to parallax
-  const yText = useTransform(smoothProgress, [0, 1], ["0%", "30%"]);
-  const yMarquee = useTransform(smoothProgress, [0, 1], ["0%", "-40%"]);
-  const xMarquee1 = useTransform(smoothProgress, [0, 1], ["0%", "-20%"]);
-  const xMarquee2 = useTransform(smoothProgress, [0, 1], ["0%", "20%"]);
-  const opacityText = useTransform(smoothProgress, [0, 0.8], [1, 0]);
-
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => setMousePosition({ x: e.clientX, y: e.clientY });
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const textVariants: Variants = {
-    hidden: { y: 100, opacity: 0, scale: 0.95 },
-    show: { y: 0, opacity: 1, scale: 1, transition: { type: "spring", damping: 25, stiffness: 80, mass: 1 } }
-  };
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  });
 
-  const getAnimation = (index: number) => {
-    const type = index % 4;
-    switch (type) {
-      case 0: return { initial: { opacity: 0, y: "100%", scale: 1.1 }, animate: { opacity: 1, y: "0%", scale: 1 }, exit: { opacity: 0, y: "-100%", scale: 0.9 }, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } };
-      case 1: return { initial: { opacity: 0, x: "-100%" }, animate: { opacity: 1, x: "0%" }, exit: { opacity: 0, x: "100%" }, transition: { duration: 1.2, ease: "anticipate" as const } };
-      case 2: return { initial: { opacity: 0, scale: 1.5, filter: "blur(20px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, exit: { opacity: 0, scale: 0.5, filter: "blur(20px)" }, transition: { duration: 1.5, ease: "easeOut" as const } };
-      case 3: return { initial: { opacity: 0, rotate: 20, scale: 0.8 }, animate: { opacity: 1, rotate: 0, scale: 1 }, exit: { opacity: 0, rotate: -20, scale: 0.8 }, transition: { type: "spring" as const, bounce: 0.4, duration: 1.5 } };
-      default: return {};
-    }
-  };
-
-  const anim = getAnimation(currentIndex);
+  const yText = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const yImage = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  const opacityFade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative min-h-[70vh] md:min-h-[85vh] w-full flex items-center justify-center overflow-hidden bg-[#0E5E64] text-slate-900 selection:bg-primary/20 selection:text-primary pt-20 pb-4 sm:pt-24" style={{ perspective: "1000px" }}>
-
-      {/* Light cursor aura */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 hidden md:block"
-        style={{ background: `radial-gradient(circle 800px at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,0,0,0.03), transparent 60%)` }}
+    <section 
+      ref={containerRef} 
+      className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#0E5E64] text-white selection:bg-[#FFBF00]/30 selection:text-[#FFBF00]"
+    >
+      {/* Dynamic Cursor Light */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-0 opacity-40 transition-opacity duration-500 hidden lg:block"
+        style={{
+          background: `radial-gradient(circle 600px at ${mousePos.x}px ${mousePos.y}px, rgba(255, 191, 0, 0.08), transparent 80%)`
+        }}
       />
 
-      {/* Atmospheric Glow Orbs to fill corner spaces elegantly */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-primary/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-teal-300/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" />
+      {/* Atmospheric Background */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#11737a] via-[#0E5E64] to-[#0a454a] opacity-80" />
+      
+      {/* Noise Texture Overlay */}
+      <div 
+        className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
+      />
 
-      {/* Subtle Architectural Dot Grid */}
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_40%,#000_10%,transparent_100%)] pointer-events-none" />
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] pointer-events-none" />
 
-      {/* Massive Background Typography (Marquee Effect filling extreme blank space) */}
-      <motion.div style={{ y: yMarquee }} className="absolute inset-0 flex flex-col justify-center gap-16 md:gap-32 pointer-events-none z-0 overflow-hidden opacity-[0.03] select-none">
-        <motion.div style={{ x: xMarquee1 }} className="whitespace-nowrap flex items-center">
-          <h2 className="text-[12rem] md:text-[20rem] font-bold tracking-tighter leading-none">DIGITAL — EXPERIENCES — BRANDING —</h2>
-        </motion.div>
-        <motion.div style={{ x: xMarquee2 }} className="whitespace-nowrap flex items-center ml-[-50vw]">
-          <h2 className="text-[12rem] md:text-[20rem] font-bold tracking-tighter leading-none font-serif italic">INNOVATION — CRAFT — ARCHITECTURE —</h2>
-        </motion.div>
-      </motion.div>
 
-      {/* Edge Framing & Technical Accents filling the sides */}
-      <div className="absolute inset-0 pointer-events-none z-10 hidden sm:block">
-        <div className="absolute top-12 bottom-12 left-12 right-12 border border-slate-200/60 rounded-xl" />
-        <div className="absolute top-12 left-12 w-3 h-3 border-t-2 border-l-2 border-slate-400" />
-        <div className="absolute top-12 right-12 w-3 h-3 border-t-2 border-r-2 border-slate-400" />
-        <div className="absolute bottom-12 left-12 w-3 h-3 border-b-2 border-l-2 border-slate-400" />
-        <div className="absolute bottom-12 right-12 w-3 h-3 border-b-2 border-r-2 border-slate-400" />
-        <div className="absolute top-16 left-16 text-slate-400 text-[10px] font-mono uppercase tracking-widest">Global Portfolio / 2026</div>
-        <div className="absolute bottom-16 right-16 text-slate-400 text-[10px] font-mono uppercase tracking-widest hidden md:block">Scroll Index (0.00—1.00)</div>
-        <div className="absolute left-[2.5rem] top-1/2 -translate-y-1/2 -rotate-90 origin-left text-primary/60 text-[10px] font-mono uppercase tracking-widest hidden lg:block">System Design</div>
-        <div className="absolute right-[1.5rem] top-1/2 -translate-y-1/2 rotate-90 origin-right text-primary/60 text-[10px] font-mono uppercase tracking-widest hidden lg:block">Architecture</div>
-      </div>
 
-      {/* Main Typography Block - Strictly constrained to center to rigorously prevent overlap */}
-      <motion.div style={{ y: yText, opacity: opacityText }} className="relative z-20 w-full max-w-[100rem] mx-auto px-6 sm:px-8 flex flex-col items-center justify-center h-full pointer-events-none">
+      <motion.div 
+        style={{ y: yText, opacity: opacityFade }} 
+        className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-20 md:pt-0 h-full flex flex-col justify-center"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-center">
+          
+          {/* Left Side: Typography */}
+          <div className="lg:col-span-6 flex flex-col items-start z-30">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="mb-6 md:mb-10 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md"
+            >
+              <div className="w-2 h-2 rounded-full bg-[#FFBF00] animate-pulse" />
+              <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.3em] text-white/70">
+                Curated Cases
+              </span>
+            </motion.div>
 
-        <div className="flex flex-col items-center text-center w-full max-w-5xl mx-auto">
-
-          {/* Top Pill Label */}
-          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} className="flex items-center gap-3 mb-6 sm:mb-10 bg-white/80 backdrop-blur-md px-6 py-2 rounded-full border border-slate-200 shadow-sm pointer-events-auto">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            <span className="text-[10px] sm:text-xs font-bold tracking-[0.4em] text-slate-500 uppercase">
-              Curated Portfolio
-            </span>
-          </motion.div>
-
-          {/* Typography Assembly */}
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={{ show: { transition: { staggerChildren: 0.2, delayChildren: 0.1 } } }}
-            className="w-full flex flex-col items-center pointer-events-auto"
-          >
-
-            {/* Top Text Row - SELECTED only */}
-            <div className="overflow-hidden pb-1 sm:pb-4 flex items-center justify-center w-full">
-              <motion.h1 variants={textVariants} className="text-[4rem] sm:text-6xl md:text-[7rem] lg:text-[8rem] xl:text-[9.5rem] font-bold tracking-tighter leading-[0.85] text-transparent bg-clip-text bg-gradient-to-r from-[#F9FAFB] to-[#FFBF00] transform-gpu whitespace-nowrap">
-                SELECTED
+            <div className="overflow-hidden flex flex-col">
+              <motion.h1 
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] xl:text-[8.5rem] font-bold leading-[0.85] tracking-tighter text-[#F9FAFB] uppercase font-[Zain]"
+              >
+                Selected
               </motion.h1>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                className="flex items-center gap-4 md:gap-6"
+              >
+                <h1 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] xl:text-[8.5rem] font-bold leading-[0.85] tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#FFBF00] to-yellow-600 uppercase font-[Zain]">
+                  Works.
+                </h1>
+                <ArrowDownRight className="w-10 h-10 md:w-16 md:h-16 lg:w-20 lg:h-20 text-white/20 hidden sm:block" strokeWidth={1} />
+              </motion.div>
             </div>
 
-            {/* Bottom Text Row - Slideshow Pill + WORK */}
-            <div className="overflow-hidden pb-2 flex flex-col lg:flex-row items-center gap-4 lg:gap-8 justify-center transform-gpu w-full">
-              {/* Dynamic Slideshow Inline Pill - STRICTLY BOUND NO-OVERLAP */}
-              <motion.div
-                variants={{ hidden: { opacity: 0, scale: 0.5 }, show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 60, damping: 20 } } }}
-                className="hidden lg:block w-64 lg:w-[24rem] xl:w-[32rem] h-[6rem] lg:h-[8rem] xl:h-[10rem] rounded-[3rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative transform-gpu group border-[8px] border-white/50 bg-white"
-              >
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+              className="mt-6 md:mt-10 text-base md:text-lg lg:text-xl text-white/50 font-light max-w-md leading-relaxed border-l border-[#FFBF00]/30 pl-6"
+            >
+              Witness the intersection of high-end aesthetics and profound engineering. 
+              We build scalable digital architecture for industry leaders.
+            </motion.p>
+          </div>
+
+          {/* Right Side: Showcase Pill Image */}
+          <div className="lg:col-span-6 flex justify-center lg:justify-end z-20 w-full mt-12 lg:mt-0">
+            <motion.div 
+              style={{ y: yImage }}
+              initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full max-w-[30rem] sm:max-w-[36rem] lg:max-w-[42rem] xl:max-w-[48rem] aspect-[16/10] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm p-2 shadow-[0_0_80px_rgba(255,191,0,0.05)] group relative"
+            >
+              <div className="w-full h-full rounded-[1rem] md:rounded-[1.5rem] overflow-hidden relative bg-[#0a454a]">
                 {images && images.length > 0 && (
-                  <AnimatePresence mode="popLayout" custom={currentIndex}>
+                  <AnimatePresence mode="wait">
                     <motion.img
                       key={currentIndex}
                       src={images[currentIndex]}
-                      alt="Highlight Cycle"
-                      initial={anim.initial}
-                      animate={anim.animate}
-                      exit={anim.exit}
-                      transition={anim.transition}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 will-change-transform"
+                      alt="Selected Portfolio Work"
+                      initial={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
+                      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                      exit={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s]"
                     />
                   </AnimatePresence>
                 )}
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500 z-10 pointer-events-none" />
-              </motion.div>
+                {/* Image Overlay Gradient for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                
+                {/* Index Indicator */}
+                <div className="absolute bottom-6 left-6 flex gap-2 z-10">
+                  {images.map((_, idx) => (
+                    <div 
+                      key={idx} 
+                      className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentIndex ? 'w-6 bg-[#FFBF00]' : 'w-1.5 bg-white/40'}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
-              <motion.h1 variants={textVariants} className="text-[4.5rem] sm:text-6xl md:text-[7.5rem] lg:text-[9rem] xl:text-[10.5rem] font-bold tracking-tighter leading-[0.85] italic font-serif text-[#F9FAFB] flex items-center">
-                WORK<span className="text-[#FFBF00] font-sans not-italic text-[1em]">.</span>
-              </motion.h1>
-            </div>
-
-            {/* Subtext description constrained to center */}
-            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }} className="mt-8 md:mt-12 text-sm sm:text-base md:text-lg text-slate-500 font-medium tracking-wide leading-relaxed max-w-lg mx-auto text-center px-6 md:px-8 py-4 bg-white/70 backdrop-blur-xl rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-slate-200/50 pointer-events-none">
-              Witness the intersection of high-end aesthetics and profound engineering through our finest digital architectures.
-            </motion.p>
-
-          </motion.div>
         </div>
+      </motion.div>
+
+      {/* Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0E5E64] to-transparent pointer-events-none z-30" />
+
+      {/* Elegant Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-3 hidden sm:flex"
+      >
+        <span className="text-[10px] text-white/30 font-mono uppercase tracking-[0.4em]">Scroll</span>
+        <motion.div 
+          animate={{ y: [0, 8, 0], opacity: [0.3, 1, 0.3] }} 
+          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-[1px] h-12 bg-gradient-to-b from-[#FFBF00]/80 to-transparent"
+        />
       </motion.div>
 
     </section>
   );
-};
-
-export default JourneyHero;
+}

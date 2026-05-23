@@ -4,7 +4,6 @@ import PortfolioPreview from "@/components/sections/PortfolioPreview";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Process from "@/components/sections/Process";
 import Testimonials from "@/components/sections/Testimonials";
-import CTA from "@/components/sections/CTA";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <WhyChooseUs />
       <Process />
       <Testimonials />
-      <CTA />
     </>
   );
 }

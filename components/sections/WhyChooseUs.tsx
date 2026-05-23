@@ -11,8 +11,8 @@ const ACCORDION_DATA = [
   {
     id: 'fast-development',
     title: 'Fast Development',
-    subtitle: 'Fast Development',
-    typewriterWords: ['Fast Development', 'React, Next.js, Node.js', 'High-Quality Products'],
+    subtitle: 'Speed & Efficiency',
+    typewriterWords: ['Speed & Efficiency', 'React, Next.js, Node.js', 'Rapid Iteration'],
     description: 'We use modern stacks like React, Next.js, and Node.js to deliver high-quality products faster than traditional agencies.',
     icon: Zap,
     color: 'from-[#FFBF00]/30 via-orange-500/10 to-transparent',
@@ -23,8 +23,8 @@ const ACCORDION_DATA = [
   {
     id: 'modern-technologies',
     title: 'Modern Technologies',
-    subtitle: 'Modern Technologies',
-    typewriterWords: ['Modern Technologies', 'Future-Proof Tech', 'Robust Architecture'],
+    subtitle: 'Next-Gen Stack',
+    typewriterWords: ['Next-Gen Stack', 'Future-Proof Tech', 'Robust Architecture'],
     description: 'Built on scalable, future-proof tech stacks that ensure your product remains robust as your user base grows.',
     icon: Sparkles,
     color: 'from-blue-500/30 via-indigo-500/10 to-transparent',
@@ -35,8 +35,8 @@ const ACCORDION_DATA = [
   {
     id: 'secure-scalable',
     title: 'Secure & Scalable',
-    subtitle: 'Secure & Scalable',
-    typewriterWords: ['Secure & Scalable', 'Enterprise-Grade Security', 'Cloud Architectures'],
+    subtitle: 'Enterprise Ready',
+    typewriterWords: ['Enterprise Ready', 'Top-Tier Security', 'Cloud Architectures'],
     description: 'Enterprise-grade security and scalable cloud architectures that can handle high traffic volumes and complex data.',
     icon: ShieldCheck,
     color: 'from-emerald-500/30 via-teal-500/10 to-transparent',
@@ -47,8 +47,8 @@ const ACCORDION_DATA = [
   {
     id: 'client-focused',
     title: 'Client-Focused Approach',
-    subtitle: 'Client-Focused Approach',
-    typewriterWords: ['Client-Focused Approach', 'Transparent Communication', 'Collaborative Process'],
+    subtitle: 'Your Vision First',
+    typewriterWords: ['Your Vision First', 'Transparent Communication', 'Collaborative Process'],
     description: 'We prioritize transparent communication, regular updates, and a collaborative process to ensure we meet your specific goals.',
     icon: Users,
     color: 'from-purple-500/30 via-pink-500/10 to-transparent',

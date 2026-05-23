@@ -316,39 +316,39 @@ export default function ServiceHero() {
         </motion.div>
 
         {/* Main Headline — Dramatic Brand Typography */}
-        <div className="overflow-hidden mb-1 sm:mb-2">
-          <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[3.5rem] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold text-[#F9FAFB] leading-[0.85] tracking-tighter font-[Zain]"
-          >
-            Turning
-          </motion.h1>
-        </div>
-        <div className="overflow-hidden mb-1 sm:mb-2">
-          <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[3.5rem] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-[0.85] tracking-tighter font-[Zain] text-transparent uppercase"
-            style={{ WebkitTextStroke: '2px #F9FAFB' }}
-          >
-            ideas{' '}
-            <span className="text-[#FFBF00] font-[Alice] italic normal-case" style={{ WebkitTextStroke: '0px' }}>
-              into
-            </span>
-          </motion.h1>
-        </div>
-        <div className="overflow-hidden mb-4 sm:mb-6">
-          <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[3.5rem] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] via-amber-300 to-[#F9FAFB] leading-[0.85] tracking-tighter font-[Zain]"
-          >
-            systems<span className="text-[#FFBF00]">.</span>
-          </motion.h1>
+        <div className="flex flex-col items-center w-full mb-6 md:mb-8">
+          <div className="overflow-hidden w-full flex justify-center">
+            <motion.h1
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="text-[3.2rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8.5rem] font-bold text-[#F9FAFB] leading-[1] tracking-tighter font-[Zain] flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6"
+            >
+              <span>Turning</span>
+              <span 
+                 className="text-transparent uppercase"
+                 style={{ WebkitTextStroke: '2px #F9FAFB' }}
+              >
+                Ideas
+              </span>
+            </motion.h1>
+          </div>
+          
+          <div className="overflow-hidden w-full flex justify-center mt-[-0.5rem] md:mt-[-1rem]">
+            <motion.h1
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="text-[3.2rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8.5rem] font-bold leading-[1] tracking-tighter font-[Zain] flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6"
+            >
+              <span className="text-[#FFBF00] font-[Alice] italic normal-case lowercase text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[7.5rem] mt-2 md:mt-4" style={{ WebkitTextStroke: '0px' }}>
+                into
+              </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] via-amber-300 to-[#F9FAFB]">
+                Systems.
+              </span>
+            </motion.h1>
+          </div>
         </div>
 
         {/* Elegant Subline */}

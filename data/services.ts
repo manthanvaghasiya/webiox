@@ -9,6 +9,7 @@ export interface Service {
   color: string;
   from: string;
   to: string;
+  image: string;
 }
 
 export const services: Service[] = [
@@ -22,7 +23,8 @@ export const services: Service[] = [
     tech: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
     color: 'from-blue-600 to-cyan-500',
     from: 'blue-600',
-    to: 'cyan-500'
+    to: 'cyan-500',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop'
   },
   {
     id: 'ecommerce-platforms',
@@ -34,7 +36,8 @@ export const services: Service[] = [
     tech: ['React', 'Node.js', 'MongoDB', 'Express'],
     color: 'from-emerald-500 to-teal-400',
     from: 'emerald-500',
-    to: 'teal-400'
+    to: 'teal-400',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop'
   },
   {
     id: 'saas-development',
@@ -46,7 +49,8 @@ export const services: Service[] = [
     tech: ['TypeScript', 'AWS', 'Stripe', 'Redis'],
     color: 'from-violet-500 to-purple-400',
     from: 'violet-500',
-    to: 'purple-400'
+    to: 'purple-400',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop'
   },
   {
     id: 'ai-solutions',
@@ -58,7 +62,7 @@ export const services: Service[] = [
     tech: ['OpenAI', 'LangChain', 'Python', 'Pinecone'],
     color: 'from-purple-600 to-pink-500',
     from: 'purple-600',
-    to: 'pink-500'
+    to: 'pink-500',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop'
   },
-
 ];

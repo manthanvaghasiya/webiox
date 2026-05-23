@@ -65,7 +65,7 @@ export default function Header() {
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const isLightPage = pathname?.startsWith('/career') || false;
+  const isLightPage = false;
 
   useEffect(() => {
     setMounted(true);
