@@ -77,7 +77,6 @@ export default function BlogHero() {
       </div>
 
       {/* Grid Pattern */}
-      <div className="absolute inset-0 z-[1] bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
       <div className="absolute inset-0 z-[1] bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none" />
 
       {/* Main Content - Bento Box Layout */}

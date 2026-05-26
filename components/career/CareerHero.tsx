@@ -59,7 +59,6 @@ export default function CareerHero() {
       className="relative min-h-[90vh] md:min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#0E5E64] text-white selection:bg-[#FFBF00]/30 selection:text-[#FFBF00]"
     >
       {/* Background Grid & Noise */}
-      <div className="absolute inset-0 z-[1] bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
       <div className="absolute inset-0 z-[1] bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
 
       {/* Kinetic Marquee Background */}

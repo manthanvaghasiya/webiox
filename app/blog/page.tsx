@@ -32,7 +32,7 @@ export default function BlogPage() {
   };
 
   return (
-    <div className="overflow-x-hidden w-full">
+    <div className="relative overflow-x-hidden w-full">
       {/* JSON-LD for SEO */}
       <script
         type="application/ld+json"

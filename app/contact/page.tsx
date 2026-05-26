@@ -34,7 +34,7 @@ export default function Contact() {
   const labelClass = "text-sm font-semibold text-slate-700 mb-2 block";
 
   return (
-    <div className="min-h-screen bg-[#F9FAFB] selection:bg-[#0E5E64]/20 selection:text-[#0E5E64] font-sans">
+    <div className="relative min-h-screen bg-[#F9FAFB] selection:bg-[#0E5E64]/20 selection:text-[#0E5E64] font-sans">
       
       {/* Hero Section */}
       <section className="relative w-full bg-[#0E5E64] pt-32 pb-40 px-6 lg:px-12 text-center overflow-hidden">
