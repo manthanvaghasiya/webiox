@@ -6,12 +6,9 @@ import { Terminal, Activity, Users, DollarSign, ArrowUpRight, BarChart3, CheckCi
 
 const codeLines = [
   "import { SaasApp } from '@webiox/core';",
-  "import { connectDB } from '@/lib/db';",
   "",
   "export async function initPlatform() {",
-  "  await connectDB();",
   "  const app = new SaasApp({",
-  "    tenantIsolation: true,",
   "    edgeCaching: 'global',",
   "  });",
   "  return app.listen(3000);",
@@ -42,18 +39,18 @@ export default function CodeToUIMorph() {
             return newLines;
           });
           setCurrentCharIndex((prev) => prev + 1);
-        }, Math.random() * 20 + 10); // Random typing speed
+        }, Math.random() * 5 + 2); // Extremely fast typing speed
 
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
           setCurrentLineIndex((prev) => prev + 1);
           setCurrentCharIndex(0);
-        }, 100);
+        }, 30);
         return () => clearTimeout(timeout);
       }
     } else {
-      const timeout = setTimeout(() => setPhase('deploying'), 600);
+      const timeout = setTimeout(() => setPhase('deploying'), 300);
       return () => clearTimeout(timeout);
     }
   }, [currentLineIndex, currentCharIndex, phase]);
@@ -61,7 +58,7 @@ export default function CodeToUIMorph() {
   // Deployment to Dashboard sequence
   useEffect(() => {
     if (phase === 'deploying') {
-      const timeout = setTimeout(() => setPhase('dashboard'), 2000);
+      const timeout = setTimeout(() => setPhase('dashboard'), 1000);
       return () => clearTimeout(timeout);
     }
     if (phase === 'dashboard') {
@@ -71,7 +68,7 @@ export default function CodeToUIMorph() {
         setTypedLines([]);
         setCurrentLineIndex(0);
         setCurrentCharIndex(0);
-      }, 5000);
+      }, 3500);
       return () => clearTimeout(timeout);
     }
   }, [phase]);
@@ -88,8 +85,8 @@ export default function CodeToUIMorph() {
         className="relative bg-slate-900/80 backdrop-blur-xl border border-white/10 overflow-hidden shadow-2xl flex flex-col"
         initial={{ borderRadius: 16 }}
         animate={{ 
-          width: phase === 'dashboard' ? '90%' : '75%',
-          height: phase === 'dashboard' ? '85%' : '60%',
+          width: phase === 'dashboard' ? '90%' : '80%',
+          height: phase === 'dashboard' ? '85%' : '75%',
           borderRadius: phase === 'dashboard' ? 24 : 16,
         }}
         transition={{ type: 'spring', bounce: 0.2, duration: 0.8 }}
