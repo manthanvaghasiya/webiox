@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect, useMemo, useCallback } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Sparkles, Cpu, Globe2, Layers, BrainCircuit, ChevronDown } from 'lucide-react';
+import { ArrowUpRight, Sparkles, Cpu, Globe2, Layers, BrainCircuit, ChevronDown, PenTool, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { services } from '@/data/services';
 
@@ -234,7 +234,7 @@ export default function ServiceHero() {
     return () => clearInterval(timer);
   }, []);
 
-  const serviceIcons = [Globe2, Layers, Cpu, BrainCircuit];
+  const serviceIcons = [Globe2, Layers, Cpu, BrainCircuit, PenTool, Smartphone];
 
   return (
     <section
@@ -288,10 +288,12 @@ export default function ServiceHero() {
       </div>
 
       {/* Floating Service Pills */}
-      <ServicePill icon={Globe2} label="Enterprise Web" delay={1.2} x="left-[4%]" y="top-[18%]" />
+      <ServicePill icon={Globe2} label="Enterprise Web" delay={1.2} x="left-[2%]" y="top-[18%]" />
       <ServicePill icon={Cpu} label="SaaS Platform" delay={1.4} x="right-[4%]" y="top-[25%]" />
       <ServicePill icon={Layers} label="E-Commerce" delay={1.6} x="left-[6%]" y="bottom-[28%]" />
-      <ServicePill icon={BrainCircuit} label="AI Agents" delay={1.8} x="right-[6%]" y="bottom-[22%]" />
+      <ServicePill icon={BrainCircuit} label="AI Agents" delay={1.8} x="right-[2%]" y="bottom-[32%]" />
+      <ServicePill icon={PenTool} label="UI/UX Design" delay={2.0} x="left-[15%]" y="top-[10%]" />
+      <ServicePill icon={Smartphone} label="Mobile Apps" delay={2.2} x="right-[15%]" y="top-[12%]" />
 
       {/* Main Content */}
       <motion.div
@@ -324,12 +326,12 @@ export default function ServiceHero() {
               transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="text-[3.2rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8.5rem] font-bold text-[#F9FAFB] leading-[1] tracking-tighter font-[Zain] flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6"
             >
-              <span>Turning</span>
+              <span>Systems</span>
               <span 
                  className="text-transparent uppercase"
                  style={{ WebkitTextStroke: '2px #F9FAFB' }}
               >
-                Ideas
+                That
               </span>
             </motion.h1>
           </div>
@@ -342,10 +344,10 @@ export default function ServiceHero() {
               className="text-[3.2rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8.5rem] font-bold leading-[1] tracking-tighter font-[Zain] flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6"
             >
               <span className="text-[#FFBF00] font-[Alice] italic normal-case lowercase text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[7.5rem] mt-2 md:mt-4" style={{ WebkitTextStroke: '0px' }}>
-                into
+                drive
               </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] via-amber-300 to-[#F9FAFB]">
-                Systems.
+                Growth.
               </span>
             </motion.h1>
           </div>
@@ -360,21 +362,20 @@ export default function ServiceHero() {
         >
           <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50" />
           <span className="text-xl sm:text-2xl md:text-3xl font-[Alice] text-[#F9FAFB]/60 tracking-wide">
-            Software. Websites. AI.
+            Engineering. Design. Optimization.
           </span>
           <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50" />
         </motion.div>
 
-        {/* Subtext */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
           className="text-base sm:text-lg md:text-xl text-[#F9FAFB]/50 max-w-xl font-[IBM_Plex_Sans] font-light leading-relaxed"
         >
-          Your idea deserves better than a template.{' '}
-          We write every line, own every pixel, and ship things that{' '}
-          <span className="text-[#FFBF00] font-medium">actually work</span>.
+          We are engineers, not hobbyists. We skip the generic templates and build{' '}
+          high-performance, scalable web platforms designed to{' '}
+          <span className="text-[#FFBF00] font-medium">solve real business problems</span>.
         </motion.p>
 
         {/* CTA Buttons */}

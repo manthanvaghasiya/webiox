@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 import ServiceHero from '@/components/services/ServiceHero';
 import ServiceScroll from '@/components/services/ServiceScroll';
-// import ServiceCTA from '@/components/services/ServiceCTA';
+import ServiceCTA from '@/components/services/ServiceCTA';
 
 export default function Services() {
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function Services() {
     <div className="bg-[#F9FAFB]/20 min-h-screen font-sans selection:bg-[#0E5E64] selection:text-[#F9FAFB] cursor-none md:cursor-auto">
       <ServiceHero />
       <ServiceScroll />
-      {/* <ServiceCTA /> */}
+      <ServiceCTA />
     </div>
   );
 }
