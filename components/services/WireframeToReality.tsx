@@ -25,8 +25,8 @@ export default function WireframeToReality() {
   }, [phase]);
 
   // Spring configs for premium physics
-  const springConfig = { type: 'spring', stiffness: 100, damping: 20 };
-  const widgetSpring = { type: 'spring', stiffness: 120, damping: 22 };
+  const springConfig = { type: 'spring' as const, stiffness: 100, damping: 20 };
+  const widgetSpring = { type: 'spring' as const, stiffness: 120, damping: 22 };
 
   // Calculate dynamic rotations based on phase
   const getContainerRotation = () => {
