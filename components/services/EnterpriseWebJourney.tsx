@@ -23,6 +23,7 @@ export default function EnterpriseWebJourney() {
 
   // ================= INTERNAL AUTO-LOOP (De-coupled from scroll) =================
   const internalProgress = useMotionValue(0);
+  const innerScroll = useMotionValue("0%");
 
   useEffect(() => {
     let isActive = true;
@@ -31,6 +32,7 @@ export default function EnterpriseWebJourney() {
       while (isActive) {
         // 1. Start in SSR Compiling Phase
         internalProgress.set(0);
+        innerScroll.set("0%");
         await new Promise(r => setTimeout(r, 600)); // 0.6s Compiling...
         if (!isActive) break;
         
@@ -41,15 +43,26 @@ export default function EnterpriseWebJourney() {
         
         // 3. Sweep wave & crossfade to Live UI
         await animate(internalProgress, 1, { duration: 0.8, ease: "easeInOut" });
-        
-        // 4. Admire the fully rendered SaaS dashboard
-        await new Promise(r => setTimeout(r, 4000));
+        if (!isActive) break;
+
+        // 4. Admire the top of the UI
+        await new Promise(r => setTimeout(r, 600));
+        if (!isActive) break;
+
+        // 5. Scroll down to features
+        await animate(innerScroll, "-35%", { duration: 1.2, ease: "easeInOut" });
+        await new Promise(r => setTimeout(r, 1200));
+        if (!isActive) break;
+
+        // 6. Scroll further down
+        await animate(innerScroll, "-60%", { duration: 1.2, ease: "easeInOut" });
+        await new Promise(r => setTimeout(r, 1500));
       }
     };
     
     runSequence();
     return () => { isActive = false; };
-  }, [internalProgress]);
+  }, [internalProgress, innerScroll]);
 
   // Phase 2 Internal Animations (Driven by Auto-Loop)
   const compiledOpacity = useTransform(internalProgress, [0.2, 0.4], [0, 1]);
@@ -180,102 +193,98 @@ export default function EnterpriseWebJourney() {
               >
                 {/* LAYER 1: Empty Wireframe (Skeleton) */}
                 <motion.div 
-                  className="absolute inset-0 p-4 md:p-10 flex flex-col gap-4 md:gap-8 z-0 transform-gpu will-change-opacity"
+                  className="absolute inset-0 p-6 md:p-12 flex flex-col items-center justify-start gap-6 md:gap-8 z-0 transform-gpu will-change-opacity bg-[#0B1120]"
                   style={{ opacity: wireframeOpacity }}
                 >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="w-40 md:w-56 h-6 md:h-8 bg-slate-800/40 rounded border border-slate-700/40 border-dashed" />
-                    <div className="flex gap-4 md:gap-6">
-                      <div className="w-20 md:w-28 h-6 md:h-8 bg-slate-800/40 rounded border border-slate-700/40 border-dashed" />
-                      <div className="w-20 md:w-28 h-6 md:h-8 bg-slate-800/40 rounded border border-slate-700/40 border-dashed" />
-                    </div>
+                  {/* Hero Skeleton */}
+                  <div className="w-full flex flex-col items-center justify-center pt-8">
+                    <div className="w-3/4 max-w-lg h-12 md:h-16 bg-slate-800/40 rounded-2xl border border-slate-700/40 border-dashed mb-4" />
+                    <div className="w-1/2 max-w-sm h-6 md:h-8 bg-slate-800/40 rounded-xl border border-slate-700/40 border-dashed mb-8" />
+                    <div className="w-32 h-10 md:h-12 bg-slate-800/40 rounded-full border border-slate-700/40 border-dashed" />
                   </div>
-                  <div className="w-full flex-1 bg-slate-800/20 rounded-xl md:rounded-2xl border border-slate-700/40 border-dashed flex items-center justify-center">
+                  {/* Features Skeleton */}
+                  <div className="w-full max-w-2xl flex-1 bg-slate-800/20 rounded-2xl border border-slate-700/40 border-dashed flex flex-col items-center justify-center mt-4">
                     <span className="text-slate-500 font-mono text-[10px] md:text-sm uppercase tracking-widest">[AWAITING SSR RENDER]</span>
-                  </div>
-                  <div className="grid grid-cols-3 gap-4 md:gap-6 h-20 md:h-32">
-                    <div className="w-full h-full bg-slate-800/20 rounded-xl md:rounded-2xl border border-slate-700/40 border-dashed" />
-                    <div className="w-full h-full bg-slate-800/20 rounded-xl md:rounded-2xl border border-slate-700/40 border-dashed" />
-                    <div className="w-full h-full bg-slate-800/20 rounded-xl md:rounded-2xl border border-slate-700/40 border-dashed hidden md:block" />
                   </div>
                 </motion.div>
 
-                {/* LAYER 2: Fully Rendered Webiox Edge Dashboard */}
+                {/* LAYER 2: Fully Rendered Scrolling Website */}
                 <motion.div 
-                  className="absolute inset-0 p-4 md:p-10 flex flex-col gap-4 md:gap-6 bg-slate-950 z-10 transform-gpu will-change-opacity"
+                  className="absolute inset-0 z-10 transform-gpu will-change-opacity overflow-hidden bg-[#030712]"
                   style={{ opacity: renderedOpacity, scale: renderedScale }}
                 >
-                  {/* Dashboard Header */}
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-4 md:pb-6">
-                    <div className="flex items-center gap-2 md:gap-4">
-                      <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20">
-                        <Layout className="w-4 h-4 md:w-5 md:h-5 text-cyan-400" />
-                      </div>
-                      <span className="font-bold text-sm md:text-xl text-white tracking-wide">Webiox Edge Analytics</span>
+                  {/* Floating Metrics Overlay (Fixed relative to window) */}
+                  <div className="absolute top-4 right-4 md:top-6 md:right-6 z-50 flex flex-col gap-2 pointer-events-none">
+                    <div className="bg-emerald-500/10 backdrop-blur-md border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 shadow-lg">
+                      <Zap className="w-3 h-3" /> Performance: 100
                     </div>
-                    <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                      <span className="relative flex h-2 w-2 md:h-2.5 md:w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-emerald-500"></span>
-                      </span>
-                      <span className="text-emerald-400 text-[10px] md:text-sm font-bold uppercase tracking-wider">Status: Live</span>
+                    <div className="bg-cyan-500/10 backdrop-blur-md border border-cyan-500/20 text-cyan-400 px-3 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 shadow-lg">
+                      <Layout className="w-3 h-3" /> 60 FPS Scroll
                     </div>
                   </div>
 
-                  {/* Main Visual: Server Response Chart */}
-                  <div className="w-full flex-1 bg-white/5 rounded-xl md:rounded-2xl border border-slate-800 p-4 md:p-8 relative overflow-hidden flex flex-col justify-between">
-                    <div className="z-10 flex justify-between items-start">
-                      <div>
-                        <span className="text-[10px] md:text-sm font-bold text-slate-400 uppercase tracking-widest">Server Response Time</span>
-                        <div className="text-2xl md:text-5xl font-black text-white mt-1 md:mt-2">12<span className="text-sm md:text-2xl text-slate-500 ml-1">ms</span></div>
+                  {/* The Scrolling Content */}
+                  <motion.div 
+                    className="w-full flex flex-col items-center pb-32"
+                    style={{ y: innerScroll }}
+                  >
+                    {/* Mock Header */}
+                    <div className="w-full h-16 border-b border-white/5 flex items-center justify-between px-6 md:px-8 bg-white/5 backdrop-blur-md z-20 sticky top-0">
+                      <div className="font-bold text-white tracking-wider flex items-center gap-2 text-sm md:text-base">
+                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-md bg-gradient-to-tr from-cyan-500 to-blue-500" />
+                        ACME CORP
                       </div>
-                      <div className="px-2 py-1 rounded bg-slate-900 border border-slate-700 text-[10px] md:text-xs text-slate-400 font-mono">
-                        global_edge_net
+                      <div className="flex gap-4">
+                        <div className="w-12 md:w-16 h-2 rounded bg-white/10" />
+                        <div className="w-12 md:w-16 h-2 rounded bg-white/10" />
                       </div>
                     </div>
-                    {/* SVG Bezier Curve */}
-                    <svg className="absolute bottom-0 inset-x-0 w-full h-24 md:h-40" viewBox="0 0 100 50" preserveAspectRatio="none">
-                      {/* Cyan to Emerald Gradient Stroke */}
-                      <defs>
-                        <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
-                          <stop offset="0%" stopColor="#06b6d4" />
-                          <stop offset="100%" stopColor="#10b981" />
-                        </linearGradient>
-                        <linearGradient id="fill-grad" x1="0" x2="0" y1="0" y2="1">
-                          <stop offset="0%" stopColor="rgba(16,185,129,0.2)" />
-                          <stop offset="100%" stopColor="rgba(16,185,129,0)" />
-                        </linearGradient>
-                      </defs>
-                      <path 
-                        d="M0,45 C20,45 30,15 50,20 C70,25 80,5 100,10" 
-                        fill="none" 
-                        stroke="url(#line-grad)" 
-                        strokeWidth="2.5" 
-                        vectorEffect="non-scaling-stroke" 
-                        className="drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]"
-                      />
-                      <path 
-                        d="M0,45 C20,45 30,15 50,20 C70,25 80,5 100,10 L100,50 L0,50 Z" 
-                        fill="url(#fill-grad)" 
-                      />
-                    </svg>
-                  </div>
 
-                  {/* Three Metric Cards */}
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 h-24 md:h-32">
-                    <div className="h-full bg-white/5 rounded-xl md:rounded-2xl border border-slate-800 p-3 md:p-6 flex flex-col justify-center gap-1 md:gap-2">
-                      <span className="text-[10px] md:text-sm text-slate-400 uppercase tracking-wider font-bold">Uptime</span>
-                      <span className="text-lg md:text-3xl font-black text-emerald-400 drop-shadow-[0_0_15px_rgba(52,211,153,0.3)]">99.99%</span>
+                    {/* Hero Section */}
+                    <div className="w-full px-6 md:px-8 py-16 md:py-24 flex flex-col items-center text-center relative overflow-hidden">
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-cyan-500/20 blur-[80px] md:blur-[100px] rounded-full pointer-events-none" />
+                      <span className="text-cyan-400 font-bold uppercase tracking-widest text-[10px] md:text-xs mb-4 z-10">Next-Gen Enterprise Web</span>
+                      <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight z-10 mb-4 md:mb-6">
+                        Architecting the<br/>Future of Commerce
+                      </h1>
+                      <p className="text-slate-400 max-w-md text-xs md:text-sm mb-8 z-10">
+                        Deploy sub-second storefronts with global edge networks and buttery smooth rendering.
+                      </p>
+                      <div className="px-6 md:px-8 py-2.5 md:py-3 rounded-full bg-white text-black font-bold text-xs md:text-sm z-10 shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 transition-transform cursor-pointer">
+                        Start Building
+                      </div>
                     </div>
-                    <div className="h-full bg-white/5 rounded-xl md:rounded-2xl border border-slate-800 p-3 md:p-6 flex flex-col justify-center gap-1 md:gap-2">
-                      <span className="text-[10px] md:text-sm text-slate-400 uppercase tracking-wider font-bold">Latency</span>
-                      <span className="text-lg md:text-3xl font-black text-cyan-400">12ms</span>
+
+                    {/* Bento Grid Features */}
+                    <div className="w-full max-w-4xl px-6 md:px-8 pb-20">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        {/* Large Card */}
+                        <div className="col-span-1 md:col-span-2 h-48 md:h-64 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-white/5 relative overflow-hidden p-6 md:p-8 flex flex-col justify-end group">
+                          <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-emerald-500/10 blur-[60px] md:blur-[80px] rounded-full group-hover:bg-emerald-500/20 transition-colors duration-500" />
+                          <div className="absolute -top-10 -right-10 w-40 h-40 border border-white/5 rounded-full" />
+                          <div className="absolute -top-20 -right-20 w-64 h-64 border border-white/5 rounded-full" />
+                          <h3 className="text-lg md:text-2xl font-bold text-white z-10">Global Edge Network</h3>
+                          <p className="text-slate-400 text-[10px] md:text-sm mt-2 z-10 max-w-sm">Deliver instant experiences with 0ms latency across 150+ global regions. Built for enterprise scale.</p>
+                        </div>
+                        {/* Small Card 1 */}
+                        <div className="h-40 md:h-48 rounded-2xl bg-slate-900/50 border border-white/5 p-6 relative overflow-hidden group">
+                           <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4 border border-blue-500/30">
+                              <Zap className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
+                           </div>
+                           <h3 className="text-white font-bold text-sm md:text-lg">Serverless Scaling</h3>
+                           <p className="text-slate-500 text-[10px] md:text-xs mt-2">Zero config infrastructure.</p>
+                        </div>
+                        {/* Small Card 2 */}
+                        <div className="h-40 md:h-48 rounded-2xl bg-slate-900/50 border border-white/5 p-6 relative overflow-hidden group">
+                           <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4 border border-purple-500/30">
+                              <Shield className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
+                           </div>
+                           <h3 className="text-white font-bold text-sm md:text-lg">Enterprise Security</h3>
+                           <p className="text-slate-500 text-[10px] md:text-xs mt-2">DDoS protection by default.</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="h-full bg-white/5 rounded-xl md:rounded-2xl border border-slate-800 p-3 md:p-6 hidden md:flex flex-col justify-center gap-1 md:gap-2">
-                      <span className="text-[10px] md:text-sm text-slate-400 uppercase tracking-wider font-bold">Connections</span>
-                      <span className="text-lg md:text-3xl font-black text-white">42K</span>
-                    </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               </motion.div>
 
