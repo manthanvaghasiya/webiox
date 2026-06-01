@@ -80,7 +80,7 @@ export default function EcommerceTransaction() {
     return () => clearTimeout(timeout);
   }, [phase]);
 
-  const springConfig = { type: 'spring', stiffness: 100, damping: 15 };
+  const springConfig = { type: 'spring' as const, stiffness: 100, damping: 15 };
 
   return (
     <div 
