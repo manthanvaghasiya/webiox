@@ -23,53 +23,64 @@ export default function EnterpriseWebJourney() {
 
   // ================= INTERNAL AUTO-LOOP (De-coupled from scroll) =================
   const internalProgress = useMotionValue(0);
-  const innerScroll = useMotionValue("0%");
+  const innerScroll = useMotionValue(0); // mapped 0 to 60 for translateY %
+  const innerScrollY = useMotionTemplate`-${innerScroll}%`;
+  const [replayTrigger, setReplayTrigger] = useState(0);
 
   useEffect(() => {
     let isActive = true;
     
     const runSequence = async () => {
-      while (isActive) {
-        // 1. Start in SSR Compiling Phase
-        internalProgress.set(0);
-        innerScroll.set("0%");
-        await new Promise(r => setTimeout(r, 600)); // 0.6s Compiling...
-        if (!isActive) break;
-        
-        // 2. Flash "Compiled Successfully"
-        await animate(internalProgress, 0.4, { duration: 0.2 });
-        await new Promise(r => setTimeout(r, 300)); // Hold for 0.3s
-        if (!isActive) break;
-        
-        // 3. Sweep wave & crossfade to Live UI
-        await animate(internalProgress, 1, { duration: 0.8, ease: "easeInOut" });
-        if (!isActive) break;
+      // 1. Start in SSR Compiling Phase
+      internalProgress.set(0);
+      innerScroll.set(0);
+      
+      await new Promise(r => setTimeout(r, 400)); // Initial pause
+      if (!isActive) return;
+      
+      // Phase 1: The Edge SSR Boot Logs
+      await animate(internalProgress, 0.15, { duration: 0.1 }); // Log 1
+      await new Promise(r => setTimeout(r, 200));
+      if (!isActive) return;
+      
+      await animate(internalProgress, 0.3, { duration: 0.1 }); // Log 2
+      await new Promise(r => setTimeout(r, 200));
+      if (!isActive) return;
+      
+      await animate(internalProgress, 0.45, { duration: 0.1 }); // Log 3 (Compiled)
+      await new Promise(r => setTimeout(r, 400));
+      if (!isActive) return;
+      
+      // Phase 2: Snap to Render & Cinematic Scroll
+      await animate(internalProgress, 1, { duration: 0.8, type: "spring", stiffness: 100, damping: 20 });
+      if (!isActive) return;
 
-        // 4. Admire the top of the UI
-        await new Promise(r => setTimeout(r, 600));
-        if (!isActive) break;
+      // Admire top of UI
+      await new Promise(r => setTimeout(r, 600));
+      if (!isActive) return;
 
-        // 5. Scroll down to features
-        await animate(innerScroll, "-35%", { duration: 1.2, ease: "easeInOut" });
-        await new Promise(r => setTimeout(r, 1200));
-        if (!isActive) break;
+      // Scroll to features
+      await animate(innerScroll, 35, { duration: 1.5, type: "spring", stiffness: 60, damping: 15 });
+      await new Promise(r => setTimeout(r, 1200));
+      if (!isActive) return;
 
-        // 6. Scroll further down
-        await animate(innerScroll, "-60%", { duration: 1.2, ease: "easeInOut" });
-        await new Promise(r => setTimeout(r, 1500));
-      }
+      // Scroll further down
+      await animate(innerScroll, 60, { duration: 1.5, type: "spring", stiffness: 60, damping: 15 });
     };
     
     runSequence();
     return () => { isActive = false; };
-  }, [internalProgress, innerScroll]);
+  }, [internalProgress, innerScroll, replayTrigger]);
 
-  // Phase 2 Internal Animations (Driven by Auto-Loop)
-  const compiledOpacity = useTransform(internalProgress, [0.2, 0.4], [0, 1]);
-  const waveX = useTransform(internalProgress, [0.2, 0.8], ["-100%", "200%"]);
-  
-  // Wireframe cross-fades into Rendered UI
-  const wireframeOpacity = useTransform(internalProgress, [0.4, 0.7], [1, 0]);
+  // Phase 1 Logs Opacity
+  const log1Opacity = useTransform(internalProgress, [0.05, 0.15], [0, 1]);
+  const log2Opacity = useTransform(internalProgress, [0.15, 0.25], [0, 1]);
+  const log3Opacity = useTransform(internalProgress, [0.25, 0.35], [0, 1]);
+  const skeletonPulse = useTransform(internalProgress, [0.35, 0.45], [0.5, 1]);
+
+  // Phase 2 Internal Animations
+  const waveX = useTransform(internalProgress, [0.4, 0.8], ["-100%", "200%"]);
+  const wireframeOpacity = useTransform(internalProgress, [0.45, 0.7], [1, 0]);
   const renderedOpacity = useTransform(internalProgress, [0.5, 1.0], [0, 1]);
   const renderedScale = useTransform(internalProgress, [0.5, 1.0], [0.95, 1]);
 
@@ -77,6 +88,13 @@ export default function EnterpriseWebJourney() {
   const terminalSize = useTransform(internalProgress, [0.5, 1.0], ["50%", "0%"]);
   const terminalOpacity = useTransform(internalProgress, [0.5, 0.8], [1, 0]);
   const uiSize = useTransform(internalProgress, [0.5, 1.0], ["50%", "100%"]);
+  
+  // Bento Grid Micro-Interactions (Mapped to Artificial innerScroll)
+  const bento1Opacity = useTransform(innerScroll, [15, 35], [0, 1]);
+  const bento1Y = useTransform(innerScroll, [15, 35], [40, 0]);
+  
+  const bento2Opacity = useTransform(innerScroll, [35, 55], [0, 1]);
+  const bento2Y = useTransform(innerScroll, [35, 55], [40, 0]);
   
   // Phase 3 (0.7 - 1.0): Lighthouse Scores Pop Out
   const scoreOpacity = useTransform(scrollYProgress, [0.7, 0.8], [0, 1]);
@@ -128,6 +146,29 @@ export default function EnterpriseWebJourney() {
             {/* Browser Content Area (Responsive Split Screen) */}
             <div className="flex-1 flex flex-col md:flex-row overflow-hidden relative">
               
+              {/* Telemetry Panel (Attached to the side on large screens) */}
+              <motion.div
+                 className="absolute top-12 md:top-24 right-4 md:-right-6 lg:-right-12 z-50 w-40 md:w-48 bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-xl p-3 md:p-4 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col gap-2 md:gap-3 pointer-events-none"
+              >
+                 <span className="text-slate-400 text-[8px] md:text-[10px] uppercase font-bold tracking-widest border-b border-white/10 pb-2">Telemetry</span>
+                 <div className="flex justify-between items-center text-[10px] md:text-xs font-mono">
+                    <span className="text-slate-400">Latency</span>
+                    <span className="text-emerald-400">12ms</span>
+                 </div>
+                 <motion.div className="flex justify-between items-center text-[10px] md:text-xs font-mono" style={{ opacity: renderedOpacity }}>
+                    <span className="text-slate-400">Lighthouse</span>
+                    <span className="text-cyan-400">100</span>
+                 </motion.div>
+                 <motion.div className="flex justify-between items-center text-[10px] md:text-xs font-mono" style={{ opacity: renderedOpacity }}>
+                    <span className="text-slate-400">FPS</span>
+                    <span className="text-white">60</span>
+                 </motion.div>
+                 <motion.div className="flex justify-between items-center text-[10px] md:text-xs font-mono" style={{ opacity: renderedOpacity }}>
+                    <span className="text-slate-400">DOM Int.</span>
+                    <span className="text-white">0.1s</span>
+                 </motion.div>
+              </motion.div>
+
               {/* Sweeping Data Wave (0.4 - 0.55) */}
               <motion.div 
                 className="absolute inset-y-0 w-full md:w-64 bg-gradient-to-b md:bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent blur-2xl z-20 pointer-events-none"
@@ -139,51 +180,24 @@ export default function EnterpriseWebJourney() {
 
               {/* LEFT/TOP: Server Terminal */}
               <motion.div 
-                className="h-[var(--term-size)] md:h-auto md:w-[var(--term-size)] bg-slate-950 border-b md:border-b-0 md:border-r border-white/10 flex flex-col p-4 md:p-8 overflow-hidden shrink-0"
+                className="h-[var(--term-size)] md:h-auto md:w-[var(--term-size)] bg-slate-950 border-b md:border-b-0 md:border-r border-white/10 flex flex-col p-6 md:p-10 overflow-hidden shrink-0"
                 style={{ opacity: terminalOpacity }}
               >
-                <div className="font-mono text-[10px] md:text-xs lg:text-sm leading-loose">
-                  <div className="flex text-emerald-400">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">1</span>
-                    <span><span className="text-pink-400">export async function</span> generateMetadata() {'{'}</span>
-                  </div>
-                  <div className="flex text-cyan-300">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">2</span>
-                    <span className="ml-4 md:ml-6"><span className="text-pink-400">return</span> {'{'}</span>
-                  </div>
-                  <div className="flex text-amber-300">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">3</span>
-                    <span className="ml-8 md:ml-12 flex flex-col md:inline">
-                      title: <span className="text-emerald-300">'Enterprise Edge'</span>,
-                    </span>
-                  </div>
-                  <div className="flex text-amber-300">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">4</span>
-                    <span className="ml-8 md:ml-12 flex flex-col md:inline">
-                      desc: <span className="text-emerald-300">'Sub-second render'</span>
-                    </span>
-                  </div>
-                  <div className="flex text-cyan-300">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">5</span>
-                    <span className="ml-4 md:ml-6">{'}'}</span>
-                  </div>
-                  <div className="flex text-emerald-400 mb-4 md:mb-8">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">6</span>
-                    <span>{'}'}</span>
-                  </div>
+                <div className="font-mono text-xs md:text-sm leading-relaxed flex flex-col gap-4">
+                  <motion.div style={{ opacity: log1Opacity }} className="text-slate-400 flex items-start gap-3">
+                    <span className="text-slate-600 mt-0.5">❯</span>
+                    <span>Compiling /page...<br/><span className="text-slate-500 text-[10px] md:text-xs">Generating static routes</span></span>
+                  </motion.div>
                   
-                  {/* Compilation Status */}
-                  <div className="mt-2 md:mt-6 pt-4 md:pt-6 border-t border-white/10">
-                    <div className="text-slate-400 flex items-center gap-2">
-                      <Zap className="w-3 h-3 md:w-4 md:h-4 text-amber-400" /> <span className="truncate">Compiling Edge Routes...</span>
-                    </div>
-                    <motion.div 
-                      className="text-emerald-400 mt-2 md:mt-3 font-bold flex items-center gap-2 text-xs md:text-base"
-                      style={{ opacity: compiledOpacity }}
-                    >
-                      <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 shrink-0" /> <span className="truncate">[Compiled Successfully]</span>
-                    </motion.div>
-                  </div>
+                  <motion.div style={{ opacity: log2Opacity }} className="text-cyan-400 flex items-start gap-3">
+                    <span className="text-cyan-600 mt-0.5">❯</span>
+                    <span>Edge Network Routing...<br/><span className="text-cyan-500/50 text-[10px] md:text-xs">Optimizing assets for 150+ regions</span></span>
+                  </motion.div>
+                  
+                  <motion.div style={{ opacity: log3Opacity }} className="text-emerald-400 mt-2 font-bold flex items-center gap-3 bg-emerald-500/10 p-3 rounded-lg border border-emerald-500/20">
+                    <CheckCircle2 className="w-5 h-5 shrink-0" /> 
+                    <span>[Compiled Successfully in 12ms]</span>
+                  </motion.div>
                 </div>
               </motion.div>
 
@@ -204,7 +218,7 @@ export default function EnterpriseWebJourney() {
                   </div>
                   {/* Features Skeleton */}
                   <div className="w-full max-w-2xl flex-1 bg-slate-800/20 rounded-2xl border border-slate-700/40 border-dashed flex flex-col items-center justify-center mt-4">
-                    <span className="text-slate-500 font-mono text-[10px] md:text-sm uppercase tracking-widest">[AWAITING SSR RENDER]</span>
+                    <motion.span style={{ opacity: skeletonPulse }} className="text-slate-500 font-mono text-[10px] md:text-sm uppercase tracking-widest">[AWAITING SSR RENDER]</motion.span>
                   </div>
                 </motion.div>
 
@@ -226,7 +240,7 @@ export default function EnterpriseWebJourney() {
                   {/* The Scrolling Content */}
                   <motion.div 
                     className="w-full flex flex-col items-center pb-32"
-                    style={{ y: innerScroll }}
+                    style={{ y: innerScrollY }}
                   >
                     {/* Mock Header */}
                     <div className="w-full h-16 border-b border-white/5 flex items-center justify-between px-6 md:px-8 bg-white/5 backdrop-blur-md z-20 sticky top-0">
@@ -267,21 +281,27 @@ export default function EnterpriseWebJourney() {
                           <p className="text-slate-400 text-[10px] md:text-sm mt-2 z-10 max-w-sm">Deliver instant experiences with 0ms latency across 150+ global regions. Built for enterprise scale.</p>
                         </div>
                         {/* Small Card 1 */}
-                        <div className="h-40 md:h-48 rounded-2xl bg-slate-900/50 border border-white/5 p-6 relative overflow-hidden group">
+                        <motion.div 
+                           className="h-40 md:h-48 rounded-2xl bg-slate-900/50 border border-white/5 p-6 relative overflow-hidden group"
+                           style={{ opacity: bento1Opacity, y: bento1Y }}
+                        >
                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4 border border-blue-500/30">
                               <Zap className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
                            </div>
                            <h3 className="text-white font-bold text-sm md:text-lg">Serverless Scaling</h3>
                            <p className="text-slate-500 text-[10px] md:text-xs mt-2">Zero config infrastructure.</p>
-                        </div>
+                        </motion.div>
                         {/* Small Card 2 */}
-                        <div className="h-40 md:h-48 rounded-2xl bg-slate-900/50 border border-white/5 p-6 relative overflow-hidden group">
+                        <motion.div 
+                           className="h-40 md:h-48 rounded-2xl bg-slate-900/50 border border-white/5 p-6 relative overflow-hidden group"
+                           style={{ opacity: bento2Opacity, y: bento2Y }}
+                        >
                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4 border border-purple-500/30">
                               <Shield className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
                            </div>
                            <h3 className="text-white font-bold text-sm md:text-lg">Enterprise Security</h3>
                            <p className="text-slate-500 text-[10px] md:text-xs mt-2">DDoS protection by default.</p>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </motion.div>
@@ -289,6 +309,22 @@ export default function EnterpriseWebJourney() {
               </motion.div>
 
             </div>
+          </motion.div>
+
+          {/* Replay Control Pill */}
+          <motion.div
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 pointer-events-auto"
+            style={{ opacity: screensOpacity }}
+          >
+            <button 
+              onClick={() => setReplayTrigger(prev => prev + 1)}
+              className="px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-xl border border-white/20 rounded-full flex items-center gap-3 transition-colors group shadow-2xl"
+            >
+              <div className="w-4 h-4 rounded-full bg-cyan-500/20 flex items-center justify-center group-hover:rotate-180 transition-transform duration-500">
+                <svg className="w-3 h-3 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+              </div>
+              <span className="text-white text-sm font-bold tracking-wide">Replay Render</span>
+            </button>
           </motion.div>
 
           {/* ================= PHASE 4: THE PERFECT SCORE ================= */}
