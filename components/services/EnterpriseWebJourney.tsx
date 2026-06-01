@@ -1,7 +1,7 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue, animate } from 'framer-motion';
 import { Terminal, Layout, CheckCircle2, Zap, Shield, Search, Smartphone, Monitor } from 'lucide-react';
 
 export default function EnterpriseWebJourney() {
@@ -21,19 +21,49 @@ export default function EnterpriseWebJourney() {
   const desktopFilter = useMotionTemplate`blur(${blurVal}px)`;
   const screensOpacity = useTransform(scrollYProgress, [0.7, 0.9], [1, 0.4]);
 
-  // Phase 2 (0.4 - 0.7): Flashing, Wave, and UI Render
-  const compiledOpacity = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
-  const waveX = useTransform(scrollYProgress, [0.4, 0.55], ["-100%", "200%"]);
+  // ================= INTERNAL AUTO-LOOP (De-coupled from scroll) =================
+  const internalProgress = useMotionValue(0);
+
+  useEffect(() => {
+    let isActive = true;
+    
+    const runSequence = async () => {
+      while (isActive) {
+        // 1. Start in SSR Compiling Phase
+        internalProgress.set(0);
+        await new Promise(r => setTimeout(r, 600)); // 0.6s Compiling...
+        if (!isActive) break;
+        
+        // 2. Flash "Compiled Successfully"
+        await animate(internalProgress, 0.4, { duration: 0.2 });
+        await new Promise(r => setTimeout(r, 300)); // Hold for 0.3s
+        if (!isActive) break;
+        
+        // 3. Sweep wave & crossfade to Live UI
+        await animate(internalProgress, 1, { duration: 0.8, ease: "easeInOut" });
+        
+        // 4. Admire the fully rendered SaaS dashboard
+        await new Promise(r => setTimeout(r, 4000));
+      }
+    };
+    
+    runSequence();
+    return () => { isActive = false; };
+  }, [internalProgress]);
+
+  // Phase 2 Internal Animations (Driven by Auto-Loop)
+  const compiledOpacity = useTransform(internalProgress, [0.2, 0.4], [0, 1]);
+  const waveX = useTransform(internalProgress, [0.2, 0.8], ["-100%", "200%"]);
   
   // Wireframe cross-fades into Rendered UI
-  const wireframeOpacity = useTransform(scrollYProgress, [0.45, 0.55], [1, 0]);
-  const renderedOpacity = useTransform(scrollYProgress, [0.45, 0.6], [0, 1]);
-  const renderedScale = useTransform(scrollYProgress, [0.45, 0.6], [0.95, 1]);
+  const wireframeOpacity = useTransform(internalProgress, [0.4, 0.7], [1, 0]);
+  const renderedOpacity = useTransform(internalProgress, [0.5, 1.0], [0, 1]);
+  const renderedScale = useTransform(internalProgress, [0.5, 1.0], [0.95, 1]);
 
   // The Terminal elegantly slides out to give the Dashboard full width
-  const terminalSize = useTransform(scrollYProgress, [0.5, 0.65], ["50%", "0%"]);
-  const terminalOpacity = useTransform(scrollYProgress, [0.5, 0.6], [1, 0]);
-  const uiSize = useTransform(scrollYProgress, [0.5, 0.65], ["50%", "100%"]);
+  const terminalSize = useTransform(internalProgress, [0.5, 1.0], ["50%", "0%"]);
+  const terminalOpacity = useTransform(internalProgress, [0.5, 0.8], [1, 0]);
+  const uiSize = useTransform(internalProgress, [0.5, 1.0], ["50%", "100%"]);
   
   // Phase 3 (0.7 - 1.0): Lighthouse Scores Pop Out
   const scoreOpacity = useTransform(scrollYProgress, [0.7, 0.8], [0, 1]);
