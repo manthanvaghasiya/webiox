@@ -91,13 +91,13 @@ export default function EnterpriseWebJourney() {
         
         {/* Core 3D Container */}
         <motion.div 
-          className="relative w-full max-w-7xl h-full flex items-center justify-center px-4"
+          className="relative w-full max-w-7xl h-full flex items-center justify-center px-3 sm:px-6 lg:px-8"
           style={{ perspective: "1500px", transformStyle: "preserve-3d" }}
         >
 
           {/* ================= DESKTOP WINDOW (Responsive Aspect Ratio) ================= */}
           <motion.div 
-            className="absolute z-10 w-full max-w-full h-[400px] md:h-[500px] lg:h-auto lg:aspect-video bg-slate-900/90 backdrop-blur-2xl rounded-2xl shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-slate-700/50 overflow-hidden flex flex-col mx-auto"
+            className="relative z-10 w-full max-w-full h-[80vh] md:h-[600px] lg:h-auto lg:aspect-video bg-slate-900/90 backdrop-blur-2xl rounded-xl md:rounded-2xl shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-slate-700/50 overflow-hidden flex flex-col mx-auto"
             style={{ 
               scale: desktopScale, 
               z: desktopZ, 
@@ -139,53 +139,51 @@ export default function EnterpriseWebJourney() {
 
               {/* LEFT/TOP: Server Terminal */}
               <motion.div 
-                className="h-[var(--term-size)] md:h-auto md:w-[var(--term-size)] bg-slate-950 border-b md:border-b-0 md:border-r border-white/10 flex flex-col p-4 md:p-8 overflow-hidden shrink-0"
+                className="h-[var(--term-size)] md:h-auto md:w-[var(--term-size)] bg-slate-950 border-b md:border-b-0 md:border-r border-white/10 flex flex-col overflow-hidden shrink-0"
                 style={{ opacity: terminalOpacity }}
               >
-                <div className="font-mono text-[10px] md:text-xs lg:text-sm leading-loose whitespace-pre-wrap break-words">
-                  <div className="flex text-emerald-400">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none flex-shrink-0">1</span>
-                    <span className="break-words"><span className="text-pink-400">export async function</span> generateMetadata() {'{'}</span>
+                <div className="p-4 md:p-8 min-w-[280px] md:min-w-[400px]">
+                  <div className="font-mono text-[10px] md:text-xs lg:text-sm leading-loose whitespace-nowrap overflow-hidden">
+                    <div className="flex items-baseline text-emerald-400">
+                    <span className="w-4 md:w-6 mr-2 md:mr-4 text-slate-600 select-none flex-shrink-0 text-right">1</span>
+                    <span><span className="text-pink-400">export async function</span> generateMetadata() {'{'}</span>
                   </div>
-                  <div className="flex text-cyan-300">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">2</span>
+                  <div className="flex items-baseline text-cyan-300">
+                    <span className="w-4 md:w-6 mr-2 md:mr-4 text-slate-600 select-none flex-shrink-0 text-right">2</span>
                     <span className="ml-4 md:ml-6"><span className="text-pink-400">return</span> {'{'}</span>
                   </div>
-                  <div className="flex text-amber-300">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">3</span>
-                    <span className="ml-8 md:ml-12 flex flex-col md:inline">
-                      title: <span className="text-emerald-300">'Enterprise Edge'</span>,
-                    </span>
+                  <div className="flex items-baseline text-amber-300">
+                    <span className="w-4 md:w-6 mr-2 md:mr-4 text-slate-600 select-none flex-shrink-0 text-right">3</span>
+                    <span className="ml-8 md:ml-12">title: <span className="text-emerald-300">'Enterprise Edge'</span>,</span>
                   </div>
-                  <div className="flex text-amber-300">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">4</span>
-                    <span className="ml-8 md:ml-12 flex flex-col md:inline">
-                      desc: <span className="text-emerald-300">'Sub-second render'</span>
-                    </span>
+                  <div className="flex items-baseline text-amber-300">
+                    <span className="w-4 md:w-6 mr-2 md:mr-4 text-slate-600 select-none flex-shrink-0 text-right">4</span>
+                    <span className="ml-8 md:ml-12">desc: <span className="text-emerald-300">'Sub-second render'</span></span>
                   </div>
-                  <div className="flex text-cyan-300">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">5</span>
+                  <div className="flex items-baseline text-cyan-300">
+                    <span className="w-4 md:w-6 mr-2 md:mr-4 text-slate-600 select-none flex-shrink-0 text-right">5</span>
                     <span className="ml-4 md:ml-6">{'}'}</span>
                   </div>
-                  <div className="flex text-emerald-400 mb-4 md:mb-8">
-                    <span className="mr-3 md:mr-6 text-slate-600 select-none">6</span>
+                  <div className="flex items-baseline text-emerald-400 mb-4 md:mb-8">
+                    <span className="w-4 md:w-6 mr-2 md:mr-4 text-slate-600 select-none flex-shrink-0 text-right">6</span>
                     <span>{'}'}</span>
                   </div>
                   
                   {/* Compilation Status */}
                   <div className="mt-2 md:mt-6 pt-4 md:pt-6 border-t border-white/10">
                     <div className="text-slate-400 flex items-center gap-2">
-                      <Zap className="w-3 h-3 md:w-4 md:h-4 text-amber-400" /> <span className="truncate">Compiling Edge Routes...</span>
+                      <Zap className="w-3 h-3 md:w-4 md:h-4 text-amber-400 shrink-0" /> <span className="truncate">Compiling Edge Routes...</span>
                     </div>
                     <motion.div 
-                      className="text-emerald-400 mt-2 md:mt-3 font-bold flex items-center gap-2 text-xs md:text-base"
+                      className="text-emerald-400 mt-2 md:mt-3 font-bold flex items-center gap-2 text-[10px] md:text-sm lg:text-base"
                       style={{ opacity: compiledOpacity }}
                     >
                       <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 shrink-0" /> <span className="truncate">[Compiled Successfully]</span>
                     </motion.div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
+            </motion.div>
 
               {/* RIGHT/BOTTOM: DOM / UI Render */}
               <motion.div 
@@ -215,11 +213,11 @@ export default function EnterpriseWebJourney() {
                 >
                   {/* Floating Metrics Overlay (Fixed relative to window) */}
                   <div className="absolute top-4 right-4 md:top-6 md:right-6 z-50 flex flex-col gap-2 pointer-events-none">
-                    <div className="bg-emerald-500/10 backdrop-blur-md border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 shadow-lg">
-                      <Zap className="w-3 h-3" /> Performance: 100
+                    <div className="bg-emerald-500/10 backdrop-blur-md border border-emerald-500/20 text-emerald-400 px-2 py-1 md:px-3 md:py-1.5 rounded-full text-[8px] sm:text-[10px] md:text-xs font-bold flex items-center gap-1 sm:gap-2 shadow-lg">
+                      <Zap className="w-2 h-2 sm:w-3 sm:h-3" /> Performance: 100
                     </div>
-                    <div className="bg-cyan-500/10 backdrop-blur-md border border-cyan-500/20 text-cyan-400 px-3 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 shadow-lg">
-                      <Layout className="w-3 h-3" /> 60 FPS Scroll
+                    <div className="bg-cyan-500/10 backdrop-blur-md border border-cyan-500/20 text-cyan-400 px-2 py-1 md:px-3 md:py-1.5 rounded-full text-[8px] sm:text-[10px] md:text-xs font-bold flex items-center gap-1 sm:gap-2 shadow-lg">
+                      <Layout className="w-2 h-2 sm:w-3 sm:h-3" /> 60 FPS Scroll
                     </div>
                   </div>
 
@@ -298,17 +296,17 @@ export default function EnterpriseWebJourney() {
           >
             {/* Deployment Badge */}
             <motion.div 
-              className="bg-emerald-500/10 backdrop-blur-md border border-emerald-500/30 px-6 md:px-8 py-2 md:py-3 rounded-full mb-8 md:mb-16 flex items-center gap-3 md:gap-4 shadow-[0_0_40px_rgba(52,211,153,0.3)]"
+              className="bg-emerald-500/10 backdrop-blur-md border border-emerald-500/30 px-4 sm:px-6 md:px-8 py-2 md:py-3 rounded-full mb-6 sm:mb-8 md:mb-16 flex items-center gap-2 sm:gap-3 md:gap-4 shadow-[0_0_40px_rgba(52,211,153,0.3)]"
             >
-              <div className="relative flex h-3 w-3 md:h-4 md:w-4">
+              <div className="relative flex h-2 w-2 sm:h-3 sm:w-3 md:h-4 md:w-4">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-3 w-3 md:h-4 md:w-4 bg-emerald-500" />
+                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-3 sm:w-3 md:h-4 md:w-4 bg-emerald-500" />
               </div>
-              <span className="text-emerald-400 font-bold uppercase tracking-widest text-xs md:text-base">Status: Shipped & Live</span>
+              <span className="text-emerald-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs md:text-base">Status: Shipped & Live</span>
             </motion.div>
 
             {/* Lighthouse Score Rings */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 px-6 md:px-12 w-full max-w-[90%] md:max-w-5xl bg-slate-900/60 backdrop-blur-3xl p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] border border-white/10 shadow-2xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 md:px-12 w-full max-w-[95%] md:max-w-5xl bg-slate-900/60 backdrop-blur-3xl p-4 sm:p-6 md:p-12 rounded-[1.5rem] md:rounded-[3rem] border border-white/10 shadow-2xl">
               {[
                 { label: "Performance", color: "#34d399" },
                 { label: "Accessibility", color: "#34d399" },
@@ -317,9 +315,9 @@ export default function EnterpriseWebJourney() {
               ].map((score, idx) => (
                 <motion.div 
                   key={idx} 
-                  className="flex flex-col items-center gap-6"
+                  className="flex flex-col items-center gap-3 sm:gap-6"
                 >
-                  <div className="relative w-32 h-32 sm:w-40 sm:h-40">
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40">
                     <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
                       <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="8" />
                       <motion.circle 
@@ -333,12 +331,12 @@ export default function EnterpriseWebJourney() {
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.span className="text-4xl sm:text-5xl font-black text-white">
+                      <motion.span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white">
                         <Counter value={scoreCounter} />
                       </motion.span>
                     </div>
                   </div>
-                  <span className="text-sm sm:text-base font-bold text-slate-300 uppercase tracking-wider text-center">{score.label}</span>
+                  <span className="text-[10px] sm:text-xs md:text-sm lg:text-base font-bold text-slate-300 uppercase tracking-wider text-center">{score.label}</span>
                 </motion.div>
               ))}
             </div>
