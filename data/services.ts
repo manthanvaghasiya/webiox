@@ -40,19 +40,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop'
   },
   {
-    id: 'ai-solutions',
-    icon: '🤖',
-    title: 'AI & Workflow Automation',
-    subtitle: 'Replace manual busywork with intelligent, autonomous systems.',
-    description: "We integrate custom AI models directly into your business processes. From customer support bots that actually resolve issues, to internal tools that summarize documents in seconds. We help you cut operational costs and let your team focus on high-value work.",
-    benefits: ['Slash Operational Costs', '24/7 Automated Customer Support', 'Eliminate Repetitive Tasks'],
-    tech: ['OpenAI API', 'LangChain', 'Python', 'Pinecone'],
-    color: 'from-purple-600 to-pink-500',
-    from: 'purple-600',
-    to: 'pink-500',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop'
-  },
-  {
     id: 'saas-development',
     icon: '⚙️',
     title: 'SaaS Product Engineering',
@@ -64,6 +51,19 @@ export const services: Service[] = [
     from: 'violet-500',
     to: 'purple-400',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop'
+  },
+  {
+    id: 'ai-solutions',
+    icon: '🤖',
+    title: 'AI & Workflow Automation',
+    subtitle: 'Replace manual busywork with intelligent, autonomous systems.',
+    description: "We integrate custom AI models directly into your business processes. From customer support bots that actually resolve issues, to internal tools that summarize documents in seconds. We help you cut operational costs and let your team focus on high-value work.",
+    benefits: ['Slash Operational Costs', '24/7 Automated Customer Support', 'Eliminate Repetitive Tasks'],
+    tech: ['OpenAI API', 'LangChain', 'Python', 'Pinecone'],
+    color: 'from-purple-600 to-pink-500',
+    from: 'purple-600',
+    to: 'pink-500',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop'
   },
   {
     id: 'ui-ux-design',

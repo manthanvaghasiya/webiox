@@ -152,15 +152,15 @@ export default function SpatialMobileDevice() {
             {/* Bottom Sheet Modal (0.7 to 1.0) */}
             <motion.div 
               style={{ y: bottomSheetY }}
-              className="absolute inset-x-0 bottom-0 h-auto bg-slate-800 rounded-t-3xl border-t border-emerald-500/30 shadow-[0_-20px_40px_rgba(0,0,0,0.5)] z-40 flex flex-col items-center pt-6 px-6 pb-12 gap-4"
+              className="absolute inset-x-0 bottom-0 h-64 bg-slate-800 rounded-t-3xl border-t border-emerald-500/30 shadow-[0_-20px_40px_rgba(0,0,0,0.5)] z-40 flex flex-col items-center p-6 gap-4"
             >
               <div className="w-12 h-1 bg-slate-600 rounded-full mb-2 shrink-0" />
               <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center border-2 border-emerald-400 shadow-[0_0_30px_rgba(52,211,153,0.3)] shrink-0">
                 <ShieldCheck className="w-8 h-8 text-emerald-400" />
               </div>
-              <span className="text-lg font-bold text-white leading-none text-center">Verification Complete</span>
+              <span className="text-lg font-bold text-white leading-none">Verification Complete</span>
               <span className="text-xs text-slate-400 text-center leading-tight">Your biometric identity has been securely verified using native hardware sensors.</span>
-              <div className="w-full h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-slate-950 font-bold mt-2 shrink-0 shadow-lg cursor-pointer hover:bg-emerald-400 transition-colors">
+              <div className="w-full h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-slate-950 font-bold mt-2 shrink-0">
                 Continue
               </div>
             </motion.div>

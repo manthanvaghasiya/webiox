@@ -26,10 +26,6 @@ import {
   showcasePanel,
 } from '@/lib/motion/services';
 
-import CodeToUIMorph from '../services/CodeToUIMorph';
-import AIAutomationWorkflow from '../services/AIAutomationWorkflow';
-import EnterpriseWebJourney from '../services/EnterpriseWebJourney';
-
 interface Metric {
   readonly label: string;
   readonly value: string;
@@ -162,24 +158,9 @@ export default function Services() {
       aria-labelledby="services-heading"
       className="relative overflow-hidden bg-[#FAFBFC]"
     >
-      {/* Wavy Top Divider (Overlaps from Hero) */}
-      <div className="absolute top-[-1px] inset-x-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none rotate-180">
-        <svg
-          className="relative block w-[102%] h-[40px] md:h-[60px] lg:h-[100px] -ml-[1%]"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,100 C377,-120 700,300 1200,0 V120 H0 Z"
-            className="fill-[#0E5E64]"
-          />
-        </svg>
-      </div>
-
       <BackgroundCanvas accent={active.accent} />
 
-      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-24 pt-12 lg:px-8 lg:pb-32 lg:pt-32">
+      <div className="relative z-10 mx-auto max-w-[1320px] px-6 py-24 lg:px-8 lg:py-32">
         <Header />
 
         <IndustriesMarquee />
@@ -455,22 +436,28 @@ function ShowcaseStage({ service }: { service: HomeService }) {
         {service.number}
       </span>
 
-      {/* Interactive UI Mockups replacing the static icon */}
-      <div className="absolute inset-4 sm:inset-8 lg:inset-10 xl:inset-12 mt-16 lg:mt-10 rounded-[2rem] shadow-[0_30px_80px_rgba(0,0,0,0.2)] border border-white/50 z-0 bg-slate-950 pointer-events-auto flex items-center justify-center overflow-hidden">
-        {/* Deep ambient glow behind the component inside the container */}
-        <span
-          aria-hidden
-          className="absolute inset-0 scale-[1.2] rounded-[32px] blur-3xl -z-10 pointer-events-none"
-          style={{ background: service.accent, opacity: 0.15 }}
-        />
-        
-        {/* Render specific interactive components based on service ID */}
-        <div className="w-full h-full relative z-10">
-          {service.id === 'web-development' && <EnterpriseWebJourney />}
-          {service.id === 'saas-development' && <CodeToUIMorph />}
-          {service.id === 'ai-solutions' && <AIAutomationWorkflow />}
+      <motion.div
+        animate={{ y: [0, -14, 0] }}
+        transition={floatLoop}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform"
+      >
+        <div className="relative">
+          <span
+            aria-hidden
+            className="absolute inset-0 scale-[1.6] rounded-[32px] blur-2xl"
+            style={{ background: service.accent, opacity: 0.42 }}
+          />
+          <div
+            className="relative flex h-[140px] w-[140px] items-center justify-center rounded-[28px] md:h-[160px] md:w-[160px]"
+            style={{
+              background: `linear-gradient(135deg, ${service.accent} 0%, ${service.accent}DD 100%)`,
+              boxShadow: `0 30px 80px -10px ${service.accent}88, inset 0 0 0 1px rgba(255,255,255,0.28)`,
+            }}
+          >
+            <Icon className="h-16 w-16 text-white md:h-[72px] md:w-[72px]" strokeWidth={1.4} />
+          </div>
         </div>
-      </div>
+      </motion.div>
 
       <motion.div
         variants={showcaseChild}
@@ -697,6 +684,8 @@ function BackgroundCanvas({ accent }: { accent: string }) {
           backgroundImage:
             'linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(90deg, #e2e8f0 1px, transparent 1px)',
           backgroundSize: '4rem 4rem',
+          maskImage: 'radial-gradient(ellipse at 50% 40%, black 60%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at 50% 40%, black 60%, transparent 100%)',
         }}
       />
       <AnimatePresence mode="sync">

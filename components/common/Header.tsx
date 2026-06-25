@@ -130,7 +130,7 @@ export default function Header() {
             whileTap={{ scale: 0.94 }}
             transition={{ type: 'spring', stiffness: 380, damping: 18 }}
             className={[
-              'relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl transition-colors duration-500',
+              'relative inline-flex items-center justify-center w-11 h-11 rounded-xl transition-colors duration-500',
               scrolled || isLightPage
                 ? 'bg-transparent shadow-none'
                 : 'bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)]',
@@ -139,10 +139,10 @@ export default function Header() {
             <Image
               src="/logo_without_background.png"
               alt=""
-              width={32}
-              height={32}
+              width={40}
+              height={40}
               priority
-              className="w-7 h-7 sm:w-8 sm:h-8 object-contain select-none pointer-events-none"
+              className="w-9 h-9 object-contain select-none pointer-events-none"
             />
           </motion.span>
           <div className="flex flex-col justify-center mt-1">

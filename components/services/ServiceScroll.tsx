@@ -16,9 +16,9 @@ const premiumEase = "easeOut";
 export default function ServiceScroll() {
   return (
     <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-32">
-      <div className="flex flex-col gap-24 md:gap-32">
+      <div className="flex flex-col gap-16 md:gap-32">
         {services.map((service, index) => (
-          <div key={service.id} id={service.id} className="flex flex-col lg:flex-row gap-10 sm:gap-16 lg:gap-24 relative">
+          <div key={service.id} id={service.id} className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
 
             {/* Left Sticky Anchor */}
             <div className="lg:w-5/12 relative">
@@ -35,13 +35,13 @@ export default function ServiceScroll() {
                     </div>
                   </div>
 
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 mb-2 sm:mb-3 tracking-tight">
+                  <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-3 tracking-tight">
                     {service.title}
                   </h2>
-                  <p className="text-base sm:text-lg font-medium text-[#0E5E64]/80 mb-6 sm:mb-8">
+                  <p className="text-lg font-medium text-[#0E5E64]/80 mb-8">
                     {service.subtitle}
                   </p>
-                  <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6 sm:mb-8">
+                  <p className="text-lg text-slate-600 leading-relaxed mb-8">
                     {service.description}
                   </p>
 
@@ -162,7 +162,7 @@ export default function ServiceScroll() {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="bg-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 relative overflow-hidden h-full flex flex-col justify-center shadow-lg mt-4 md:mt-0"
+                  className="bg-slate-900 rounded-3xl p-8 relative overflow-hidden h-full flex flex-col justify-center shadow-lg"
                 >
                   <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${service.color} opacity-20 blur-[60px] rounded-full pointer-events-none`} />
                   <p className="text-slate-400 text-xs font-bold tracking-widest uppercase mb-6 flex items-center gap-2 relative z-10">

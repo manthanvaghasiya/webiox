@@ -169,6 +169,7 @@ export default function AIAutomationWorkflow() {
           {phase === 'ingesting' && (
             <motion.path
               ref={path1AnimRef}
+              d={path1BaseRef.current?.getAttribute('d') || "M0,0 L1,1"}
               fill="none" stroke="#34d399" strokeWidth="2"
               initial={{ pathLength: 0, pathOffset: 0, opacity: 0 }}
               animate={{ pathLength: [0, 0.4, 0], pathOffset: [0, 0.6, 1], opacity: [0, 1, 0] }}
@@ -181,6 +182,7 @@ export default function AIAutomationWorkflow() {
             <>
               <motion.path
                 ref={path2AnimRef}
+                d={path2BaseRef.current?.getAttribute('d') || "M0,0 L1,1"}
                 fill="none" stroke="#34d399" strokeWidth="2"
                 initial={{ pathLength: 0, pathOffset: 0, opacity: 0 }}
                 animate={{ pathLength: [0, 0.4, 0], pathOffset: [0, 0.6, 1], opacity: [0, 1, 0] }}
@@ -189,6 +191,7 @@ export default function AIAutomationWorkflow() {
               />
               <motion.path
                 ref={path3AnimRef}
+                d={path3BaseRef.current?.getAttribute('d') || "M0,0 L1,1"}
                 fill="none" stroke="#38bdf8" strokeWidth="2"
                 initial={{ pathLength: 0, pathOffset: 0, opacity: 0 }}
                 animate={{ pathLength: [0, 0.4, 0], pathOffset: [0, 0.6, 1], opacity: [0, 1, 0] }}
