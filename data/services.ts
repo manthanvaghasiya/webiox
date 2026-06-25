@@ -40,19 +40,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop'
   },
   {
-    id: 'saas-development',
-    icon: '⚙️',
-    title: 'SaaS Product Engineering',
-    subtitle: 'Robust web applications built to scale from Day 1.',
-    description: "Whether you're an established enterprise or a funded startup, we build the complex engines that power your product. We design multi-tenant architectures that ensure your platform remains fast, secure, and available—even when thousands of users log in simultaneously.",
-    benefits: ['Bank-Grade Security', 'Automated Subscription Billing', 'Scalable Multi-Tenant Architecture'],
-    tech: ['TypeScript', 'AWS', 'Docker', 'MongoDB'],
-    color: 'from-violet-500 to-purple-400',
-    from: 'violet-500',
-    to: 'purple-400',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop'
-  },
-  {
     id: 'ai-solutions',
     icon: '🤖',
     title: 'AI & Workflow Automation',
@@ -64,6 +51,19 @@ export const services: Service[] = [
     from: 'purple-600',
     to: 'pink-500',
     image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop'
+  },
+  {
+    id: 'saas-development',
+    icon: '⚙️',
+    title: 'SaaS Product Engineering',
+    subtitle: 'Robust web applications built to scale from Day 1.',
+    description: "Whether you're an established enterprise or a funded startup, we build the complex engines that power your product. We design multi-tenant architectures that ensure your platform remains fast, secure, and available—even when thousands of users log in simultaneously.",
+    benefits: ['Bank-Grade Security', 'Automated Subscription Billing', 'Scalable Multi-Tenant Architecture'],
+    tech: ['TypeScript', 'AWS', 'Docker', 'MongoDB'],
+    color: 'from-violet-500 to-purple-400',
+    from: 'violet-500',
+    to: 'purple-400',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop'
   },
   {
     id: 'ui-ux-design',

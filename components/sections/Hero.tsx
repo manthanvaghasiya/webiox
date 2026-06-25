@@ -9,29 +9,34 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <section className="relative w-full bg-[#0E5E64] overflow-hidden">
+    <section className="relative z-10 w-full bg-[#0E5E64]">
+      {/* Background container with overflow-hidden to clip 3D elements, but allow Wavy Divider to bleed out */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Background 3D Scene */}
+        <div className="absolute inset-0 z-0 pointer-events-auto">
+          <Canvas camera={{ position: [0, 0, 4], fov: 45 }}>
+            <Suspense fallback={null}>
+              <Scene />
+            </Suspense>
+          </Canvas>
+        </div>
 
-      {/* Background 3D Scene */}
-      <div className="absolute inset-0 z-0 pointer-events-auto">
-        <Canvas camera={{ position: [0, 0, 4], fov: 45 }}>
-          <Suspense fallback={null}>
-            <Scene />
-          </Suspense>
-        </Canvas>
+        {/* Visibility Overlay */}
+        <div className="absolute inset-0 z-[5] bg-gradient-to-b lg:bg-gradient-to-r from-[#0E5E64]/95 via-[#0E5E64]/20 to-[#0E5E64]/90 pointer-events-none" />
       </div>
 
       {/* The Content Grid (pointer-events-none so mouse passes through to Canvas) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 md:pt-20 md:pb-20 xl:pb-20 flex items-center pointer-events-none">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 md:pt-20 md:pb-10 lg:pb-8 flex items-center pointer-events-none">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full mt-10 lg:mt-0">
 
           {/* Left Column: Typography & CTA */}
-          <div className="flex flex-col justify-center text-[#F9FAFB]">
-            <h1 className="text-4xl md:text-5xl lg:text-[45px] lg:leading-[1.1] font-bold tracking-tight mb-2 font-[Zain] font-normal">
+          <div className="flex flex-col justify-center text-[#F9FAFB] relative z-20">
+            <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[42px] xl:text-[48px] font-bold tracking-tight mb-2 sm:mb-4 font-[Zain] font-normal drop-shadow-md">
 
               {/* Line 1: 'Developing' + Typewriter */}
-              <span className="flex flex-row items-center flex-wrap md:flex-nowrap gap-x-2 gap-y-1 lg:gap-4 mb-1 lg:mb-2">
-                <span>Developing</span>
-                <span className="text-[#FFBF00] min-w-[220px] sm:min-w-[280px] lg:min-w-[400px] font-[Alice] font-normal relative">
+              <span className="flex flex-col md:flex-row md:items-center md:flex-nowrap gap-x-2 xl:gap-x-3 mb-2 sm:mb-1 lg:mb-2 min-h-[2.2em] md:min-h-0">
+                <span className="block whitespace-nowrap">Developing</span>
+                <span className="text-[#FFBF00] font-[Alice] font-normal relative drop-shadow-lg block whitespace-nowrap">
                   <Typewriter
                     words={['Digital Platforms', 'Custom Software', 'AI Workflows']}
                     loop={true}
@@ -45,38 +50,38 @@ const Hero = () => {
               </span>
 
               {/* Line 2 */}
-              <span className="block mt-1 md:mt-0">
+              <span className="block mt-2 sm:mt-1 md:mt-0">
                 For Industry Leaders.
               </span>
             </h1>
 
             {/* Micro-copy / Kicker */}
-            <div className="flex items-center gap-3 text-[#F9FAFB] font-medium tracking-wide mb-6 flex-wrap">
+            <div className="flex items-center gap-2 sm:gap-3 text-[#F9FAFB] font-medium tracking-wide mb-6 flex-wrap drop-shadow-sm text-sm sm:text-base">
               <span>On Time</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F9FAFB]/50"></span>
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#F9FAFB]/50 shadow-sm"></span>
               <span>On Budget</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F9FAFB]/50"></span>
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#F9FAFB]/50 shadow-sm"></span>
               <span>On Target</span>
             </div>
 
-            <p className="text-lg lg:text-xl text-[#F9FAFB]/90 mb-10 max-w-lg font-[IBM_Plex_Sans] font-normal leading-relaxed">
+            <p className="text-lg lg:text-xl text-[#F9FAFB]/90 mb-10 max-w-lg font-[IBM_Plex_Sans] font-normal leading-relaxed drop-shadow-md">
               We build high-speed websites, custom software, and smart AI agents to help businesses grow faster and smarter.
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 pointer-events-auto">
-              <Link href="/contact">
+            <div className="flex flex-row items-center gap-3 sm:gap-4 pointer-events-auto w-full sm:w-auto">
+              <Link href="/contact" className="flex-1 sm:flex-none">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
-                  className="w-full sm:w-auto bg-[#F9FAFB] text-[#0E5E64] px-6 py-4 lg:px-8 lg:py-5 rounded-full font-bold shadow-lg"
+                  className="w-full bg-[#F9FAFB] text-[#0E5E64] px-2 py-3.5 sm:px-6 sm:py-4 lg:px-8 lg:py-5 rounded-full font-bold shadow-lg text-center text-[13px] sm:text-base whitespace-nowrap"
                 >
                   Start Project
                 </motion.button>
               </Link>
-              <Link href="/portfolio">
+              <Link href="/portfolio" className="flex-1 sm:flex-none">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
-                  className="w-full sm:w-auto bg-transparent text-[#F9FAFB] border-2 border-[#F9FAFB] px-6 py-4 lg:px-8 lg:py-5 rounded-full font-bold"
+                  className="w-full bg-transparent text-[#F9FAFB] border-2 border-[#F9FAFB] px-2 py-3.5 sm:px-6 sm:py-4 lg:px-8 lg:py-5 rounded-full font-bold text-center text-[13px] sm:text-base whitespace-nowrap"
                 >
                   View Our Work
                 </motion.button>
@@ -108,20 +113,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Wavy Bottom Divider */}
-      <div className="absolute bottom-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
-        <svg
-          className="relative block w-full h-[40px] md:h-[60px] lg:h-[100px]"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,100 C377,-120 700,300 1200,0 V120 H0 Z"
-            className="fill-[#FAFBFC]"
-          />
-        </svg>
-      </div>
+
 
     </section>
   );

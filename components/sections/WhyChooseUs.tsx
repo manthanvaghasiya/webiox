@@ -232,16 +232,15 @@ export default function WhyChooseUs() {
 
                 {/* Inactive Vertical Title */}
                 <motion.div 
-                  animate={{ opacity: isActive ? 0 : 0.6 }}
-                  className="absolute inset-0 flex flex-col items-center justify-between py-10 pointer-events-none z-10"
+                  animate={{ opacity: isActive ? 0 : 0.8 }}
+                  className="absolute inset-0 flex flex-col items-center justify-between py-10 pointer-events-none z-30"
                 >
-                   <span className="font-mono text-sm font-bold text-white/40">{item.number}</span>
+                   <span className="font-mono text-sm font-bold text-white/60">{item.number}</span>
                    <h2 
-                     className="text-xl xl:text-2xl font-black uppercase tracking-[0.2em] text-transparent"
+                     className="text-xl xl:text-2xl font-bold uppercase tracking-[0.2em] text-white"
                      style={{ 
                        writingMode: 'vertical-rl', 
-                       transform: 'rotate(180deg)',
-                       WebkitTextStroke: '1px rgba(255,255,255,0.3)' 
+                       transform: 'rotate(180deg)'
                      }}
                    >
                      {item.title}

@@ -130,7 +130,7 @@ export default function Header() {
             whileTap={{ scale: 0.94 }}
             transition={{ type: 'spring', stiffness: 380, damping: 18 }}
             className={[
-              'relative inline-flex items-center justify-center w-11 h-11 rounded-xl transition-colors duration-500',
+              'relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl transition-colors duration-500',
               scrolled || isLightPage
                 ? 'bg-transparent shadow-none'
                 : 'bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)]',
@@ -139,20 +139,30 @@ export default function Header() {
             <Image
               src="/logo_without_background.png"
               alt=""
-              width={40}
-              height={40}
+              width={32}
+              height={32}
               priority
-              className="w-9 h-9 object-contain select-none pointer-events-none"
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain select-none pointer-events-none"
             />
           </motion.span>
-          <span
-            className={[
-              'hidden sm:inline-block font-bold tracking-tight text-lg transition-colors duration-300',
-              scrolled || isLightPage ? 'text-slate-900' : 'text-white',
-            ].join(' ')}
-          >
-            Webiox
-          </span>
+          <div className="flex flex-col justify-center mt-1">
+            <span
+              className={[
+                'font-bold tracking-tight text-lg transition-colors duration-300 leading-none',
+                scrolled || isLightPage ? 'text-slate-900' : 'text-white',
+              ].join(' ')}
+            >
+              Webiox
+            </span>
+            <span
+              className={[
+                'text-[9px] uppercase font-bold tracking-widest transition-colors duration-300 leading-tight mt-0.5',
+                scrolled || isLightPage ? 'text-slate-500' : 'text-slate-400',
+              ].join(' ')}
+            >
+              Digital Solution
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

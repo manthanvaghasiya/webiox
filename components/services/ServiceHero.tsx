@@ -79,6 +79,12 @@ const OrbitalCanvas = ({ mouseX, mouseY }: { mouseX: number; mouseY: number }) =
       time += 0.016;
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
+
+      if (w === 0 || h === 0) {
+        animRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
       ctx.clearRect(0, 0, w, h);
 
       const mxNorm = (mouseX / w - 0.5) * 30;
@@ -197,12 +203,12 @@ const CounterStat = ({ value, suffix, label, delay }: { value: number; suffix: s
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: delay + 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className="text-center group"
+      className="text-center group flex flex-col items-center"
     >
-      <div className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+      <div className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
         {count}<span className="text-[#FFBF00]">{suffix}</span>
       </div>
-      <div className="text-xs text-white/40 font-medium tracking-widest uppercase mt-1">{label}</div>
+      <div className="text-[10px] sm:text-xs text-white/40 font-medium tracking-widest uppercase mt-1">{label}</div>
     </motion.div>
   );
 };
@@ -358,13 +364,13 @@ export default function ServiceHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-4 sm:gap-6 mb-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-6 md:mb-8 text-center"
         >
-          <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50" />
-          <span className="text-xl sm:text-2xl md:text-3xl font-[Alice] text-[#F9FAFB]/60 tracking-wide">
+          <div className="hidden sm:block h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50" />
+          <span className="text-lg sm:text-2xl md:text-3xl font-[Alice] text-[#F9FAFB]/60 tracking-wide max-w-[280px] sm:max-w-none">
             Engineering. Design. Optimization.
           </span>
-          <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50" />
+          <div className="hidden sm:block h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50" />
         </motion.div>
 
         <motion.p
@@ -383,24 +389,24 @@ export default function ServiceHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center gap-5"
+          className="mt-8 sm:mt-10 md:mt-14 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 w-full sm:w-auto"
         >
-          <Link href="/contact">
+          <Link href="/contact" className="w-full sm:w-auto">
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="group relative h-14 px-10 rounded-full bg-[#F9FAFB] text-[#0E5E64] font-bold text-sm tracking-wide overflow-hidden shadow-[0_0_50px_rgba(249,250,251,0.15)] hover:shadow-[0_0_70px_rgba(249,250,251,0.25)] transition-shadow duration-500 flex items-center gap-3"
+              className="group relative w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#F9FAFB] text-[#0E5E64] font-bold text-sm tracking-wide overflow-hidden shadow-[0_0_50px_rgba(249,250,251,0.15)] hover:shadow-[0_0_70px_rgba(249,250,251,0.25)] transition-shadow duration-500 flex justify-center items-center gap-3"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <span className="relative z-10">Start a Project</span>
-              <ArrowUpRight className="relative z-10 w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </motion.button>
           </Link>
-          <Link href="#web-development">
+          <Link href="#web-development" className="w-full sm:w-auto">
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="group h-14 px-10 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-md text-white/80 font-semibold text-sm tracking-wide hover:border-white/30 hover:bg-white/[0.06] hover:text-white transition-all duration-500 flex items-center gap-3"
+              className="group w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-md text-white/80 font-semibold text-sm tracking-wide hover:border-white/30 hover:bg-white/[0.06] hover:text-white transition-all duration-500 flex justify-center items-center gap-3"
             >
               <span>See What We Do</span>
               <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
@@ -413,27 +419,27 @@ export default function ServiceHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 2.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-16 md:mt-20 flex items-center gap-3 px-5 py-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-xl"
+          className="mt-12 md:mt-20 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-xl w-[90%] sm:w-auto mx-auto overflow-hidden"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto overflow-x-auto hide-scrollbar pb-1 sm:pb-0 justify-center">
             {services.map((_, i) => {
               const Icon = serviceIcons[i] || Globe2;
               return (
                 <motion.button
                   key={i}
                   onClick={() => setActiveService(i)}
-                  className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-400 ${
+                  className={`w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-xl flex items-center justify-center transition-all duration-400 ${
                     activeService === i
                       ? 'bg-[#FFBF00]/15 border border-[#FFBF00]/30 text-[#FFBF00]'
                       : 'bg-white/[0.03] border border-transparent text-white/30 hover:text-white/50'
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </motion.button>
               );
             })}
           </div>
-          <div className="w-[1px] h-6 bg-white/10" />
+          <div className="hidden sm:block w-[1px] h-6 bg-white/10" />
           <AnimatePresence mode="wait">
             <motion.span
               key={activeService}
@@ -441,7 +447,7 @@ export default function ServiceHero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3 }}
-              className="text-sm text-white/50 font-medium min-w-[160px]"
+              className="text-xs sm:text-sm text-white/50 font-medium sm:min-w-[160px] text-center sm:text-left"
             >
               {services[activeService]?.title}
             </motion.span>
@@ -453,7 +459,7 @@ export default function ServiceHero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2.5 }}
-          className="mt-16 md:mt-20 w-full max-w-2xl grid grid-cols-3 gap-8 pb-16"
+          className="mt-8 sm:mt-12 md:mt-20 w-full max-w-2xl flex flex-row items-center justify-between sm:justify-around gap-2 sm:gap-8 pb-16"
         >
           <CounterStat value={99} suffix="%" label="Uptime" delay={2.6} />
           <CounterStat value={50} suffix="ms" label="Response" delay={2.8} />

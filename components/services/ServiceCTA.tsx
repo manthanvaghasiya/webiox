@@ -17,7 +17,7 @@ export default function ServiceCTA() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: premiumEase }}
-          className="p-12 md:p-16 rounded-[3rem] bg-slate-900 text-[#F9FAFB] shadow-2xl relative overflow-hidden"
+          className="p-8 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[3rem] bg-slate-900 text-[#F9FAFB] shadow-2xl relative overflow-hidden"
         >
           <motion.div
             animate={{ rotate: 360 }}
@@ -25,18 +25,18 @@ export default function ServiceCTA() {
             className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-[#0E5E64] to-transparent opacity-30 blur-[100px] pointer-events-none"
           />
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 relative z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 relative z-10">
             Ready to construct your future?
           </h2>
-          <p className="text-xl text-slate-300 mb-10 font-light max-w-2xl mx-auto relative z-10">
+          <p className="text-lg sm:text-xl text-slate-300 mb-8 sm:mb-10 font-light max-w-2xl mx-auto relative z-10">
             Bypass technical debt. Partner with engineering experts who understand business economics and rapid scalability.
           </p>
 
-          <Link href="/contact" className="relative z-10 inline-block">
+          <Link href="/contact" className="relative z-10 inline-block w-full sm:w-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="px-10 py-5 bg-[#FFBF00] text-slate-900 font-bold text-lg rounded-full shadow-[0_0_40px_rgba(255,184,0,0.3)] hover:shadow-[0_0_60px_rgba(255,184,0,0.5)] transition-shadow flex items-center gap-3 mx-auto"
+              className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 bg-[#FFBF00] text-slate-900 font-bold text-base sm:text-lg rounded-full shadow-[0_0_40px_rgba(255,184,0,0.3)] hover:shadow-[0_0_60px_rgba(255,184,0,0.5)] transition-shadow flex justify-center items-center gap-2 sm:gap-3 mx-auto"
             >
               Initiate Project Architecture <Code2 className="w-5 h-5" />
             </motion.button>
