@@ -113,7 +113,20 @@ const Hero = () => {
         </div>
       </div>
 
-
+      {/* Wavy Bottom Divider */}
+      <div className="absolute bottom-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
+        <svg
+          className="relative block w-full h-[40px] md:h-[60px] lg:h-[100px]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,100 C377,-120 700,300 1200,0 V120 H0 Z"
+            className="fill-[#FAFBFC]"
+          />
+        </svg>
+      </div>
 
     </section>
   );
