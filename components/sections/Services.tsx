@@ -160,28 +160,33 @@ export default function Services() {
     >
       <BackgroundCanvas accent={active.accent} />
 
-      {/* Premium Double-Layered Wavy Divider */}
+      {/* Layered Wavy Divider matching Hero background to reveal Services grid */}
       <div className="absolute top-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
         <svg
-          className="relative block w-full h-[60px] sm:h-[80px] lg:h-[120px]"
+          className="relative block w-full h-[60px] md:h-[90px] lg:h-[150px]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
         >
-          {/* Background layered wave (semi-transparent teal) */}
+          {/* Layer 1: Lowest opacity, sweeping deep on the left */}
           <path
-            d="M0,50 C400,120 800,20 1200,50 V0 H0 Z"
-            className="fill-[#0E5E64]/30"
+            d="M0,60 C300,120 700,20 1200,80 V0 H0 Z"
+            className="fill-[#0E5E64] opacity-20"
           />
-          {/* Foreground main wave (solid teal) */}
+          {/* Layer 2: Medium opacity, crossing over and sweeping deep on the right */}
           <path
-            d="M0,20 C400,80 800,0 1200,20 V0 H0 Z"
+            d="M0,30 C400,10 800,120 1200,50 V0 H0 Z"
+            className="fill-[#0E5E64] opacity-50"
+          />
+          {/* Layer 3: Solid base connecting seamlessly to Hero */}
+          <path
+            d="M0,0 C300,60 900,0 1200,20 V0 H0 Z"
             className="fill-[#0E5E64]"
           />
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-24 lg:px-8 lg:pb-32 pt-[calc(6rem+60px)] sm:pt-[calc(6rem+80px)] lg:pt-[calc(8rem+120px)]">
+      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-24 lg:px-8 lg:pb-32 pt-[calc(6rem+60px)] md:pt-[calc(6rem+90px)] lg:pt-[calc(8rem+150px)]">
         <Header />
 
         <IndustriesMarquee />
