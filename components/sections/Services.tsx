@@ -456,7 +456,9 @@ function ShowcaseStage({ service }: { service: HomeService }) {
       <motion.div
         animate={{ y: [0, -14, 0] }}
         transition={floatLoop}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform"
+        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform ${
+          service.video ? 'mt-6 md:mt-12' : ''
+        }`}
       >
         <div className="relative">
           <span
