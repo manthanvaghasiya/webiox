@@ -471,7 +471,7 @@ function ShowcaseStage({ service }: { service: HomeService }) {
           <div
             className={`relative flex items-center justify-center overflow-hidden transition-all duration-500 shadow-2xl ${
               service.video
-                ? 'w-[300px] sm:w-[420px] lg:w-[540px] xl:w-[600px] aspect-video rounded-[24px]'
+                ? 'w-[320px] sm:w-[460px] lg:w-[600px] xl:w-[680px] aspect-video rounded-[24px]'
                 : 'h-[140px] w-[140px] md:h-[160px] md:w-[160px] rounded-[32px]'
             }`}
             style={{
