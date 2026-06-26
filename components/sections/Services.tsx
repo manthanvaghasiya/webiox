@@ -461,11 +461,17 @@ function ShowcaseStage({ service }: { service: HomeService }) {
         <div className="relative">
           <span
             aria-hidden
-            className="absolute inset-0 scale-[1.6] rounded-[32px] blur-2xl"
-            style={{ background: service.accent, opacity: 0.42 }}
+            className={`absolute inset-0 rounded-[32px] blur-2xl transition-all duration-500 ${
+              service.video ? 'scale-[1.2] opacity-30' : 'scale-[1.6] opacity-[0.42]'
+            }`}
+            style={{ background: service.accent }}
           />
           <div
-            className="relative flex h-[140px] w-[140px] items-center justify-center rounded-[28px] overflow-hidden md:h-[160px] md:w-[160px]"
+            className={`relative flex items-center justify-center overflow-hidden transition-all duration-500 shadow-2xl ${
+              service.video
+                ? 'w-[90%] sm:w-[80%] max-w-[520px] aspect-[16/10] rounded-[24px]'
+                : 'h-[140px] w-[140px] md:h-[160px] md:w-[160px] rounded-[32px]'
+            }`}
             style={{
               background: `linear-gradient(135deg, ${service.accent} 0%, ${service.accent}DD 100%)`,
               boxShadow: `0 30px 80px -10px ${service.accent}88, inset 0 0 0 1px rgba(255,255,255,0.28)`,
