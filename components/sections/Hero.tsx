@@ -31,7 +31,7 @@ const Hero = () => {
 
           {/* Left Column: Typography & CTA */}
           <div className="flex flex-col justify-center text-[#F9FAFB] relative z-20">
-            <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[42px] xl:text-[48px] font-bold tracking-tight mb-2 sm:mb-4 font-[Zain] font-normal drop-shadow-md">
+            <h1 className="text-3xl leading-[1.1] min-[380px]:text-4xl sm:text-5xl lg:text-[42px] xl:text-[48px] font-bold tracking-tight mb-2 sm:mb-4 font-[Zain] font-normal drop-shadow-md">
 
               {/* Line 1: 'Developing' + Typewriter */}
               <span className="flex flex-col md:flex-row md:items-center md:flex-nowrap gap-x-2 xl:gap-x-3 mb-2 sm:mb-1 lg:mb-2 min-h-[2.2em] md:min-h-0">

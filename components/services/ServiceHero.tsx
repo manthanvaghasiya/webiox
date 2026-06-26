@@ -366,11 +366,11 @@ export default function ServiceHero() {
           transition={{ duration: 1, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-4 sm:gap-6 mb-6"
         >
-          <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50" />
-          <span className="text-xl sm:text-2xl md:text-3xl font-[Alice] text-[#F9FAFB]/60 tracking-wide">
+          <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50 hidden min-[400px]:block" />
+          <span className="text-base sm:text-2xl md:text-3xl font-[Alice] text-[#F9FAFB]/60 tracking-wide text-center">
             Engineering. Design. Optimization.
           </span>
-          <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50" />
+          <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50 hidden min-[400px]:block" />
         </motion.div>
 
         <motion.p
