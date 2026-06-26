@@ -45,6 +45,7 @@ interface HomeService {
   readonly bestFor: readonly string[];
   readonly metric: Metric;
   readonly icon: LucideIcon;
+  readonly video?: string;
   readonly accent: string;
   readonly accentSurface: string;
   readonly href: string;
@@ -73,6 +74,7 @@ const SERVICES: readonly HomeService[] = [
       caption: 'Across our last 24 client websites',
     },
     icon: Monitor,
+    video: '/you_make_good_video_for_we_add.mp4',
     accent: '#0E5E64',
     accentSurface: '#EEF6F6',
     href: '/services#web-development',
@@ -160,7 +162,22 @@ export default function Services() {
     >
       <BackgroundCanvas accent={active.accent} />
 
-      <div className="relative z-10 mx-auto max-w-[1320px] px-6 py-24 lg:px-8 lg:py-32">
+      {/* Top Wavy Divider matching Hero background to reveal Services grid in the 'white space' */}
+      <div className="absolute top-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
+        <svg
+          className="relative block w-full h-[40px] md:h-[60px] lg:h-[100px]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,100 C377,-120 700,300 1200,0 V0 H0 Z"
+            className="fill-[#0E5E64]"
+          />
+        </svg>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-24 lg:px-8 lg:pb-32 pt-[calc(6rem+40px)] md:pt-[calc(6rem+60px)] lg:pt-[calc(8rem+100px)]">
         <Header />
 
         <IndustriesMarquee />
@@ -448,13 +465,24 @@ function ShowcaseStage({ service }: { service: HomeService }) {
             style={{ background: service.accent, opacity: 0.42 }}
           />
           <div
-            className="relative flex h-[140px] w-[140px] items-center justify-center rounded-[28px] md:h-[160px] md:w-[160px]"
+            className="relative flex h-[140px] w-[140px] items-center justify-center rounded-[28px] overflow-hidden md:h-[160px] md:w-[160px]"
             style={{
               background: `linear-gradient(135deg, ${service.accent} 0%, ${service.accent}DD 100%)`,
               boxShadow: `0 30px 80px -10px ${service.accent}88, inset 0 0 0 1px rgba(255,255,255,0.28)`,
             }}
           >
-            <Icon className="h-16 w-16 text-white md:h-[72px] md:w-[72px]" strokeWidth={1.4} />
+            {service.video ? (
+              <video
+                src={service.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            ) : (
+              <Icon className="h-16 w-16 text-white md:h-[72px] md:w-[72px]" strokeWidth={1.4} />
+            )}
           </div>
         </div>
       </motion.div>
