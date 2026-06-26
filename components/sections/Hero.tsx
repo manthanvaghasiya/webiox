@@ -26,7 +26,7 @@ const Hero = () => {
       </div>
 
       {/* The Content Grid (pointer-events-none so mouse passes through to Canvas) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-4 md:pt-20 md:pb-10 lg:pb-8 flex items-center pointer-events-none">
+      <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-4 md:pt-20 md:pb-10 lg:pb-8 flex items-center pointer-events-none">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full mt-10 lg:mt-0">
 
           {/* Left Column: Typography & CTA */}
@@ -111,6 +111,21 @@ const Hero = () => {
           </div>
 
         </div>
+      </div>
+
+      {/* Wavy Bottom Divider (Opposite of Services curve for interlocking Yin-Yang effect) */}
+      <div className="absolute bottom-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none rotate-180">
+        <svg
+          className="relative block w-full h-[40px] md:h-[60px] lg:h-[100px]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,120 C400,120 800,0 1200,0 V0 H0 Z"
+            className="fill-[#FAFBFC]"
+          />
+        </svg>
       </div>
 
     </section>
