@@ -411,7 +411,7 @@ function ShowcaseStage({ service }: { service: HomeService }) {
       onMouseLeave={handleLeave}
       id={`showcase-${service.id}`}
       role="tabpanel"
-      className="relative overflow-hidden rounded-[28px] border border-slate-200/70 lg:col-span-7 aspect-[5/4] lg:aspect-auto lg:min-h-[600px]"
+      className="relative overflow-hidden rounded-[28px] border border-slate-200/70 lg:col-span-7 min-h-[420px] sm:min-h-[480px] lg:min-h-[600px] flex flex-col justify-center"
       style={{
         background: `linear-gradient(135deg, ${service.accentSurface} 0%, #ffffff 100%)`,
       }}
@@ -472,7 +472,7 @@ function ShowcaseStage({ service }: { service: HomeService }) {
           <div
             className={`relative flex items-center justify-center overflow-hidden transition-all duration-500 shadow-2xl ${
               service.video
-                ? 'w-[320px] sm:w-[460px] lg:w-[600px] xl:w-[680px] aspect-video rounded-[24px]'
+                ? 'w-[260px] sm:w-[380px] md:w-[460px] lg:w-[600px] xl:w-[680px] aspect-video rounded-[24px]'
                 : 'h-[140px] w-[140px] md:h-[160px] md:w-[160px] rounded-[32px]'
             }`}
             style={{
