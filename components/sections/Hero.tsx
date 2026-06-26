@@ -26,8 +26,8 @@ const Hero = () => {
       </div>
 
       {/* The Content Grid (pointer-events-none so mouse passes through to Canvas) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 md:pt-20 md:pb-10 lg:pb-8 flex items-center pointer-events-none">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full mt-10 lg:mt-0">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-0 md:pt-20 md:pb-10 lg:pb-8 flex items-center pointer-events-none">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 w-full mt-0">
 
           {/* Left Column: Typography & CTA */}
           <div className="flex flex-col justify-center text-[#F9FAFB] relative z-20">
@@ -91,7 +91,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column: 3D Developer Scene Image */}
-          <div className="flex items-center justify-center lg:justify-end w-full h-[400px] sm:h-[500px] lg:h-full pointer-events-none relative pr-0 lg:pr-10 mt-10 lg:mt-0">
+          <div className="flex items-center justify-center lg:justify-end w-full h-[260px] sm:h-[400px] lg:h-full pointer-events-none relative pr-0 lg:pr-10 mt-2 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
