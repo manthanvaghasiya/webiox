@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <section className="relative z-10 w-full bg-[#0E5E64]">
+    <section className="relative z-10 w-full bg-[#0E5E64] -mb-[40px] md:-mb-[60px] lg:-mb-[100px]">
       {/* Background container with overflow-hidden to clip 3D elements, but allow Wavy Divider to bleed out */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Background 3D Scene */}
@@ -122,7 +122,7 @@ const Hero = () => {
           preserveAspectRatio="none"
         >
           <path
-            d="M0,120 C300,40 600,100 1200,20 V120 H0 Z"
+            d="M0,100 C377,-120 700,300 1200,0 V120 H0 Z"
             className="fill-[#FAFBFC]"
           />
         </svg>
