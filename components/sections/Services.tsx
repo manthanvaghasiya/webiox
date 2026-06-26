@@ -101,6 +101,7 @@ const SERVICES: readonly HomeService[] = [
       caption: 'Live across our active client systems',
     },
     icon: Layers,
+    video: '/Initial_Scene_-_2026-05-31_202605311248.mp4',
     accent: '#FFBF00',
     accentSurface: '#FFFBEB',
     href: '/services#saas-development',
