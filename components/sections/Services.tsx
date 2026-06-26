@@ -458,24 +458,21 @@ function ShowcaseStage({ service }: { service: HomeService }) {
       <motion.div
         animate={{ y: [0, -14, 0] }}
         transition={floatLoop}
-        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform ${
-          service.video ? 'mt-6 md:mt-12' : ''
-        }`}
+        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform ${service.video ? 'mt-6 md:mt-12' : ''
+          }`}
       >
         <div className="relative">
           <span
             aria-hidden
-            className={`absolute inset-0 rounded-[32px] blur-2xl transition-all duration-500 ${
-              service.video ? 'scale-[1.2] opacity-30' : 'scale-[1.6] opacity-[0.42]'
-            }`}
+            className={`absolute inset-0 rounded-[32px] blur-2xl transition-all duration-500 ${service.video ? 'scale-[1.2] opacity-30' : 'scale-[1.6] opacity-[0.42]'
+              }`}
             style={{ background: service.accent }}
           />
           <div
-            className={`relative flex items-center justify-center overflow-hidden transition-all duration-500 shadow-2xl ${
-              service.video
+            className={`relative flex items-center justify-center overflow-hidden transition-all duration-500 shadow-2xl ${service.video
                 ? 'w-[260px] sm:w-[380px] md:w-[460px] lg:w-[600px] xl:w-[680px] aspect-video rounded-[24px]'
                 : 'h-[140px] w-[140px] md:h-[160px] md:w-[160px] rounded-[32px]'
-            }`}
+              }`}
             style={{
               background: `linear-gradient(135deg, ${service.accent} 0%, ${service.accent}DD 100%)`,
               boxShadow: `0 30px 80px -10px ${service.accent}88, inset 0 0 0 1px rgba(255,255,255,0.28)`,
@@ -486,7 +483,7 @@ function ShowcaseStage({ service }: { service: HomeService }) {
                 src={service.video}
                 autoPlay
                 loop
-                controls
+                muted
                 playsInline
                 className="absolute inset-0 h-full w-full object-cover"
               />
