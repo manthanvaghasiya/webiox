@@ -122,7 +122,7 @@ const Hero = () => {
           preserveAspectRatio="none"
         >
           <path
-            d="M0,100 C377,-120 700,300 1200,0 V120 H0 Z"
+            d="M0,120 C300,40 600,100 1200,20 V120 H0 Z"
             className="fill-[#FAFBFC]"
           />
         </svg>
