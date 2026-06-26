@@ -175,7 +175,7 @@ export default function Services() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-24 lg:px-8 lg:pb-32 pt-[calc(4rem+40px)] md:pt-[calc(5rem+60px)] lg:pt-[calc(8rem+100px)]">
+      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-24 lg:px-8 lg:pb-32 pt-[calc(6rem+40px)] md:pt-[calc(6rem+60px)] lg:pt-[calc(8rem+100px)]">
         <Header />
 
         <IndustriesMarquee />
