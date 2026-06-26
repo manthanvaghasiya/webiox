@@ -486,7 +486,7 @@ function ShowcaseStage({ service }: { service: HomeService }) {
                 src={service.video}
                 autoPlay
                 loop
-                muted
+                controls
                 playsInline
                 className="absolute inset-0 h-full w-full object-cover"
               />
