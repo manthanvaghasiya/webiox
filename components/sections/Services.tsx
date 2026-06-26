@@ -128,6 +128,7 @@ const SERVICES: readonly HomeService[] = [
       caption: 'Handled overnight without a single human',
     },
     icon: Bot,
+    video: '/AI.mp4',
     accent: '#7C3AED',
     accentSurface: '#F5F3FF',
     href: '/services#ai-solutions',
