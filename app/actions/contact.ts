@@ -35,3 +35,28 @@ export async function getInquiries() {
     return [];
   }
 }
+
+import { ObjectId } from 'mongodb';
+
+export async function updateInquiryStatus(id: string, status: string) {
+  try {
+    const { db } = await connectToDatabase();
+    await db.collection('inquiries').updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { status } }
+    );
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}
+
+export async function deleteInquiry(id: string) {
+  try {
+    const { db } = await connectToDatabase();
+    await db.collection('inquiries').deleteOne({ _id: new ObjectId(id) });
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}

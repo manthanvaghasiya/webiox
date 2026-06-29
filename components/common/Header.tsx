@@ -71,6 +71,10 @@ export default function Header() {
     setMounted(true);
   }, []);
 
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     onScroll();

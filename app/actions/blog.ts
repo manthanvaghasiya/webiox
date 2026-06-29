@@ -54,3 +54,38 @@ export async function deleteBlog(id: string) {
     return { success: false, error: error.message };
   }
 }
+
+export async function getBlogById(id: string) {
+  try {
+    const { db } = await connectToDatabase();
+    const blog = await db.collection('blogs').findOne({ _id: new ObjectId(id) });
+    if (!blog) return null;
+    
+    return {
+      id: blog._id.toString(),
+      title: blog.title,
+      slug: blog.slug || '',
+      excerpt: blog.excerpt || '',
+      content: blog.content || '',
+      status: blog.status || 'Draft',
+      date: blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : 'Unknown Date',
+      views: blog.views || 0
+    };
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+export async function updateBlog(id: string, data: any) {
+  try {
+    const { db } = await connectToDatabase();
+    await db.collection('blogs').updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { ...data, updatedAt: new Date() } }
+    );
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}

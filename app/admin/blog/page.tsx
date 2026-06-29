@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Search, Edit3, Trash2, Eye, X } from 'lucide-react';
-import { getBlogs, addBlog, deleteBlog } from '@/app/actions/blog';
+import { Plus, Search, Edit3, Trash2, Eye, X, Save, ArrowLeft } from 'lucide-react';
+import { getBlogs, addBlog, deleteBlog, getBlogById, updateBlog } from '@/app/actions/blog';
 import Link from 'next/link';
 
 export default function BlogManager() {
@@ -11,10 +11,15 @@ export default function BlogManager() {
   const [blogs, setBlogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   
-  // Modal State
+  // Create Modal State
   const [showModal, setShowModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [newBlog, setNewBlog] = useState({ title: '', status: 'Draft' });
+
+  // Full Editor State
+  const [editingBlog, setEditingBlog] = useState<any>(null);
+  const [isEditorOpen, setIsEditorOpen] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
   async function load() {
     setLoading(true);
@@ -31,11 +36,34 @@ export default function BlogManager() {
     e.preventDefault();
     if (!newBlog.title) return;
     setIsSubmitting(true);
-    await addBlog(newBlog);
+    
+    // Capture the state before clearing it
+    const createdTitle = newBlog.title;
+    const createdStatus = newBlog.status;
+    
+    const result = await addBlog(newBlog);
+    
     setNewBlog({ title: '', status: 'Draft' });
     setShowModal(false);
     setIsSubmitting(false);
-    load();
+    
+    // Always reload the list so it's fresh behind the modal
+    await load();
+    
+    if (result && result.success && result.id) {
+      // Immediately open the editor with the initial known state to guarantee it opens fast
+      setEditingBlog({
+        id: result.id,
+        title: createdTitle,
+        status: createdStatus,
+        slug: '',
+        excerpt: '',
+        content: '',
+        views: 0,
+        date: new Date().toLocaleDateString()
+      });
+      setIsEditorOpen(true);
+    }
   };
 
   const handleDelete = async (id: string) => {
@@ -45,6 +73,113 @@ export default function BlogManager() {
     }
   };
 
+  const openEditor = async (id: string) => {
+    const blog = await getBlogById(id);
+    if (blog) {
+      setEditingBlog(blog);
+      setIsEditorOpen(true);
+    }
+  };
+
+  const saveEdits = async () => {
+    if (!editingBlog) return;
+    setIsSaving(true);
+    const { id, date, views, ...updateData } = editingBlog; // Remove non-updatable fields
+    await updateBlog(id, updateData);
+    setIsSaving(false);
+    setIsEditorOpen(false);
+    load();
+  };
+
+  // --- Editor View ---
+  if (isEditorOpen && editingBlog) {
+    return (
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-[#F9FAFB] flex flex-col h-screen overflow-hidden">
+        {/* Editor Header */}
+        <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shrink-0 shadow-sm z-10">
+          <div className="flex items-center gap-4">
+            <button onClick={() => setIsEditorOpen(false)} className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-500">
+              <ArrowLeft size={20} />
+            </button>
+            <div>
+              <h2 className="font-bold text-slate-900 leading-tight">Edit Post</h2>
+              <p className="text-xs text-slate-500 font-medium">Auto-saving disabled</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <select 
+              value={editingBlog.status}
+              onChange={(e) => setEditingBlog({...editingBlog, status: e.target.value})}
+              className="px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/50"
+            >
+              <option value="Draft">Draft</option>
+              <option value="Published">Published</option>
+            </select>
+            <button 
+              onClick={saveEdits}
+              disabled={isSaving}
+              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all shadow-lg shadow-indigo-600/20 disabled:opacity-70"
+            >
+              <Save size={16} /> {isSaving ? 'Saving...' : 'Save Changes'}
+            </button>
+          </div>
+        </div>
+
+        {/* Editor Content Area */}
+        <div className="flex-1 overflow-y-auto p-6 md:p-12">
+          <div className="max-w-4xl mx-auto space-y-8">
+            
+            {/* Title & Slug */}
+            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+              <input 
+                type="text" 
+                value={editingBlog.title}
+                onChange={(e) => setEditingBlog({...editingBlog, title: e.target.value})}
+                placeholder="Post Title..."
+                className="w-full text-4xl md:text-5xl font-extrabold text-slate-900 placeholder:text-slate-300 border-none outline-none focus:ring-0 p-0 mb-4 bg-transparent"
+              />
+              <div className="flex items-center gap-2">
+                <span className="text-slate-400 font-medium text-sm">webiox.tech/blog/</span>
+                <input 
+                  type="text"
+                  value={editingBlog.slug || ''}
+                  onChange={(e) => setEditingBlog({...editingBlog, slug: e.target.value})}
+                  placeholder="post-url-slug"
+                  className="flex-1 text-sm font-medium text-slate-700 placeholder:text-slate-300 border-none outline-none focus:ring-0 p-0 bg-transparent"
+                />
+              </div>
+            </div>
+
+            {/* Excerpt */}
+            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+              <label className="block text-sm font-bold text-slate-700 mb-3">Short Excerpt</label>
+              <textarea 
+                value={editingBlog.excerpt || ''}
+                onChange={(e) => setEditingBlog({...editingBlog, excerpt: e.target.value})}
+                rows={2}
+                placeholder="Write a brief summary of this post for the blog grid..."
+                className="w-full text-slate-600 placeholder:text-slate-400 border border-slate-200 rounded-xl p-4 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 resize-none font-medium transition-all"
+              />
+            </div>
+
+            {/* Main Content */}
+            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm min-h-[500px] flex flex-col">
+              <label className="block text-sm font-bold text-slate-700 mb-3">Article Content (Markdown/HTML supported)</label>
+              <textarea 
+                value={editingBlog.content || ''}
+                onChange={(e) => setEditingBlog({...editingBlog, content: e.target.value})}
+                placeholder="Start writing your masterpiece here..."
+                className="w-full flex-1 text-slate-700 placeholder:text-slate-300 border-none outline-none focus:ring-0 p-0 bg-transparent resize-none leading-relaxed text-lg"
+              />
+            </div>
+
+          </div>
+        </div>
+      </motion.div>
+    );
+  }
+
+  // --- List View ---
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-6xl mx-auto flex flex-col gap-8 pb-12">
       
@@ -102,7 +237,7 @@ export default function BlogManager() {
               ) : blogs.map((blog) => (
                 <tr key={blog.id} className="hover:bg-slate-50/50 transition-colors group">
                   <td className="p-5">
-                    <div className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">{blog.title}</div>
+                    <div className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors cursor-pointer" onClick={() => openEditor(blog.id)}>{blog.title}</div>
                   </td>
                   <td className="p-5">
                     <span className={`inline-flex px-2.5 py-1 rounded-md text-xs font-bold ${
@@ -117,7 +252,7 @@ export default function BlogManager() {
                   </td>
                   <td className="p-5 text-right">
                     <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"><Edit3 size={16} /></button>
+                      <button onClick={() => openEditor(blog.id)} className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"><Edit3 size={16} /></button>
                       <button onClick={() => handleDelete(blog.id)} className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"><Trash2 size={16} /></button>
                     </div>
                   </td>
@@ -131,7 +266,7 @@ export default function BlogManager() {
       {/* Create Modal */}
       <AnimatePresence>
         {showModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={() => setShowModal(false)} />
             
             <motion.div initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }} className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">

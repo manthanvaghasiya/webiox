@@ -51,15 +51,25 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       <div className="p-4 mt-auto border-t border-slate-800/50">
         <div className="text-[11px] font-bold text-slate-500 uppercase tracking-widest mb-4 px-3">External Apps</div>
-        
-        <a href="https://leads.webiox.tech" target="_blank" rel="noopener noreferrer" 
-           className="relative overflow-hidden group flex items-center justify-between px-4 py-3.5 bg-slate-900 border border-indigo-500/20 text-white rounded-xl font-bold shadow-lg hover:border-indigo-500/50 hover:shadow-indigo-500/20 transition-all duration-300">
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-violet-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <span className="flex items-center gap-2 relative z-10">
-            <ExternalLink size={18} className="text-indigo-400" /> Lead Panel
-          </span>
-          <span className="text-indigo-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10">↗</span>
-        </a>
+        <div className="space-y-3">
+          <a href="https://leads.webiox.tech" target="_blank" rel="noopener noreferrer" 
+             className="relative overflow-hidden group flex items-center justify-between px-4 py-3.5 bg-slate-900 border border-indigo-500/20 text-white rounded-xl font-bold shadow-lg hover:border-indigo-500/50 hover:shadow-indigo-500/20 transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-violet-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <span className="flex items-center gap-2 relative z-10">
+              <ExternalLink size={18} className="text-indigo-400" /> Lead Panel
+            </span>
+            <span className="text-indigo-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10">↗</span>
+          </a>
+
+          <a href="https://invoice.webiox.tech" target="_blank" rel="noopener noreferrer" 
+             className="relative overflow-hidden group flex items-center justify-between px-4 py-3.5 bg-slate-900 border border-indigo-500/20 text-white rounded-xl font-bold shadow-lg hover:border-indigo-500/50 hover:shadow-indigo-500/20 transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-violet-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <span className="flex items-center gap-2 relative z-10">
+              <ExternalLink size={18} className="text-indigo-400" /> Invoice App
+            </span>
+            <span className="text-indigo-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10">↗</span>
+          </a>
+        </div>
         
         <button className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-xl w-full text-left mt-4 transition-colors font-medium">
           <LogOut size={18} /> Logout

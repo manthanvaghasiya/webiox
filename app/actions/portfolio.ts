@@ -19,6 +19,10 @@ export async function getProjects() {
       id: doc._id.toString(),
       name: doc.name,
       category: doc.category,
+      description: doc.description || '',
+      clientName: doc.clientName || '',
+      liveLink: doc.liveLink || '',
+      imageUrl: doc.imageUrl || '',
       date: doc.createdAt ? new Date(doc.createdAt).toLocaleDateString() : 'Unknown',
       img: doc.img || 'bg-slate-100'
     }));
@@ -30,20 +34,39 @@ export async function getProjects() {
 
 import { ObjectId } from 'mongodb';
 
-export async function addProject(data: { name: string, category: string }) {
+export async function addProject(data: { name: string, category: string, description?: string, clientName?: string, liveLink?: string, imageUrl?: string }) {
   try {
     const { db } = await connectToDatabase();
     
-    // Assign a random background color for the image placeholder
+    // Assign a random background color for the image placeholder if no image provided
     const colors = ['bg-emerald-100', 'bg-indigo-100', 'bg-amber-100', 'bg-rose-100', 'bg-blue-100'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     
     const result = await db.collection('projects').insertOne({
       ...data,
-      img: randomColor,
+      img: data.imageUrl || randomColor,
       createdAt: new Date()
     });
     return { success: true, id: result.insertedId.toString() };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}
+
+export async function updateProject(id: string, data: { name?: string, category?: string, description?: string, clientName?: string, liveLink?: string, imageUrl?: string }) {
+  try {
+    const { db } = await connectToDatabase();
+    
+    const updateData: any = { ...data };
+    if (data.imageUrl) {
+      updateData.img = data.imageUrl;
+    }
+
+    await db.collection('projects').updateOne(
+      { _id: new ObjectId(id) },
+      { $set: updateData }
+    );
+    return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message };
   }

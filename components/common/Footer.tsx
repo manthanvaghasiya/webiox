@@ -71,6 +71,10 @@ export default function Footer() {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <footer
       ref={ref}
