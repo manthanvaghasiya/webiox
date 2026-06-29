@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, CheckCircle2, ArrowRight } from 'lucide-react';
+import { submitInquiry } from '@/app/actions/contact';
 import { useState } from 'react';
 
 export default function Contact() {
@@ -15,15 +16,26 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    setError('');
+    
+    try {
+      const response = await submitInquiry(formState);
+      if (response.success) {
+        setIsSubmitted(true);
+        setFormState({ name: '', email: '', phone: '', company: '', service: 'Web Development', message: '' });
+      } else {
+        setError(response.error || 'Failed to submit inquiry. Please try again.');
+      }
+    } catch (err: any) {
+      setError(err.message || 'An unexpected error occurred.');
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormState({ name: '', email: '', phone: '', company: '', service: 'Web Development', message: '' });
-    }, 1500);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -154,6 +166,11 @@ export default function Contact() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+              {error && (
+                <div className="bg-rose-50 text-rose-600 p-4 rounded-xl font-medium text-sm text-center border border-rose-100">
+                  {error}
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className={labelClass}>Full Name *</label>
