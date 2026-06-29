@@ -77,7 +77,7 @@ const SERVICES: readonly HomeService[] = [
     video: '/you_make_good_video_for_we_add.mp4',
     accent: '#0E5E64',
     accentSurface: '#EEF6F6',
-    href: '/services#web-development',
+    href: '/portfolio',
   },
   {
     id: 'saas-development',
@@ -104,7 +104,7 @@ const SERVICES: readonly HomeService[] = [
     video: '/Initial_Scene_-_2026-05-31_202605311248.mp4',
     accent: '#FFBF00',
     accentSurface: '#FFFBEB',
-    href: '/services#saas-development',
+    href: '/portfolio',
   },
   {
     id: 'ai-solutions',
@@ -131,7 +131,7 @@ const SERVICES: readonly HomeService[] = [
     video: '/AI.mp4',
     accent: '#7C3AED',
     accentSurface: '#F5F3FF',
-    href: '/services#ai-solutions',
+    href: '/portfolio',
   },
 ] as const;
 
@@ -179,7 +179,7 @@ export default function Services() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-24 lg:px-8 lg:pb-32 pt-[calc(6rem+40px)] md:pt-[calc(6rem+60px)] lg:pt-[calc(8rem+100px)]">
+      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-4 lg:px-8 lg:pb-4 pt-[calc(6rem+40px)] md:pt-[calc(6rem+60px)] lg:pt-[calc(8rem+100px)]">
         <Header />
 
         <IndustriesMarquee />
@@ -683,14 +683,14 @@ function TrustStrip() {
       whileInView="visible"
       viewport={{ once: true, margin: '-80px' }}
       transition={{ delay: 0.2 }}
-      className="mt-14 flex flex-col items-center justify-between gap-6 rounded-2xl border border-slate-200/70 bg-white/60 px-6 py-5 backdrop-blur md:flex-row md:px-8"
+      className="mt-14 flex flex-col items-start justify-between gap-6 rounded-2xl border border-slate-200/70 bg-white/60 px-5 py-6 backdrop-blur md:flex-row md:items-center md:px-8 md:py-5"
     >
-      <div className="flex items-center gap-3 text-center md:text-left">
-        <span className="relative flex h-2.5 w-2.5">
+      <div className="flex items-start md:items-center gap-3 text-left">
+        <span className="relative flex h-2.5 w-2.5 shrink-0 mt-1.5 md:mt-0">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
           <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
         </span>
-        <p className="text-[14px] text-slate-700">
+        <p className="text-[14px] leading-relaxed text-slate-700">
           <span className="font-semibold text-slate-900">Currently taking on</span> 2 more projects
           this quarter.
         </p>
@@ -698,7 +698,7 @@ function TrustStrip() {
 
       <Link
         href="/contact"
-        className="group/cta inline-flex items-center gap-2.5 rounded-full bg-slate-900 px-6 py-3 text-[13px] font-semibold tracking-wide text-white shadow-[0_10px_30px_-10px_rgba(15,23,42,0.4)] transition-colors duration-300 hover:bg-[#0E5E64] hover:shadow-[0_14px_40px_-10px_rgba(14,94,100,0.5)]"
+        className="group/cta w-full md:w-auto inline-flex justify-center items-center gap-2.5 rounded-full bg-slate-900 px-6 py-3.5 md:py-3 text-[13px] font-semibold tracking-wide text-white shadow-[0_10px_30px_-10px_rgba(15,23,42,0.4)] transition-colors duration-300 hover:bg-[#0E5E64] hover:shadow-[0_14px_40px_-10px_rgba(14,94,100,0.5)]"
       >
         Tell us about your project
         <ArrowUpRight

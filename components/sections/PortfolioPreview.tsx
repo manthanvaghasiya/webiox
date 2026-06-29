@@ -108,10 +108,10 @@ export default function PortfolioPreview() {
 
   return (
     <section ref={containerRef} className="relative h-[500vh] bg-slate-50 pb-20 md:pb-32">
-      <div className="sticky top-0 h-[100vh] w-full overflow-hidden flex flex-col lg:flex-row items-center lg:items-stretch lg:justify-between px-4 sm:px-6 lg:px-12 xl:px-20 gap-8 lg:gap-16 pt-24 lg:pt-0 pb-24 lg:pb-32 xl:pb-40">
+      <div className="sticky top-0 h-[100vh] w-full overflow-hidden flex flex-col lg:flex-row items-center lg:items-stretch lg:justify-between px-4 sm:px-6 lg:px-12 xl:px-20 gap-8 lg:gap-16 pt-12 lg:pt-0 pb-24 lg:pb-32 xl:pb-40">
 
         {/* Left Side: Permanent Content */}
-        <div className="w-full lg:w-[45%] xl:w-[40%] flex flex-col justify-center lg:justify-start lg:pt-32 shrink-0 z-50 order-1 lg:order-none lg:h-[100vh]">
+        <div className="w-full lg:w-[45%] xl:w-[40%] flex flex-col justify-center lg:justify-start lg:pt-20 shrink-0 z-50 order-1 lg:order-none lg:h-[100vh]">
           <div className="max-w-xl mx-auto lg:mx-0 w-full text-center lg:text-left pt-6 lg:pt-0 relative">
 
             {/* Decorative background element */}
@@ -142,13 +142,14 @@ export default function PortfolioPreview() {
               transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="relative"
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal text-slate-900 tracking-tight leading-[1.1] mb-4 md:mb-6">
-                Transforming <br className="hidden md:block" />
-                <span className="relative inline-block text-[#0E5E64] italic pr-5">
+              <h2 className="text-[2rem] leading-[1.2] sm:text-4xl md:text-5xl lg:text-6xl font-normal text-slate-900 tracking-tight mb-5 md:mb-6">
+                Transforming{' '}
+                <span className="relative inline-block text-[#0E5E64] italic pr-1">
                   ideas
-                  <span className="absolute bottom-2 left-0 w-full h-[0.1em] bg-[#FFBF00]/30 -z-10 -rotate-2" />
+                  <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-[0.1em] bg-[#FFBF00]/30 -z-10 -rotate-2" />
                 </span>
-                into <br className="hidden lg:block" /> digital reality.
+                <br />
+                into digital reality.
               </h2>
             </motion.div>
 
@@ -160,7 +161,7 @@ export default function PortfolioPreview() {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="relative pl-0 lg:pl-6 border-l-0 lg:border-l border-slate-200 mb-10 md:mb-8"
             >
-              <p className="text-slate-500 text-lg md:text-xl font-light leading-relaxed max-w-lg mx-auto lg:mx-0 hidden md:block">
+              <p className="text-slate-500 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-lg mx-auto lg:mx-0">
                 Explore our portfolio of innovative digital solutions and transformative user experiences. We build <span className="text-slate-800 font-medium">precision-engineered platforms</span> for visionary brands.
               </p>
             </motion.div>
