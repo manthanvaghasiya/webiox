@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Search, Edit3, Trash2, Eye, X, Save, ArrowLeft } from 'lucide-react';
 import { getBlogs, addBlog, deleteBlog, getBlogById, updateBlog } from '@/app/actions/blog';
@@ -102,8 +103,8 @@ export default function BlogManager() {
 
   // --- Editor View ---
   if (isEditorOpen && editingBlog) {
-    return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-[#F9FAFB] flex flex-col h-screen overflow-hidden">
+    const editorContent = (
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] bg-[#F9FAFB] flex flex-col h-screen overflow-hidden">
         {/* Editor Header */}
         <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shrink-0 shadow-sm z-10">
           <div className="flex items-center gap-4">
@@ -328,6 +329,7 @@ export default function BlogManager() {
         </div>
       </motion.div>
     );
+    return typeof document !== 'undefined' ? createPortal(editorContent, document.body) : null;
   }
 
   // --- List View ---
@@ -416,8 +418,8 @@ export default function BlogManager() {
 
       {/* Create Modal */}
       <AnimatePresence>
-        {showModal && (
-          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+        {showModal && typeof document !== 'undefined' && createPortal(
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={() => setShowModal(false)} />
             
             <motion.div initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }} className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">
@@ -451,7 +453,8 @@ export default function BlogManager() {
                 </div>
               </form>
             </motion.div>
-          </div>
+          </div>,
+          document.body
         )}
       </AnimatePresence>
     </motion.div>

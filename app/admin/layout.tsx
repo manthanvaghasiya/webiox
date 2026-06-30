@@ -119,7 +119,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Top Navbar removed as requested */}
 
         {/* Scrollable Content */}
-        <div className="flex-1 p-4 sm:p-6 lg:p-8 z-10">
+        <div className="flex-1 p-4 sm:p-6 lg:p-8 relative">
           {children}
         </div>
       </main>
