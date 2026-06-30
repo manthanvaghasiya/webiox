@@ -60,7 +60,16 @@ export default function BlogManager() {
         excerpt: '',
         content: '',
         views: 0,
-        date: new Date().toLocaleDateString()
+        date: new Date().toLocaleDateString(),
+        author: '',
+        authorRole: '',
+        authorInitials: '',
+        category: 'Uncategorized',
+        image: '',
+        tags: [],
+        readTime: '5 min read',
+        readMinutes: 5,
+        featured: false
       });
       setIsEditorOpen(true);
     }
@@ -127,52 +136,194 @@ export default function BlogManager() {
 
         {/* Editor Content Area */}
         <div className="flex-1 overflow-y-auto p-6 md:p-12">
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            {/* Title & Slug */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-              <input 
-                type="text" 
-                value={editingBlog.title}
-                onChange={(e) => setEditingBlog({...editingBlog, title: e.target.value})}
-                placeholder="Post Title..."
-                className="w-full text-4xl md:text-5xl font-extrabold text-slate-900 placeholder:text-slate-300 border-none outline-none focus:ring-0 p-0 mb-4 bg-transparent"
-              />
-              <div className="flex items-center gap-2">
-                <span className="text-slate-400 font-medium text-sm">webiox.tech/blog/</span>
+            {/* Main Content Column */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* Title & Slug */}
+              <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
                 <input 
-                  type="text"
-                  value={editingBlog.slug || ''}
-                  onChange={(e) => setEditingBlog({...editingBlog, slug: e.target.value})}
-                  placeholder="post-url-slug"
-                  className="flex-1 text-sm font-medium text-slate-700 placeholder:text-slate-300 border-none outline-none focus:ring-0 p-0 bg-transparent"
+                  type="text" 
+                  value={editingBlog.title}
+                  onChange={(e) => setEditingBlog({...editingBlog, title: e.target.value})}
+                  placeholder="Post Title..."
+                  className="w-full text-4xl md:text-5xl font-extrabold text-slate-900 placeholder:text-slate-300 border-none outline-none focus:ring-0 p-0 mb-4 bg-transparent"
+                />
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-400 font-medium text-sm">webiox.tech/blog/</span>
+                  <input 
+                    type="text"
+                    value={editingBlog.slug || ''}
+                    onChange={(e) => setEditingBlog({...editingBlog, slug: e.target.value})}
+                    placeholder="post-url-slug"
+                    className="flex-1 text-sm font-medium text-slate-700 placeholder:text-slate-300 border-none outline-none focus:ring-0 p-0 bg-transparent"
+                  />
+                </div>
+              </div>
+
+              {/* Excerpt */}
+              <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+                <label className="block text-sm font-bold text-slate-700 mb-3">Short Excerpt</label>
+                <textarea 
+                  value={editingBlog.excerpt || ''}
+                  onChange={(e) => setEditingBlog({...editingBlog, excerpt: e.target.value})}
+                  rows={2}
+                  placeholder="Write a brief summary of this post for the blog grid..."
+                  className="w-full text-slate-600 placeholder:text-slate-400 border border-slate-200 rounded-xl p-4 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 resize-none font-medium transition-all"
+                />
+              </div>
+
+              {/* Main Content */}
+              <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm min-h-[500px] flex flex-col">
+                <label className="block text-sm font-bold text-slate-700 mb-3">Article Content (Markdown/HTML supported)</label>
+                <textarea 
+                  value={editingBlog.content || ''}
+                  onChange={(e) => setEditingBlog({...editingBlog, content: e.target.value})}
+                  placeholder="Start writing your masterpiece here..."
+                  className="w-full flex-1 text-slate-700 placeholder:text-slate-300 border-none outline-none focus:ring-0 p-0 bg-transparent resize-none leading-relaxed text-lg"
                 />
               </div>
             </div>
 
-            {/* Excerpt */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-              <label className="block text-sm font-bold text-slate-700 mb-3">Short Excerpt</label>
-              <textarea 
-                value={editingBlog.excerpt || ''}
-                onChange={(e) => setEditingBlog({...editingBlog, excerpt: e.target.value})}
-                rows={2}
-                placeholder="Write a brief summary of this post for the blog grid..."
-                className="w-full text-slate-600 placeholder:text-slate-400 border border-slate-200 rounded-xl p-4 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 resize-none font-medium transition-all"
-              />
-            </div>
+            {/* Sidebar Column */}
+            <div className="lg:col-span-1 space-y-6">
+              
+              {/* Media Settings */}
+              <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
+                <h3 className="text-lg font-bold text-slate-900 mb-4">Media</h3>
+                
+                <label className="block text-sm font-bold text-slate-700 mb-2">Cover Image URL</label>
+                <input 
+                  type="text" 
+                  value={editingBlog.image || ''}
+                  onChange={(e) => setEditingBlog({...editingBlog, image: e.target.value})}
+                  placeholder="https://images.unsplash.com/..."
+                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 font-medium text-slate-700 text-sm mb-4"
+                />
+                
+                {editingBlog.image ? (
+                  <div className="w-full aspect-video rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
+                    <img src={editingBlog.image} alt="Cover Preview" className="w-full h-full object-cover" />
+                  </div>
+                ) : (
+                  <div className="w-full aspect-video rounded-xl bg-slate-50 border-2 border-dashed border-slate-200 flex items-center justify-center text-slate-400 text-sm font-medium">
+                    No image provided
+                  </div>
+                )}
+              </div>
 
-            {/* Main Content */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm min-h-[500px] flex flex-col">
-              <label className="block text-sm font-bold text-slate-700 mb-3">Article Content (Markdown/HTML supported)</label>
-              <textarea 
-                value={editingBlog.content || ''}
-                onChange={(e) => setEditingBlog({...editingBlog, content: e.target.value})}
-                placeholder="Start writing your masterpiece here..."
-                className="w-full flex-1 text-slate-700 placeholder:text-slate-300 border-none outline-none focus:ring-0 p-0 bg-transparent resize-none leading-relaxed text-lg"
-              />
-            </div>
+              {/* Taxonomy & Meta */}
+              <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Post Details</h3>
+                
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">Category</label>
+                  <select 
+                    value={editingBlog.category || 'Uncategorized'}
+                    onChange={(e) => setEditingBlog({...editingBlog, category: e.target.value})}
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 font-medium text-slate-700 text-sm"
+                  >
+                    <option value="Uncategorized">Uncategorized</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Design">Design</option>
+                    <option value="DevOps">DevOps</option>
+                    <option value="AI & ML">AI & ML</option>
+                    <option value="Performance">Performance</option>
+                    <option value="Strategy">Strategy</option>
+                  </select>
+                </div>
 
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">Tags (Comma separated)</label>
+                  <input 
+                    type="text" 
+                    value={editingBlog.tags?.join(', ') || ''}
+                    onChange={(e) => setEditingBlog({...editingBlog, tags: e.target.value.split(',').map((t: string) => t.trim()).filter(Boolean)})}
+                    placeholder="react, UI, performance"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 font-medium text-slate-700 text-sm"
+                  />
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-1">
+                    <label className="block text-sm font-bold text-slate-700 mb-2">Read Time</label>
+                    <input 
+                      type="text" 
+                      value={editingBlog.readTime || ''}
+                      onChange={(e) => setEditingBlog({...editingBlog, readTime: e.target.value})}
+                      placeholder="5 min read"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 font-medium text-slate-700 text-sm"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <label className="block text-sm font-bold text-slate-700 mb-2">Read Min</label>
+                    <input 
+                      type="number" 
+                      value={editingBlog.readMinutes || 5}
+                      onChange={(e) => setEditingBlog({...editingBlog, readMinutes: parseInt(e.target.value) || 0})}
+                      placeholder="5"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 font-medium text-slate-700 text-sm"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 pt-2">
+                  <input 
+                    type="checkbox" 
+                    id="featuredToggle"
+                    checked={editingBlog.featured || false}
+                    onChange={(e) => setEditingBlog({...editingBlog, featured: e.target.checked})}
+                    className="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                  />
+                  <label htmlFor="featuredToggle" className="text-sm font-bold text-slate-700 cursor-pointer">
+                    Featured Post
+                  </label>
+                </div>
+              </div>
+
+              {/* Author Details */}
+              <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Author</h3>
+                
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">Name</label>
+                  <input 
+                    type="text" 
+                    value={editingBlog.author || ''}
+                    onChange={(e) => setEditingBlog({...editingBlog, author: e.target.value})}
+                    placeholder="John Doe"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 font-medium text-slate-700 text-sm"
+                  />
+                </div>
+                
+                <div className="flex gap-4">
+                  <div className="flex-[2]">
+                    <label className="block text-sm font-bold text-slate-700 mb-2">Role</label>
+                    <input 
+                      type="text" 
+                      value={editingBlog.authorRole || ''}
+                      onChange={(e) => setEditingBlog({...editingBlog, authorRole: e.target.value})}
+                      placeholder="CTO"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 font-medium text-slate-700 text-sm"
+                    />
+                  </div>
+                  <div className="flex-[1]">
+                    <label className="block text-sm font-bold text-slate-700 mb-2">Initials</label>
+                    <input 
+                      type="text" 
+                      value={editingBlog.authorInitials || ''}
+                      onChange={(e) => setEditingBlog({...editingBlog, authorInitials: e.target.value})}
+                      placeholder="JD"
+                      maxLength={2}
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 font-medium text-slate-700 text-sm uppercase"
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </motion.div>

@@ -116,23 +116,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Decorative Background Blob */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
 
-        {/* Top Navbar (Desktop) */}
-        <header className="h-[72px] bg-white/60 backdrop-blur-xl border-b border-slate-200/50 flex items-center justify-between px-8 shrink-0 hidden lg:flex sticky top-0 z-30">
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-500">
-            <span>Admin</span>
-            <span className="text-slate-300">/</span>
-            <span className="text-slate-900 capitalize">{pathname.split('/').pop() || 'Dashboard'}</span>
-          </div>
-          <div className="flex items-center gap-5">
-            <button className="relative text-slate-400 hover:text-indigo-600 transition-colors">
-              <Bell size={20} />
-              <span className="absolute top-0 right-0 w-2 h-2 bg-rose-500 rounded-full ring-2 ring-white"></span>
-            </button>
-            <div className="w-9 h-9 bg-gradient-to-br from-indigo-100 to-violet-100 border border-indigo-200 text-indigo-700 rounded-full flex items-center justify-center font-bold text-sm shadow-sm cursor-pointer hover:shadow-md transition-shadow">
-              AD
-            </div>
-          </div>
-        </header>
+        {/* Top Navbar removed as requested */}
 
         {/* Scrollable Content */}
         <div className="flex-1 p-4 sm:p-6 lg:p-8 z-10">

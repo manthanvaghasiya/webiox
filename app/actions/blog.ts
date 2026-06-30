@@ -37,6 +37,18 @@ export async function addBlog(data: { title: string, status: string }) {
     const result = await db.collection('blogs').insertOne({
       ...data,
       views: 0,
+      slug: '',
+      excerpt: '',
+      content: '',
+      author: '',
+      authorRole: '',
+      authorInitials: '',
+      category: 'Uncategorized',
+      image: '',
+      tags: [],
+      readTime: '5 min read',
+      readMinutes: 5,
+      featured: false,
       createdAt: new Date()
     });
     return { success: true, id: result.insertedId.toString() };
@@ -69,7 +81,16 @@ export async function getBlogById(id: string) {
       content: blog.content || '',
       status: blog.status || 'Draft',
       date: blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : 'Unknown Date',
-      views: blog.views || 0
+      views: blog.views || 0,
+      author: blog.author || '',
+      authorRole: blog.authorRole || '',
+      authorInitials: blog.authorInitials || '',
+      category: blog.category || 'Uncategorized',
+      image: blog.image || '',
+      tags: blog.tags || [],
+      readTime: blog.readTime || '5 min read',
+      readMinutes: blog.readMinutes || 5,
+      featured: blog.featured || false
     };
   } catch (error) {
     console.error(error);
