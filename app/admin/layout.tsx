@@ -14,7 +14,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
     { name: 'Inquiries', href: '/admin/inquiries', icon: MessageSquare },
     { name: 'Blog Posts', href: '/admin/blog', icon: FileText },
-    { name: 'Portfolio', href: '/admin/portfolio', icon: ImageIcon },
     { name: 'Settings', href: '/admin/settings', icon: Settings },
   ];
 

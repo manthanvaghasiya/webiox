@@ -7,45 +7,13 @@ import JourneyHero from '@/components/portfolio/JourneyHero';
 import PortfolioFilter from '@/components/portfolio/PortfolioFilter';
 import { allProjects } from '@/data/projects';
 
-import { getProjects } from '@/app/actions/portfolio';
-import { Project } from '@/data/projects';
-
 const Portfolio = () => {
   // Reset window to origin for uninterrupted 300vh experience
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [dbProjects, setDbProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    const loadDBProjects = async () => {
-      try {
-        const rawProjects = await getProjects();
-        const formatted: Project[] = rawProjects.map((rp: any) => ({
-          id: rp.id,
-          title: rp.name,
-          category: rp.category,
-          year: rp.date ? (rp.date.includes('/') ? rp.date.split('/')[2] : rp.date) : '2026',
-          shortDescription: rp.description || '',
-          fullDescription: rp.description || '',
-          features: [],
-          tech: [],
-          image: rp.imageUrl || (rp.img?.startsWith('http') ? rp.img : '/GovDocVerifyPlatform.png'),
-          modalImage: rp.imageUrl || (rp.img?.startsWith('http') ? rp.img : '/GovDocVerifyPlatform.png'),
-          liveLink: rp.liveLink || '#'
-        }));
-        setDbProjects(formatted);
-      } catch (err) {
-        console.error("Failed to load db projects", err);
-      }
-    };
-    loadDBProjects();
-  }, []);
-
-  const mergedProjects = useMemo(() => {
-    return [...dbProjects, ...allProjects];
-  }, [dbProjects]);
+  const mergedProjects = allProjects;
 
   // Extract unique categories safely for the filter component
   const categories = useMemo(() => {

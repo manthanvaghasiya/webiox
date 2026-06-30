@@ -33,7 +33,6 @@ export default function DashboardClient({ blogs, stats }: { blogs: any[], stats:
       <motion.div variants={container} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
           { title: 'Total Blogs', value: stats.totalBlogs.toString(), change: '+Active', icon: BookOpen, color: 'blue' },
-          { title: 'Total Portfolios', value: stats.totalPortfolios.toString(), change: '+Active', icon: Briefcase, color: 'indigo' },
           { title: 'Total Views', value: stats.totalViews.toString(), change: '+Overall', icon: Eye, color: 'amber', neg: false },
           { title: 'Form Submits', value: stats.totalInquiries.toString(), change: '+New', icon: Mail, color: 'emerald' }
         ].map((stat, i) => {
@@ -112,10 +111,6 @@ export default function DashboardClient({ blogs, stats }: { blogs: any[], stats:
             <div className="space-y-2">
               <Link href="/admin/blog" className="block w-full text-left px-5 py-3.5 bg-slate-50 hover:bg-indigo-50 text-slate-600 hover:text-indigo-700 rounded-2xl font-semibold text-sm transition-all flex items-center justify-between group">
                 + Write New Blog Post
-                <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </Link>
-              <Link href="/admin/portfolio" className="block w-full text-left px-5 py-3.5 bg-slate-50 hover:bg-indigo-50 text-slate-600 hover:text-indigo-700 rounded-2xl font-semibold text-sm transition-all flex items-center justify-between group">
-                + Add Portfolio Item
                 <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </Link>
             </div>
