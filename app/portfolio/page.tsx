@@ -22,7 +22,7 @@ const Portfolio = () => {
     const loadDBProjects = async () => {
       try {
         const rawProjects = await getProjects();
-        const formatted: Project[] = rawProjects.map(rp => ({
+        const formatted: Project[] = rawProjects.map((rp: any) => ({
           id: rp.id,
           title: rp.name,
           category: rp.category,
