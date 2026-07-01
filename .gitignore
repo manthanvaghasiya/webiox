@@ -39,3 +39,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+invoice/invoice-app/public/Quotation-QT-5940-_Hariram_Motors.pdf
