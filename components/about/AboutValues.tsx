@@ -408,7 +408,7 @@ const ValueCard = ({ value, position }: CardProps) => {
       className="group relative flex overflow-hidden rounded-[28px] bg-[#E9F4EA] text-gray-900 shadow-[0_22px_50px_-26px_rgba(14,94,100,0.3)] transition-shadow duration-500 will-change-transform hover:shadow-[0_32px_60px_-22px_rgba(14,94,100,0.4)]"
     >
       {/* Left rotated tag strip */}
-      <div className="relative flex w-14 shrink-0 items-center justify-center overflow-hidden bg-[#0E5E64] py-6">
+      <div className="relative flex w-10 sm:w-14 shrink-0 items-center justify-center overflow-hidden bg-[#0E5E64] py-6">
         {/* Strip shimmer on hover */}
         <div
           aria-hidden="true"
@@ -423,11 +423,11 @@ const ValueCard = ({ value, position }: CardProps) => {
       </div>
 
       {/* Right content */}
-      <div className="relative flex-1 overflow-hidden p-7">
+      <div className="relative flex-1 overflow-hidden p-4 sm:p-5 md:p-7">
         {/* Oversized background numeral */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-3 -bottom-10 select-none text-[10.5rem] font-black leading-none tracking-tighter text-[#0E5E64]/[0.08] transition-transform duration-700 group-hover:-translate-y-1 group-hover:scale-105"
+          className="pointer-events-none absolute -right-3 -bottom-10 select-none text-[7rem] md:text-[10.5rem] font-black leading-none tracking-tighter text-[#0E5E64]/[0.08] transition-transform duration-700 group-hover:-translate-y-1 group-hover:scale-105"
         >
           {value.index}
         </div>
@@ -470,6 +470,42 @@ const ValueCard = ({ value, position }: CardProps) => {
   );
 };
 
+/* ─────────────── Mobile Card ─────────────── */
+
+const MobileValueCard = ({ value, position, isLast }: { value: ValueItem; position: number; isLast: boolean }) => {
+  const Icon = value.icon;
+
+  return (
+    <div className="relative z-10 flex w-full min-h-[6.5rem] items-stretch rounded-[20px] bg-white shadow-[0_8px_30px_-12px_rgba(14,94,100,0.2)]">
+      {/* Left blue part */}
+      <div 
+        className="relative w-[35%] sm:w-[25%] shrink-0 overflow-hidden rounded-l-[20px] bg-[#0E5E64]"
+        style={{ clipPath: 'polygon(0 0, 100% 0, 75% 100%, 0 100%)' }}
+      >
+        <div className="absolute inset-0 flex items-center justify-center pr-[15%]">
+          <Icon className="h-8 w-8 text-white opacity-90" strokeWidth={1.5} />
+        </div>
+      </div>
+      
+      {/* Right content */}
+      <div className="flex flex-1 flex-col justify-center py-4 pl-1 pr-16">
+        <h3 className="text-base font-bold text-gray-900 leading-tight mb-1">{value.title}</h3>
+        <p className="text-xs text-gray-500 leading-snug line-clamp-2">{value.body}</p>
+      </div>
+      
+      {/* Number Circle */}
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border-[3px] border-gray-50 bg-white shadow-sm z-10">
+        <span className="text-sm font-extrabold text-[#0E5E64]">{value.index}.</span>
+      </div>
+      
+      {/* Vertical Dashed Line connecting to next */}
+      {!isLast && (
+        <div className="absolute right-[37px] top-[50%] h-[calc(100%+2rem)] w-px border-l-[2px] border-dashed border-[#0E5E64]/30 z-0" />
+      )}
+    </div>
+  );
+};
+
 /* ─────────────── Section ─────────────── */
 
 export default function AboutValues() {
@@ -500,7 +536,7 @@ export default function AboutValues() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden py-24 md:py-28 bg-gradient-to-b from-[#F7FAF8] via-[#E9F4EA]/30 to-[#F7FAF8]"
+      className="relative overflow-hidden py-12 sm:py-16 md:py-28 bg-gradient-to-b from-[#F7FAF8] via-[#E9F4EA]/30 to-[#F7FAF8]"
     >
       {/* Animated blob 1 — teal left */}
       <motion.div
@@ -618,7 +654,7 @@ export default function AboutValues() {
                 Our Core Values
               </span>
             </div>
-            <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-gray-900 md:text-5xl lg:text-[3.4rem]">
+            <h2 className="text-3xl font-bold leading-[1.05] tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-[3.4rem]">
               Six principles that{' '}
               <span className="relative inline-block">
                 shape every
@@ -714,17 +750,11 @@ export default function AboutValues() {
         <motion.div
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="relative lg:hidden"
+          className="relative lg:hidden mx-auto max-w-md pt-8"
         >
           <div className="relative space-y-8">
-            <div
-              aria-hidden="true"
-              className="absolute left-7 top-4 bottom-4 w-px border-l border-dashed border-[#0E5E64]/25"
-            />
             {values.map((value, i) => (
-              <div key={value.title} className="relative">
-                <ValueCard value={value} position={i} />
-              </div>
+              <MobileValueCard key={value.title} value={value} position={i} isLast={i === values.length - 1} />
             ))}
           </div>
         </motion.div>

@@ -64,7 +64,7 @@ const StatCard = ({ icon: Icon, value, suffix, label, desc, delay }: any) => {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className="relative group bg-white/60 backdrop-blur-md rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#0E5E64]/10 hover:border-[#0E5E64]/30 hover:shadow-[0_20px_40px_rgba(14,94,100,0.1)] transition-all duration-500 overflow-hidden cursor-default z-10"
+      className="relative group bg-white/60 backdrop-blur-md rounded-[2rem] p-5 sm:p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#0E5E64]/10 hover:border-[#0E5E64]/30 hover:shadow-[0_20px_40px_rgba(14,94,100,0.1)] transition-all duration-500 overflow-hidden cursor-default z-10"
     >
       {/* Dynamic Background Glow on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#FFBF00]/0 to-[#FFBF00]/0 group-hover:from-[#FFBF00]/5 group-hover:to-[#0E5E64]/5 transition-all duration-700" />
@@ -73,13 +73,13 @@ const StatCard = ({ icon: Icon, value, suffix, label, desc, delay }: any) => {
       <div className="absolute top-0 left-0 h-[3px] w-full bg-[#FFBF00] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-out rounded-t-2xl" />
 
       {/* Icon */}
-      <div className="w-14 h-14 rounded-2xl bg-[#0E5E64]/5 border border-[#0E5E64]/10 flex items-center justify-center mb-8 group-hover:bg-[#0E5E64] group-hover:shadow-[0_0_20px_rgba(14,94,100,0.3)] transition-all duration-500 transform group-hover:-rotate-6">
+      <div className="w-14 h-14 rounded-2xl bg-[#0E5E64]/5 border border-[#0E5E64]/10 flex items-center justify-center mb-4 md:mb-8 group-hover:bg-[#0E5E64] group-hover:shadow-[0_0_20px_rgba(14,94,100,0.3)] transition-all duration-500 transform group-hover:-rotate-6">
         <Icon className="w-6 h-6 text-[#0E5E64] group-hover:text-white transition-colors duration-500" />
       </div>
 
       {/* Count */}
       <div className="flex items-end gap-1 mb-3 relative z-10">
-        <span className="text-5xl font-black text-gray-900 tabular-nums leading-none tracking-tight group-hover:text-[#0E5E64] transition-colors duration-300">
+        <span className="text-4xl md:text-5xl font-black text-gray-900 tabular-nums leading-none tracking-tight group-hover:text-[#0E5E64] transition-colors duration-300">
           {count}
         </span>
         <span className="text-3xl font-black text-[#FFBF00] leading-none pb-0.5">{suffix}</span>
@@ -92,9 +92,65 @@ const StatCard = ({ icon: Icon, value, suffix, label, desc, delay }: any) => {
   );
 };
 
+/* ─────────────── Mobile Stat Card ─────────────── */
+const Hexagon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 3 L93 25 L93 75 L50 97 L7 75 L7 25 Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+  </svg>
+);
+
+const MobileStatCard = ({ icon: Icon, value, suffix, label, desc, delay, index }: any) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-40px' });
+  const count = useCountUp(value, isInView);
+  
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      className="relative overflow-hidden rounded-[18px] bg-gradient-to-b from-[#0E5E64] to-[#072F33] flex flex-col items-center text-center pt-7 pb-10 w-full"
+      style={{
+        boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 12px 24px rgba(0,0,0,0.5)',
+      }}
+    >
+      {index === 0 && (
+        <div className="absolute top-3 left-3 rounded-md bg-[#051A1D]/80 border border-[#FFBF00]/30 px-2 py-0.5 z-10">
+          <span className="text-[7px] font-bold uppercase tracking-widest text-[#FFBF00]">Stat</span>
+        </div>
+      )}
+
+      <div className="mb-3 relative z-10">
+        <Icon className="w-8 h-8 text-white opacity-95 drop-shadow-md" strokeWidth={1.5} />
+      </div>
+      
+      <div className="flex items-baseline gap-0.5 mb-1 relative z-10">
+        <span className="text-[1.8rem] leading-none font-bold text-white tracking-tight">{count}</span>
+        <span className="text-lg font-bold text-[#FFBF00] leading-none">{suffix}</span>
+      </div>
+      
+      <h3 className="text-xs font-semibold text-white mb-2 relative z-10 px-2 leading-tight">
+        {label}
+      </h3>
+      
+      <p className="text-[10px] text-white/60 px-3 leading-snug font-light relative z-10">
+        {desc}
+      </p>
+      
+      <div 
+        className="absolute bottom-0 left-0 w-full h-7 border-t border-white/10 bg-[#0E5E64]/40"
+        style={{ 
+          backgroundImage: 'repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 4px)'
+        }}
+      />
+    </motion.div>
+  );
+};
+
 export default function AboutStats() {
   return (
-    <section className="py-24 relative overflow-visible bg-white">
+    <section className="py-12 md:py-24 relative overflow-hidden bg-white">
       {/* Animated blob 1 — teal top-left */}
       <motion.div
         animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
@@ -174,10 +230,41 @@ export default function AboutStats() {
       </svg>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Desktop View */}
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <StatCard key={stat.label} {...stat} delay={i * 0.15} />
           ))}
+        </div>
+
+        {/* Mobile View */}
+        <div className="sm:hidden -mx-2 px-4 py-16 bg-white relative overflow-hidden rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#0E5E64]/10">
+          {/* Hexagon Backgrounds */}
+          <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4">
+             <Hexagon className="w-64 h-64 text-[#0E5E64] opacity-10" />
+          </div>
+          <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4">
+             <Hexagon className="w-72 h-72 text-[#0E5E64] opacity-10" />
+          </div>
+          <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+             <Hexagon className="w-96 h-96 text-[#0E5E64] opacity-5" />
+          </div>
+          
+          <div className="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none">
+             <NoiseOverlay />
+          </div>
+          
+          {/* Staggered 2-column Grid */}
+          <div className="relative z-10 grid grid-cols-2 gap-4 items-start">
+            <div className="flex flex-col gap-4">
+              <MobileStatCard {...stats[0]} index={0} delay={0.1} />
+              <MobileStatCard {...stats[2]} index={2} delay={0.3} />
+            </div>
+            <div className="flex flex-col gap-4 mt-10">
+              <MobileStatCard {...stats[1]} index={1} delay={0.2} />
+              <MobileStatCard {...stats[3]} index={3} delay={0.4} />
+            </div>
+          </div>
         </div>
       </div>
     </section>
