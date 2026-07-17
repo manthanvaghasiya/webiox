@@ -36,7 +36,7 @@ export default function WireframeToReality() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-full bg-[#030712] rounded-[2rem] overflow-hidden border border-slate-800 shadow-2xl p-4 sm:p-8 perspective-[1500px]">
+    <div className="relative flex flex-col items-center justify-center w-full h-full min-h-[380px] lg:min-h-[450px] bg-[#030712] rounded-[2rem] overflow-hidden border border-slate-800 shadow-2xl p-4 sm:p-8 perspective-[1500px]">
       
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.05)_0%,transparent_70%)] pointer-events-none" />

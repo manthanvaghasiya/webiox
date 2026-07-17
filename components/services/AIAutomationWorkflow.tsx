@@ -23,13 +23,13 @@ export default function AIAutomationWorkflow() {
   const path3AnimRef = useRef<SVGPathElement>(null);
 
   const terminalLogs = [
-    "> parsing webhook payload...",
-    "> initializing multi-agent swarm...",
-    "> agent_1: extracting invoice data... [DONE]",
-    "> agent_2: analyzing sentiment... [DONE]",
-    "> agent_3: drafting response... [DONE]",
-    "> formatting final output...",
-    "> executing downstream functions..."
+    "> parsing payload...",
+    "> init swarm...",
+    "> ag_1: extracting... [DONE]",
+    "> ag_2: sentiment... [DONE]",
+    "> ag_3: drafting... [DONE]",
+    "> formatting output...",
+    "> executing downstream..."
   ];
 
   // Sequence orchestration
@@ -128,7 +128,7 @@ export default function AIAutomationWorkflow() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative flex flex-col items-center justify-center w-full h-full bg-[#030712] rounded-[2rem] overflow-hidden border border-slate-800 shadow-2xl p-4 sm:p-8">
+    <div ref={containerRef} className="relative flex flex-col items-center justify-center w-full h-full min-h-[380px] lg:min-h-[450px] bg-[#030712] rounded-[2rem] overflow-hidden border border-slate-800 shadow-2xl p-4 sm:p-8">
       
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05)_0%,transparent_70%)] pointer-events-none" />
@@ -204,10 +204,10 @@ export default function AIAutomationWorkflow() {
       </svg>
 
       {/* Nodes Container */}
-      <div className="w-full flex items-center justify-between relative z-10 h-full pt-16">
+      <div className="w-full flex items-center justify-between relative z-10 h-full pt-12 sm:pt-16">
         
         {/* NODE 1: Data Ingestion (Webhook) */}
-        <div className="w-[20%] flex flex-col items-center gap-3">
+        <div className="flex-1 flex flex-col items-center gap-2 sm:gap-3 z-10">
           <motion.div 
             ref={webhookRef}
             animate={{ 
@@ -215,40 +215,41 @@ export default function AIAutomationWorkflow() {
               borderColor: phase === 'ingesting' ? 'rgba(52,211,153,0.5)' : 'rgba(30,41,59,1)',
               boxShadow: phase === 'ingesting' ? '0 0 20px rgba(52,211,153,0.2)' : 'none'
             }}
-            className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-slate-900/90 backdrop-blur-md border flex items-center justify-center relative"
+            className="w-10 h-10 sm:w-16 sm:h-16 rounded-2xl bg-slate-900/90 backdrop-blur-md border flex items-center justify-center relative"
           >
-            <Webhook className={`w-6 h-6 sm:w-8 sm:h-8 ${phase === 'ingesting' ? 'text-emerald-400' : 'text-slate-400'}`} />
+            <Webhook className={`w-5 h-5 sm:w-8 sm:h-8 ${phase === 'ingesting' ? 'text-emerald-400' : 'text-slate-400'}`} />
           </motion.div>
-          <div className="text-center bg-slate-900/60 px-2 py-1 rounded-lg border border-slate-800">
-            <span className="text-[9px] sm:text-[10px] text-slate-300 font-bold uppercase block">Stripe Webhook</span>
-            <span className="text-[8px] text-slate-500 font-mono">invoice.paid</span>
+          <div className="text-center bg-slate-900/60 px-1 sm:px-2 py-1 rounded-lg border border-slate-800">
+            <span className="text-[7px] sm:text-[10px] text-slate-300 font-bold uppercase block">Stripe</span>
+            <span className="text-[6px] sm:text-[8px] text-slate-500 font-mono hidden sm:block">invoice.paid</span>
           </div>
         </div>
 
         {/* NODE 2: The AI Orchestrator */}
-        <div className="w-[40%] flex justify-center items-center h-full">
+        <div className="flex-[2] flex justify-center items-center h-full z-10 mx-2 sm:mx-4 max-w-[50%]">
           <motion.div 
             ref={brainRef}
             layout
             initial={{ borderRadius: 24 }}
             animate={{
-              width: phase === 'orchestrating' ? '100%' : '5rem',
-              height: phase === 'orchestrating' ? 'auto' : '5rem',
+              width: phase === 'orchestrating' ? '100%' : '3.5rem',
+              height: phase === 'orchestrating' ? 'auto' : '3.5rem',
               borderColor: phase === 'orchestrating' ? 'rgba(52,211,153,0.5)' : 'rgba(30,41,59,1)',
               boxShadow: phase === 'orchestrating' ? '0 0 40px rgba(16,185,129,0.15)' : 'none',
-              padding: phase === 'orchestrating' ? '1.25rem' : '0'
+              padding: phase === 'orchestrating' ? '0.75rem' : '0'
             }}
             transition={{ type: "spring", bounce: 0.2, duration: 0.8 }}
-            className="bg-slate-900/90 backdrop-blur-xl border flex flex-col justify-center items-center overflow-hidden relative"
+            className="bg-slate-900/90 backdrop-blur-xl border flex flex-col justify-center items-center overflow-hidden relative sm:!w-[100%] sm:!h-[auto] sm:!p-[1.25rem]"
+            style={phase !== 'orchestrating' ? { width: '3.5rem', height: '3.5rem' } : {}}
           >
-            <motion.div layout className="flex items-center gap-3 w-full justify-center">
-              <BrainCircuit className={`w-8 h-8 sm:w-10 sm:h-10 ${phase === 'orchestrating' ? 'text-emerald-400' : 'text-slate-400'}`} />
+            <motion.div layout className="flex items-center gap-2 sm:gap-3 w-full justify-center">
+              <BrainCircuit className={`w-6 h-6 sm:w-10 sm:h-10 ${phase === 'orchestrating' ? 'text-emerald-400' : 'text-slate-400'}`} />
               {phase === 'orchestrating' && (
                 <motion.span 
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-                  className="text-xs font-bold text-white uppercase tracking-widest whitespace-nowrap"
+                  className="text-[9px] sm:text-xs font-bold text-white uppercase tracking-wider sm:tracking-widest text-center"
                 >
-                  AI Orchestrator
+                  Orchestrator
                 </motion.span>
               )}
             </motion.div>
@@ -259,30 +260,30 @@ export default function AIAutomationWorkflow() {
                   initial={{ opacity: 0, height: 0 }} 
                   animate={{ opacity: 1, height: 'auto' }} 
                   exit={{ opacity: 0, height: 0 }}
-                  className="w-full mt-4 flex flex-col gap-3"
+                  className="w-full mt-3 sm:mt-4 flex flex-col gap-2 sm:gap-3"
                 >
                   {/* The 3 Parallel Agents */}
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-                      <FileText className="w-3.5 h-3.5 text-indigo-400" />
-                      <span className="text-[9px] sm:text-[10px] text-slate-300 font-medium">Agent 1: Extracting Invoice Data...</span>
+                  <div className="flex flex-col gap-1.5 sm:gap-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg">
+                      <FileText className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-indigo-400 shrink-0" />
+                      <span className="text-[7.5px] sm:text-[10px] text-slate-300 font-medium leading-tight">Agent 1: Extract Data...</span>
                     </div>
-                    <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-                      <Smile className="w-3.5 h-3.5 text-rose-400" />
-                      <span className="text-[9px] sm:text-[10px] text-slate-300 font-medium">Agent 2: Analyzing Sentiment...</span>
+                    <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg">
+                      <Smile className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-rose-400 shrink-0" />
+                      <span className="text-[7.5px] sm:text-[10px] text-slate-300 font-medium leading-tight">Agent 2: Sentiment...</span>
                     </div>
-                    <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-                      <PenTool className="w-3.5 h-3.5 text-amber-400" />
-                      <span className="text-[9px] sm:text-[10px] text-slate-300 font-medium">Agent 3: Generating Reply...</span>
+                    <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg">
+                      <PenTool className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 shrink-0" />
+                      <span className="text-[7.5px] sm:text-[10px] text-slate-300 font-medium leading-tight">Agent 3: Reply...</span>
                     </div>
                   </div>
 
                   {/* Terminal Logs */}
-                  <div className="mt-2 bg-black/50 rounded-lg p-2 font-mono text-[8px] sm:text-[9px] text-emerald-500/80 min-h-[4rem] whitespace-pre-wrap leading-relaxed border border-white/5">
+                  <div className="mt-1 sm:mt-2 bg-black/50 rounded-lg p-1.5 sm:p-2 font-mono text-[6.5px] sm:text-[9px] text-emerald-500/80 min-h-[3.5rem] sm:min-h-[4rem] whitespace-pre-wrap leading-tight sm:leading-relaxed border border-white/5">
                     {terminalText}
                     <motion.span 
                       animate={{ opacity: [1, 0] }} transition={{ duration: 0.5, repeat: Infinity }}
-                      className="inline-block w-1.5 h-2.5 bg-emerald-500 align-middle ml-1"
+                      className="inline-block w-1 h-2 sm:w-1.5 sm:h-2.5 bg-emerald-500 align-middle ml-1"
                     />
                   </div>
                 </motion.div>
@@ -292,10 +293,10 @@ export default function AIAutomationWorkflow() {
         </div>
 
         {/* NODE 3: Multi-Channel Output */}
-        <div className="w-[20%] flex flex-col justify-between h-full py-8 relative gap-8">
+        <div className="flex-1 flex flex-col justify-between h-full py-4 sm:py-8 relative gap-6 sm:gap-8 z-10">
           
           {/* Output A: PostgreSQL */}
-          <div className="flex flex-col items-center gap-2 w-full mt-[-2rem]">
+          <div className="flex flex-col items-center gap-1.5 sm:gap-2 w-full mt-0 sm:mt-[-2rem]">
             <motion.div 
               ref={dbRef}
               animate={{ 
@@ -303,22 +304,22 @@ export default function AIAutomationWorkflow() {
                 borderColor: phase === 'success' ? 'rgba(52,211,153,0.5)' : 'rgba(30,41,59,1)',
                 backgroundColor: phase === 'success' ? 'rgba(52,211,153,0.1)' : 'rgba(15,23,42,0.9)'
               }}
-              className="w-12 h-12 rounded-2xl backdrop-blur-md border flex items-center justify-center relative shadow-lg"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl backdrop-blur-md border flex items-center justify-center relative shadow-lg"
             >
-              <Database className={`w-5 h-5 ${phase === 'success' ? 'text-emerald-400' : 'text-slate-400'}`} />
+              <Database className={`w-4 h-4 sm:w-5 sm:h-5 ${phase === 'success' ? 'text-emerald-400' : 'text-slate-400'}`} />
               {phase === 'success' && (
                 <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="absolute -top-1 -right-1 bg-emerald-500 rounded-full p-0.5">
-                  <CheckCircle2 className="w-3 h-3 text-slate-950" />
+                  <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-950" />
                 </motion.div>
               )}
             </motion.div>
-            <div className="text-center bg-slate-900/60 px-2 py-1 rounded-lg border border-slate-800">
-              <span className="text-[8px] sm:text-[9px] text-slate-300 font-bold uppercase block">PostgreSQL</span>
+            <div className="text-center bg-slate-900/60 px-1 sm:px-2 py-1 rounded-lg border border-slate-800">
+              <span className="text-[7px] sm:text-[9px] text-slate-300 font-bold uppercase block">Postgres</span>
             </div>
           </div>
 
           {/* Output B: Telegram */}
-          <div className="flex flex-col items-center gap-2 w-full mb-[-2rem]">
+          <div className="flex flex-col items-center gap-1.5 sm:gap-2 w-full mb-0 sm:mb-[-2rem]">
             <motion.div 
               ref={telegramRef}
               animate={{ 
@@ -326,17 +327,17 @@ export default function AIAutomationWorkflow() {
                 borderColor: phase === 'success' ? 'rgba(56,189,248,0.5)' : 'rgba(30,41,59,1)',
                 backgroundColor: phase === 'success' ? 'rgba(56,189,248,0.1)' : 'rgba(15,23,42,0.9)'
               }}
-              className="w-12 h-12 rounded-2xl backdrop-blur-md border flex items-center justify-center relative shadow-lg"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl backdrop-blur-md border flex items-center justify-center relative shadow-lg"
             >
-              <Send className={`w-5 h-5 ${phase === 'success' ? 'text-sky-400' : 'text-slate-400'}`} />
+              <Send className={`w-4 h-4 sm:w-5 sm:h-5 ${phase === 'success' ? 'text-sky-400' : 'text-slate-400'}`} />
               {phase === 'success' && (
                 <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="absolute -top-1 -right-1 bg-sky-500 rounded-full p-0.5">
-                  <CheckCircle2 className="w-3 h-3 text-slate-950" />
+                  <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-950" />
                 </motion.div>
               )}
             </motion.div>
-            <div className="text-center bg-slate-900/60 px-2 py-1 rounded-lg border border-slate-800">
-              <span className="text-[8px] sm:text-[9px] text-slate-300 font-bold uppercase block">Telegram</span>
+            <div className="text-center bg-slate-900/60 px-1 sm:px-2 py-1 rounded-lg border border-slate-800">
+              <span className="text-[7px] sm:text-[9px] text-slate-300 font-bold uppercase block">Telegram</span>
             </div>
           </div>
 

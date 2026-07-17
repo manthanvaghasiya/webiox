@@ -74,7 +74,7 @@ export default function CodeToUIMorph() {
   }, [phase]);
 
   return (
-    <div className="relative flex items-center justify-center w-full h-full bg-[#030712] rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl perspective-[1000px]">
+    <div className="relative flex items-center justify-center w-full h-full min-h-[380px] lg:min-h-[450px] bg-[#030712] rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl perspective-[1000px]">
       
       {/* Background Atmosphere */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.08)_0%,transparent_70%)] pointer-events-none" />

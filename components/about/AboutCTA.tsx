@@ -150,18 +150,18 @@ export default function AboutCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
-          className="group relative w-full rounded-[2.5rem]"
+          className="group relative w-full rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem]"
           onMouseMove={handleMouseMove}
         >
           {/* Mouse-tracking spotlight border */}
           <motion.div
             aria-hidden="true"
-            className="absolute -inset-[2px] z-0 rounded-[2.6rem] opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+            className="absolute -inset-[2px] z-0 rounded-[1.6rem] sm:rounded-[2.1rem] md:rounded-[2.6rem] opacity-0 transition-opacity duration-700 group-hover:opacity-100"
             style={{ background: spotlight }}
           />
 
           {/* Main light container */}
-          <div className="relative z-10 h-full w-full overflow-hidden rounded-[2.5rem] border border-[#0E5E64]/12 bg-white p-8 text-center shadow-[0_30px_80px_-30px_rgba(14,94,100,0.25)] md:p-12 lg:py-16">
+          <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] border border-[#0E5E64]/12 bg-white p-5 sm:p-8 text-center shadow-[0_30px_80px_-30px_rgba(14,94,100,0.25)] md:p-12 lg:py-16">
             {/* Subtle teal grid */}
             <div
               aria-hidden="true"
@@ -235,9 +235,9 @@ export default function AboutCTA() {
 
               <motion.h2
                 variants={itemVariants}
-                className="mb-6 text-4xl font-bold leading-[1.1] tracking-tight text-gray-900 md:text-5xl lg:text-6xl"
+                className="mb-6 text-3xl font-bold leading-[1.1] tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
               >
-                Ready to Deploy Your <br />
+                Ready to Deploy Your{' '}
                 <span className="relative inline-block text-[#0E5E64]">
                   <motion.span
                     aria-hidden="true"

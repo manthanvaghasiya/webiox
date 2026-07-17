@@ -44,7 +44,7 @@ const pillars = [
 
 export default function AboutStory() {
   return (
-    <section className="py-24 relative overflow-visible bg-white">
+    <section className="py-12 md:py-24 relative overflow-hidden bg-white">
       {/* Animated blob 1 — yellow top-right (bleeds up into AboutStats) */}
       <motion.div
         animate={{
@@ -124,7 +124,7 @@ export default function AboutStory() {
       </svg>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24 items-center">
 
           {/* Left: Content */}
           <motion.div

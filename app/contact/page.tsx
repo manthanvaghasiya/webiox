@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { submitInquiry } from '@/app/actions/contact';
 import { useState } from 'react';
 
@@ -49,36 +49,80 @@ export default function Contact() {
     <div className="relative min-h-screen bg-[#F9FAFB] selection:bg-[#0E5E64]/20 selection:text-[#0E5E64] font-sans">
       
       {/* Hero Section */}
-      <section className="relative w-full bg-[#0E5E64] pt-32 pb-40 px-6 lg:px-12 text-center overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-teal-500/20 via-transparent to-transparent pointer-events-none" />
+      <section className="relative w-full bg-[#052123] pt-32 pb-44 px-6 lg:px-12 text-center overflow-hidden">
+        {/* Animated Ambient Background Blobs */}
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+            x: [0, 50, 0],
+            y: [0, 30, 0]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-0 left-1/4 w-[35rem] h-[35rem] bg-[#0E5E64] rounded-full mix-blend-screen filter blur-[120px] pointer-events-none" 
+        />
         
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.1, 0.2, 0.1],
+            x: [0, -50, 0],
+            y: [0, -30, 0]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-10 right-1/4 w-[30rem] h-[30rem] bg-[#FFBF00] rounded-full mix-blend-screen filter blur-[120px] pointer-events-none" 
+        />
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(249,250,251,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(249,250,251,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_30%,#000_10%,transparent_80%)] pointer-events-none" />
+        
+        <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-center mt-4">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-6"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.1)] mb-8 hover:bg-white/10 transition-colors cursor-default"
           >
-            Get In Touch
+            <Sparkles className="w-4 h-4 text-[#FFBF00]" />
+            <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] text-white uppercase">
+              Get In Touch
+            </span>
           </motion.div>
           
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight mb-6"
-          >
-            Let's discuss your next project.
-          </motion.h1>
+          <div className="flex flex-col items-center justify-center leading-[0.9] tracking-tighter uppercase font-[Zain] mb-6">
+            <motion.div
+               initial={{ opacity: 0, y: 40 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+               className="overflow-hidden pb-2"
+            >
+              <h1 className="text-[3.5rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[8rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 drop-shadow-sm">
+                Let's discuss your
+              </h1>
+            </motion.div>
+            
+            <motion.div
+               initial={{ opacity: 0, y: 40 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+               className="overflow-hidden mt-[-1rem] sm:mt-[-1.5rem] md:mt-[-2rem] pb-6"
+            >
+              <h1 className="text-[4rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[9rem] font-black flex relative group">
+                <span className="absolute inset-0 text-[#FFBF00] blur-[30px] opacity-40 group-hover:opacity-70 transition-opacity duration-700">Next Project.</span>
+                <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] via-[#FFD040] to-[#FFBF00] drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+                  Next Project.
+                </span>
+              </h1>
+            </motion.div>
+          </div>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-light leading-relaxed"
+            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-light leading-relaxed font-[IBM_Plex_Sans]"
           >
-            We help businesses build scalable, high-performance digital products. Fill out the form below and our team will get back to you within 24 hours.
+            We help businesses build <span className="text-white font-medium border-b border-[#FFBF00]/40 pb-0.5">scalable, high-performance</span> digital products. Fill out the form below and our team will get back to you within 24 hours.
           </motion.p>
         </div>
       </section>

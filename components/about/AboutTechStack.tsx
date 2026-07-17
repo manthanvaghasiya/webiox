@@ -38,7 +38,7 @@ export default function AboutTechStack() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-32 bg-[#0E5E64] relative overflow-hidden" ref={ref}>
+    <section className="py-16 md:py-24 lg:py-32 bg-[#0E5E64] relative overflow-hidden" ref={ref}>
       
       {/* Immersive Infinite Marquee Background */}
       <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-[0.03] overflow-hidden z-0 py-20">
@@ -77,7 +77,7 @@ export default function AboutTechStack() {
             </span>
             <div className="w-12 h-[1px] bg-gradient-to-r from-[#FFBF00] to-transparent" />
           </motion.div>
-          <motion.h2 variants={fadeUpVariant} className="text-5xl md:text-6xl lg:text-7xl font-bold font-[Zain] text-[#F9FAFB] mb-6 tracking-tight leading-[1.1]">
+          <motion.h2 variants={fadeUpVariant} className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-[Zain] text-[#F9FAFB] mb-6 tracking-tight leading-[1.1]">
             Powered by Elite <br/>
             <span className="text-transparent" style={{ WebkitTextStroke: "1px #F9FAFB" }}>Modern Tech.</span>
           </motion.h2>
@@ -94,7 +94,7 @@ export default function AboutTechStack() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
         >
           {/* Main Core Engine - Large Square / Wide Rectangle */}
-          <BentoCard className="lg:col-span-2 lg:row-span-2 flex flex-col lg:flex-row gap-8 justify-between p-8 lg:p-12 border-cyan-500/20 shadow-[0_0_40px_rgba(6,182,212,0.05)]">
+          <BentoCard className="lg:col-span-2 lg:row-span-2 flex flex-col lg:flex-row gap-8 justify-between p-5 sm:p-6 lg:p-12 border-cyan-500/20 shadow-[0_0_40px_rgba(6,182,212,0.05)]">
             
             {/* Left Side Content & Tech Stack */}
             <div className="flex flex-col lg:w-1/2 z-10">
@@ -197,7 +197,7 @@ export default function AboutTechStack() {
                 <p className="text-[#F9FAFB]/70 font-[IBM_Plex_Sans] text-sm max-w-sm">Secure, high-availability data infrastructure handling millions of queries seamlessly.</p>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4 mt-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-auto">
               <TechIcon name="Node.js" icon={Server} color="text-green-400" delay={0.2} />
               <TechIcon name="MongoDB" icon={Database} color="text-emerald-400" delay={0.3} />
               <TechIcon name="PostgreSQL" icon={Database} color="text-sky-400" delay={0.4} />

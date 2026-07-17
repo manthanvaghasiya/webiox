@@ -79,13 +79,6 @@ const values: ValueItem[] = [
   },
   {
     index: '05',
-    icon: Handshake,
-    title: 'Partnership',
-    body: 'We work beside you, not for you. Your goals become our north star — your wins are how we measure ours.',
-    tag: 'True Partner',
-  },
-  {
-    index: '06',
     icon: Layers,
     title: 'Scalability',
     body: 'We build for the version of your business that exists three years from now. Every line of code is a foundation for what comes next.',
@@ -122,8 +115,8 @@ const Connector = ({
   scrollYProgress,
   rangeStart,
   rangeEnd,
-  pathId,
-}: ConnectorProps) => {
+  pathId = "connector-path",
+}: ConnectorProps & { pathId?: string }) => {
   const pathLength = useTransform(
     scrollYProgress,
     [rangeStart, rangeEnd],
@@ -131,26 +124,28 @@ const Connector = ({
   );
   const lineOpacity = useTransform(
     scrollYProgress,
-    [rangeStart, rangeStart + 0.005, rangeEnd],
+    [rangeStart, rangeStart + 0.05, rangeEnd],
     [0, 1, 1]
   );
   const afterDrawOpacity = useTransform(
     scrollYProgress,
-    [rangeEnd - 0.03, rangeEnd],
+    [rangeEnd - 0.05, rangeEnd],
     [0, 1]
   );
 
-  // viewBox aspect ≈ container aspect (≈12:1 on lg) so circles render round, not oval
-  const startX = fromLeft ? 456 : 744;
-  const endX = fromLeft ? 744 : 456;
-  const d = `M ${startX} 5 C ${startX} 50, ${endX} 50, ${endX} 95`;
+  // Use a proportional viewBox (1200x240) so we don't need non-scaling-stroke
+  const startX = fromLeft ? 480 : 720;
+  const dropX = fromLeft ? 900 : 300;
+  
+  // Sharp 90-degree corner
+  const d = `M ${startX} 0 L ${dropX} 0 L ${dropX} 240`;
   const glowId = `glow-${pathId}`;
   const gradId = `grad-${pathId}`;
 
   return (
-    <div className="relative -my-2 h-24 w-full" aria-hidden="true">
+    <div className="relative w-full h-full" aria-hidden="true">
       <svg
-        viewBox="0 0 1200 100"
+        viewBox="0 0 1200 240"
         preserveAspectRatio="none"
         className="absolute inset-0 h-full w-full overflow-visible"
         fill="none"
@@ -165,140 +160,121 @@ const Connector = ({
             height="200%"
             filterUnits="userSpaceOnUse"
           >
-            <feGaussianBlur stdDeviation="3.5" />
+            <feGaussianBlur stdDeviation="6" />
           </filter>
           <linearGradient
             id={gradId}
             x1={startX}
             y1="0"
-            x2={endX}
-            y2="100"
+            x2={dropX}
+            y2="240"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0%" stopColor="#0E5E64" stopOpacity="0.45" />
-            <stop offset="55%" stopColor="#0E5E64" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="#FFBF00" stopOpacity="0.95" />
+            <stop offset="0%" stopColor="#0E5E64" stopOpacity="0.3" />
+            <stop offset="30%" stopColor="#FFBF00" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#FFBF00" stopOpacity="1" />
           </linearGradient>
         </defs>
 
-        {/* 1. Soft glow halo under the line */}
+        {/* Soft glow halo */}
         <motion.path
           d={d}
-          stroke="#0E5E64"
-          strokeOpacity={0.45}
-          strokeWidth={6}
-          strokeLinecap="round"
+          stroke="#FFBF00"
+          strokeOpacity={0.25}
+          strokeWidth={12}
+          strokeLinecap="square"
+          strokeLinejoin="miter"
           filter={`url(#${glowId})`}
           style={{ pathLength, opacity: lineOpacity }}
         />
 
-        {/* 2. Main dashed line with brand-gradient stroke */}
+        {/* Main gradient line */}
         <motion.path
           d={d}
           stroke={`url(#${gradId})`}
-          strokeWidth={1.8}
-          strokeDasharray="4 5"
-          strokeLinecap="round"
+          strokeWidth={4}
+          strokeLinecap="square"
+          strokeLinejoin="miter"
           style={{ pathLength, opacity: lineOpacity }}
         />
 
-        {/* 3. Marching-ants accent layered on top — appears after drawn */}
+        {/* Marching-ants data flow accent */}
         <motion.path
           d={d}
-          stroke="#FFBF00"
-          strokeOpacity={0.9}
-          strokeWidth={1}
-          strokeDasharray="2 18"
-          strokeLinecap="round"
+          stroke="#FFFFFF"
+          strokeOpacity={0.7}
+          strokeWidth={2}
+          strokeDasharray="4 16"
+          strokeLinecap="square"
           style={{ opacity: afterDrawOpacity }}
         >
           <animate
             attributeName="stroke-dashoffset"
             from="0"
-            to="-20"
-            dur="0.9s"
+            to="-40"
+            dur="1s"
             repeatCount="indefinite"
           />
         </motion.path>
 
-        {/* 4. Origin: outer ripple + dot */}
+        {/* Origin Dot */}
         <motion.circle
           cx={startX}
-          cy={5}
-          r={3}
-          fill="none"
-          stroke="#0E5E64"
-          strokeOpacity={0.7}
-          strokeWidth={1}
-          style={{ opacity: lineOpacity }}
-          animate={{ r: [3, 10, 3], opacity: [0.7, 0, 0.7] }}
-          transition={{ duration: 2.6, repeat: Infinity, ease: 'easeOut' }}
-        />
-        <motion.circle
-          cx={startX}
-          cy={5}
-          r={2.6}
+          cy={0}
+          r={5}
           fill="#0E5E64"
+          stroke="#FFBF00"
+          strokeWidth={2}
           style={{ opacity: lineOpacity }}
         />
-
-        {/* 5. Destination: ripple + filled dot + bright core */}
         <motion.circle
-          cx={endX}
-          cy={95}
-          r={3}
+          cx={startX}
+          cy={0}
+          r={5}
           fill="none"
           stroke="#FFBF00"
-          strokeOpacity={0.85}
-          strokeWidth={1.2}
-          style={{ opacity: afterDrawOpacity }}
-          animate={{ r: [3, 12, 3], opacity: [0.85, 0, 0.85] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
-        />
-        <motion.circle
-          cx={endX}
-          cy={95}
-          r={3.2}
-          fill="#0E5E64"
-          style={{ opacity: afterDrawOpacity }}
-        />
-        <motion.circle
-          cx={endX}
-          cy={95}
-          r={1.5}
-          fill="#FFBF00"
-          style={{ opacity: afterDrawOpacity }}
-          animate={{ opacity: [1, 0.4, 1], scale: [1, 1.3, 1] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+          strokeWidth={2}
+          style={{ opacity: lineOpacity }}
+          animate={{ r: [5, 12, 5], opacity: [0.8, 0, 0.8] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
         />
 
-        {/* 6. Comet stream — three particles riding the path with easing + stagger */}
+        {/* Destination Dot */}
+        <motion.circle
+          cx={dropX}
+          cy={240}
+          r={6}
+          fill="#0E5E64"
+          stroke="#FFBF00"
+          strokeWidth={2.5}
+          style={{ opacity: afterDrawOpacity }}
+        />
+        <motion.circle
+          cx={dropX}
+          cy={240}
+          r={3}
+          fill="#FFBF00"
+          style={{ opacity: afterDrawOpacity }}
+          animate={{ scale: [1, 1.5, 1] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.circle
+          cx={dropX}
+          cy={240}
+          r={6}
+          fill="none"
+          stroke="#FFBF00"
+          strokeWidth={2}
+          style={{ opacity: afterDrawOpacity }}
+          animate={{ r: [6, 16, 6], opacity: [0.8, 0, 0.8] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
+        />
+
+        {/* Comet stream */}
         <motion.g style={{ opacity: afterDrawOpacity }}>
-          {/* Lead particle: bright + soft halo */}
-          <circle r="7" fill="#FFBF00" fillOpacity="0.35" filter={`url(#${glowId})`}>
+          <circle r="6" fill="#FFFFFF" fillOpacity="0.9" filter={`url(#${glowId})`}>
             <animateMotion
-              dur="2.8s"
-              repeatCount="indefinite"
-              begin="0s"
-              calcMode="spline"
-              keyPoints="0;1"
-              keyTimes="0;1"
-              keySplines="0.4 0 0.6 1"
-            >
-              <mpath href={`#${pathId}`} />
-            </animateMotion>
-            <animate
-              attributeName="opacity"
-              values="0;0.45;0.45;0"
-              keyTimes="0;0.12;0.88;1"
-              dur="2.8s"
-              repeatCount="indefinite"
-              begin="0s"
-            />
-          </circle>
-          <circle r="2.8" fill="#FFBF00">
-            <animateMotion
-              dur="2.8s"
+              dur="3s"
               repeatCount="indefinite"
               begin="0s"
               calcMode="spline"
@@ -311,56 +287,9 @@ const Connector = ({
             <animate
               attributeName="opacity"
               values="0;1;1;0"
-              keyTimes="0;0.12;0.88;1"
-              dur="2.8s"
+              keyTimes="0;0.1;0.9;1"
+              dur="3s"
               repeatCount="indefinite"
-              begin="0s"
-            />
-          </circle>
-
-          {/* Second particle — teal, trailing */}
-          <circle r="2" fill="#0E5E64">
-            <animateMotion
-              dur="2.8s"
-              repeatCount="indefinite"
-              begin="-0.95s"
-              calcMode="spline"
-              keyPoints="0;1"
-              keyTimes="0;1"
-              keySplines="0.4 0 0.6 1"
-            >
-              <mpath href={`#${pathId}`} />
-            </animateMotion>
-            <animate
-              attributeName="opacity"
-              values="0;0.95;0.95;0"
-              keyTimes="0;0.12;0.88;1"
-              dur="2.8s"
-              repeatCount="indefinite"
-              begin="-0.95s"
-            />
-          </circle>
-
-          {/* Third particle — small spark */}
-          <circle r="1.4" fill="#FFBF00">
-            <animateMotion
-              dur="2.8s"
-              repeatCount="indefinite"
-              begin="-1.85s"
-              calcMode="spline"
-              keyPoints="0;1"
-              keyTimes="0;1"
-              keySplines="0.4 0 0.6 1"
-            >
-              <mpath href={`#${pathId}`} />
-            </animateMotion>
-            <animate
-              attributeName="opacity"
-              values="0;0.85;0.85;0"
-              keyTimes="0;0.12;0.88;1"
-              dur="2.8s"
-              repeatCount="indefinite"
-              begin="-1.85s"
             />
           </circle>
         </motion.g>
@@ -527,11 +456,7 @@ export default function AboutValues() {
     }));
   }, []);
 
-  // Header progress text — counts 01 → 06 as you scroll the section
-  const headerProgress = useTransform(scrollYProgress, [0.1, 0.85], [0, 6]);
-  const progressDisplay = useTransform(headerProgress, (v) =>
-    String(Math.min(6, Math.max(1, Math.ceil(v) || 1))).padStart(2, '0')
-  );
+  // Header text is now static as requested by the user, removed scroll progress.
 
   return (
     <section
@@ -619,20 +544,10 @@ export default function AboutValues() {
         />
       </svg>
 
-      {/* Vertical typographic accent — left edge, desktop only */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-4 top-1/2 hidden -translate-y-1/2 select-none xl:block"
-      >
-        <span
-          className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#0E5E64]/30"
-          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-        >
-          06 · The Foundation · Webiox
-        </span>
-      </div>
+      {/* Vertical typographic accent removed per user request */}
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         {/* Header */}
         <div className="mb-16 grid grid-cols-1 gap-10 md:mb-20 md:grid-cols-12 md:items-end">
           <motion.div
@@ -640,7 +555,7 @@ export default function AboutValues() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="md:col-span-7"
+            className="md:col-span-12 max-w-3xl"
           >
             <div className="mb-4 flex items-center gap-3">
               <motion.div
@@ -655,7 +570,7 @@ export default function AboutValues() {
               </span>
             </div>
             <h2 className="text-3xl font-bold leading-[1.05] tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-[3.4rem]">
-              Six principles that{' '}
+              Five principles that{' '}
               <span className="relative inline-block">
                 shape every
                 <motion.span
@@ -675,38 +590,6 @@ export default function AboutValues() {
               final product something everyone is proud of.
             </p>
           </motion.div>
-
-          {/* Big numeral accent + progress */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden md:col-span-5 md:flex md:items-end md:justify-end"
-          >
-            <div className="flex items-end gap-6">
-              <div className="flex flex-col items-end">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#0E5E64]/70">
-                  Reading
-                </span>
-                <motion.span className="font-mono text-2xl font-bold text-[#0E5E64]">
-                  <motion.span>{progressDisplay}</motion.span>
-                  <span className="text-[#0E5E64]/35"> / 06</span>
-                </motion.span>
-              </div>
-              <div className="relative flex h-28 items-center">
-                <span
-                  className="font-black leading-none tracking-tighter text-[#0E5E64]"
-                  style={{ fontSize: '7rem' }}
-                >
-                  06
-                </span>
-                <span className="absolute -right-2 -top-2 inline-flex items-center justify-center rounded-full bg-[#FFBF00] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.18em] text-[#0B1F22]">
-                  Pillars
-                </span>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
         {/* Zigzag layout — desktop */}
@@ -721,24 +604,26 @@ export default function AboutValues() {
               const isLast = i === values.length - 1;
               const range = connectorRanges[i];
               return (
-                <div key={value.title}>
+                <div key={value.title} className={isLast ? "relative" : "relative mb-20"}>
                   <div
                     className={`flex ${
                       isLeft ? 'justify-start' : 'justify-end'
                     }`}
                   >
-                    <div className="w-[460px] max-w-[46%]">
+                    <div className="w-[45%] relative z-10">
                       <ValueCard value={value} position={i} />
                     </div>
                   </div>
                   {!isLast && range && (
-                    <Connector
-                      fromLeft={isLeft}
-                      scrollYProgress={scrollYProgress}
-                      rangeStart={range.start}
-                      rangeEnd={range.end}
-                      pathId={`webiox-connector-${i}`}
-                    />
+                    <div className="absolute top-1/2 left-0 w-full h-[calc(50%+80px)] pointer-events-none z-0">
+                      <Connector
+                        fromLeft={isLeft}
+                        scrollYProgress={scrollYProgress}
+                        rangeStart={range.start}
+                        rangeEnd={range.end}
+                        pathId={`webiox-connector-${i}`}
+                      />
+                    </div>
                   )}
                 </div>
               );

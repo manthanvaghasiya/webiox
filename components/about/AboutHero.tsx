@@ -53,7 +53,7 @@ export default function AboutHero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[80vh] md:min-h-[85vh] bg-[#0E5E64] flex flex-col justify-between overflow-hidden rounded-b-[8rem]"
+      className="relative w-full min-h-[80vh] md:min-h-[85vh] bg-[#0E5E64] flex flex-col justify-between overflow-hidden rounded-b-[3rem] md:rounded-b-[5rem] lg:rounded-b-[8rem]"
     >
       {/* Interactive Spotlight Overlay */}
       <motion.div
@@ -117,7 +117,7 @@ export default function AboutHero() {
           <div className="w-full mt-4 lg:mt-6 relative z-20 flex flex-col">
             
             {/* Infinite Marquee - Breaks out of container, sits above Crafting */}
-            <div className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden whitespace-nowrap bg-[#0E5E64]/60 backdrop-blur-md border-y border-[#FFBF00]/20 py-4 flex items-center shadow-[0_0_30px_rgba(14,94,100,0.5)] mb-4 lg:mb-6">
+            <div className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden whitespace-nowrap bg-[#0E5E64]/60 backdrop-blur-md border-y border-[#FFBF00]/20 py-2 md:py-4 flex items-center shadow-[0_0_30px_rgba(14,94,100,0.5)] mb-4 lg:mb-6">
               <motion.div
                 animate={{ x: [0, -1035] }} // Adjust based on text width
                 transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
@@ -143,9 +143,9 @@ export default function AboutHero() {
               {/* Line in front of crafting */}
               <motion.div variants={lineDrawVariant} className="flex-grow h-[1px] bg-[#F9FAFB]/30 mr-6 md:mr-12" />
 
-              <motion.div variants={fadeUpVariant} className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-[Alice] text-[#F9FAFB] leading-[1.1] whitespace-nowrap">
+              <motion.div variants={fadeUpVariant} className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-[Alice] text-[#F9FAFB] leading-[1.1] sm:whitespace-nowrap">
                 <span>Crafting </span>
-                <span className="relative inline-block w-[280px] sm:w-[380px] lg:w-[480px] xl:w-[670px] h-[1.1em] overflow-hidden align-bottom">
+                <span className="relative inline-block w-[200px] sm:w-[280px] md:w-[380px] lg:w-[480px] xl:w-[670px] h-[1.1em] overflow-hidden align-bottom">
                   <AnimatePresence mode="popLayout">
                     <motion.span
                       key={currentWordIndex}
