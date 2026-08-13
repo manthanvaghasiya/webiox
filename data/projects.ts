@@ -110,5 +110,24 @@ export const allProjects: Project[] = [
         modalImage: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2000&auto=format&fit=crop',
         githubLink: '#',
         liveLink: 'https://sadgurucarsurat.com/'
+    },
+    {
+        id: 6,
+        title: 'Hariram Motors',
+        category: 'Web Development',
+        year: '2024',
+        shortDescription: "A modern, premium pre-owned car dealership platform in Surat for seamless buying and selling.",
+        fullDescription: "Hariram Motors is a digital dealership platform for verified second-hand cars in Surat, designed to deliver a luxury browsing experience.\n\n• Developed a high-performance inventory showcase for certified pre-owned vehicles with advanced filtering.\n• Implemented responsive, modern UI/UX with smooth micro-animations to enhance user engagement.\n• Integrated local SEO best practices and AutoDealer schema to dominate local search rankings.\n• Built an intuitive mobile-first interface allowing users to explore cars and book test drives seamlessly.",
+        features: [
+            "Premium Vehicle Inventory Showcase",
+            "Advanced Search and Filtering",
+            "Optimized Local SEO & Schema",
+            "Seamless Mobile-First UI/UX"
+        ],
+        tech: ['React', 'Next.js', 'Node.js', 'Tailwind CSS'],
+        image: '/hariram.png',
+        modalImage: '/hariram.png',
+        githubLink: '#',
+        liveLink: 'https://www.hariramcars.com/'
     }
 ];
