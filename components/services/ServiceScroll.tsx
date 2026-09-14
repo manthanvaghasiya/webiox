@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { services } from '@/data/services';
-import { ArrowRight, CheckCircle2, Database, Code2, Network, Cpu, ShoppingCart, Layout, Smartphone, Globe, CreditCard, Lock } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Database } from 'lucide-react';
 import Link from 'next/link';
 import CodeToUIMorph from './CodeToUIMorph';
 import AIAutomationWorkflow from './AIAutomationWorkflow';
@@ -17,7 +17,7 @@ export default function ServiceScroll() {
   return (
     <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-32">
       <div className="flex flex-col gap-16 md:gap-32">
-        {services.map((service, index) => (
+        {services.map((service) => (
           <div key={service.id} id={service.id} className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
 
             {/* Left Sticky Anchor */}

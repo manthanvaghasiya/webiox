@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { LayoutDashboard, Image as ImageIcon, Settings, ExternalLink, LogOut, Menu, X, Bell, MessageSquare } from 'lucide-react';
+import { LayoutDashboard, Settings, ExternalLink, Menu, X, MessageSquare, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

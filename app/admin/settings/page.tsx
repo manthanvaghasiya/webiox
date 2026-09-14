@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Save, Key, LogOut, CheckCircle2, Laptop, Shield, Lock } from 'lucide-react';
+import { Save, Key, LogOut, CheckCircle2, Laptop, Lock, Shield } from 'lucide-react';
 
 export default function SettingsPage() {
   const [currentPassword, setCurrentPassword] = useState('');

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, ArrowRight, Layers } from 'lucide-react';
+import { ArrowRight, Layers } from 'lucide-react';
 
 export default function WireframeToReality() {
   const [phase, setPhase] = useState<'blueprint' | 'isometric' | 'assembly' | 'interaction'>('blueprint');

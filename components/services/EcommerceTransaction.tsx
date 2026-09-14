@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Loader2, Check, CreditCard, ArrowUpRight, ShieldCheck, ArrowRight } from 'lucide-react';
+import { ShoppingBag, Loader2, Check, CreditCard, ArrowUpRight, ShieldCheck } from 'lucide-react';
 
 export default function EcommerceTransaction() {
   const [phase, setPhase] = useState<'idle' | 'processing' | 'verifying' | 'success'>('idle');

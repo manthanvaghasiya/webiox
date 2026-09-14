@@ -1,28 +1,10 @@
 'use client';
 
-import { useRef, useState, useEffect, useMemo, useCallback } from 'react';
-import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Sparkles, Cpu, Globe2, Layers, BrainCircuit, ChevronDown, PenTool, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { services } from '@/data/services';
-
-/* ── Utility: split text into animated spans ── */
-const SplitText = ({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) => (
-  <span className={className} aria-label={text}>
-    {text.split('').map((char, i) => (
-      <motion.span
-        key={i}
-        initial={{ opacity: 0, y: 60, rotateX: -90 }}
-        animate={{ opacity: 1, y: 0, rotateX: 0 }}
-        transition={{ duration: 0.6, delay: delay + i * 0.03, ease: [0.22, 1, 0.36, 1] }}
-        className="inline-block"
-        style={{ transformOrigin: 'bottom' }}
-      >
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </span>
-);
 
 /* ── Interactive Orbital Canvas ── */
 const OrbitalCanvas = ({ mouseX, mouseY }: { mouseX: number; mouseY: number }) => {
