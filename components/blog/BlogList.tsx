@@ -34,7 +34,7 @@ function FeaturedPost({ post }: { post: BlogPost }) {
       {/* Content Side */}
       <div className="flex flex-col justify-center w-full lg:w-2/5 p-8 md:p-12 lg:p-16 bg-white relative">
         <div className="flex items-center gap-4 mb-8">
-          <span className="text-[11px] font-bold tracking-widest uppercase text-[#0E5E64]">
+          <span className="text-[11px] font-bold tracking-widest uppercase text-[#1a7097]">
             {post.category}
           </span>
           <span className="w-px h-3 bg-slate-300" />
@@ -44,7 +44,7 @@ function FeaturedPost({ post }: { post: BlogPost }) {
         </div>
 
         <Link href={`/blog/${post.slug}`}>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] tracking-tight mb-6 group-hover:text-[#0E5E64] transition-colors duration-300 font-[IBM_Plex_Sans]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] tracking-tight mb-6 group-hover:text-[#1a7097] transition-colors duration-300 font-[IBM_Plex_Sans]">
             {post.title}
           </h2>
         </Link>
@@ -57,7 +57,7 @@ function FeaturedPost({ post }: { post: BlogPost }) {
           <div className="flex items-center gap-3">
             <span className="text-sm font-semibold text-slate-900">{post.author}</span>
           </div>
-          <Link href={`/blog/${post.slug}`} className="flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:text-[#0E5E64] transition-colors">
+          <Link href={`/blog/${post.slug}`} className="flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:text-[#1a7097] transition-colors">
             Read Article <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
@@ -95,7 +95,7 @@ function BlogCard({ post, index, variant = 'default' }: { post: BlogPost; index:
         {/* Content Area */}
         <div className={`flex flex-col flex-1 p-6 md:p-8 bg-white relative ${isLarge ? 'w-full md:w-1/2' : ''}`}>
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-[10px] font-bold tracking-widest uppercase text-[#0E5E64]">
+            <span className="text-[10px] font-bold tracking-widest uppercase text-[#1a7097]">
               {post.category}
             </span>
             <span className="w-px h-3 bg-slate-200" />
@@ -104,7 +104,7 @@ function BlogCard({ post, index, variant = 'default' }: { post: BlogPost; index:
             </span>
           </div>
 
-          <h3 className={`font-bold text-slate-900 group-hover:text-[#0E5E64] transition-colors duration-300 leading-[1.1] tracking-tight mb-4 font-[IBM_Plex_Sans] ${
+          <h3 className={`font-bold text-slate-900 group-hover:text-[#1a7097] transition-colors duration-300 leading-[1.1] tracking-tight mb-4 font-[IBM_Plex_Sans] ${
             isLarge ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'
           }`}>
             {post.title}
@@ -116,7 +116,7 @@ function BlogCard({ post, index, variant = 'default' }: { post: BlogPost; index:
 
           <div className="flex items-center justify-between mt-auto pt-6 border-t border-slate-100">
             <span className="text-xs font-semibold text-slate-900">{post.author}</span>
-            <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#0E5E64] group-hover:bg-[#0E5E64] transition-all duration-300">
+            <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#1a7097] group-hover:bg-[#1a7097] transition-all duration-300">
               <ArrowUpRight className="w-3.5 h-3.5 text-slate-900 group-hover:text-white transition-colors duration-300" />
             </div>
           </div>
@@ -191,7 +191,7 @@ export default function BlogList() {
                 value={searchQuery}
                 onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(6); }}
                 placeholder="Search index..."
-                className="w-full pl-11 pr-10 py-3.5 bg-white border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0E5E64] transition-colors font-mono"
+                className="w-full pl-11 pr-10 py-3.5 bg-white border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1a7097] transition-colors font-mono"
               />
               {searchQuery && (
                 <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center hover:bg-slate-100 transition-colors">
@@ -210,7 +210,7 @@ export default function BlogList() {
                   variants={pillVariants}
                   onClick={() => { setActiveCategory(cat); setVisibleCount(6); }}
                   className={`px-5 py-2 text-xs font-bold tracking-widest uppercase transition-all duration-300 border ${
-                    isActive ? 'bg-[#0E5E64] text-white border-[#0E5E64]' : 'bg-white border-slate-200 text-slate-500 hover:border-[#0E5E64] hover:text-[#0E5E64]'
+                    isActive ? 'bg-[#1a7097] text-white border-[#1a7097]' : 'bg-white border-slate-200 text-slate-500 hover:border-[#1a7097] hover:text-[#1a7097]'
                   }`}
                 >
                   {cat}
@@ -237,7 +237,7 @@ export default function BlogList() {
             <motion.div key="empty" variants={scaleIn} initial="hidden" animate="visible" className="text-center py-24 bg-white border border-slate-200">
               <h3 className="text-xl font-bold text-slate-900 mb-2 font-[IBM_Plex_Sans]">No documents found</h3>
               <p className="text-sm text-slate-500 mb-6 font-mono">Try adjusting your query parameters.</p>
-              <button onClick={() => { setActiveCategory('All'); setSearchQuery(''); }} className="px-6 py-2.5 bg-[#0E5E64] text-white text-xs font-bold tracking-widest uppercase hover:bg-slate-900 transition-colors">
+              <button onClick={() => { setActiveCategory('All'); setSearchQuery(''); }} className="px-6 py-2.5 bg-[#1a7097] text-white text-xs font-bold tracking-widest uppercase hover:bg-slate-900 transition-colors">
                 Reset Index
               </button>
             </motion.div>
@@ -247,9 +247,9 @@ export default function BlogList() {
         {/* Load More */}
         {hasMore && (
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: premiumEase }} className="flex justify-center mt-16">
-            <button onClick={() => setVisibleCount((v) => v + 3)} className="group flex items-center gap-3 px-8 py-4 bg-white border border-slate-200 text-slate-900 text-xs font-bold tracking-widest uppercase hover:border-[#0E5E64] transition-colors duration-300">
+            <button onClick={() => setVisibleCount((v) => v + 3)} className="group flex items-center gap-3 px-8 py-4 bg-white border border-slate-200 text-slate-900 text-xs font-bold tracking-widest uppercase hover:border-[#1a7097] transition-colors duration-300">
               <span>Load More</span>
-              <span className="text-slate-400 group-hover:text-[#0E5E64] font-mono">[{filteredPosts.length - visibleCount}]</span>
+              <span className="text-slate-400 group-hover:text-[#1a7097] font-mono">[{filteredPosts.length - visibleCount}]</span>
             </button>
           </motion.div>
         )}

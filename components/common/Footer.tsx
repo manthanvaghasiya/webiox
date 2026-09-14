@@ -91,22 +91,22 @@ export default function Footer() {
             className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-8 rounded-[2rem] sm:rounded-[3rem] bg-white border border-slate-200 p-8 sm:p-12 lg:p-16 xl:p-20 relative overflow-hidden shadow-[0_30px_100px_-20px_rgba(0,0,0,0.15)]"
           >
             {/* Ambient glow inside the box */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#0E5E64]/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#1a7097]/10 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FFBF00]/15 rounded-full blur-[100px] pointer-events-none" />
             
             <div className="max-w-2xl relative z-10">
               <div className="flex items-center gap-3 mb-6">
                 <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0E5E64] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0E5E64]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1a7097] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1a7097]"></span>
                 </span>
-                <p className="text-[12px] md:text-[13px] font-mono tracking-[0.25em] uppercase text-[#0E5E64]">
+                <p className="text-[12px] md:text-[13px] font-mono tracking-[0.25em] uppercase text-[#1a7097]">
                   Ready to build?
                 </p>
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-[Alice] leading-[1.1] tracking-tight text-slate-900">
                 Let&apos;s craft something <br className="hidden md:block" />
-                <span className="text-[#0E5E64] font-medium">
+                <span className="text-[#1a7097] font-medium">
                   extraordinary.
                 </span>
               </h2>
@@ -114,7 +114,7 @@ export default function Footer() {
 
             <Link
               href="/contact"
-              className="group relative flex w-full sm:w-auto items-center justify-center gap-4 px-8 py-5 md:px-10 md:py-6 rounded-full bg-[#0E5E64] text-white font-bold text-sm md:text-base tracking-widest uppercase transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(14,94,100,0.5)] hover:bg-[#0b4d52] shrink-0 z-10 mt-4 lg:mt-0"
+              className="group relative flex w-full sm:w-auto items-center justify-center gap-4 px-8 py-5 md:px-10 md:py-6 rounded-full bg-[#1a7097] text-white font-bold text-sm md:text-base tracking-widest uppercase transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(26, 112, 151,0.5)] hover:bg-[#145b7c] shrink-0 z-10 mt-4 lg:mt-0"
             >
               <span className="relative z-10">Start a Project</span>
               <div className="relative z-10 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-white/20 transition-all duration-500 group-hover:bg-white/30 group-hover:scale-110">
@@ -129,7 +129,7 @@ export default function Footer() {
       {/* ━━━━━━━━━━━━━━━━ FOOTER CONTENT (Dark Theme) ━━━━━━━━━━━━━━━━ */}
       <div className="relative bg-[#041B1D] text-white">
         {/* ── Ambient glow blobs ── */}
-        <div className="absolute -top-[300px] -left-[200px] w-[700px] h-[700px] rounded-full bg-[#0E5E64]/8 blur-[160px] pointer-events-none" />
+        <div className="absolute -top-[300px] -left-[200px] w-[700px] h-[700px] rounded-full bg-[#1a7097]/8 blur-[160px] pointer-events-none" />
         <div className="absolute -bottom-[200px] -right-[200px] w-[600px] h-[600px] rounded-full bg-[#FFBF00]/5 blur-[140px] pointer-events-none" />
 
         {/* ── Subtle dot grid ── */}

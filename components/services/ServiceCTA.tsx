@@ -9,7 +9,7 @@ const premiumEase = "easeOut";
 export default function ServiceCTA() {
   return (
     <section className="py-32 relative overflow-hidden bg-[#F9FAFB] border-t border-slate-100">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_center,rgba(14,94,100,0.05)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_center,rgba(26, 112, 151,0.05)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <motion.div
@@ -22,7 +22,7 @@ export default function ServiceCTA() {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-[#0E5E64] to-transparent opacity-30 blur-[100px] pointer-events-none"
+            className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-[#1a7097] to-transparent opacity-30 blur-[100px] pointer-events-none"
           />
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6 relative z-10">

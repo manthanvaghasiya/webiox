@@ -75,7 +75,7 @@ const SERVICES: readonly HomeService[] = [
     },
     icon: Monitor,
     video: '/you_make_good_video_for_we_add.mp4',
-    accent: '#0E5E64',
+    accent: '#1a7097',
     accentSurface: '#EEF6F6',
     href: '/portfolio',
   },
@@ -174,7 +174,7 @@ export default function Services() {
         >
           <path
             d="M0,100 C377,-120 700,300 1200,0 V0 H0 Z"
-            className="fill-[#0E5E64]"
+            className="fill-[#1a7097]"
           />
         </svg>
       </div>
@@ -218,8 +218,8 @@ function Header() {
         viewport={{ once: true, margin: '-80px' }}
         className="mb-6 flex items-center gap-3"
       >
-        <span aria-hidden className="h-[2px] w-8 rounded-full bg-[#0E5E64]/60" />
-        <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0E5E64]/80">
+        <span aria-hidden className="h-[2px] w-8 rounded-full bg-[#1a7097]/60" />
+        <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#1a7097]/80">
           What We Build
         </span>
       </motion.div>
@@ -240,7 +240,7 @@ function Header() {
             >
               <motion.span variants={headlineWord} className="inline-block will-change-transform">
                 {i === ACCENT_WORD_INDEX ? (
-                  <span className="bg-gradient-to-r from-[#0E5E64] via-[#1a8a8f] to-[#0E5E64] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#1a7097] via-[#1a8a8f] to-[#1a7097] bg-clip-text text-transparent">
                     {word}
                   </span>
                 ) : (
@@ -698,7 +698,7 @@ function TrustStrip() {
 
       <Link
         href="/contact"
-        className="group/cta w-full md:w-auto inline-flex justify-center items-center gap-2.5 rounded-full bg-slate-900 px-6 py-3.5 md:py-3 text-[13px] font-semibold tracking-wide text-white shadow-[0_10px_30px_-10px_rgba(15,23,42,0.4)] transition-colors duration-300 hover:bg-[#0E5E64] hover:shadow-[0_14px_40px_-10px_rgba(14,94,100,0.5)]"
+        className="group/cta w-full md:w-auto inline-flex justify-center items-center gap-2.5 rounded-full bg-slate-900 px-6 py-3.5 md:py-3 text-[13px] font-semibold tracking-wide text-white shadow-[0_10px_30px_-10px_rgba(15,23,42,0.4)] transition-colors duration-300 hover:bg-[#1a7097] hover:shadow-[0_14px_40px_-10px_rgba(26, 112, 151,0.5)]"
       >
         Tell us about your project
         <ArrowUpRight

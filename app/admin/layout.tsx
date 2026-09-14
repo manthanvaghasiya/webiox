@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { LayoutDashboard, FileText, Image as ImageIcon, Settings, ExternalLink, LogOut, Menu, X, Bell, MessageSquare } from 'lucide-react';
+import { LayoutDashboard, Image as ImageIcon, Settings, ExternalLink, LogOut, Menu, X, Bell, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -13,7 +13,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const navLinks = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
     { name: 'Inquiries', href: '/admin/inquiries', icon: MessageSquare },
-    { name: 'Blog Posts', href: '/admin/blog', icon: FileText },
     { name: 'Settings', href: '/admin/settings', icon: Settings },
   ];
 

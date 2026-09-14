@@ -55,14 +55,14 @@ export default function OpenPositions() {
     <section className="w-full bg-white py-24 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-[#0E5E64] font-bold tracking-widest uppercase text-sm mb-4">
+          <h2 className="text-[#1a7097] font-bold tracking-widest uppercase text-sm mb-4">
             Join The Team
           </h2>
           <h3 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight font-[Zain] mb-6">
             Current Openings
           </h3>
           <p className="text-lg text-slate-600 font-light">
-            Don't see a perfect fit? Send your resume to <a href="mailto:careers@webiox.tech" className="text-[#0E5E64] font-medium hover:underline">careers@webiox.tech</a>
+            Don't see a perfect fit? Send your resume to <a href="mailto:careers@webiox.tech" className="text-[#1a7097] font-medium hover:underline">careers@webiox.tech</a>
           </p>
         </div>
 
@@ -75,8 +75,8 @@ export default function OpenPositions() {
               viewport={{ once: true, margin: '-50px' }}
               className={`border rounded-2xl transition-all duration-300 ${
                 openId === pos.id 
-                  ? 'border-[#0E5E64]/30 shadow-lg bg-slate-50' 
-                  : 'border-slate-200 hover:border-[#0E5E64]/30 hover:shadow-md bg-white'
+                  ? 'border-[#1a7097]/30 shadow-lg bg-slate-50' 
+                  : 'border-slate-200 hover:border-[#1a7097]/30 hover:shadow-md bg-white'
               }`}
             >
               <button
@@ -101,7 +101,7 @@ export default function OpenPositions() {
                 </div>
                 
                 <div className="flex items-center gap-4 self-end md:self-auto">
-                  <div className={`p-2 rounded-full transition-colors duration-300 ${openId === pos.id ? 'bg-[#0E5E64] text-white' : 'bg-slate-100 text-slate-400'}`}>
+                  <div className={`p-2 rounded-full transition-colors duration-300 ${openId === pos.id ? 'bg-[#1a7097] text-white' : 'bg-slate-100 text-slate-400'}`}>
                     <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${openId === pos.id ? 'rotate-180' : ''}`} />
                   </div>
                 </div>
@@ -123,14 +123,14 @@ export default function OpenPositions() {
                       
                       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-white p-6 rounded-xl border border-slate-200/50">
                         <div className="flex items-center gap-2 text-slate-700 font-semibold">
-                          <Briefcase className="w-5 h-5 text-[#0E5E64]" />
+                          <Briefcase className="w-5 h-5 text-[#1a7097]" />
                           Experience: {pos.experience}
                           <span className="text-sm font-normal text-slate-400 ml-2 border-l border-slate-200 pl-2">Salary: Based on Interview</span>
                         </div>
                         
                         <Link 
                           href={`/contact?role=${encodeURIComponent(pos.title)}`}
-                          className="group inline-flex items-center justify-center gap-2 bg-[#0E5E64] text-white px-6 py-3 rounded-full font-semibold transition-all hover:bg-[#11737a] hover:shadow-lg w-full sm:w-auto"
+                          className="group inline-flex items-center justify-center gap-2 bg-[#1a7097] text-white px-6 py-3 rounded-full font-semibold transition-all hover:bg-[#11737a] hover:shadow-lg w-full sm:w-auto"
                         >
                           Apply Now
                           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

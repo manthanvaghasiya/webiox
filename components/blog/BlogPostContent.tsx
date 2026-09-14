@@ -31,7 +31,7 @@ function RenderContent({ content }: { content: string }) {
               key={i}
               className="flex gap-3 text-slate-600 leading-relaxed"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0E5E64] mt-2.5 shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097] mt-2.5 shrink-0" />
               <span dangerouslySetInnerHTML={{ __html: formatInline(item) }} />
             </li>
           ))}
@@ -44,7 +44,7 @@ function RenderContent({ content }: { content: string }) {
   const formatInline = (text: string): string => {
     return text
       .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-slate-900">$1</strong>')
-      .replace(/`(.+?)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-100 text-[#0E5E64] text-sm font-mono">$1</code>');
+      .replace(/`(.+?)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-100 text-[#1a7097] text-sm font-mono">$1</code>');
   };
 
   for (let i = 0; i < lines.length; i++) {
@@ -127,7 +127,7 @@ function RelatedCard({ post }: { post: BlogPost }) {
           </div>
         </div>
         <div className="p-5">
-          <h3 className="font-bold text-slate-900 group-hover:text-[#0E5E64] transition-colors duration-300 leading-snug mb-2 line-clamp-2">
+          <h3 className="font-bold text-slate-900 group-hover:text-[#1a7097] transition-colors duration-300 leading-snug mb-2 line-clamp-2">
             {post.title}
           </h3>
           <div className="flex items-center gap-2 text-xs text-slate-400">
@@ -280,7 +280,7 @@ export default function BlogPostContent({
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
-            className="border-l-4 border-[#0E5E64] pl-6 py-2 mb-12 text-xl text-slate-700 italic font-light leading-relaxed"
+            className="border-l-4 border-[#1a7097] pl-6 py-2 mb-12 text-xl text-slate-700 italic font-light leading-relaxed"
           >
             {post.excerpt}
           </motion.blockquote>
@@ -317,7 +317,7 @@ export default function BlogPostContent({
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-600 hover:border-[#0E5E64] hover:text-[#0E5E64] transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-600 hover:border-[#1a7097] hover:text-[#1a7097] transition-colors"
                 onClick={() => {
                   if (typeof navigator !== 'undefined' && navigator.share) {
                     navigator.share({ title: post.title, url: window.location.href });
@@ -341,7 +341,7 @@ export default function BlogPostContent({
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="flex items-center gap-3 mb-8">
-                <BookOpen className="w-5 h-5 text-[#0E5E64]" />
+                <BookOpen className="w-5 h-5 text-[#1a7097]" />
                 <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
                   Continue Reading
                 </h2>
@@ -360,7 +360,7 @@ export default function BlogPostContent({
           <div className="flex justify-center">
             <Link
               href="/blog"
-              className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-slate-200 bg-white text-slate-700 font-semibold hover:border-[#0E5E64] hover:text-[#0E5E64] transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-[#0E5E64]/10"
+              className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-slate-200 bg-white text-slate-700 font-semibold hover:border-[#1a7097] hover:text-[#1a7097] transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-[#1a7097]/10"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               All Articles

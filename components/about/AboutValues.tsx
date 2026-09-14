@@ -36,7 +36,7 @@ const valuesDots: Dot[] = [
   { x: '93%', y: '82%', size: 3, delay: 1.9, color: 'yellow' },
 ];
 
-const valuesMesh = `radial-gradient(at 5% 32%, rgba(14,94,100,0.08) 0px, transparent 55%),
+const valuesMesh = `radial-gradient(at 5% 32%, rgba(26, 112, 151,0.08) 0px, transparent 55%),
 radial-gradient(at 95% 68%, rgba(255,191,0,0.06) 0px, transparent 55%),
 radial-gradient(at 50% 4%, rgba(199,232,155,0.32) 0px, transparent 50%)`;
 
@@ -170,7 +170,7 @@ const Connector = ({
             y2="240"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0%" stopColor="#0E5E64" stopOpacity="0.3" />
+            <stop offset="0%" stopColor="#1a7097" stopOpacity="0.3" />
             <stop offset="30%" stopColor="#FFBF00" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#FFBF00" stopOpacity="1" />
           </linearGradient>
@@ -222,7 +222,7 @@ const Connector = ({
           cx={startX}
           cy={0}
           r={5}
-          fill="#0E5E64"
+          fill="#1a7097"
           stroke="#FFBF00"
           strokeWidth={2}
           style={{ opacity: lineOpacity }}
@@ -244,7 +244,7 @@ const Connector = ({
           cx={dropX}
           cy={240}
           r={6}
-          fill="#0E5E64"
+          fill="#1a7097"
           stroke="#FFBF00"
           strokeWidth={2.5}
           style={{ opacity: afterDrawOpacity }}
@@ -334,10 +334,10 @@ const ValueCard = ({ value, position }: CardProps) => {
         transformPerspective: 1200,
         transformStyle: 'preserve-3d',
       }}
-      className="group relative flex overflow-hidden rounded-[28px] bg-[#E9F4EA] text-gray-900 shadow-[0_22px_50px_-26px_rgba(14,94,100,0.3)] transition-shadow duration-500 will-change-transform hover:shadow-[0_32px_60px_-22px_rgba(14,94,100,0.4)]"
+      className="group relative flex overflow-hidden rounded-[28px] bg-[#E9F4EA] text-gray-900 shadow-[0_22px_50px_-26px_rgba(26, 112, 151,0.3)] transition-shadow duration-500 will-change-transform hover:shadow-[0_32px_60px_-22px_rgba(26, 112, 151,0.4)]"
     >
       {/* Left rotated tag strip */}
-      <div className="relative flex w-10 sm:w-14 shrink-0 items-center justify-center overflow-hidden bg-[#0E5E64] py-6">
+      <div className="relative flex w-10 sm:w-14 shrink-0 items-center justify-center overflow-hidden bg-[#1a7097] py-6">
         {/* Strip shimmer on hover */}
         <div
           aria-hidden="true"
@@ -356,7 +356,7 @@ const ValueCard = ({ value, position }: CardProps) => {
         {/* Oversized background numeral */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-3 -bottom-10 select-none text-[7rem] md:text-[10.5rem] font-black leading-none tracking-tighter text-[#0E5E64]/[0.08] transition-transform duration-700 group-hover:-translate-y-1 group-hover:scale-105"
+          className="pointer-events-none absolute -right-3 -bottom-10 select-none text-[7rem] md:text-[10.5rem] font-black leading-none tracking-tighter text-[#1a7097]/[0.08] transition-transform duration-700 group-hover:-translate-y-1 group-hover:scale-105"
         >
           {value.index}
         </div>
@@ -364,30 +364,30 @@ const ValueCard = ({ value, position }: CardProps) => {
         {/* Hover bloom */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(14,94,100,0.09),transparent_55%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(26, 112, 151,0.09),transparent_55%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         />
 
         {/* Icon with parallax */}
         <motion.div
           style={{ x: iconX, y: iconY }}
-          className="relative mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#0E5E64]/15 bg-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-[-6deg] group-hover:border-[#0E5E64]/40"
+          className="relative mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#1a7097]/15 bg-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-[-6deg] group-hover:border-[#1a7097]/40"
         >
           <Icon
-            className="h-5 w-5 text-[#0E5E64] transition-colors duration-300"
+            className="h-5 w-5 text-[#1a7097] transition-colors duration-300"
             strokeWidth={2}
           />
         </motion.div>
 
         {/* Title row */}
         <h3 className="relative mb-3 flex items-baseline gap-2.5 text-xl font-bold tracking-tight">
-          <span className="text-[#0E5E64]/40">{value.index}</span>
+          <span className="text-[#1a7097]/40">{value.index}</span>
           <span>{value.title}</span>
         </h3>
 
         {/* Animated underline accent */}
         <div
           aria-hidden="true"
-          className="relative mb-4 h-px w-10 origin-left bg-[#0E5E64]/50 transition-all duration-500 group-hover:w-20"
+          className="relative mb-4 h-px w-10 origin-left bg-[#1a7097]/50 transition-all duration-500 group-hover:w-20"
         />
 
         {/* Body */}
@@ -405,10 +405,10 @@ const MobileValueCard = ({ value, position, isLast }: { value: ValueItem; positi
   const Icon = value.icon;
 
   return (
-    <div className="relative z-10 flex w-full min-h-[6.5rem] items-stretch rounded-[20px] bg-white shadow-[0_8px_30px_-12px_rgba(14,94,100,0.2)]">
+    <div className="relative z-10 flex w-full min-h-[6.5rem] items-stretch rounded-[20px] bg-white shadow-[0_8px_30px_-12px_rgba(26, 112, 151,0.2)]">
       {/* Left blue part */}
       <div 
-        className="relative w-[35%] sm:w-[25%] shrink-0 overflow-hidden rounded-l-[20px] bg-[#0E5E64]"
+        className="relative w-[35%] sm:w-[25%] shrink-0 overflow-hidden rounded-l-[20px] bg-[#1a7097]"
         style={{ clipPath: 'polygon(0 0, 100% 0, 75% 100%, 0 100%)' }}
       >
         <div className="absolute inset-0 flex items-center justify-center pr-[15%]">
@@ -424,12 +424,12 @@ const MobileValueCard = ({ value, position, isLast }: { value: ValueItem; positi
       
       {/* Number Circle */}
       <div className="absolute right-4 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border-[3px] border-gray-50 bg-white shadow-sm z-10">
-        <span className="text-sm font-extrabold text-[#0E5E64]">{value.index}.</span>
+        <span className="text-sm font-extrabold text-[#1a7097]">{value.index}.</span>
       </div>
       
       {/* Vertical Dashed Line connecting to next */}
       {!isLast && (
-        <div className="absolute right-[37px] top-[50%] h-[calc(100%+2rem)] w-px border-l-[2px] border-dashed border-[#0E5E64]/30 z-0" />
+        <div className="absolute right-[37px] top-[50%] h-[calc(100%+2rem)] w-px border-l-[2px] border-dashed border-[#1a7097]/30 z-0" />
       )}
     </div>
   );
@@ -468,7 +468,7 @@ export default function AboutValues() {
         aria-hidden="true"
         animate={{ x: [0, 40, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        className="pointer-events-none absolute -left-40 top-1/3 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(14,94,100,0.09),transparent_60%)] blur-[110px]"
+        className="pointer-events-none absolute -left-40 top-1/3 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(26, 112, 151,0.09),transparent_60%)] blur-[110px]"
       />
 
       {/* Animated blob 2 — yellow bottom-right */}
@@ -506,7 +506,7 @@ export default function AboutValues() {
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           backgroundImage:
-            'radial-gradient(rgba(14,94,100,0.06) 1px, transparent 1px)',
+            'radial-gradient(rgba(26, 112, 151,0.06) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
           maskImage:
             'radial-gradient(ellipse at center, black 30%, transparent 75%)',
@@ -524,14 +524,14 @@ export default function AboutValues() {
       >
         <path
           d="M0,80 Q360,40 720,80 T1440,80"
-          stroke="rgba(14,94,100,0.4)"
+          stroke="rgba(26, 112, 151,0.4)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="4 6"
         />
         <path
           d="M0,100 Q360,70 720,100 T1440,100"
-          stroke="rgba(14,94,100,0.25)"
+          stroke="rgba(26, 112, 151,0.25)"
           strokeWidth="1"
           fill="none"
         />
@@ -563,9 +563,9 @@ export default function AboutValues() {
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-                className="h-[2px] w-10 origin-left rounded-full bg-[#0E5E64]/70"
+                className="h-[2px] w-10 origin-left rounded-full bg-[#1a7097]/70"
               />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#0E5E64]/85">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#1a7097]/85">
                 Our Core Values
               </span>
             </div>
@@ -650,11 +650,11 @@ export default function AboutValues() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-20 flex items-center justify-center gap-3 text-[11px] font-medium uppercase tracking-[0.32em] text-[#0E5E64]/60"
+          className="mt-20 flex items-center justify-center gap-3 text-[11px] font-medium uppercase tracking-[0.32em] text-[#1a7097]/60"
         >
-          <span className="h-px w-10 bg-[#0E5E64]/30" />
+          <span className="h-px w-10 bg-[#1a7097]/30" />
           <span>Principles, not promises</span>
-          <span className="h-px w-10 bg-[#0E5E64]/30" />
+          <span className="h-px w-10 bg-[#1a7097]/30" />
         </motion.div>
       </div>
     </section>

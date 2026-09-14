@@ -33,7 +33,7 @@ const ctaDots: Dot[] = [
   { x: '95%', y: '82%', size: 2, delay: 2.6, color: 'yellow' },
 ];
 
-const ctaMesh = `radial-gradient(at 18% 92%, rgba(14,94,100,0.07) 0px, transparent 50%),
+const ctaMesh = `radial-gradient(at 18% 92%, rgba(26, 112, 151,0.07) 0px, transparent 50%),
 radial-gradient(at 82% 8%, rgba(255,191,0,0.06) 0px, transparent 50%),
 radial-gradient(at 50% 50%, rgba(199,232,155,0.18) 0px, transparent 55%)`;
 
@@ -57,7 +57,7 @@ const FloatingIcon = ({ icon: Icon, delay, className }: FloatingIconProps) => (
       delay,
       ease: 'easeInOut',
     }}
-    className={`absolute text-[#0E5E64] ${className}`}
+    className={`absolute text-[#1a7097] ${className}`}
   >
     <Icon strokeWidth={1.5} className="h-10 w-10 md:h-16 md:w-16" />
   </motion.div>
@@ -94,7 +94,7 @@ export default function AboutCTA() {
 
   const spotlight = useMotionTemplate`radial-gradient(
     700px circle at ${mouseX}px ${mouseY}px,
-    rgba(14, 94, 100, 0.16),
+    rgba(26, 112, 151, 0.16),
     transparent 75%
   )`;
 
@@ -105,7 +105,7 @@ export default function AboutCTA() {
         aria-hidden="true"
         animate={{ x: [0, 60, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-1/4 -left-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(14,94,100,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
+        className="absolute -top-1/4 -left-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(26, 112, 151,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
       />
 
       {/* Section-level animated blob — yellow bottom-right */}
@@ -122,7 +122,7 @@ export default function AboutCTA() {
         className="absolute inset-0 pointer-events-none z-0 opacity-60"
         style={{
           backgroundImage:
-            'radial-gradient(rgba(14,94,100,0.05) 1px, transparent 1px)',
+            'radial-gradient(rgba(26, 112, 151,0.05) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
           maskImage:
             'radial-gradient(ellipse at center, black 30%, transparent 80%)',
@@ -161,11 +161,11 @@ export default function AboutCTA() {
           />
 
           {/* Main light container */}
-          <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] border border-[#0E5E64]/12 bg-white p-5 sm:p-8 text-center shadow-[0_30px_80px_-30px_rgba(14,94,100,0.25)] md:p-12 lg:py-16">
+          <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] border border-[#1a7097]/12 bg-white p-5 sm:p-8 text-center shadow-[0_30px_80px_-30px_rgba(26, 112, 151,0.25)] md:p-12 lg:py-16">
             {/* Subtle teal grid */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(14,94,100,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(14,94,100,0.04)_1px,transparent_1px)] bg-[size:32px_32px]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(26, 112, 151,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(26, 112, 151,0.04)_1px,transparent_1px)] bg-[size:32px_32px]"
             />
 
             {/* Soft top/bottom vignette to fade the grid */}
@@ -179,7 +179,7 @@ export default function AboutCTA() {
               aria-hidden="true"
               animate={{ scale: [1, 1.18, 1], opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-              className="pointer-events-none absolute right-0 top-0 h-96 w-96 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#0E5E64]/25 blur-[110px]"
+              className="pointer-events-none absolute right-0 top-0 h-96 w-96 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#1a7097]/25 blur-[110px]"
             />
             <motion.div
               aria-hidden="true"
@@ -227,7 +227,7 @@ export default function AboutCTA() {
               {/* Top badge */}
               <motion.div
                 variants={itemVariants}
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0E5E64]/20 bg-[#0E5E64]/[0.06] px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest text-[#0E5E64] shadow-[0_0_20px_rgba(14,94,100,0.08)]"
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1a7097]/20 bg-[#1a7097]/[0.06] px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest text-[#1a7097] shadow-[0_0_20px_rgba(26, 112, 151,0.08)]"
               >
                 <span className="h-2 w-2 animate-pulse rounded-full bg-[#FFBF00]" />
                 System Ready. Awaiting Command.
@@ -238,7 +238,7 @@ export default function AboutCTA() {
                 className="mb-6 text-3xl font-bold leading-[1.1] tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
               >
                 Ready to Deploy Your{' '}
-                <span className="relative inline-block text-[#0E5E64]">
+                <span className="relative inline-block text-[#1a7097]">
                   <motion.span
                     aria-hidden="true"
                     initial={{ scaleX: 0 }}
@@ -285,7 +285,7 @@ export default function AboutCTA() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group/btn relative inline-flex w-full items-center justify-center gap-3 rounded-full border border-[#0E5E64]/30 bg-white px-8 py-4 text-lg font-bold text-[#0E5E64] transition-colors duration-300 hover:border-[#0E5E64] hover:bg-[#0E5E64] hover:text-white sm:w-auto md:px-10"
+                    className="group/btn relative inline-flex w-full items-center justify-center gap-3 rounded-full border border-[#1a7097]/30 bg-white px-8 py-4 text-lg font-bold text-[#1a7097] transition-colors duration-300 hover:border-[#1a7097] hover:bg-[#1a7097] hover:text-white sm:w-auto md:px-10"
                   >
                     View Frameworks
                     <Terminal className="h-5 w-5 transition-colors" />

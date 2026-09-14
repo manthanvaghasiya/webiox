@@ -13,7 +13,7 @@ export interface Project {
     liveLink?: string;
 }
 
-export const categories = ['All', 'Web Development', 'SaaS Development', 'UI/UX Design', 'AI automation'];
+export const categories = ['All', 'Web Development', 'SaaS Development', 'UI/UX Design'];
 
 export const allProjects: Project[] = [
     {

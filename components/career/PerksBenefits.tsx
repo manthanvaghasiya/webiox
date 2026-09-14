@@ -41,7 +41,7 @@ export default function PerksBenefits() {
     <section className="w-full bg-slate-900 text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[#0E5E64]/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[#1a7097]/20 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] bg-[#FFBF00]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">

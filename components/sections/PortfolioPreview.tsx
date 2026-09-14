@@ -70,7 +70,7 @@ const ProjectCard = ({ project, index, progress, totalCards }: any) => {
           {/* Floating Action Button */}
           <div className="absolute top-6 right-6 md:top-10 md:right-10 z-30 w-14 h-14 md:w-20 md:h-20 bg-[#F9FAFB]/10 backdrop-blur-xl border border-[#F9FAFB]/20 rounded-full flex items-center justify-center translate-y-8 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:bg-[#FFBF00] group-hover:border-transparent transition-all duration-500 ease-[0.16,1,0.3,1] shadow-2xl">
             <div className="transform group-hover:rotate-45 transition-transform duration-500 ease-[0.16,1,0.3,1]">
-              <ArrowUpRight className="text-[#F9FAFB] group-hover:text-[#0E5E64] w-6 h-6 md:w-8 md:h-8 transition-colors duration-300" />
+              <ArrowUpRight className="text-[#F9FAFB] group-hover:text-[#1a7097] w-6 h-6 md:w-8 md:h-8 transition-colors duration-300" />
             </div>
           </div>
 
@@ -144,7 +144,7 @@ export default function PortfolioPreview() {
             >
               <h2 className="text-[2rem] leading-[1.2] sm:text-4xl md:text-5xl lg:text-6xl font-normal text-slate-900 tracking-tight mb-5 md:mb-6">
                 Transforming{' '}
-                <span className="relative inline-block text-[#0E5E64] italic pr-1">
+                <span className="relative inline-block text-[#1a7097] italic pr-1">
                   ideas
                   <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-[0.1em] bg-[#FFBF00]/30 -z-10 -rotate-2" />
                 </span>
@@ -175,9 +175,9 @@ export default function PortfolioPreview() {
               className="flex justify-center lg:justify-start"
             >
               <Link href="/portfolio" className="group relative inline-flex items-center justify-center">
-                <div className="absolute inset-0 w-full h-full rounded-full bg-[#0E5E64] opacity-20 blur-xl group-hover:opacity-40 group-hover:blur-2xl transition-all duration-500" />
+                <div className="absolute inset-0 w-full h-full rounded-full bg-[#1a7097] opacity-20 blur-xl group-hover:opacity-40 group-hover:blur-2xl transition-all duration-500" />
                 <div className="relative text-[#F9FAFB] font-semibold text-sm md:text-base px-8 py-4 sm:px-10 sm:py-5 bg-slate-900 rounded-full overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.15)] group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-all duration-300">
-                  <div className="absolute inset-x-0 bottom-0 h-0 bg-[#0E5E64] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:h-full z-0" />
+                  <div className="absolute inset-x-0 bottom-0 h-0 bg-[#1a7097] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:h-full z-0" />
                   <span className="relative z-10 flex items-center gap-3">
                     View Complete Index
                     <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

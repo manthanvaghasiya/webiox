@@ -21,7 +21,7 @@ const storyDots: Dot[] = [
 ];
 
 const storyMesh = `radial-gradient(at 82% 12%, rgba(255,191,0,0.07) 0px, transparent 50%),
-radial-gradient(at 18% 76%, rgba(14,94,100,0.07) 0px, transparent 50%),
+radial-gradient(at 18% 76%, rgba(26, 112, 151,0.07) 0px, transparent 50%),
 radial-gradient(at 55% 45%, rgba(199,232,155,0.22) 0px, transparent 55%)`;
 
 const pillars = [
@@ -64,7 +64,7 @@ export default function AboutStory() {
           scale: [1, 1.15, 1],
         }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute top-[40%] -left-1/4 w-[900px] h-[900px] bg-[radial-gradient(circle_at_center,rgba(14,94,100,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
+        className="absolute top-[40%] -left-1/4 w-[900px] h-[900px] bg-[radial-gradient(circle_at_center,rgba(26, 112, 151,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
       />
 
       {/* Animated blob 3 — mint center */}
@@ -97,7 +97,7 @@ export default function AboutStory() {
         className="absolute inset-0 pointer-events-none z-0 opacity-60"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(135deg, transparent 0, transparent 80px, rgba(14,94,100,0.025) 80px, rgba(14,94,100,0.025) 81px)',
+            'repeating-linear-gradient(135deg, transparent 0, transparent 80px, rgba(26, 112, 151,0.025) 80px, rgba(26, 112, 151,0.025) 81px)',
         }}
       />
 
@@ -110,7 +110,7 @@ export default function AboutStory() {
       >
         <path
           d="M0,0 C40,80 40,176 0,256"
-          stroke="rgba(14,94,100,0.5)"
+          stroke="rgba(26, 112, 151,0.5)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="4 6"
@@ -135,12 +135,12 @@ export default function AboutStory() {
           >
             <div>
               {/* Label */}
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase text-[#0E5E64] bg-[#0E5E64]/10 border border-[#0E5E64]/20 mb-6">
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase text-[#1a7097] bg-[#1a7097]/10 border border-[#1a7097]/20 mb-6">
                 Our Story
               </span>
 
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-6">
-                Turning business <span className="text-[#0E5E64]">complexity into automated</span> simplicity.
+                Turning business <span className="text-[#1a7097]">complexity into automated</span> simplicity.
               </h2>
 
               <p className="text-lg text-gray-600 leading-relaxed mb-10">
@@ -156,10 +156,10 @@ export default function AboutStory() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.15 + i * 0.12, duration: 0.55 }}
-                    className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-md border border-[#0E5E64]/10 hover:border-[#0E5E64]/30 hover:shadow-[0_12px_30px_rgba(14,94,100,0.06)] transition-all duration-300 group relative z-10"
+                    className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-md border border-[#1a7097]/10 hover:border-[#1a7097]/30 hover:shadow-[0_12px_30px_rgba(26, 112, 151,0.06)] transition-all duration-300 group relative z-10"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-[#0E5E64]/5 border border-[#0E5E64]/10 flex items-center justify-center shrink-0 group-hover:bg-[#0E5E64] group-hover:shadow-[0_0_15px_rgba(14,94,100,0.2)] transition-all duration-500">
-                      <Icon className="w-5 h-5 text-[#0E5E64] group-hover:text-white transition-colors duration-500" />
+                    <div className="w-12 h-12 rounded-xl bg-[#1a7097]/5 border border-[#1a7097]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1a7097] group-hover:shadow-[0_0_15px_rgba(26, 112, 151,0.2)] transition-all duration-500">
+                      <Icon className="w-5 h-5 text-[#1a7097] group-hover:text-white transition-colors duration-500" />
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900 mb-0.5">{title}</h4>

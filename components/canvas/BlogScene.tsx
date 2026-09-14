@@ -14,7 +14,7 @@ const ParticleField = () => {
     const colorsArray = new Float32Array(PARTICLE_COUNT * 3);
     const sizesArray = new Float32Array(PARTICLE_COUNT);
 
-    const color1 = new THREE.Color("#0E5E64"); // Webiox Teal
+    const color1 = new THREE.Color("#1a7097"); // Webiox Teal
     const color2 = new THREE.Color("#14b8a6"); // Teal 500
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
@@ -22,14 +22,14 @@ const ParticleField = () => {
       const theta = Math.random() * Math.PI * 2;
       const radius = 2 + Math.random() * 8;
       const y = (Math.random() - 0.5) * 10;
-      
+
       positionsArray[i * 3] = Math.cos(theta) * radius;
       positionsArray[i * 3 + 1] = y;
       positionsArray[i * 3 + 2] = Math.sin(theta) * radius;
 
       const mixRatio = Math.random();
       const mixedColor = color1.clone().lerp(color2, mixRatio);
-      
+
       colorsArray[i * 3] = mixedColor.r;
       colorsArray[i * 3 + 1] = mixedColor.g;
       colorsArray[i * 3 + 2] = mixedColor.b;
@@ -44,15 +44,15 @@ const ParticleField = () => {
     if (pointsRef.current) {
       pointsRef.current.rotation.y = state.clock.elapsedTime * 0.05;
       pointsRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
-      
+
       // Gentle pulsing of points
       const positionsAttr = pointsRef.current.geometry.attributes.position;
-      for(let i=0; i<PARTICLE_COUNT; i++) {
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
         const i3 = i * 3;
         const x = positions[i3];
         const z = positions[i3 + 2];
         const time = state.clock.elapsedTime;
-        
+
         // Add subtle wave motion
         positionsAttr.array[i3 + 1] = positions[i3 + 1] + Math.sin(time + x) * 0.01;
       }

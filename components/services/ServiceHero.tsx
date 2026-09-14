@@ -70,7 +70,7 @@ const OrbitalCanvas = ({ mouseX, mouseY }: { mouseX: number; mouseY: number }) =
       dots: Array.from({ length: 3 + i }, (_, j) => ({
         offset: (j / (3 + i)) * Math.PI * 2,
         size: 2 + Math.random() * 2,
-        color: i % 2 === 0 ? '#FFBF00' : '#0E5E64',
+        color: i % 2 === 0 ? '#FFBF00' : '#1a7097',
       })),
     }));
 
@@ -174,7 +174,7 @@ const ServicePill = ({ icon: Icon, label, delay, x, y }: any) => (
     transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
     className={`absolute ${x} ${y} hidden lg:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] z-20 group hover:border-[#FFBF00]/30 hover:bg-white/[0.08] transition-all duration-500 cursor-default`}
   >
-    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFBF00]/20 to-[#0E5E64]/20 flex items-center justify-center group-hover:from-[#FFBF00]/40 group-hover:to-[#0E5E64]/40 transition-all duration-500">
+    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFBF00]/20 to-[#1a7097]/20 flex items-center justify-center group-hover:from-[#FFBF00]/40 group-hover:to-[#1a7097]/40 transition-all duration-500">
       <Icon className="w-4 h-4 text-[#FFBF00]" />
     </div>
     <span className="text-xs font-semibold text-white/70 tracking-wide group-hover:text-white/90 transition-colors">{label}</span>
@@ -245,7 +245,7 @@ export default function ServiceHero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#0E5E64]"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#1a7097]"
     >
       {/* Orbital Canvas Background */}
       <OrbitalCanvas mouseX={mouse.x} mouseY={mouse.y} />
@@ -395,7 +395,7 @@ export default function ServiceHero() {
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="group relative h-14 px-10 rounded-full bg-[#F9FAFB] text-[#0E5E64] font-bold text-sm tracking-wide overflow-hidden shadow-[0_0_50px_rgba(249,250,251,0.15)] hover:shadow-[0_0_70px_rgba(249,250,251,0.25)] transition-shadow duration-500 flex items-center gap-3"
+              className="group relative h-14 px-10 rounded-full bg-[#F9FAFB] text-[#1a7097] font-bold text-sm tracking-wide overflow-hidden shadow-[0_0_50px_rgba(249,250,251,0.15)] hover:shadow-[0_0_70px_rgba(249,250,251,0.25)] transition-shadow duration-500 flex items-center gap-3"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <span className="relative z-10">Start a Project</span>

@@ -4,13 +4,23 @@ import { ArrowRight, CheckCircle2, ChevronLeft, Database } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const service = services.find((s) => s.id === params.id);
-  if (!service) return { title: 'Service Not Found' };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const service = services.find((s) => s.id === id);
+  if (!service) return { title: 'Service Not Found | Webiox' };
   
   return {
     title: `${service.title} | Webiox Digital Solutions`,
     description: service.description,
+    openGraph: {
+      title: `${service.title} | Webiox Digital Solutions`,
+      description: service.description,
+      url: `https://webiox.tech/services/${service.id}`,
+    },
   };
 }
 
@@ -20,8 +30,13 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ServiceDetail({ params }: { params: { id: string } }) {
-  const service = services.find((s) => s.id === params.id);
+export default async function ServiceDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const service = services.find((s) => s.id === id);
   
   if (!service) {
     notFound();
@@ -121,7 +136,7 @@ export default function ServiceDetail({ params }: { params: { id: string } }) {
                   <p className="text-slate-600 mb-8">
                     Let's discuss how we can implement {service.title} for your business.
                   </p>
-                  <Link href="/contact" className="inline-flex items-center justify-center gap-2 w-full bg-[#0E5E64] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#0b4a4f] hover:shadow-lg transition-all group">
+                  <Link href="/contact" className="inline-flex items-center justify-center gap-2 w-full bg-[#1a7097] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#145b7c] hover:shadow-lg transition-all group">
                     Start a Project
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>

@@ -11,7 +11,7 @@ export default function Testimonials() {
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-[#0E5E64]/5 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob" />
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-[#1a7097]/5 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob" />
         <div className="absolute top-0 -right-4 w-72 h-72 bg-[#FFBF00]/10 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-2000" />
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-300/10 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-4000" />
       </div>
@@ -25,11 +25,11 @@ export default function Testimonials() {
           className="text-center mb-16 md:mb-20"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-[2px] bg-[#0E5E64]/60 rounded-full" />
-            <span className="text-[#0E5E64]/80 font-semibold tracking-[0.2em] uppercase text-[11px]">
+            <div className="w-8 h-[2px] bg-[#1a7097]/60 rounded-full" />
+            <span className="text-[#1a7097]/80 font-semibold tracking-[0.2em] uppercase text-[11px]">
               Client Success
             </span>
-            <div className="w-8 h-[2px] bg-[#0E5E64]/60 rounded-full" />
+            <div className="w-8 h-[2px] bg-[#1a7097]/60 rounded-full" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             What Our Partners Say
@@ -52,7 +52,7 @@ export default function Testimonials() {
               className="relative group h-full flex flex-col bg-[#F9FAFB]/60 backdrop-blur-xl p-8 rounded-[2rem] border border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,37,131,0.08)] transition-shadow duration-500 overflow-hidden bg-white"
             >
               {/* Decorative Gradient Glow on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0E5E64]/0 via-transparent to-[#FFBF00]/0 group-hover:from-[#0E5E64]/5 group-hover:to-[#FFBF00]/10 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1a7097]/0 via-transparent to-[#FFBF00]/0 group-hover:from-[#1a7097]/5 group-hover:to-[#FFBF00]/10 transition-colors duration-500 pointer-events-none" />
 
               {/* Quote Icon */}
               <motion.div
@@ -83,17 +83,20 @@ export default function Testimonials() {
 
               {/* Author Info */}
               <div className="flex items-center gap-4 mt-auto border-t border-gray-100 pt-6 relative z-10">
-                <div className="relative">
-                  <img
+                <div className="relative shrink-0">
+                  <Image
                     src={testimonial.image}
                     alt={testimonial.author}
+                    width={64}
+                    height={64}
                     className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover object-center bg-white p-1 border-2 border-slate-100 shadow-sm relative z-10"
                   />
                   <div className="absolute inset-0 rounded-full bg-[#FFBF00]/10 scale-105 blur-md group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.author}</h4>
-                  <p className="text-sm font-medium text-[#0E5E64]">{testimonial.role}</p>
+                  <h4 className="font-bold text-gray-900 leading-snug">{testimonial.author}</h4>
+                  <p className="text-sm font-medium text-[#1a7097]">{testimonial.role}</p>
+                  <p className="text-xs text-gray-500">{testimonial.company}</p>
                 </div>
               </div>
             </motion.div>

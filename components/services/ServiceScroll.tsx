@@ -38,7 +38,7 @@ export default function ServiceScroll() {
                   <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-3 tracking-tight">
                     {service.title}
                   </h2>
-                  <p className="text-lg font-medium text-[#0E5E64]/80 mb-8">
+                  <p className="text-lg font-medium text-[#1a7097]/80 mb-8">
                     {service.subtitle}
                   </p>
                   <p className="text-lg text-slate-600 leading-relaxed mb-8">
@@ -46,9 +46,9 @@ export default function ServiceScroll() {
                   </p>
 
                   <Link href={`/services/${service.id}`} className="inline-block">
-                    <motion.div className="group flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#0E5E64] hover:text-[#FFBF00] transition-colors cursor-pointer">
+                    <motion.div className="group flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#1a7097] hover:text-[#FFBF00] transition-colors cursor-pointer">
                       Explore specs
-                      <div className="w-8 h-8 rounded-full bg-[#0E5E64]/10 flex items-center justify-center group-hover:bg-[#0E5E64] group-hover:text-[#F9FAFB] transition-colors duration-300">
+                      <div className="w-8 h-8 rounded-full bg-[#1a7097]/10 flex items-center justify-center group-hover:bg-[#1a7097] group-hover:text-[#F9FAFB] transition-colors duration-300">
                         <ArrowRight className="w-4 h-4" />
                       </div>
                     </motion.div>

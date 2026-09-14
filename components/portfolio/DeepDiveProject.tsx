@@ -12,7 +12,7 @@ interface DeepDiveProjectProps {
 
 const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
    const containerRef = useRef(null);
-   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 1024 : false);
+   const [isMobile, setIsMobile] = useState(false);
 
    useEffect(() => {
       const handleResize = () => setIsMobile(window.innerWidth < 1024);

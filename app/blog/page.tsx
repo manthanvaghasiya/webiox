@@ -43,7 +43,7 @@ export default function BlogPage() {
       <BlogHero />
 
       {/* Light content area */}
-      <main className="relative bg-[#F9FAFB] selection:bg-[#0E5E64] selection:text-white">
+      <main className="relative bg-[#F9FAFB] selection:bg-[#1a7097] selection:text-white">
         <BlogList />
         <BlogNewsletter />
       </main>

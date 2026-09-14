@@ -42,7 +42,7 @@ function ParticleSwarm() {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          color="#0E5E64"
+          color="#1a7097"
           size={0.015}
           sizeAttenuation={true}
           depthWrite={false}

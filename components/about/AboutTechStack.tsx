@@ -26,7 +26,7 @@ const TechIcon = ({ name, icon: Icon, color, delay }: any) => (
     viewport={{ once: true }}
     className="flex items-center gap-3 group cursor-default"
   >
-    <div className="w-10 h-10 shrink-0 rounded-xl bg-[#0E5E64]/80 border border-[#F9FAFB]/10 flex items-center justify-center group-hover:bg-[#F9FAFB]/15 transition-colors duration-300 shadow-[inset_0_0_10px_rgba(0,0,0,0.3)]">
+    <div className="w-10 h-10 shrink-0 rounded-xl bg-[#1a7097]/80 border border-[#F9FAFB]/10 flex items-center justify-center group-hover:bg-[#F9FAFB]/15 transition-colors duration-300 shadow-[inset_0_0_10px_rgba(0,0,0,0.3)]">
       <Icon className={`w-4 h-4 ${color}`} strokeWidth={2} />
     </div>
     <span className="text-xs font-semibold tracking-widest text-[#F9FAFB]/80 uppercase group-hover:text-[#F9FAFB] transition-colors">{name}</span>
@@ -38,7 +38,7 @@ export default function AboutTechStack() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-[#0E5E64] relative overflow-hidden" ref={ref}>
+    <section className="py-16 md:py-24 lg:py-32 bg-[#1a7097] relative overflow-hidden" ref={ref}>
       
       {/* Immersive Infinite Marquee Background */}
       <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-[0.03] overflow-hidden z-0 py-20">
@@ -117,7 +117,7 @@ export default function AboutTechStack() {
             <div className="flex-1 flex flex-col items-center justify-center relative min-h-[300px] lg:min-h-full py-8 lg:py-0 border-t lg:border-t-0 lg:border-l border-[#F9FAFB]/10">
               
               {/* Vertical Data Line */}
-              <div className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#0E5E64] to-transparent">
+              <div className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#1a7097] to-transparent">
                 <motion.div 
                   className="w-full h-32 bg-gradient-to-b from-transparent via-[#FFBF00] to-transparent shadow-[0_0_15px_#FFBF00]"
                   animate={{ y: [-150, 400] }}
@@ -126,10 +126,10 @@ export default function AboutTechStack() {
               </div>
 
               {/* Lighthouse Score (Centered vertically in the line) */}
-              <div className="relative w-40 h-40 lg:w-48 lg:h-48 flex items-center justify-center my-auto bg-[#0E5E64]/30 rounded-full border border-[#F9FAFB]/5 backdrop-blur-sm shadow-[inset_0_0_40px_rgba(14,94,100,0.5)] z-10">
+              <div className="relative w-40 h-40 lg:w-48 lg:h-48 flex items-center justify-center my-auto bg-[#1a7097]/30 rounded-full border border-[#F9FAFB]/5 backdrop-blur-sm shadow-[inset_0_0_40px_rgba(26, 112, 151,0.5)] z-10">
                 {/* Background Track */}
                 <svg className="absolute inset-0 w-full h-full -rotate-90">
-                  <circle cx="50%" cy="50%" r="42%" stroke="#0E5E64" strokeWidth="4" fill="none" className="opacity-30" />
+                  <circle cx="50%" cy="50%" r="42%" stroke="#1a7097" strokeWidth="4" fill="none" className="opacity-30" />
                   {/* Animated Progress Ring */}
                   <motion.circle 
                     cx="50%" cy="50%" r="42%" 
@@ -148,7 +148,7 @@ export default function AboutTechStack() {
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 1, delay: 1.5, type: "spring" }}
                   viewport={{ once: true }}
-                  className="absolute inset-2 lg:inset-3 rounded-full bg-gradient-to-br from-[#FFBF00]/20 to-[#0E5E64]/20 border border-[#FFBF00]/40 shadow-[0_0_50px_rgba(255,191,0,0.6),inset_0_0_20px_rgba(255,191,0,0.3)] flex flex-col items-center justify-center backdrop-blur-md overflow-hidden"
+                  className="absolute inset-2 lg:inset-3 rounded-full bg-gradient-to-br from-[#FFBF00]/20 to-[#1a7097]/20 border border-[#FFBF00]/40 shadow-[0_0_50px_rgba(255,191,0,0.6),inset_0_0_20px_rgba(255,191,0,0.3)] flex flex-col items-center justify-center backdrop-blur-md overflow-hidden"
                 >
                   {/* Internal Spinning Dashed Ring */}
                   <motion.div 
@@ -167,7 +167,7 @@ export default function AboutTechStack() {
                   {/* Core Value */}
                   <div className="relative z-10 flex flex-col items-center">
                     <span className="text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-[#FFBF00] font-[Zain] leading-none drop-shadow-[0_0_15px_rgba(255,191,0,0.8)]">99</span>
-                    <div className="flex items-center gap-1.5 mt-1 bg-[#0E5E64]/80 px-2 py-0.5 rounded-full border border-[#FFBF00]/50 shadow-[0_0_10px_rgba(255,191,0,0.3)]">
+                    <div className="flex items-center gap-1.5 mt-1 bg-[#1a7097]/80 px-2 py-0.5 rounded-full border border-[#FFBF00]/50 shadow-[0_0_10px_rgba(255,191,0,0.3)]">
                       <Zap className="w-2.5 h-2.5 text-[#FFBF00] fill-[#FFBF00]" />
                       <span className="text-[9px] text-white uppercase tracking-[0.2em] font-bold">Perf</span>
                     </div>

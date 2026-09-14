@@ -16,10 +16,49 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://webiox.tech'),
-  title: "Webiox Digital Solutions",
-  description: "Premium digital solutions for modern businesses",
+  title: {
+    default: "Webiox Digital Solutions | Gujarat's Premier Tech Agency",
+    template: "%s | Webiox Digital Solutions"
+  },
+  description: "Gujarat's premier digital engineering & product studio. We build ultra-fast web platforms, custom SaaS architectures, and autonomous AI systems for market leaders.",
+  keywords: [
+    "Webiox",
+    "Tech Agency Surat",
+    "Gujarat Web Agency",
+    "Digital Engineering Studio",
+    "Next.js Development Agency",
+    "Custom Software India",
+    "SaaS Architecture",
+    "AI Automation Workflows"
+  ],
+  authors: [{ name: "Webiox Digital Solutions", url: "https://webiox.tech" }],
+  creator: "Webiox",
+  publisher: "Webiox Digital Solutions",
   alternates: {
     canonical: '/',
+  },
+  openGraph: {
+    title: "Webiox Digital Solutions | Gujarat's Premier Tech Agency",
+    description: "Engineering ultra-fast web flagships, custom SaaS architectures, and autonomous AI systems for visionary businesses.",
+    url: 'https://webiox.tech',
+    siteName: 'Webiox Digital Solutions',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/webiox512.png',
+        width: 512,
+        height: 512,
+        alt: 'Webiox Digital Solutions Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Webiox Digital Solutions | Gujarat's Premier Tech Agency",
+    description: "Engineering ultra-fast web flagships, custom SaaS architectures, and autonomous AI systems for visionary businesses.",
+    creator: '@webiox',
+    images: ['/webiox512.png'],
   },
   icons: {
     icon: [
@@ -33,6 +72,17 @@ export const metadata: Metadata = {
       { url: '/webiox192.png' },
     ],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -45,7 +95,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#0E5E64]/20 selection:text-[#0E5E64] overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#1a7097]/20 selection:text-[#1a7097] overflow-x-hidden">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

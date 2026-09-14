@@ -37,7 +37,7 @@ export interface Dot {
 }
 
 const dotColors: Record<DotColor, string> = {
-  teal: '#0E5E64',
+  teal: '#1a7097',
   yellow: '#FFBF00',
 };
 
@@ -79,7 +79,7 @@ export const ConstellationDots = ({ dots }: { dots: Dot[] }) => (
 export type StreakColor = 'teal' | 'yellow' | 'mint';
 
 const streakColors: Record<StreakColor, string> = {
-  teal: 'rgba(14,94,100,0.11)',
+  teal: 'rgba(26, 112, 151,0.11)',
   yellow: 'rgba(255,191,0,0.11)',
   mint: 'rgba(199,232,155,0.3)',
 };

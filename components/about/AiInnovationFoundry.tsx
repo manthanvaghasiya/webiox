@@ -47,7 +47,7 @@ const AiInnovationFoundry = () => {
 
          {/* Deep Ambient Background Glows */}
          <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
-            <div className="absolute top-[10%] left-[10%] w-[30rem] h-[30rem] bg-[#0E5E64]/10 rounded-full blur-[100px] mix-blend-multiply" />
+            <div className="absolute top-[10%] left-[10%] w-[30rem] h-[30rem] bg-[#1a7097]/10 rounded-full blur-[100px] mix-blend-multiply" />
             <div className="absolute bottom-[10%] right-[10%] w-[30rem] h-[30rem] bg-[#FFBF00]/10 rounded-full blur-[100px] mix-blend-multiply" />
          </div>
 
@@ -73,9 +73,9 @@ const AiInnovationFoundry = () => {
                    ========================================================= */}
                
                {/* Track 1: From +x (bottom right) to center */}
-               <div className="absolute top-1/2 left-1/2 w-48 h-[6px] bg-[#0E5E64]/10 rounded-full -mt-0.5 ml-16 overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] border border-white/40">
+               <div className="absolute top-1/2 left-1/2 w-48 h-[6px] bg-[#1a7097]/10 rounded-full -mt-0.5 ml-16 overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] border border-white/40">
                   <motion.div 
-                     className="h-full w-20 bg-gradient-to-r from-transparent via-[#0E5E64] to-white rounded-full shadow-[0_0_20px_rgba(14,94,100,1)]"
+                     className="h-full w-20 bg-gradient-to-r from-transparent via-[#1a7097] to-white rounded-full shadow-[0_0_20px_rgba(26, 112, 151,1)]"
                      animate={{ x: [192, -80] }}
                      transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
                   />
@@ -91,7 +91,7 @@ const AiInnovationFoundry = () => {
                </div>
 
                {/* Track 3: Data pulses matching the track routing */}
-               <div className="absolute top-1/2 left-1/2 w-[4px] h-[4px] rounded-full bg-white shadow-[0_0_20px_4px_rgba(14,94,100,1)] ml-16" style={{ transform: "translateZ(8px)" }}>
+               <div className="absolute top-1/2 left-1/2 w-[4px] h-[4px] rounded-full bg-white shadow-[0_0_20px_4px_rgba(26, 112, 151,1)] ml-16" style={{ transform: "translateZ(8px)" }}>
                  <motion.div animate={{ x: [192, -30] }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} className="w-full h-full bg-white rounded-full" />
                </div>
                <div className="absolute top-1/2 left-1/2 w-[4px] h-[4px] rounded-full bg-white shadow-[0_0_20px_4px_rgba(255,191,0,1)] mt-16" style={{ transform: "translateZ(8px)" }}>
@@ -136,13 +136,13 @@ const AiInnovationFoundry = () => {
                      >
                         {/* Bobbing Box Animation (Standing Up) */}
                         <motion.div 
-                           className="bg-white/90 backdrop-blur-xl shadow-[0_30px_50px_rgba(14,94,100,0.2)] rounded-[1.2rem] border-2 border-white/80 flex items-center justify-center p-3 relative"
+                           className="bg-white/90 backdrop-blur-xl shadow-[0_30px_50px_rgba(26, 112, 151,0.2)] rounded-[1.2rem] border-2 border-white/80 flex items-center justify-center p-3 relative"
                            style={{ transform: "rotateZ(45deg) rotateX(-60deg) translateZ(10px)", transformStyle: "preserve-3d" }}
                            animate={{ translateZ: [10, 20, 10] }}
                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: i * 1.5 }}
                         >
                            {/* Hovering Icon Inside Glass Box */}
-                           <Icon className="w-6 h-6 text-[#0E5E64]" strokeWidth={2.5} />
+                           <Icon className="w-6 h-6 text-[#1a7097]" strokeWidth={2.5} />
                            {/* Small shadow underneath icon inside the box */}
                            <div className="absolute -bottom-1 w-4 h-1 bg-black/10 rounded-full blur-[2px]" />
                         </motion.div>
@@ -155,7 +155,7 @@ const AiInnovationFoundry = () => {
                    ========================================================= */}
                
                {/* Glowing Base Platform */}
-               <div className="absolute top-1/2 left-1/2 w-40 h-40 -mt-20 -ml-20 bg-gradient-to-br from-[#0E5E64]/5 to-[#FFBF00]/5 rounded-[3rem] border-4 border-white/40 shadow-[0_0_50px_rgba(255,191,0,0.15)] flex items-center justify-center" style={{ transform: "translateZ(0px)" }}>
+               <div className="absolute top-1/2 left-1/2 w-40 h-40 -mt-20 -ml-20 bg-gradient-to-br from-[#1a7097]/5 to-[#FFBF00]/5 rounded-[3rem] border-4 border-white/40 shadow-[0_0_50px_rgba(255,191,0,0.15)] flex items-center justify-center" style={{ transform: "translateZ(0px)" }}>
                   {/* Concentric expanding ripples */}
                   <motion.div animate={{ scale: [1, 1.5], opacity: [0.5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} className="w-full h-full border border-[#FFBF00]/40 rounded-[3rem] absolute" />
                   <motion.div animate={{ scale: [1, 1.5], opacity: [0.5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 1 }} className="w-full h-full border border-[#FFBF00]/40 rounded-[3rem] absolute" />
@@ -173,7 +173,7 @@ const AiInnovationFoundry = () => {
                      style={{ transformStyle: "preserve-3d" }}
                   >
                      <div className="w-24 h-24 border-[4px] border-dotted border-[#FFBF00]/50 rounded-full flex items-center justify-center">
-                        <div className="w-16 h-16 border-[2px] border-dashed border-[#0E5E64]/40 rounded-full" />
+                        <div className="w-16 h-16 border-[2px] border-dashed border-[#1a7097]/40 rounded-full" />
                      </div>
                   </motion.div>
                </div>
@@ -195,7 +195,7 @@ const AiInnovationFoundry = () => {
                      }}
                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                      style={{ transform: "rotateZ(45deg) rotateX(-60deg) translateZ(60px)", transformStyle: "preserve-3d" }}
-                     className="absolute top-1/2 left-1/2 -mt-6 -ml-6 w-12 h-12 bg-gradient-to-br from-white to-slate-50 rounded-2xl shadow-[0_10px_30px_rgba(14,94,100,0.2)] border-2 border-[#FFBF00]/30 flex items-center justify-center isolate"
+                     className="absolute top-1/2 left-1/2 -mt-6 -ml-6 w-12 h-12 bg-gradient-to-br from-white to-slate-50 rounded-2xl shadow-[0_10px_30px_rgba(26, 112, 151,0.2)] border-2 border-[#FFBF00]/30 flex items-center justify-center isolate"
                   >
                      {/* Inner glowing CPU icon */}
                      <Cpu className="w-6 h-6 text-[#FFBF00] relative z-10" strokeWidth={2.5} />
@@ -210,7 +210,7 @@ const AiInnovationFoundry = () => {
                   transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                >
                   <div className="absolute top-[-90px] w-3 h-3 bg-brand-yellow rounded-full shadow-[0_0_15px_rgba(255,184,0,1)] border border-white" />
-                  <div className="absolute bottom-[-90px] w-3 h-3 bg-[#0E5E64] rounded-full shadow-[0_0_15px_rgba(14,94,100,1)] border border-white" />
+                  <div className="absolute bottom-[-90px] w-3 h-3 bg-[#1a7097] rounded-full shadow-[0_0_15px_rgba(26, 112, 151,1)] border border-white" />
                </motion.div>
 
             </motion.div>

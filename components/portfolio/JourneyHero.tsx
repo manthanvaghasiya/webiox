@@ -40,7 +40,7 @@ export default function JourneyHero() {
   return (
     <section 
       ref={containerRef} 
-      className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#0E5E64] text-white selection:bg-[#FFBF00]/30 selection:text-[#FFBF00]"
+      className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#1a7097] text-white selection:bg-[#FFBF00]/30 selection:text-[#FFBF00]"
     >
       {/* Dynamic Cursor Light */}
       <div 
@@ -51,7 +51,7 @@ export default function JourneyHero() {
       />
 
       {/* Atmospheric Background */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#11737a] via-[#0E5E64] to-[#0a454a] opacity-80" />
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#11737a] via-[#1a7097] to-[#0a454a] opacity-80" />
       
       {/* Noise Texture Overlay */}
       <div 
@@ -162,7 +162,7 @@ export default function JourneyHero() {
       </motion.div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0E5E64] to-transparent pointer-events-none z-30" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#1a7097] to-transparent pointer-events-none z-30" />
 
       {/* Elegant Scroll Indicator */}
       <motion.div 

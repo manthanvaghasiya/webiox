@@ -17,7 +17,7 @@ export default function CareerHero() {
           y: [0, 30, 0]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/4 w-[40rem] h-[40rem] bg-[#0E5E64] rounded-full mix-blend-screen filter blur-[140px] pointer-events-none" 
+        className="absolute top-0 left-1/4 w-[40rem] h-[40rem] bg-[#1a7097] rounded-full mix-blend-screen filter blur-[140px] pointer-events-none" 
       />
       
       <motion.div 

@@ -5,7 +5,7 @@ import { Target, Heart, Zap, Cpu } from 'lucide-react';
 
 const VALUES = [
   {
-    icon: <Target className="w-6 h-6 text-[#0E5E64]" />,
+    icon: <Target className="w-6 h-6 text-[#1a7097]" />,
     title: 'Relentless Craft',
     description: 'We obsess over the details. Good enough is never good enough. We build digital products that are meticulously engineered and stunningly designed.',
     className: 'md:col-span-2 bg-white',
@@ -14,7 +14,7 @@ const VALUES = [
     icon: <Zap className="w-6 h-6 text-[#FFBF00]" />,
     title: 'Pioneering Speed',
     description: 'We move fast and break barriers. Agile methodologies and modern stacks mean we ship high-quality code at unparalleled speed.',
-    className: 'bg-[#0E5E64] text-white',
+    className: 'bg-[#1a7097] text-white',
   },
   {
     icon: <Heart className="w-6 h-6 text-rose-500" />,
@@ -23,7 +23,7 @@ const VALUES = [
     className: 'bg-white',
   },
   {
-    icon: <Cpu className="w-6 h-6 text-[#0E5E64]" />,
+    icon: <Cpu className="w-6 h-6 text-[#1a7097]" />,
     title: 'Future Focused',
     description: 'We don’t just use current tech; we anticipate the next wave. Embracing AI, edge computing, and scalable architectures.',
     className: 'md:col-span-2 bg-white',
@@ -36,8 +36,8 @@ export default function CultureValues() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row gap-12 justify-between items-start mb-16 md:mb-24">
           <div className="max-w-2xl">
-            <h2 className="text-[#0E5E64] font-bold tracking-widest uppercase text-sm mb-4 flex items-center gap-2">
-              <span className="w-8 h-[2px] bg-[#0E5E64]" />
+            <h2 className="text-[#1a7097] font-bold tracking-widest uppercase text-sm mb-4 flex items-center gap-2">
+              <span className="w-8 h-[2px] bg-[#1a7097]" />
               Our DNA
             </h2>
             <h3 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight font-[Zain] leading-[0.9]">
@@ -63,10 +63,10 @@ export default function CultureValues() {
                 {value.icon}
               </div>
               <div>
-                <h4 className={`text-2xl font-bold mb-4 ${value.className.includes('bg-[#0E5E64]') ? 'text-white' : 'text-slate-900'}`}>
+                <h4 className={`text-2xl font-bold mb-4 ${value.className.includes('bg-[#1a7097]') ? 'text-white' : 'text-slate-900'}`}>
                   {value.title}
                 </h4>
-                <p className={`text-lg leading-relaxed ${value.className.includes('bg-[#0E5E64]') ? 'text-white/80' : 'text-slate-600'}`}>
+                <p className={`text-lg leading-relaxed ${value.className.includes('bg-[#1a7097]') ? 'text-white/80' : 'text-slate-600'}`}>
                   {value.description}
                 </p>
               </div>

@@ -51,7 +51,7 @@ export default function AIChatWidget() {
             className="absolute bottom-16 right-0 w-[350px] sm:w-[400px] h-[500px] bg-white/90 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-[#0E5E64] to-[#147a82] p-4 flex justify-between items-center text-white shrink-0">
+            <div className="bg-gradient-to-r from-[#1a7097] to-[#147a82] p-4 flex justify-between items-center text-white shrink-0">
               <div className="flex items-center gap-3">
                 <div className="bg-white/20 p-2 rounded-full backdrop-blur-md">
                   <Bot size={20} />
@@ -90,8 +90,8 @@ export default function AIChatWidget() {
                     <div
                       className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                         m.role === 'user'
-                          ? 'bg-[#0E5E64] text-white'
-                          : 'bg-gray-100 text-[#0E5E64]'
+                          ? 'bg-[#1a7097] text-white'
+                          : 'bg-gray-100 text-[#1a7097]'
                       }`}
                     >
                       {m.role === 'user' ? <User size={16} /> : <Bot size={16} />}
@@ -99,7 +99,7 @@ export default function AIChatWidget() {
                     <div
                       className={`px-4 py-2 rounded-2xl text-sm ${
                         m.role === 'user'
-                          ? 'bg-[#0E5E64] text-white rounded-tr-none'
+                          ? 'bg-[#1a7097] text-white rounded-tr-none'
                           : 'bg-gray-100 text-gray-800 rounded-tl-none shadow-sm'
                       }`}
                     >
@@ -129,7 +129,7 @@ export default function AIChatWidget() {
               {isLoading && messages[messages.length - 1]?.role === 'user' && (
                 <div className="flex justify-start">
                   <div className="flex gap-2 max-w-[85%] flex-row">
-                     <div className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 text-[#0E5E64]">
+                     <div className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 text-[#1a7097]">
                         <Bot size={16} />
                      </div>
                      <div className="px-4 py-3 rounded-2xl bg-gray-100 text-gray-800 rounded-tl-none shadow-sm flex items-center gap-1">
@@ -146,7 +146,7 @@ export default function AIChatWidget() {
             {/* Input Area */}
             <div className="p-4 bg-white border-t border-gray-100 shrink-0">
               <div
-                className="flex items-center bg-gray-50 border border-gray-200 rounded-full px-4 py-2 focus-within:ring-2 focus-within:ring-[#0E5E64]/20 focus-within:border-[#0E5E64] transition-all"
+                className="flex items-center bg-gray-50 border border-gray-200 rounded-full px-4 py-2 focus-within:ring-2 focus-within:ring-[#1a7097]/20 focus-within:border-[#1a7097] transition-all"
               >
                 <input
                   className="flex-1 bg-transparent border-none outline-none text-sm placeholder:text-gray-400"
@@ -178,7 +178,7 @@ export default function AIChatWidget() {
                     setLocalInput('');
                   }}
                   disabled={!localInput.trim() || isLoading}
-                  className="ml-2 text-[#0E5E64] disabled:text-gray-300 transition-colors"
+                  className="ml-2 text-[#1a7097] disabled:text-gray-300 transition-colors"
                   aria-label="Send message"
                 >
                   <Send size={18} />
@@ -197,7 +197,7 @@ export default function AIChatWidget() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-gradient-to-r from-[#0E5E64] to-[#1a8891] rounded-full shadow-lg shadow-[#0E5E64]/30 flex items-center justify-center text-white"
+        className="w-14 h-14 bg-gradient-to-r from-[#1a7097] to-[#1a8891] rounded-full shadow-lg shadow-[#1a7097]/30 flex items-center justify-center text-white"
         aria-label="Toggle chat"
       >
         <AnimatePresence mode="wait">

@@ -83,7 +83,7 @@ export default function Process() {
         
         {/* Background Elements (Static) */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute top-0 -left-4 w-72 h-72 bg-[#0E5E64]/5 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
+          <div className="absolute top-0 -left-4 w-72 h-72 bg-[#1a7097]/5 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
           <div className="absolute top-0 -right-4 w-72 h-72 bg-[#FFBF00]/10 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
           <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-300/10 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
         </div>
@@ -96,14 +96,14 @@ export default function Process() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="inline-flex items-center gap-3 px-3 py-1.5 bg-gradient-to-r from-white/60 to-white/20 border border-[#0E5E64]/10 rounded-full mb-6 backdrop-blur-xl shadow-[0_4px_20px_rgba(14,94,100,0.05)] relative overflow-hidden group"
+                className="inline-flex items-center gap-3 px-3 py-1.5 bg-gradient-to-r from-white/60 to-white/20 border border-[#1a7097]/10 rounded-full mb-6 backdrop-blur-xl shadow-[0_4px_20px_rgba(26, 112, 151,0.05)] relative overflow-hidden group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                 <span className="relative flex h-2.5 w-2.5 ml-1">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFBF00] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFBF00]"></span>
                 </span>
-                <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#0E5E64] pr-2">
+                <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#1a7097] pr-2">
                   <Typewriter
                     words={['EXECUTION_PROTOCOL_', 'SYSTEM_ARCHITECTURE_', 'BUILD_PROCESS_']}
                     loop={true}
@@ -118,7 +118,7 @@ export default function Process() {
 
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.1] mb-6 flex flex-wrap items-center gap-x-3">
                 <motion.span 
-                  className="text-[#0E5E64]/80 inline-block"
+                  className="text-[#1a7097]/80 inline-block"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -146,7 +146,7 @@ export default function Process() {
                     whileInView={{ scaleX: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-[#0E5E64] via-[#FFBF00] to-transparent origin-left rounded-full"
+                    className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-[#1a7097] via-[#FFBF00] to-transparent origin-left rounded-full"
                   />
                 </motion.div>
               </h2>
@@ -177,20 +177,20 @@ export default function Process() {
                       className="relative group w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[380px] xl:w-[420px] h-[45vh] min-h-[280px] max-h-[350px] shrink-0"
                     >
                       {/* Ultra-Glassmorphic Card */}
-                      <div className="absolute inset-0 bg-white/40 backdrop-blur-3xl rounded-3xl p-6 md:p-8 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(14,94,100,0.1)] transition-all duration-500 overflow-hidden flex flex-col justify-between hover:-translate-y-2">
+                      <div className="absolute inset-0 bg-white/40 backdrop-blur-3xl rounded-3xl p-6 md:p-8 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(26, 112, 151,0.1)] transition-all duration-500 overflow-hidden flex flex-col justify-between hover:-translate-y-2">
                         
                         {/* Animated Grid Background inside card */}
                         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" 
-                             style={{ backgroundImage: 'linear-gradient(rgba(14, 94, 100, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 94, 100, 0.05) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+                             style={{ backgroundImage: 'linear-gradient(rgba(26, 112, 151, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 112, 151, 0.05) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
 
                         {/* Gigantic Subtle Number */}
-                        <div className="absolute -top-2 right-0 md:-top-4 md:-right-4 text-[120px] md:text-[160px] font-bold text-[#0E5E64]/[0.03] leading-none group-hover:text-[#0E5E64]/[0.05] group-hover:-translate-y-4 group-hover:-translate-x-4 transition-all duration-700 pointer-events-none font-sans tracking-tighter select-none z-0">
+                        <div className="absolute -top-2 right-0 md:-top-4 md:-right-4 text-[120px] md:text-[160px] font-bold text-[#1a7097]/[0.03] leading-none group-hover:text-[#1a7097]/[0.05] group-hover:-translate-y-4 group-hover:-translate-x-4 transition-all duration-700 pointer-events-none font-sans tracking-tighter select-none z-0">
                           {process.num}
                         </div>
 
                         {/* Top Section */}
                         <div className="relative z-10">
-                          <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#0E5E64] to-[#0a454a] flex items-center justify-center mb-6 shadow-[0_10px_20px_rgba(14,94,100,0.2)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 relative overflow-hidden">
+                          <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#1a7097] to-[#0a454a] flex items-center justify-center mb-6 shadow-[0_10px_20px_rgba(26, 112, 151,0.2)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 relative overflow-hidden">
                             <div className="absolute inset-0 bg-white/20 blur-md rounded-full -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                             <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white relative z-10" strokeWidth={1.5} />
                           </div>
@@ -206,7 +206,7 @@ export default function Process() {
                             {process.description}
                           </p>
                           
-                          <div className="flex items-center gap-2 text-[#0E5E64] font-semibold text-sm opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100">
+                          <div className="flex items-center gap-2 text-[#1a7097] font-semibold text-sm opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100">
                             <span>Explore Phase</span>
                             <MoveRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
                           </div>
@@ -218,7 +218,7 @@ export default function Process() {
                     {!isLast && (
                       <div className="w-12 sm:w-16 md:w-24 lg:w-32 shrink-0 flex items-center justify-center relative">
                         {/* Continuous line */}
-                        <div className="absolute top-1/2 left-0 w-full h-[2px] -translate-y-1/2 bg-[#0E5E64]/10 overflow-hidden">
+                        <div className="absolute top-1/2 left-0 w-full h-[2px] -translate-y-1/2 bg-[#1a7097]/10 overflow-hidden">
                            {/* Animated line segment */}
                            <motion.div 
                              className="h-full bg-gradient-to-r from-transparent via-[#FFBF00] to-transparent w-full"
@@ -235,8 +235,8 @@ export default function Process() {
                         </div>
                         
                         {/* Center Node */}
-                        <div className="relative z-10 w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#F9FAFB] border-2 border-[#0E5E64]/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,191,0,0.1)]">
-                          <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#0E5E64] animate-pulse" />
+                        <div className="relative z-10 w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#F9FAFB] border-2 border-[#1a7097]/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,191,0,0.1)]">
+                          <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#1a7097] animate-pulse" />
                         </div>
                       </div>
                     )}

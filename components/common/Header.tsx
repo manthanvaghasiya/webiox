@@ -34,7 +34,7 @@ const NAV_LINKS: readonly NavLink[] = [
   },
 ] as const;
 
-const BRAND_TEAL = '#0E5E64';
+const BRAND_TEAL = '#1a7097';
 
 const navContainer: Variants = {
   hidden: { opacity: 0, y: -16 },
@@ -127,7 +127,7 @@ export default function Header() {
         <Link
           href="/"
           aria-label="Webiox — Home"
-          className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0E5E64] rounded-xl"
+          className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1a7097] rounded-xl"
         >
           <motion.span
             whileHover={{ scale: 1.08, rotate: -3 }}
@@ -202,11 +202,11 @@ export default function Header() {
                     aria-haspopup="true"
                     className={[
                       'relative inline-flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-full transition-colors duration-300',
-                      'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0E5E64]/60',
+                      'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a7097]/60',
                       scrolled || isLightPage
                         ? active
-                          ? 'text-[#0E5E64]'
-                          : 'text-slate-700 hover:text-[#0E5E64]'
+                          ? 'text-[#1a7097]'
+                          : 'text-slate-700 hover:text-[#1a7097]'
                         : active
                           ? 'text-white'
                           : 'text-white/80 hover:text-white',
@@ -234,7 +234,7 @@ export default function Header() {
                         layoutId="nav-underline"
                         className={[
                           'absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full',
-                          scrolled ? 'bg-[#0E5E64]' : 'bg-[#FFBF00]',
+                          scrolled ? 'bg-[#1a7097]' : 'bg-[#FFBF00]',
                         ].join(' ')}
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
@@ -260,14 +260,14 @@ export default function Header() {
                                 className={[
                                   'flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors duration-200',
                                   childActive
-                                    ? 'text-[#0E5E64] bg-[#0E5E64]/5'
-                                    : 'text-slate-700 hover:text-[#0E5E64] hover:bg-slate-50',
+                                    ? 'text-[#1a7097] bg-[#1a7097]/5'
+                                    : 'text-slate-700 hover:text-[#1a7097] hover:bg-slate-50',
                                 ].join(' ')}
                               >
                                 {childActive && (
                                   <span
                                     aria-hidden
-                                    className="w-1.5 h-1.5 rounded-full bg-[#0E5E64] shrink-0"
+                                    className="w-1.5 h-1.5 rounded-full bg-[#1a7097] shrink-0"
                                   />
                                 )}
                                 {child.name}
@@ -291,11 +291,11 @@ export default function Header() {
                   aria-current={active ? 'page' : undefined}
                   className={[
                     'relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-full transition-colors duration-300',
-                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0E5E64]/60',
+                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a7097]/60',
                     scrolled || isLightPage
                       ? active
-                        ? 'text-[#0E5E64]'
-                        : 'text-slate-700 hover:text-[#0E5E64]'
+                        ? 'text-[#1a7097]'
+                        : 'text-slate-700 hover:text-[#1a7097]'
                       : active
                         ? 'text-white'
                         : 'text-white/80 hover:text-white',
@@ -317,7 +317,7 @@ export default function Header() {
                       layoutId="nav-underline"
                       className={[
                         'absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full',
-                        scrolled ? 'bg-[#0E5E64]' : 'bg-[#FFBF00]',
+                        scrolled ? 'bg-[#1a7097]' : 'bg-[#FFBF00]',
                       ].join(' ')}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
@@ -332,7 +332,7 @@ export default function Header() {
         <div className="hidden md:block">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0E5E64]"
+            className="group inline-flex items-center gap-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1a7097]"
           >
             <motion.span
               whileHover={{ scale: 1.04 }}
@@ -342,8 +342,8 @@ export default function Header() {
                 'relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide overflow-hidden',
                 'transition-shadow duration-300',
                 scrolled || isLightPage
-                  ? 'bg-[#0E5E64] text-white shadow-[0_10px_30px_-10px_rgba(14,94,100,0.6)] hover:shadow-[0_14px_40px_-10px_rgba(14,94,100,0.7)]'
-                  : 'bg-[#FFBF00] text-[#0E5E64] shadow-[0_10px_30px_-10px_rgba(255,191,0,0.55)] hover:shadow-[0_14px_40px_-10px_rgba(255,191,0,0.7)]',
+                  ? 'bg-[#1a7097] text-white shadow-[0_10px_30px_-10px_rgba(26, 112, 151,0.6)] hover:shadow-[0_14px_40px_-10px_rgba(26, 112, 151,0.7)]'
+                  : 'bg-[#FFBF00] text-[#1a7097] shadow-[0_10px_30px_-10px_rgba(255,191,0,0.55)] hover:shadow-[0_14px_40px_-10px_rgba(255,191,0,0.7)]',
               ].join(' ')}
             >
               <span className="relative z-10">Start Project</span>
@@ -379,7 +379,7 @@ export default function Header() {
           aria-controls="mobile-menu"
           className={[
             'md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg transition-colors',
-            'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0E5E64]',
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a7097]',
             scrolled || isLightPage ? 'text-slate-900 hover:bg-slate-900/5' : 'text-white hover:bg-white/10',
           ].join(' ')}
         >
@@ -441,7 +441,7 @@ export default function Header() {
                           className={[
                             'flex items-center justify-between w-full px-4 py-3 rounded-xl text-base font-semibold transition-colors',
                             active
-                              ? 'bg-[#0E5E64]/10 text-[#0E5E64]'
+                              ? 'bg-[#1a7097]/10 text-[#1a7097]'
                               : 'text-slate-800 hover:bg-slate-900/5',
                           ].join(' ')}
                         >
@@ -472,14 +472,14 @@ export default function Header() {
                                       className={[
                                         'flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors',
                                         childActive
-                                          ? 'text-[#0E5E64] bg-[#0E5E64]/5'
-                                          : 'text-slate-600 hover:text-[#0E5E64] hover:bg-slate-50',
+                                          ? 'text-[#1a7097] bg-[#1a7097]/5'
+                                          : 'text-slate-600 hover:text-[#1a7097] hover:bg-slate-50',
                                       ].join(' ')}
                                     >
                                       {childActive && (
                                         <span
                                           aria-hidden
-                                          className="w-1.5 h-1.5 rounded-full bg-[#0E5E64]"
+                                          className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
                                           style={{ boxShadow: `0 0 0 4px ${BRAND_TEAL}1A` }}
                                         />
                                       )}
@@ -503,7 +503,7 @@ export default function Header() {
                         className={[
                           'flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-colors',
                           active
-                            ? 'bg-[#0E5E64]/10 text-[#0E5E64]'
+                            ? 'bg-[#1a7097]/10 text-[#1a7097]'
                             : 'text-slate-800 hover:bg-slate-900/5',
                         ].join(' ')}
                       >
@@ -511,7 +511,7 @@ export default function Header() {
                         {active && (
                           <span
                             aria-hidden
-                            className="w-1.5 h-1.5 rounded-full bg-[#0E5E64]"
+                            className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
                             style={{ boxShadow: `0 0 0 4px ${BRAND_TEAL}1A` }}
                           />
                         )}
@@ -522,7 +522,7 @@ export default function Header() {
                 <motion.li variants={mobileItem} className="mt-3 px-1">
                   <Link
                     href="/contact"
-                    className="group flex items-center justify-center gap-2 w-full rounded-full bg-[#0E5E64] text-white px-5 py-3 font-semibold shadow-[0_10px_30px_-10px_rgba(14,94,100,0.6)]"
+                    className="group flex items-center justify-center gap-2 w-full rounded-full bg-[#1a7097] text-white px-5 py-3 font-semibold shadow-[0_10px_30px_-10px_rgba(26, 112, 151,0.6)]"
                   >
                     Start Project
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

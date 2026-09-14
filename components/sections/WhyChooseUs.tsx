@@ -60,7 +60,7 @@ const ACCORDION_DATA = [
 
 function Particles() {
   const pointsRef = useRef<THREE.Points>(null);
-  
+
   const particlesPosition = useMemo(() => {
     const positions = new Float32Array(3000 * 3);
     for (let i = 0; i < 3000; i++) {
@@ -87,13 +87,13 @@ function Particles() {
           args={[particlesPosition, 3]}
         />
       </bufferGeometry>
-      <pointsMaterial 
-        size={0.018} 
-        color="#ffffff" 
-        transparent 
-        opacity={0.4} 
-        sizeAttenuation 
-        depthWrite={false} 
+      <pointsMaterial
+        size={0.018}
+        color="#ffffff"
+        transparent
+        opacity={0.4}
+        sizeAttenuation
+        depthWrite={false}
         blending={THREE.AdditiveBlending}
       />
     </points>
@@ -135,14 +135,14 @@ export default function WhyChooseUs() {
             We don't just build websites; we build scalable digital businesses. Our engineering-first approach paired with premium design ensures that your digital presence acts as a powerful growth engine.
           </p>
           <div className="flex gap-8 border-t border-white/10 pt-8">
-             <div className="flex flex-col gap-2">
-               <span className="text-4xl font-bold tracking-tight text-white">99<span className="text-[#FFBF00]">%</span></span>
-               <span className="text-[10px] font-mono tracking-widest uppercase text-white/40">Client Satisfaction</span>
-             </div>
-             <div className="flex flex-col gap-2">
-               <span className="text-4xl font-bold tracking-tight text-white">5<span className="text-[#FFBF00]">+</span></span>
-               <span className="text-[10px] font-mono tracking-widest uppercase text-white/40">Projects Delivered</span>
-             </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-4xl font-bold tracking-tight text-white">99.8<span className="text-[#FFBF00]">%</span></span>
+              <span className="text-[10px] font-mono tracking-widest uppercase text-white/40">Performance & Uptime SLA</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-4xl font-bold tracking-tight text-white">20<span className="text-[#FFBF00]">+</span></span>
+              <span className="text-[10px] font-mono tracking-widest uppercase text-white/40">Flagships Engineered</span>
+            </div>
           </div>
         </div>
 
@@ -168,18 +168,18 @@ export default function WhyChooseUs() {
 
       {/* Desktop Layout - 60/40 Split */}
       <div className="hidden lg:flex max-w-[1400px] mx-auto px-6 lg:px-8 py-32 gap-12 lg:gap-16 items-center">
-         
+
         {/* LEFT SIDE (60%): Immersive Interactive Accordion Container */}
         <div className="w-[60%] h-[480px] xl:h-[550px] flex flex-row overflow-hidden group rounded-[32px] border border-white/10 shadow-2xl bg-primary-950">
           {ACCORDION_DATA.map((item, index) => {
             const isActive = hoveredIndex === index;
-            
+
             return (
               <motion.div
                 key={item.id}
                 onMouseEnter={() => setHoveredIndex(index)}
                 initial={false}
-                animate={{ 
+                animate={{
                   flex: isActive ? 5.5 : 1,
                 }}
                 transition={visceralSpring}
@@ -231,26 +231,26 @@ export default function WhyChooseUs() {
                 </AnimatePresence>
 
                 {/* Inactive Vertical Title */}
-                <motion.div 
+                <motion.div
                   animate={{ opacity: isActive ? 0 : 0.8 }}
                   className="absolute inset-0 flex flex-col items-center justify-between py-10 pointer-events-none z-30"
                 >
-                   <span className="font-mono text-sm font-bold text-white/60">{item.number}</span>
-                   <h2 
-                     className="text-xl xl:text-2xl font-bold uppercase tracking-[0.2em] text-white"
-                     style={{ 
-                       writingMode: 'vertical-rl', 
-                       transform: 'rotate(180deg)'
-                     }}
-                   >
-                     {item.title}
-                   </h2>
+                  <span className="font-mono text-sm font-bold text-white/60">{item.number}</span>
+                  <h2
+                    className="text-xl xl:text-2xl font-bold uppercase tracking-[0.2em] text-white"
+                    style={{
+                      writingMode: 'vertical-rl',
+                      transform: 'rotate(180deg)'
+                    }}
+                  >
+                    {item.title}
+                  </h2>
                 </motion.div>
 
                 {/* Active Content */}
-                <motion.div 
+                <motion.div
                   initial={false}
-                  animate={{ 
+                  animate={{
                     opacity: isActive ? 1 : 0,
                     x: isActive ? 0 : -40,
                     filter: isActive ? 'blur(0px)' : 'blur(12px)'
@@ -258,45 +258,45 @@ export default function WhyChooseUs() {
                   transition={visceralSpring}
                   className="relative z-20 w-[400px] xl:w-[480px] max-w-none p-10 xl:p-12 flex flex-col justify-end h-full pointer-events-none"
                 >
-                   <div className="max-w-md pointer-events-auto">
-                      <motion.div 
-                        className={`inline-flex items-center justify-center w-14 h-14 rounded-full border ${item.border} bg-brand-blue/50 mb-6 shadow-2xl backdrop-blur-lg`}
-                      >
-                        <item.icon className={`w-6 h-6 ${item.accent}`} />
-                      </motion.div>
-                      
-                      <h3 className="text-[2.2rem] xl:text-[2.8rem] font-medium leading-none mb-3 text-white tracking-tight">
-                        {item.title}.
-                      </h3>
-                      
-                      {/* Elite Kinetic Typography */}
-                      <div className={`text-[11px] xl:text-xs font-mono tracking-[0.15em] uppercase mb-6 ${item.accent} h-5`}>
-                        {mounted && isActive ? (
-                          <Typewriter
-                            words={item.typewriterWords}
-                            loop={1}
-                            cursor
-                            cursorStyle="|"
-                            typeSpeed={40}
-                            deleteSpeed={20}
-                            delaySpeed={2000}
-                          />
-                        ) : (
-                          item.subtitle
-                        )}
-                      </div>
+                  <div className="max-w-md pointer-events-auto">
+                    <motion.div
+                      className={`inline-flex items-center justify-center w-14 h-14 rounded-full border ${item.border} bg-brand-blue/50 mb-6 shadow-2xl backdrop-blur-lg`}
+                    >
+                      <item.icon className={`w-6 h-6 ${item.accent}`} />
+                    </motion.div>
 
-                      <p className="text-[15px] xl:text-[17px] text-white/70 leading-relaxed mb-8 font-light">
-                        {item.description}
-                      </p>
+                    <h3 className="text-[2.2rem] xl:text-[2.8rem] font-medium leading-none mb-3 text-white tracking-tight">
+                      {item.title}.
+                    </h3>
 
-                      <button className="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors group/btn">
-                        Explore Advantage
-                        <span className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 group-hover/btn:border-white/80 group-hover/btn:bg-white/10 transition-all duration-300">
-                          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                        </span>
-                      </button>
-                   </div>
+                    {/* Elite Kinetic Typography */}
+                    <div className={`text-[11px] xl:text-xs font-mono tracking-[0.15em] uppercase mb-6 ${item.accent} h-5`}>
+                      {mounted && isActive ? (
+                        <Typewriter
+                          words={item.typewriterWords}
+                          loop={1}
+                          cursor
+                          cursorStyle="|"
+                          typeSpeed={40}
+                          deleteSpeed={20}
+                          delaySpeed={2000}
+                        />
+                      ) : (
+                        item.subtitle
+                      )}
+                    </div>
+
+                    <p className="text-[15px] xl:text-[17px] text-white/70 leading-relaxed mb-8 font-light">
+                      {item.description}
+                    </p>
+
+                    <button className="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors group/btn">
+                      Explore Advantage
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 group-hover/btn:border-white/80 group-hover/btn:bg-white/10 transition-all duration-300">
+                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </span>
+                    </button>
+                  </div>
                 </motion.div>
 
                 {/* Overlay shadow for unselected */}
@@ -312,32 +312,32 @@ export default function WhyChooseUs() {
 
         {/* RIGHT SIDE (40%): Header & Stats */}
         <div className="w-[40%] flex flex-col gap-10">
-           <div className="max-w-xl">
-             <div className="flex items-center gap-3 mb-6">
-               <span aria-hidden className="h-[2px] w-8 rounded-full bg-[#FFBF00]/70" />
-               <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FFBF00]/80">
-                 The Webiox Advantage
-               </span>
-             </div>
-             <h2 className="text-4xl xl:text-5xl font-medium leading-[1.05] tracking-tight text-white mb-6">
-               Why Top Companies <br className="hidden lg:block"/>
-               <span className="bg-gradient-to-r from-[#FFBF00] to-yellow-300 bg-clip-text text-transparent">Choose Webiox</span>
-             </h2>
-             <p className="text-lg text-white/60 leading-relaxed font-light">
-               We don't just build websites; we build scalable digital businesses. Our engineering-first approach paired with premium design ensures that your digital presence acts as a powerful growth engine.
-             </p>
-           </div>
+          <div className="max-w-xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span aria-hidden className="h-[2px] w-8 rounded-full bg-[#FFBF00]/70" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FFBF00]/80">
+                The Webiox Advantage
+              </span>
+            </div>
+            <h2 className="text-4xl xl:text-5xl font-medium leading-[1.05] tracking-tight text-white mb-6">
+              Why Top Companies <br className="hidden lg:block" />
+              <span className="bg-gradient-to-r from-[#FFBF00] to-yellow-300 bg-clip-text text-transparent">Choose Webiox</span>
+            </h2>
+            <p className="text-lg text-white/60 leading-relaxed font-light">
+              We don't just build websites; we build scalable digital businesses. Our engineering-first approach paired with premium design ensures that your digital presence acts as a powerful growth engine.
+            </p>
+          </div>
 
-           <div className="flex gap-12 border-t border-white/10 pt-8">
-              <div className="flex flex-col gap-2">
-                <span className="text-[3.5rem] font-bold tracking-tight text-white leading-none">99<span className="text-[#FFBF00]">%</span></span>
-                <span className="text-[11px] font-mono tracking-widest uppercase text-white/40">Client Satisfaction</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                <span className="text-[3.5rem] font-bold tracking-tight text-white leading-none">5<span className="text-[#FFBF00]">+</span></span>
-                <span className="text-[11px] font-mono tracking-widest uppercase text-white/40">Projects Delivered</span>
-              </div>
-           </div>
+          <div className="flex gap-12 border-t border-white/10 pt-8">
+            <div className="flex flex-col gap-2">
+              <span className="text-[3.5rem] font-bold tracking-tight text-white leading-none">99.8<span className="text-[#FFBF00]">%</span></span>
+              <span className="text-[11px] font-mono tracking-widest uppercase text-white/40">Performance & Speed SLA</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-[3.5rem] font-bold tracking-tight text-white leading-none">20<span className="text-[#FFBF00]">+</span></span>
+              <span className="text-[11px] font-mono tracking-widest uppercase text-white/40">Flagships Engineered</span>
+            </div>
+          </div>
         </div>
 
       </div>
