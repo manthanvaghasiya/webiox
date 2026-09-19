@@ -1,341 +1,838 @@
 'use client';
 
-import { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, ShieldCheck, Sparkles, ArrowRight, Users } from 'lucide-react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Typewriter } from 'react-simple-typewriter';
-import * as THREE from 'three';
+import {
+  Zap,
+  ShieldCheck,
+  Sparkles,
+  ArrowRight,
+  Clock,
+  MessageSquare,
+  Lock,
+  CheckCircle2,
+  XCircle,
+  Gauge,
+  SlidersHorizontal,
+  Activity,
+  Terminal,
+  Cpu,
+  Server,
+  Radio,
+  Check,
+  ChevronRight,
+  Code2,
+  Layers,
+  ShieldAlert,
+  Smartphone,
+  ExternalLink,
+} from 'lucide-react';
 
-const ACCORDION_DATA = [
-  {
-    id: 'fast-development',
-    title: 'Fast Development',
-    subtitle: 'Speed & Efficiency',
-    typewriterWords: ['Speed & Efficiency', 'React, Next.js, Node.js', 'Rapid Iteration'],
-    description: 'We use modern stacks like React, Next.js, and Node.js to deliver high-quality products faster than traditional agencies.',
-    icon: Zap,
-    color: 'from-[#FFBF00]/30 via-orange-500/10 to-transparent',
-    accent: 'text-[#FFBF00]',
-    border: 'border-[#FFBF00]/40',
-    number: '01'
-  },
-  {
-    id: 'modern-technologies',
-    title: 'Modern Technologies',
-    subtitle: 'Next-Gen Stack',
-    typewriterWords: ['Next-Gen Stack', 'Future-Proof Tech', 'Robust Architecture'],
-    description: 'Built on scalable, future-proof tech stacks that ensure your product remains robust as your user base grows.',
-    icon: Sparkles,
-    color: 'from-blue-500/30 via-indigo-500/10 to-transparent',
-    accent: 'text-blue-400',
-    border: 'border-blue-500/40',
-    number: '02'
-  },
-  {
-    id: 'secure-scalable',
-    title: 'Secure & Scalable',
-    subtitle: 'Enterprise Ready',
-    typewriterWords: ['Enterprise Ready', 'Top-Tier Security', 'Cloud Architectures'],
-    description: 'Enterprise-grade security and scalable cloud architectures that can handle high traffic volumes and complex data.',
-    icon: ShieldCheck,
-    color: 'from-emerald-500/30 via-teal-500/10 to-transparent',
-    accent: 'text-emerald-400',
-    border: 'border-emerald-500/40',
-    number: '03'
-  },
-  {
-    id: 'client-focused',
-    title: 'Client-Focused Approach',
-    subtitle: 'Your Vision First',
-    typewriterWords: ['Your Vision First', 'Transparent Communication', 'Collaborative Process'],
-    description: 'We prioritize transparent communication, regular updates, and a collaborative process to ensure we meet your specific goals.',
-    icon: Users,
-    color: 'from-purple-500/30 via-pink-500/10 to-transparent',
-    accent: 'text-purple-400',
-    border: 'border-purple-500/40',
-    number: '04'
-  }
-];
+type PerspectiveMode = 'contrast' | 'webiox' | 'traditional';
 
-function Particles() {
-  const pointsRef = useRef<THREE.Points>(null);
-
-  const particlesPosition = useMemo(() => {
-    const positions = new Float32Array(3000 * 3);
-    for (let i = 0; i < 3000; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 15;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 15;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
-    }
-    return positions;
-  }, []);
-
-  useFrame((state, delta) => {
-    if (pointsRef.current) {
-      pointsRef.current.rotation.y += delta * 0.05;
-      pointsRef.current.rotation.x += delta * 0.03;
-      pointsRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
-    }
-  });
-
-  return (
-    <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[particlesPosition, 3]}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.018}
-        color="#ffffff"
-        transparent
-        opacity={0.4}
-        sizeAttenuation
-        depthWrite={false}
-        blending={THREE.AdditiveBlending}
-      />
-    </points>
-  );
+interface SprintGate {
+  id: string;
+  num: string;
+  name: string;
+  phase: string;
+  status: string;
+  duration: string;
+  deliverables: string[];
+  verification: string;
 }
 
-const visceralSpring = {
-  type: "spring" as const,
-  stiffness: 110,
-  damping: 22,
-  mass: 1.1,
-  restDelta: 0.001
-};
+const SPRINT_GATES: SprintGate[] = [
+  {
+    id: 's1',
+    num: '01',
+    name: 'Architecture & UX Spec',
+    phase: 'System Foundation',
+    status: 'Verified & Signed Off',
+    duration: 'Sprint 01 (Day 1–14)',
+    deliverables: ['Figma Design System & Tokens', 'PostgreSQL / Prisma Schema', 'API Route Contracts & Wireframes'],
+    verification: 'SIGN_HASH: 0x8F4A...92C1',
+  },
+  {
+    id: 's2',
+    num: '02',
+    name: 'Fullstack Core Engine',
+    phase: 'Core Development',
+    status: 'Verified & Signed Off',
+    duration: 'Sprint 02 (Day 15–28)',
+    deliverables: ['Next.js 15 Server Components', 'Zero-Trust JWT Auth & RBAC', 'Edge Redis Cache Invalidation'],
+    verification: 'SIGN_HASH: 0x3E1B...78A0',
+  },
+  {
+    id: 's3',
+    num: '03',
+    name: 'Security & Edge Staging',
+    phase: 'Hardening & QA',
+    status: 'Active Staging Gate',
+    duration: 'Sprint 03 (Day 29–42)',
+    deliverables: ['Cloudflare Enterprise WAF Rules', 'OWASP Top 10 Penetration Audit', 'Client Staging URL with Live Data'],
+    verification: 'STATUS: ACTIVE_REVIEW',
+  },
+  {
+    id: 's4',
+    num: '04',
+    name: 'Zero-Downtime Launch',
+    phase: 'Production & Care',
+    status: 'Guaranteed Handover',
+    duration: 'Sprint 04 (Day 43–56)',
+    deliverables: ['DNS Cutover & SSL TLS 1.3', 'Core Web Vitals 98+ Guarantee', '30-Day Hypercare & Direct SLA'],
+    verification: 'SLA: 100% ESCROW_RELEASE',
+  },
+];
 
 export default function WhyChooseUs() {
-  const [hoveredIndex, setHoveredIndex] = useState<number>(0);
-  const [mounted, setMounted] = useState(false);
+  const [mode, setMode] = useState<PerspectiveMode>('contrast');
+  const [activeSpeedStack, setActiveSpeedStack] = useState<'webiox' | 'traditional'>('webiox');
+  const [selectedGate, setSelectedGate] = useState<number>(2); // Default to active Phase 03
+  const [threatSimulating, setThreatSimulating] = useState<boolean>(false);
+  const [threatMitigated, setThreatMitigated] = useState<boolean>(false);
+  const [activeChatTab, setActiveChatTab] = useState<'slack' | 'whatsapp'>('slack');
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const triggerThreatSimulation = () => {
+    if (threatSimulating) return;
+    setThreatSimulating(true);
+    setThreatMitigated(false);
+    setTimeout(() => {
+      setThreatSimulating(false);
+      setThreatMitigated(true);
+      setTimeout(() => {
+        setThreatMitigated(false);
+      }, 5000);
+    }, 1400);
+  };
 
   return (
-    <section id="why-choose-us" className="bg-brand-blue text-white">
-      {/* Mobile Layout */}
-      <div className="flex flex-col lg:hidden px-6 py-24 gap-6">
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-6">
-            <span aria-hidden className="h-[2px] w-8 rounded-full bg-[#FFBF00]/70" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FFBF00]/80">
-              The Webiox Advantage
-            </span>
+    <section
+      id="why-choose-us"
+      className="relative bg-[#FCFCFD] text-[#0F172A] py-24 sm:py-32 overflow-hidden selection:bg-[#1a7097] selection:text-white"
+    >
+      {/* ── Ambient Background Lighting (Curtain Glows & Micro-Grid) ── */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-40"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 50% 0%, rgba(26, 112, 151, 0.08) 0%, transparent 65%),
+            radial-gradient(circle at 85% 60%, rgba(231, 185, 0, 0.05) 0%, transparent 50%),
+            repeating-linear-gradient(
+              90deg,
+              rgba(26, 112, 151, 0.035) 0px,
+              rgba(26, 112, 151, 0.035) 1px,
+              transparent 1px,
+              transparent 48px
+            )
+          `,
+        }}
+      />
+      <div className="absolute top-1/4 -left-48 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* ── Section Header ── */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
+          {/* Eyebrow Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#1a7097] mb-4 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#E7B900]" />
+            <span className="tracking-wider uppercase">THE WEBIOX ADVANTAGE</span>
+            <span className="text-slate-300">•</span>
+            <span className="text-slate-600">PROPRIETARY DELIVERY MODEL</span>
           </div>
-          <h2 className="text-[3rem] font-medium leading-[1.05] tracking-tight text-white mb-6">
-            Why Top Companies <br />
-            <span className="bg-gradient-to-r from-[#FFBF00] to-yellow-300 bg-clip-text text-transparent">Choose Webiox</span>
+
+          {/* Headline */}
+          <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl lg:text-5xl text-[#0F172A] tracking-[-0.03em] leading-[1.12] mb-4 [text-wrap:balance]">
+            <span>Why Gujarat's Top Enterprises </span>
+            <br className="hidden sm:inline" />
+            <span className="bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
+              Choose Webiox.
+            </span>
           </h2>
-          <p className="text-base text-white/60 leading-relaxed font-light mb-8">
-            We don't just build websites; we build scalable digital businesses. Our engineering-first approach paired with premium design ensures that your digital presence acts as a powerful growth engine.
+
+          {/* Subtitle */}
+          <p className="font-['Plus_Jakarta_Sans',sans-serif] text-sm sm:text-base text-slate-500 font-normal leading-relaxed max-w-2xl mb-8">
+            We don't build generic brochure templates. We engineer high-velocity digital products, cloud backends, and conversion-first platforms backed by verified milestone SLAs.
           </p>
-          <div className="flex gap-8 border-t border-white/10 pt-8">
-            <div className="flex flex-col gap-2">
-              <span className="text-4xl font-bold tracking-tight text-white">99.8<span className="text-[#FFBF00]">%</span></span>
-              <span className="text-[10px] font-mono tracking-widest uppercase text-white/40">Performance & Uptime SLA</span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-4xl font-bold tracking-tight text-white">20<span className="text-[#FFBF00]">+</span></span>
-              <span className="text-[10px] font-mono tracking-widest uppercase text-white/40">Flagships Engineered</span>
-            </div>
+
+          {/* ── Global Perspective Switcher ── */}
+          <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/90 shadow-2xs">
+            <button
+              type="button"
+              onClick={() => setMode('contrast')}
+              className={`relative px-4 py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+                mode === 'contrast'
+                  ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
+                  : 'text-slate-500 hover:text-[#0F172A]'
+              }`}
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5" />
+              <span>Direct Contrast View</span>
+              {mode === 'contrast' && (
+                <span className="ml-1 text-[9.5px] font-mono font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-[#1a7097] text-white">
+                  Live
+                </span>
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setMode('webiox')}
+              className={`relative px-4 py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
+                mode === 'webiox'
+                  ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
+                  : 'text-slate-500 hover:text-[#0F172A]'
+              }`}
+            >
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+              <span>The Webiox Standard</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setMode('traditional')}
+              className={`relative px-4 py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
+                mode === 'traditional'
+                  ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
+                  : 'text-slate-500 hover:text-[#0F172A]'
+              }`}
+            >
+              <XCircle className="w-3.5 h-3.5 text-rose-500" />
+              <span>Traditional Agency Way</span>
+            </button>
           </div>
         </div>
 
-        {ACCORDION_DATA.map((item) => (
-          <div key={item.id} className="relative overflow-hidden rounded-[20px] border border-white/10 bg-white/5 p-6 backdrop-blur-md group hover:border-white/20 transition-all duration-500">
-            <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-40 mix-blend-screen transition-opacity duration-500 group-hover:opacity-70`} />
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-6">
-                <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
-                  {item.number}
-                </span>
-                <div className={`flex h-10 w-10 items-center justify-center rounded-full border ${item.border} bg-white/5 shadow-inner`}>
-                  <item.icon className={`h-5 w-5 ${item.accent}`} />
+        {/* ════════════════════════════════════════════════════════════════════
+            THE ARCHITECTURAL ENGINEERING CONSOLE (CUTTING-EDGE 2026 UI/UX)
+            Continuous, tactile telemetry instruments with zero generic boxiness
+           ════════════════════════════════════════════════════════════════════ */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-7">
+
+          {/* ──────────────────────────────────────────────────────────────────
+              MODULE 01 (7 Cols): 01 // VELOCITY & INFRASTRUCTURE
+              Interactive Edge Route Visualizer & Core Web Vitals Lab
+             ────────────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-7 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden transition-all duration-500 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)] hover:shadow-[0_30px_70px_-12px_rgba(26,112,151,0.24)] flex flex-col justify-between">
+            {/* Ambient Corner Specular Glow */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#1a7097]/8 rounded-full blur-3xl pointer-events-none" />
+            
+            {/* Architectural Crosshairs & Lat/Long Coordinates */}
+            <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+            <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+            <div className="absolute bottom-3 right-3 text-slate-300 font-mono text-[9px] select-none pointer-events-none">SURAT_EDGE // 21.17°N 72.83°E</div>
+
+            <div>
+              {/* Telemetry Header Strip */}
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[10.5px] font-mono text-[#1a7097] font-bold">
+                  <Gauge className="w-3.5 h-3.5 text-[#1a7097]" />
+                  <span>01 // VELOCITY & INFRASTRUCTURE</span>
+                </div>
+
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10.5px] font-mono font-bold text-emerald-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                  <span>SUB-SECOND EDGE ACTIVE</span>
                 </div>
               </div>
-              <h3 className="text-2xl font-medium tracking-tight text-white mb-2">{item.title}</h3>
-              <p className={`text-[11px] font-mono tracking-widest uppercase mb-4 ${item.accent}`}>{item.subtitle}</p>
-              <p className="text-[15px] leading-relaxed text-white/60 mb-6">{item.description}</p>
+
+              {/* Title & Narrative */}
+              <div className="mb-6">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl text-[#0F172A] tracking-tight">
+                    Sub-Second Edge Infrastructure.
+                  </h3>
+                </div>
+                <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-xl">
+                  Next.js 15 App Router with Incremental Static Regeneration (ISR) and Edge Redis caching. Zero cold starts, sub-400ms LCP, and instant page transitions across Gujarat and worldwide.
+                </p>
+              </div>
+            </div>
+
+            {/* ── Real-Time Edge CDN Diagnostic Instrument ── */}
+            <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-5 relative overflow-hidden">
+              {/* Stack Switcher Header */}
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs font-mono">
+                <div className="flex items-center gap-2">
+                  <Radio className="w-3.5 h-3.5 text-[#1a7097] animate-pulse" />
+                  <span className="text-slate-700 font-bold uppercase tracking-wider text-[10.5px]">
+                    Live Route & Benchmark Profiler
+                  </span>
+                </div>
+
+                {/* Interactive Stack Toggle */}
+                <div className="inline-flex items-center p-1 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                  <button
+                    type="button"
+                    onClick={() => setActiveSpeedStack('webiox')}
+                    className={`px-3 py-1 rounded-lg text-[11px] font-mono font-bold transition-all cursor-pointer ${
+                      activeSpeedStack === 'webiox'
+                        ? 'bg-[#1a7097] text-white shadow-xs'
+                        : 'text-slate-500 hover:text-[#0F172A]'
+                    }`}
+                  >
+                    ⚡ Webiox Edge Stack
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveSpeedStack('traditional')}
+                    className={`px-3 py-1 rounded-lg text-[11px] font-mono font-bold transition-all cursor-pointer ${
+                      activeSpeedStack === 'traditional'
+                        ? 'bg-rose-500 text-white shadow-xs'
+                        : 'text-slate-500 hover:text-[#0F172A]'
+                    }`}
+                  >
+                    ✕ Legacy Monolith
+                  </button>
+                </div>
+              </div>
+
+              {/* Dynamic Animated Route Track */}
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs mb-4">
+                <div className="grid grid-cols-3 items-center gap-2 mb-4">
+                  {/* Origin Client Node */}
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center font-mono text-xs font-black text-[#0F172A] shrink-0">
+                      <Smartphone className="w-4 h-4 text-[#1a7097]" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
+                        Client (Gujarat)
+                      </div>
+                      <div className="font-mono text-[9.5px] text-slate-400">CLIENT_REQ</div>
+                    </div>
+                  </div>
+
+                  {/* Animated Packet Flight Path */}
+                  <div className="relative px-2">
+                    <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden relative">
+                      <motion.div
+                        className={`h-full rounded-full ${
+                          activeSpeedStack === 'webiox'
+                            ? 'bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-emerald-400'
+                            : 'bg-rose-400'
+                        }`}
+                        animate={{
+                          x: ['-100%', '100%'],
+                        }}
+                        transition={{
+                          repeat: Infinity,
+                          duration: activeSpeedStack === 'webiox' ? 0.65 : 2.6,
+                          ease: 'linear',
+                        }}
+                      />
+                    </div>
+                    <div className="text-center mt-1">
+                      <span className={`text-[9.5px] font-mono font-bold ${
+                        activeSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-500'
+                      }`}>
+                        {activeSpeedStack === 'webiox' ? 'Edge Fastly/Cloudflare' : 'Shared Apache / Slow IO'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Edge PoP / Destination Node */}
+                  <div className="flex items-center justify-end gap-2.5 text-right">
+                    <div className="min-w-0">
+                      <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
+                        {activeSpeedStack === 'webiox' ? 'Mumbai Edge PoP' : 'Uncached Origin'}
+                      </div>
+                      <div className="font-mono text-[9.5px] font-bold text-emerald-600">
+                        {activeSpeedStack === 'webiox' ? '38ms Cache Hit' : '850ms Cold Parse'}
+                      </div>
+                    </div>
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-mono text-xs font-black shrink-0 ${
+                      activeSpeedStack === 'webiox'
+                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200/80'
+                        : 'bg-rose-50 text-rose-700 border border-rose-200/80'
+                    }`}>
+                      <Server className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Precision Telemetry Readouts */}
+                <div className="pt-3 border-t border-slate-100 grid grid-cols-3 gap-3 text-center">
+                  <div className="p-2 rounded-lg bg-slate-50/70 border border-slate-100">
+                    <span className="text-[10px] font-mono text-slate-400 block mb-0.5">TTFB Latency</span>
+                    <span className={`font-mono font-black text-sm sm:text-base ${
+                      activeSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                    }`}>
+                      {activeSpeedStack === 'webiox' ? '38ms' : '850ms'}
+                    </span>
+                  </div>
+
+                  <div className="p-2 rounded-lg bg-slate-50/70 border border-slate-100">
+                    <span className="text-[10px] font-mono text-slate-400 block mb-0.5">LCP Paint</span>
+                    <span className={`font-mono font-black text-sm sm:text-base ${
+                      activeSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                    }`}>
+                      {activeSpeedStack === 'webiox' ? '0.38s' : '3.8s'}
+                    </span>
+                  </div>
+
+                  <div className="p-2 rounded-lg bg-slate-50/70 border border-slate-100">
+                    <span className="text-[10px] font-mono text-slate-400 block mb-0.5">Mobile Core Vitals</span>
+                    <span className={`font-mono font-black text-sm sm:text-base ${
+                      activeSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                    }`}>
+                      {activeSpeedStack === 'webiox' ? '99 / 100' : '48 / 100'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Insight Footer */}
+              <div className="flex items-center justify-between text-xs font-mono">
+                <span className="text-slate-500 text-[11px]">
+                  {activeSpeedStack === 'webiox'
+                    ? '⚡ Zero Layout Shift (CLS: 0.00) • Instantaneous Next.js Prefetching'
+                    : '✕ 28 unoptimized plugins • High mobile bounce drop-off risk'}
+                </span>
+                <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                  activeSpeedStack === 'webiox' ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
+                }`}>
+                  {activeSpeedStack === 'webiox' ? '68% Lower Bounce' : '42% User Drop-Off'}
+                </span>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
 
-      {/* Desktop Layout - 60/40 Split */}
-      <div className="hidden lg:flex max-w-[1400px] mx-auto px-6 lg:px-8 py-32 gap-12 lg:gap-16 items-center">
+          {/* ──────────────────────────────────────────────────────────────────
+              MODULE 02 (5 Cols): 02 // MILESTONE LOCK PROTOCOL
+              Interactive 4-Phase Delivery Gantt & Escrow Release Protocol
+             ────────────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-5 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden transition-all duration-500 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)] hover:shadow-[0_30px_70px_-12px_rgba(26,112,151,0.24)] flex flex-col justify-between">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#E7B900]/8 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+            <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+            <div className="absolute bottom-3 right-3 text-slate-300 font-mono text-[9px] select-none pointer-events-none">SLA_PROTOCOL // ZERO_DRIFT</div>
 
-        {/* LEFT SIDE (60%): Immersive Interactive Accordion Container */}
-        <div className="w-[60%] h-[480px] xl:h-[550px] flex flex-row overflow-hidden group rounded-[32px] border border-white/10 shadow-2xl bg-primary-950">
-          {ACCORDION_DATA.map((item, index) => {
-            const isActive = hoveredIndex === index;
+            <div>
+              {/* Telemetry Header */}
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-[10.5px] font-mono text-amber-700 font-bold">
+                  <Clock className="w-3.5 h-3.5 text-amber-600" />
+                  <span>02 // MILESTONE LOCK PROTOCOL</span>
+                </div>
 
-            return (
-              <motion.div
-                key={item.id}
-                onMouseEnter={() => setHoveredIndex(index)}
-                initial={false}
-                animate={{
-                  flex: isActive ? 5.5 : 1,
-                }}
-                transition={visceralSpring}
-                className="relative h-full flex items-end overflow-hidden border-r border-white/5 last:border-none cursor-pointer bg-primary-950"
-              >
-                {/* WebGL Canvas Background */}
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.8 }}
-                      className="absolute inset-0 z-0 pointer-events-none"
-                    >
-                      <Canvas camera={{ position: [0, 0, 5] }} dpr={[1, 1.5]}>
-                        <Particles />
-                      </Canvas>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <span className="font-mono text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/60">
+                  100% SLA LOCK
+                </span>
+              </div>
 
-                {/* Gradient Ambient Glow */}
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.6 }}
-                      className={`absolute inset-0 bg-gradient-to-t ${item.color} pointer-events-none mix-blend-screen z-0`}
-                    />
-                  )}
-                </AnimatePresence>
+              {/* Title & Narrative */}
+              <div className="mb-6">
+                <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl text-[#0F172A] tracking-tight mb-2">
+                  Sprint Milestone Vault.
+                </h3>
+                <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                  Traditional agencies drag projects for months with hourly billing. Webiox locks delivery into verified 14-day sprint gates: payments unlock strictly after staging QA sign-off.
+                </p>
+              </div>
+            </div>
 
-                {/* Massive Watermark Icon */}
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.6, rotate: -25 }}
-                      animate={{ opacity: 0.04, scale: 1, rotate: 0 }}
-                      exit={{ opacity: 0, scale: 0.6, rotate: 25 }}
-                      transition={{ duration: 1.2, ease: "easeOut" }}
-                      className="absolute -right-20 -bottom-20 pointer-events-none z-0"
-                    >
-                      <item.icon className="w-[450px] h-[450px] text-white" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+            {/* ── Interactive 14-Day Sprint Gantt Explorer ── */}
+            <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-5">
+              <div className="flex items-center justify-between mb-3 text-xs font-mono">
+                <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">
+                  Interactive Sprint Gates (Click to Inspect)
+                </span>
+                <span className="text-amber-700 font-bold text-[10.5px]">
+                  0% Scope Drift
+                </span>
+              </div>
 
-                {/* Inactive Vertical Title */}
-                <motion.div
-                  animate={{ opacity: isActive ? 0 : 0.8 }}
-                  className="absolute inset-0 flex flex-col items-center justify-between py-10 pointer-events-none z-30"
-                >
-                  <span className="font-mono text-sm font-bold text-white/60">{item.number}</span>
-                  <h2
-                    className="text-xl xl:text-2xl font-bold uppercase tracking-[0.2em] text-white"
-                    style={{
-                      writingMode: 'vertical-rl',
-                      transform: 'rotate(180deg)'
-                    }}
+              {/* Gate Tabs Selector */}
+              <div className="grid grid-cols-4 gap-1.5 mb-3">
+                {SPRINT_GATES.map((gate, idx) => (
+                  <button
+                    key={gate.id}
+                    type="button"
+                    onClick={() => setSelectedGate(idx)}
+                    className={`py-2 px-1 rounded-xl text-center transition-all cursor-pointer border ${
+                      selectedGate === idx
+                        ? 'bg-white border-[#1a7097] text-[#0F172A] shadow-xs ring-1 ring-[#1a7097]/30'
+                        : idx < selectedGate
+                        ? 'bg-emerald-50/70 border-emerald-200/60 text-emerald-800'
+                        : 'bg-white/60 border-slate-200/70 text-slate-500 hover:bg-white'
+                    }`}
                   >
-                    {item.title}
-                  </h2>
-                </motion.div>
+                    <span className="block font-mono text-[10px] font-black">{gate.num}</span>
+                    <span className="block font-['Plus_Jakarta_Sans',sans-serif] text-[10px] font-bold truncate">
+                      Phase {idx + 1}
+                    </span>
+                  </button>
+                ))}
+              </div>
 
-                {/* Active Content */}
-                <motion.div
-                  initial={false}
-                  animate={{
-                    opacity: isActive ? 1 : 0,
-                    x: isActive ? 0 : -40,
-                    filter: isActive ? 'blur(0px)' : 'blur(12px)'
-                  }}
-                  transition={visceralSpring}
-                  className="relative z-20 w-[400px] xl:w-[480px] max-w-none p-10 xl:p-12 flex flex-col justify-end h-full pointer-events-none"
+              {/* Selected Gate Inspection Card */}
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] block">
+                      {SPRINT_GATES[selectedGate].name}
+                    </span>
+                    <span className="font-mono text-[10px] text-slate-400">
+                      {SPRINT_GATES[selectedGate].duration}
+                    </span>
+                  </div>
+
+                  <span className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${
+                    selectedGate === 2
+                      ? 'bg-[#1a7097]/10 text-[#1a7097] border border-[#1a7097]/20'
+                      : selectedGate < 2
+                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                      : 'bg-amber-50 text-amber-700 border border-amber-200'
+                  }`}>
+                    {SPRINT_GATES[selectedGate].status}
+                  </span>
+                </div>
+
+                {/* Verified Deliverables List */}
+                <div className="space-y-1.5 my-2.5">
+                  {SPRINT_GATES[selectedGate].deliverables.map((item, dIdx) => (
+                    <div key={dIdx} className="flex items-center gap-2 text-xs text-slate-600">
+                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5" />
+                      </div>
+                      <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[11.5px]">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-slate-400">{SPRINT_GATES[selectedGate].verification}</span>
+                  <span className="text-[#1a7097] font-bold">QA Gate Verified ✓</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ──────────────────────────────────────────────────────────────────
+              MODULE 03 (5 Cols): 03 // DEFENSIVE SECURITY CORE
+              Interactive Threat Mitigation Radar & Hardened Architecture
+             ────────────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-5 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden transition-all duration-500 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)] hover:shadow-[0_30px_70px_-12px_rgba(26,112,151,0.24)] flex flex-col justify-between">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/8 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+            <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+            <div className="absolute bottom-3 right-3 text-slate-300 font-mono text-[9px] select-none pointer-events-none">DEFENSE_CORE // SOC_2_READY</div>
+
+            <div>
+              {/* Telemetry Header */}
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10.5px] font-mono text-emerald-700 font-bold">
+                  <Lock className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>03 // DEFENSIVE SECURITY CORE</span>
+                </div>
+
+                <span className="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/60">
+                  0 CVE VULNERABILITIES
+                </span>
+              </div>
+
+              {/* Title & Narrative */}
+              <div className="mb-6">
+                <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl text-[#0F172A] tracking-tight mb-2">
+                  Hardened Zero-Trust.
+                </h3>
+                <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                  Generic agencies install dozens of vulnerable plugins that invite exploits. We build custom hardened TypeScript architectures with cryptographic authentication and automated CI/CD audits.
+                </p>
+              </div>
+            </div>
+
+            {/* ── Interactive Threat Mitigation Radar Instrument ── */}
+            <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-5">
+              <div className="flex items-center justify-between mb-3 text-xs font-mono">
+                <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">
+                  4-Layer Defense Perimeter
+                </span>
+                <button
+                  type="button"
+                  onClick={triggerThreatSimulation}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
+                    threatSimulating
+                      ? 'bg-amber-500 text-white animate-pulse'
+                      : threatMitigated
+                      ? 'bg-emerald-600 text-white'
+                      : 'bg-white border border-slate-200 text-[#1a7097] hover:bg-slate-50 shadow-2xs'
+                  }`}
                 >
-                  <div className="max-w-md pointer-events-auto">
-                    <motion.div
-                      className={`inline-flex items-center justify-center w-14 h-14 rounded-full border ${item.border} bg-brand-blue/50 mb-6 shadow-2xl backdrop-blur-lg`}
-                    >
-                      <item.icon className={`w-6 h-6 ${item.accent}`} />
-                    </motion.div>
+                  <ShieldAlert className="w-3 h-3" />
+                  <span>
+                    {threatSimulating
+                      ? 'Simulating Attack...'
+                      : threatMitigated
+                      ? 'Threat Mitigated in 3.4ms ✓'
+                      : 'Simulate Threat Scan'}
+                  </span>
+                </button>
+              </div>
 
-                    <h3 className="text-[2.2rem] xl:text-[2.8rem] font-medium leading-none mb-3 text-white tracking-tight">
-                      {item.title}.
-                    </h3>
+              {/* 4 Defense Nodes Matrix */}
+              <div className="space-y-2">
+                {[
+                  {
+                    title: 'Layer 7 Cloudflare Edge WAF',
+                    desc: 'DDoS mitigation & automated bot screening (< 100k req/s)',
+                    status: 'Active',
+                  },
+                  {
+                    title: 'Zero-Knowledge JWT & RBAC',
+                    desc: 'Stateless session encryption with biometric WebAuthn',
+                    status: 'Hardened',
+                  },
+                  {
+                    title: 'OWASP Automated CI/CD Audit',
+                    desc: 'Zero 3rd-party unpatched dependency vulnerabilities',
+                    status: '0 CVE',
+                  },
+                  {
+                    title: 'TLS 1.3 & KMS Secret Vault',
+                    desc: 'AES-256 encrypted env variables & key rotation',
+                    status: 'Encrypted',
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className={`p-2.5 rounded-xl border transition-all duration-300 flex items-start gap-2.5 ${
+                      threatSimulating
+                        ? 'bg-amber-50/70 border-amber-200'
+                        : threatMitigated
+                        ? 'bg-emerald-50/70 border-emerald-200'
+                        : 'bg-white border-slate-200/80 shadow-2xs'
+                    }`}
+                  >
+                    <div className="mt-0.5 w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
+                          {item.title}
+                        </span>
+                        <span className="font-mono text-[9.5px] font-bold text-emerald-700">
+                          {item.status}
+                        </span>
+                      </div>
+                      <p className="font-mono text-[10px] text-slate-500 truncate">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
-                    {/* Elite Kinetic Typography */}
-                    <div className={`text-[11px] xl:text-xs font-mono tracking-[0.15em] uppercase mb-6 ${item.accent} h-5`}>
-                      {mounted && isActive ? (
-                        <Typewriter
-                          words={item.typewriterWords}
-                          loop={1}
-                          cursor
-                          cursorStyle="|"
-                          typeSpeed={40}
-                          deleteSpeed={20}
-                          delaySpeed={2000}
-                        />
-                      ) : (
-                        item.subtitle
-                      )}
+          {/* ──────────────────────────────────────────────────────────────────
+              MODULE 04 (7 Cols): 04 // AGILITY & DIRECT COLLABORATION
+              Real-Time Senior Architect Squad War-Room
+             ────────────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-7 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden transition-all duration-500 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)] hover:shadow-[0_30px_70px_-12px_rgba(26,112,151,0.24)] flex flex-col justify-between">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#1a7097]/8 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+            <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+            <div className="absolute bottom-3 right-3 text-slate-300 font-mono text-[9px] select-none pointer-events-none">SQUAD_UPLINK // SURAT_DIRECT</div>
+
+            <div>
+              {/* Telemetry Header */}
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[10.5px] font-mono text-[#1a7097] font-bold">
+                  <MessageSquare className="w-3.5 h-3.5 text-[#1a7097]" />
+                  <span>04 // AGILITY & DIRECT COLLABORATION</span>
+                </div>
+
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[10.5px] font-mono font-bold text-[#1a7097]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097] animate-pulse" />
+                  <span>12M AVG ARCHITECT REPLY</span>
+                </div>
+              </div>
+
+              {/* Title & Narrative */}
+              <div className="mb-6">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl text-[#0F172A] tracking-tight">
+                    Direct Senior Engineers.
+                  </h3>
+                  <span className="font-mono text-xs font-bold text-slate-400">
+                    Zero Middlemen
+                  </span>
+                </div>
+                <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-xl">
+                  No non-technical account managers playing telephone. You get a direct, dedicated engineering war-room on Slack or WhatsApp with the senior architects writing and shipping your code.
+                </p>
+              </div>
+            </div>
+
+            {/* ── Real-Time Engineering Command War-Room Console ── */}
+            <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-5">
+              {/* Channel Header with Live Squad Presence */}
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs font-mono">
+                <div className="flex items-center gap-2">
+                  <div className="flex -space-x-2">
+                    <div className="w-6 h-6 rounded-full bg-[#1a7097] text-white flex items-center justify-center font-bold text-[9px] ring-2 ring-white">
+                      MV
+                    </div>
+                    <div className="w-6 h-6 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-[9px] ring-2 ring-white">
+                      FE
+                    </div>
+                    <div className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-[9px] ring-2 ring-white">
+                      DO
+                    </div>
+                  </div>
+                  <span className="font-bold text-[#0F172A] text-[11px]">
+                    #squad-client-war-room
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                </div>
+
+                {/* Communication Platform Tabs */}
+                <div className="inline-flex items-center p-0.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+                  <button
+                    type="button"
+                    onClick={() => setActiveChatTab('slack')}
+                    className={`px-2.5 py-0.5 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
+                      activeChatTab === 'slack'
+                        ? 'bg-[#1a7097] text-white'
+                        : 'text-slate-500 hover:text-[#0F172A]'
+                    }`}
+                  >
+                    Slack War-Room
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveChatTab('whatsapp')}
+                    className={`px-2.5 py-0.5 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
+                      activeChatTab === 'whatsapp'
+                        ? 'bg-emerald-600 text-white'
+                        : 'text-slate-500 hover:text-[#0F172A]'
+                    }`}
+                  >
+                    WhatsApp VIP
+                  </button>
+                </div>
+              </div>
+
+              {/* Live Simulated Dev Terminal Stream */}
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-[#1a7097] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
+                    MV
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between mb-1">
+                      <div className="flex items-center gap-2">
+                        <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
+                          Manthan Vaghasiya (Lead Architect)
+                        </span>
+                        <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[9.5px] font-mono font-bold">
+                          Direct Lead Access
+                        </span>
+                      </div>
+                      <span className="font-mono text-[10px] text-slate-400">10:42 AM</span>
                     </div>
 
-                    <p className="text-[15px] xl:text-[17px] text-white/70 leading-relaxed mb-8 font-light">
-                      {item.description}
+                    <p className="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed">
+                      "Sprint 03 staging build is live. Redis edge cache index is verified at 38ms TTFB with zero dropped frames. Check your staging preview link—ready for your review!"
                     </p>
-
-                    <button className="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors group/btn">
-                      Explore Advantage
-                      <span className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 group-hover/btn:border-white/80 group-hover/btn:bg-white/10 transition-all duration-300">
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </span>
-                    </button>
                   </div>
-                </motion.div>
+                </div>
 
-                {/* Overlay shadow for unselected */}
-                <motion.div
-                  animate={{ opacity: isActive ? 0 : 0.8 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 bg-primary-950 pointer-events-none z-10"
-                />
-              </motion.div>
-            );
-          })}
-        </div>
+                {/* Live Commit Stream Ticker */}
+                <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                  <div className="flex items-center gap-2 truncate">
+                    <Code2 className="w-3.5 h-3.5 text-[#1a7097] shrink-0" />
+                    <span className="text-slate-700 font-bold">commit 9d42f8c:</span>
+                    <span className="truncate">feat(cache): Edge ISR warmed for 21 Gujarat regions</span>
+                  </div>
+                  <span className="text-emerald-600 font-bold shrink-0 ml-2">PASS 100%</span>
+                </div>
 
-        {/* RIGHT SIDE (40%): Header & Stats */}
-        <div className="w-[40%] flex flex-col gap-10">
-          <div className="max-w-xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span aria-hidden className="h-[2px] w-8 rounded-full bg-[#FFBF00]/70" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FFBF00]/80">
-                The Webiox Advantage
-              </span>
+                {/* Direct Architect CTA */}
+                <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+                  <span className="font-mono text-[10.5px] text-slate-400">
+                    Average response: &lt; 12 mins • Direct Slack & WhatsApp VIP
+                  </span>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#1a7097] hover:text-[#145b7c] transition-colors"
+                  >
+                    <span>Connect Directly with Lead Architect</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
             </div>
-            <h2 className="text-4xl xl:text-5xl font-medium leading-[1.05] tracking-tight text-white mb-6">
-              Why Top Companies <br className="hidden lg:block" />
-              <span className="bg-gradient-to-r from-[#FFBF00] to-yellow-300 bg-clip-text text-transparent">Choose Webiox</span>
-            </h2>
-            <p className="text-lg text-white/60 leading-relaxed font-light">
-              We don't just build websites; we build scalable digital businesses. Our engineering-first approach paired with premium design ensures that your digital presence acts as a powerful growth engine.
-            </p>
           </div>
 
-          <div className="flex gap-12 border-t border-white/10 pt-8">
-            <div className="flex flex-col gap-2">
-              <span className="text-[3.5rem] font-bold tracking-tight text-white leading-none">99.8<span className="text-[#FFBF00]">%</span></span>
-              <span className="text-[11px] font-mono tracking-widest uppercase text-white/40">Performance & Speed SLA</span>
+        </div>
+
+        {/* ════════════════════════════════════════════════════════════════════
+            BOTTOM TRUST GUARANTEE & ARCHITECTURAL DISCOVERY CTA
+           ════════════════════════════════════════════════════════════════════ */}
+        <div className="mt-14 rounded-3xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border border-slate-200/90 p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-[0_15px_35px_-10px_rgba(26,112,151,0.1)]">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-[#E7B900]/15 border border-[#E7B900]/30 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-6 h-6 text-[#E7B900]" />
             </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[3.5rem] font-bold tracking-tight text-white leading-none">20<span className="text-[#FFBF00]">+</span></span>
-              <span className="text-[11px] font-mono tracking-widest uppercase text-white/40">Flagships Engineered</span>
+            <div>
+              <h4 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
+                Guaranteed Milestone Delivery & 30-Day Hypercare
+              </h4>
+              <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed max-w-2xl">
+                Every contract includes strict SLA milestones, zero hidden scope fees, and 30 days of direct post-launch developer support.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-xs sm:text-sm font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-lg shadow-[#1a7097]/20 hover:shadow-xl hover:shadow-[#1a7097]/30 transition-all shrink-0 cursor-pointer group"
+          >
+            <span>Claim Your Webiox Advantage</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+
+        {/* ── Live Performance Metrics Bar ── */}
+        <div className="mt-12 pt-10 border-t border-slate-200/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl text-[#0F172A] mb-1">
+              99.8<span className="text-[#E7B900]">%</span>
+            </div>
+            <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">
+              Uptime & Performance SLA
+            </div>
+          </div>
+
+          <div>
+            <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl text-[#0F172A] mb-1">
+              38<span className="text-[#1a7097]">ms</span>
+            </div>
+            <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">
+              Average Edge TTFB
+            </div>
+          </div>
+
+          <div>
+            <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl text-[#0F172A] mb-1">
+              100<span className="text-[#E7B900]">%</span>
+            </div>
+            <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">
+              Milestone Lock Guarantee
+            </div>
+          </div>
+
+          <div>
+            <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl text-[#0F172A] mb-1">
+              0<span className="text-[#1a7097]">%</span>
+            </div>
+            <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">
+              Middlemen Overhead
             </div>
           </div>
         </div>

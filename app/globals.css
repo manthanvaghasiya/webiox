@@ -1,27 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #090D16;
+  
+  /* Locked Brand Colors */
   --brand-blue: #1a7097;
-  --brand-yellow: #FFBF00;
-  --brand-gray: #F9FAFB;
-  --accent-teal: #0f7a81;
+  --brand-yellow: #E7B900;
+  --brand-dark: #0F172A;
+  --brand-muted: #475569;
+  --brand-border: #E2E8F0;
+  --brand-canvas: #FAFBFC;
+
+  color-scheme: light;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  /* Locked 2-Font Typography System */
+  --font-sans: var(--font-plus-jakarta), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
 
+  /* Locked Brand Color Palette */
   --color-brand-blue: #1a7097;
-  --color-brand-yellow: #FFBF00;
-  --color-brand-gray: #F9FAFB;
+  --color-brand-blue-hover: #155b7a;
+  --color-brand-blue-light: #e8f4f9;
+
+  --color-brand-yellow: #E7B900;
+  --color-brand-yellow-hover: #c9a100;
+  --color-brand-yellow-light: #fef9e6;
+
+  --color-brand-dark: #0F172A;
+  --color-brand-muted: #475569;
+  --color-brand-border: #E2E8F0;
+  --color-brand-canvas: #FAFBFC;
+
   --color-primary: #1a7097;
+  --color-secondary: #E7B900;
 
   --color-primary-50: #eef6f6;
   --color-primary-100: #d5e9ea;
@@ -36,17 +53,10 @@
   --color-primary-950: #10272b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #FAFBFC;
+  color: #090D16;
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 @keyframes blob {
@@ -77,4 +87,127 @@ body {
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.04);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes beam {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-beam {
+  animation: beam 3s ease-in-out infinite;
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+@keyframes floatSlow1 {
+
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(45px, -35px) scale(1.08);
+  }
+
+  66% {
+    transform: translate(-35px, 25px) scale(0.95);
+  }
+}
+
+.animate-float-slow-1 {
+  animation: floatSlow1 14s ease-in-out infinite;
+}
+
+@keyframes floatSlow2 {
+
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(-40px, 30px) scale(1.06);
+  }
+
+  66% {
+    transform: translate(30px, -20px) scale(0.96);
+  }
+}
+
+.animate-float-slow-2 {
+  animation: floatSlow2 16s ease-in-out infinite;
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate-slow {
+  animation: rotateSlow 80s linear infinite;
+}
+
+.animate-rotate-slow-reverse {
+  animation: rotateSlow 100s linear infinite reverse;
+}
+
+/* ── Brand-Aligned Bento Card Ambient Shadow ── */
+.bento-card {
+  box-shadow: 0 10px 40px -10px rgba(26, 112, 151, 0.08);
+}
+
+.bento-card:hover {
+  box-shadow: 0 16px 48px -12px rgba(26, 112, 151, 0.16);
 }

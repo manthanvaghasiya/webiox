@@ -36,11 +36,6 @@ const NAV_LINKS: readonly NavLink[] = [
 
 const BRAND_TEAL = '#1a7097';
 
-const navContainer: Variants = {
-  hidden: { opacity: 0, y: -16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
-};
-
 const mobilePanel: Variants = {
   hidden: { opacity: 0, y: -8, transition: { when: 'afterChildren' } },
   visible: {
@@ -62,10 +57,10 @@ export default function Header() {
   const [hovered, setHovered] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [pillDropdownOpen, setPillDropdownOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const isLightPage = false;
+  const pillDropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -76,7 +71,7 @@ export default function Header() {
   }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -108,297 +103,188 @@ export default function Header() {
   const indicatorKey = hovered ?? NAV_LINKS.find((l) => isActive(l.href))?.href ?? null;
 
   return (
-    <motion.header
-      variants={navContainer}
-      initial="hidden"
-      animate="visible"
-      className={[
-        'fixed top-0 inset-x-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500',
-        scrolled
-          ? 'bg-white/85 backdrop-blur-xl border-b border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.06)]'
-          : 'bg-transparent border-b border-transparent',
-      ].join(' ')}
-    >
-      <nav
-        aria-label="Primary"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20"
+    <>
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          PERMANENT FLOATING CAPSULE PILL NAVBAR
+          (Always visible, sleek floating capsule matching user's design)
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <motion.nav
+        key="floating-pill"
+        aria-label="Primary Navigation"
+        initial={{ opacity: 0, y: -25, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ type: 'spring', stiffness: 380, damping: 28 }}
+        className="fixed top-3.5 sm:top-5 inset-x-0 z-50 flex justify-center pointer-events-none px-3 sm:px-4"
       >
-        {/* Logo */}
-        <Link
-          href="/"
-          aria-label="Webiox — Home"
-          className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1a7097] rounded-xl"
+        <div
+          className={`pointer-events-auto bg-white/92 backdrop-blur-xl border rounded-full p-1.5 sm:p-2 pl-3 sm:pl-4 pr-1.5 sm:pr-2 transition-shadow duration-300 flex items-center max-w-fit ${
+            scrolled
+              ? 'border-slate-300/90 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.04)]'
+              : 'border-slate-200/80 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
+          }`}
         >
-          <motion.span
-            whileHover={{ scale: 1.08, rotate: -3 }}
-            whileTap={{ scale: 0.94 }}
-            transition={{ type: 'spring', stiffness: 380, damping: 18 }}
-            className={[
-              'relative inline-flex items-center justify-center w-11 h-11 rounded-xl transition-colors duration-500',
-              scrolled || isLightPage
-                ? 'bg-transparent shadow-none'
-                : 'bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)]',
-            ].join(' ')}
+          {/* Brand Logo (left) */}
+          <Link
+            href="/"
+            aria-label="Webiox Home"
+            className="relative flex items-center hover:opacity-85 active:scale-95 transition-transform shrink-0 cursor-pointer py-1"
           >
             <Image
-              src="/logo_without_background.png"
-              alt=""
-              width={40}
-              height={40}
+              src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
+              alt="Webiox"
+              width={120}
+              height={28}
               priority
-              className="w-9 h-9 object-contain select-none pointer-events-none"
+              style={{ width: 'auto', height: 'auto' }}
+              className="h-6 sm:h-7 w-auto object-contain select-none pointer-events-none"
             />
-          </motion.span>
-          <div className="flex flex-col justify-center mt-1">
-            <span
-              className={[
-                'font-bold tracking-tight text-lg transition-colors duration-300 leading-none',
-                scrolled || isLightPage ? 'text-slate-900' : 'text-white',
-              ].join(' ')}
-            >
-              Webiox
-            </span>
-            <span
-              className={[
-                'text-[9px] uppercase font-bold tracking-widest transition-colors duration-300 leading-tight mt-0.5',
-                scrolled || isLightPage ? 'text-slate-500' : 'text-slate-400',
-              ].join(' ')}
-            >
-              Digital Solution
-            </span>
-          </div>
-        </Link>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <ul
-          className="hidden md:flex items-center gap-1"
-          onMouseLeave={() => setHovered(null)}
-        >
-          {NAV_LINKS.map((link) => {
-            const hasChildren = link.children && link.children.length > 0;
-            const active = hasChildren
-              ? link.children!.some((c) => isActive(c.href))
-              : isActive(link.href);
-            const showIndicator = indicatorKey === link.href;
+          {/* Navigation Links (center - exact same links with expansive balanced spacing) */}
+          <div className="hidden sm:flex items-center gap-0.5 md:gap-1 mx-5 sm:mx-8 md:mx-12 lg:mx-14">
+            {NAV_LINKS.map((link) => {
+              const hasChildren = link.children && link.children.length > 0;
+              const active = hasChildren
+                ? link.children!.some((c) => isActive(c.href))
+                : isActive(link.href);
 
-            if (hasChildren) {
-              return (
-                <li
-                  key={link.name}
-                  className="relative"
-                  onMouseEnter={() => {
-                    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-                    setDropdownOpen(true);
-                    setHovered(link.href);
-                  }}
-                  onMouseLeave={() => {
-                    dropdownTimeout.current = setTimeout(() => setDropdownOpen(false), 150);
-                    setHovered(null);
-                  }}
-                >
-                  <button
-                    type="button"
-                    aria-expanded={dropdownOpen}
-                    aria-haspopup="true"
-                    className={[
-                      'relative inline-flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-full transition-colors duration-300',
-                      'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a7097]/60',
-                      scrolled || isLightPage
-                        ? active
-                          ? 'text-[#1a7097]'
-                          : 'text-slate-700 hover:text-[#1a7097]'
-                        : active
-                          ? 'text-white'
-                          : 'text-white/80 hover:text-white',
-                    ].join(' ')}
+              if (hasChildren) {
+                return (
+                  <div
+                    key={link.name}
+                    className="relative"
+                    onMouseEnter={() => {
+                      if (pillDropdownTimeout.current) clearTimeout(pillDropdownTimeout.current);
+                      setPillDropdownOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      pillDropdownTimeout.current = setTimeout(() => setPillDropdownOpen(false), 150);
+                    }}
                   >
-                    {showIndicator && (
-                      <motion.span
-                        layoutId="nav-pill"
-                        className={[
-                          'absolute inset-0 -z-10 rounded-full',
-                          scrolled || isLightPage ? 'bg-slate-900/[0.06]' : 'bg-white/15',
-                        ].join(' ')}
-                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                    <span className="relative">{link.name}</span>
-                    <ChevronDown
+                    <button
+                      type="button"
+                      aria-expanded={pillDropdownOpen}
                       className={[
-                        'w-3.5 h-3.5 transition-transform duration-300',
-                        dropdownOpen ? 'rotate-180' : '',
+                        'inline-flex items-center gap-1 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-colors cursor-pointer',
+                        active
+                          ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold'
+                          : 'text-slate-700 hover:text-[#1a7097] hover:bg-slate-100/70',
                       ].join(' ')}
-                    />
-                    {active && (
-                      <motion.span
-                        layoutId="nav-underline"
+                    >
+                      <span>{link.name}</span>
+                      <ChevronDown
                         className={[
-                          'absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full',
-                          scrolled ? 'bg-[#1a7097]' : 'bg-[#FFBF00]',
+                          'w-3.5 h-3.5 transition-transform duration-200 text-slate-500',
+                          pillDropdownOpen ? 'rotate-180' : '',
                         ].join(' ')}
-                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
-                    )}
-                  </button>
+                    </button>
 
-                  {/* Dropdown */}
-                  <AnimatePresence>
-                    {dropdownOpen && (
-                      <motion.ul
-                        initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                        transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute top-full right-0 mt-2 w-48 py-2 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200/60 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)]"
-                      >
-                        {link.children!.map((child) => {
-                          const childActive = isActive(child.href);
-                          return (
-                            <li key={child.href}>
-                              <Link
-                                href={child.href}
-                                className={[
-                                  'flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors duration-200',
-                                  childActive
-                                    ? 'text-[#1a7097] bg-[#1a7097]/5'
-                                    : 'text-slate-700 hover:text-[#1a7097] hover:bg-slate-50',
-                                ].join(' ')}
-                              >
-                                {childActive && (
-                                  <span
-                                    aria-hidden
-                                    className="w-1.5 h-1.5 rounded-full bg-[#1a7097] shrink-0"
-                                  />
-                                )}
-                                {child.name}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </motion.ul>
-                    )}
-                  </AnimatePresence>
-                </li>
-              );
-            }
+                    <AnimatePresence>
+                      {pillDropdownOpen && (
+                        <motion.ul
+                          initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                          transition={{ duration: 0.18 }}
+                          className="absolute top-full right-0 mt-2.5 w-44 py-2 bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200/80 shadow-[0_20px_45px_rgba(0,0,0,0.12)]"
+                        >
+                          {link.children!.map((child) => {
+                            const childActive = isActive(child.href);
+                            return (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  className={[
+                                    'flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg mx-1 transition-colors',
+                                    childActive
+                                      ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold'
+                                      : 'text-slate-700 hover:text-[#1a7097] hover:bg-slate-50',
+                                  ].join(' ')}
+                                >
+                                  {childActive && (
+                                    <span
+                                      aria-hidden
+                                      className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
+                                    />
+                                  )}
+                                  {child.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
 
-            return (
-              <li key={link.href} className="relative">
+              return (
                 <Link
+                  key={link.href}
                   href={link.href}
-                  onMouseEnter={() => setHovered(link.href)}
-                  onFocus={() => setHovered(link.href)}
                   aria-current={active ? 'page' : undefined}
                   className={[
-                    'relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-full transition-colors duration-300',
-                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a7097]/60',
-                    scrolled || isLightPage
-                      ? active
-                        ? 'text-[#1a7097]'
-                        : 'text-slate-700 hover:text-[#1a7097]'
-                      : active
-                        ? 'text-white'
-                        : 'text-white/80 hover:text-white',
+                    'px-2.5 md:px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-colors cursor-pointer',
+                    active
+                      ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold'
+                      : 'text-slate-700 hover:text-[#1a7097] hover:bg-slate-100/70',
                   ].join(' ')}
                 >
-                  {showIndicator && (
-                    <motion.span
-                      layoutId="nav-pill"
-                      className={[
-                        'absolute inset-0 -z-10 rounded-full',
-                        scrolled || isLightPage ? 'bg-slate-900/[0.06]' : 'bg-white/15',
-                      ].join(' ')}
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative">{link.name}</span>
-                  {active && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className={[
-                        'absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full',
-                        scrolled ? 'bg-[#1a7097]' : 'bg-[#FFBF00]',
-                      ].join(' ')}
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
+                  {link.name}
                 </Link>
-              </li>
-            );
-          })}
-        </ul>
+              );
+            })}
+          </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:block">
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1a7097]"
-          >
-            <motion.span
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+          {/* Mobile compact key links */}
+          <div className="flex sm:hidden items-center gap-0.5 mx-2">
+            <Link
+              href="/services"
               className={[
-                'relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide overflow-hidden',
-                'transition-shadow duration-300',
-                scrolled || isLightPage
-                  ? 'bg-[#1a7097] text-white shadow-[0_10px_30px_-10px_rgba(26, 112, 151,0.6)] hover:shadow-[0_14px_40px_-10px_rgba(26, 112, 151,0.7)]'
-                  : 'bg-[#FFBF00] text-[#1a7097] shadow-[0_10px_30px_-10px_rgba(255,191,0,0.55)] hover:shadow-[0_14px_40px_-10px_rgba(255,191,0,0.7)]',
+                'px-2 py-1 text-xs font-medium rounded-full transition-colors',
+                isActive('/services') ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold' : 'text-slate-700 hover:text-[#1a7097]',
               ].join(' ')}
             >
-              <span className="relative z-10">Start Project</span>
-              <motion.span
-                aria-hidden
-                className="relative z-10 inline-flex"
-                initial={false}
-                whileHover={{ x: 3, y: -3 }}
-                transition={{ type: 'spring', stiffness: 380, damping: 20 }}
-              >
-                <ArrowUpRight className="w-4 h-4" />
-              </motion.span>
-              {/* Trailing background sweep */}
-              <span
-                aria-hidden
-                className={[
-                  'pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out',
-                  scrolled || isLightPage
-                    ? 'bg-gradient-to-r from-transparent via-white/20 to-transparent'
-                    : 'bg-gradient-to-r from-transparent via-white/40 to-transparent',
-                ].join(' ')}
-              />
-            </motion.span>
-          </Link>
-        </div>
-
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-menu"
-          className={[
-            'md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg transition-colors',
-            'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a7097]',
-            scrolled || isLightPage ? 'text-slate-900 hover:bg-slate-900/5' : 'text-white hover:bg-white/10',
-          ].join(' ')}
-        >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={mobileOpen ? 'close' : 'open'}
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.18 }}
-              className="inline-flex"
+              Services
+            </Link>
+            <Link
+              href="/portfolio"
+              className={[
+                'px-2 py-1 text-xs font-medium rounded-full transition-colors',
+                isActive('/portfolio') ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold' : 'text-slate-700 hover:text-[#1a7097]',
+              ].join(' ')}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </motion.span>
-          </AnimatePresence>
-        </button>
-      </nav>
+              Portfolio
+            </Link>
+          </div>
 
-      {/* Mobile menu panel */}
+          {/* Action Button: Start Project */}
+          <Link
+            href="/contact"
+            className="bg-[#1a7097] hover:bg-[#145b7c] text-white shadow-[0_10px_25px_-8px_rgba(26,112,151,0.55)] hover:shadow-[0_14px_35px_-8px_rgba(26,112,151,0.65)] font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all flex items-center gap-1.5 shrink-0 cursor-pointer group whitespace-nowrap"
+          >
+            <span>Start Project</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+          </Link>
+
+          {/* Mobile menu toggle inside floating pill */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            className="md:hidden inline-flex items-center justify-center w-8 h-8 rounded-full text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer ml-1"
+          >
+            <Menu className="w-4 h-4" />
+          </button>
+        </div>
+      </motion.nav>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          STATE 3: MOBILE NAVIGATION DRAWER
+          (Unified drawer accessible from either top or scrolled state)
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -409,7 +295,7 @@ export default function Header() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={() => setMobileOpen(false)}
-              className="md:hidden fixed inset-0 top-16 bg-slate-900/40 backdrop-blur-sm z-40"
+              className="md:hidden fixed inset-0 bg-slate-950/50 backdrop-blur-sm z-50"
               aria-hidden
             />
             <motion.div
@@ -422,9 +308,28 @@ export default function Header() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="md:hidden absolute left-0 right-0 top-full z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200/60 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.25)]"
+              className="md:hidden fixed left-4 right-4 top-20 z-50 bg-white/95 backdrop-blur-xl border border-slate-200/80 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] p-4 max-h-[calc(100vh-100px)] overflow-y-auto"
             >
-              <ul className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-2">
+                <Image
+                  src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
+                  alt="Webiox"
+                  width={120}
+                  height={30}
+                  style={{ width: 'auto', height: 'auto' }}
+                  className="h-7 w-auto object-contain"
+                />
+                <button
+                  type="button"
+                  onClick={() => setMobileOpen(false)}
+                  aria-label="Close menu"
+                  className="p-1 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <ul className="flex flex-col gap-1">
                 {NAV_LINKS.map((link) => {
                   const hasChildren = link.children && link.children.length > 0;
                   const active = hasChildren
@@ -439,7 +344,7 @@ export default function Header() {
                           onClick={() => setMobileCompanyOpen((v) => !v)}
                           aria-expanded={mobileCompanyOpen}
                           className={[
-                            'flex items-center justify-between w-full px-4 py-3 rounded-xl text-base font-semibold transition-colors',
+                            'flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-base font-semibold transition-colors',
                             active
                               ? 'bg-[#1a7097]/10 text-[#1a7097]'
                               : 'text-slate-800 hover:bg-slate-900/5',
@@ -460,7 +365,7 @@ export default function Header() {
                               animate={{ height: 'auto', opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
                               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                              className="overflow-hidden pl-4"
+                              className="overflow-hidden pl-3"
                             >
                               {link.children!.map((child) => {
                                 const childActive = isActive(child.href);
@@ -470,7 +375,7 @@ export default function Header() {
                                       href={child.href}
                                       aria-current={childActive ? 'page' : undefined}
                                       className={[
-                                        'flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors',
+                                        'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                                         childActive
                                           ? 'text-[#1a7097] bg-[#1a7097]/5'
                                           : 'text-slate-600 hover:text-[#1a7097] hover:bg-slate-50',
@@ -501,7 +406,7 @@ export default function Header() {
                         href={link.href}
                         aria-current={active ? 'page' : undefined}
                         className={[
-                          'flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-colors',
+                          'flex items-center justify-between px-3.5 py-2.5 rounded-xl text-base font-semibold transition-colors',
                           active
                             ? 'bg-[#1a7097]/10 text-[#1a7097]'
                             : 'text-slate-800 hover:bg-slate-900/5',
@@ -519,10 +424,11 @@ export default function Header() {
                     </motion.li>
                   );
                 })}
-                <motion.li variants={mobileItem} className="mt-3 px-1">
+
+                <motion.li variants={mobileItem} className="mt-3 pt-2 border-t border-slate-100">
                   <Link
                     href="/contact"
-                    className="group flex items-center justify-center gap-2 w-full rounded-full bg-[#1a7097] text-white px-5 py-3 font-semibold shadow-[0_10px_30px_-10px_rgba(26, 112, 151,0.6)]"
+                    className="group flex items-center justify-center gap-2 w-full rounded-full bg-[#1a7097] text-white px-5 py-3 font-semibold shadow-[0_10px_30px_-10px_rgba(26,112,151,0.6)] cursor-pointer"
                   >
                     Start Project
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -533,6 +439,6 @@ export default function Header() {
           </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }

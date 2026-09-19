@@ -1,250 +1,382 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Search, PenTool, CodeXml, Rocket, Activity, MoveRight, LineChart, ShieldCheck } from 'lucide-react';
-import { Typewriter } from 'react-simple-typewriter';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Compass,
+  Code2,
+  ShieldCheck,
+  Rocket,
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+  Layers,
+  Cpu,
+  GitBranch,
+  Terminal,
+  Activity,
+  Check,
+  ChevronRight,
+  ExternalLink,
+  LucideIcon,
+} from 'lucide-react';
 
+interface Stage {
+  id: string;
+  number: string;
+  title: string;
+  tagline: string;
+  duration: string;
+  icon: LucideIcon;
+  overview: string;
+  deliverables: { title: string; desc: string }[];
+  stack: string[];
+  qaGate: string;
+  artifactCode: string;
+}
 
-const processes = [
+const STAGES: Stage[] = [
   {
-    num: '01',
-    title: 'Discovery & Strategy',
-    description: 'We dive deep into your business goals, target audience, and competition to map a deterministic digital strategy.',
-    icon: Search,
+    id: 'stage-1',
+    number: '01',
+    title: 'Architectural Blueprint & UX Spec',
+    tagline: 'System Foundation & Design System',
+    duration: 'Sprint 01 // Day 1–14',
+    icon: Compass,
+    overview:
+      'We never write code in the dark. We map your complete domain model, design tokenized Figma design systems, and define strict API contracts before engineering begins.',
+    deliverables: [
+      {
+        title: 'Tokenized Figma Design System',
+        desc: 'Production-ready component library, responsive layouts, and micro-interactions.',
+      },
+      {
+        title: 'Prisma & PostgreSQL Schema',
+        desc: 'Relational data models, indexing strategies, and database ERDs.',
+      },
+      {
+        title: 'API & Domain Contracts',
+        desc: 'Strict TypeScript interfaces and REST/GraphQL endpoint specifications.',
+      },
+    ],
+    stack: ['Figma', 'TypeScript', 'Prisma', 'PostgreSQL', 'Next.js 15'],
+    qaGate: 'Architecture & UX Sign-off ✓',
+    artifactCode: 'schema.prisma // 14 models verified • 0 circular dependencies',
   },
   {
-    num: '02',
-    title: 'UX/UI Architecture',
-    description: 'Our product designers craft intuitive, high-conversion wireframes and visual interfaces perfectly aligned with your brand.',
-    icon: PenTool,
+    id: 'stage-2',
+    number: '02',
+    title: 'Fullstack Core Engine & CI/CD',
+    tagline: 'High-Velocity Engineering',
+    duration: 'Sprint 02 // Day 15–28',
+    icon: Code2,
+    overview:
+      'Our senior architects construct your core application on Next.js 15 App Router with server actions, stateless JWT auth, and automated GitHub Actions deployment pipelines.',
+    deliverables: [
+      {
+        title: 'Next.js 15 Server Components',
+        desc: 'Sub-second rendering with streaming SSR and granular data caching.',
+      },
+      {
+        title: 'Zero-Trust Stateless Auth',
+        desc: 'Cryptographic JWT session management with role-based access control (RBAC).',
+      },
+      {
+        title: 'Automated CI/CD Pipelines',
+        desc: 'Continuous linting, type-checking, and automatic PR staging preview environments.',
+      },
+    ],
+    stack: ['Next.js 15', 'React 19', 'Tailwind CSS', 'Docker', 'GitHub Actions'],
+    qaGate: 'Core Engine CI/CD Passed ✓',
+    artifactCode: 'git commit -m "feat(core): sub-second streaming engine active" [PASS]',
   },
   {
-    num: '03',
-    title: 'System Development',
-    description: 'We engineer robust digital infrastructure using modern, scalable, and responsive web technologies.',
-    icon: CodeXml,
-  },
-  {
-    num: '04',
-    title: 'Quality Assurance',
-    description: 'Rigorous QA testing ensures a flawless product, identifying and resolving any issues before they affect end-users.',
-    icon: Activity,
-  },
-  {
-    num: '05',
-    title: 'Deployment & Launch',
-    description: 'We execute a seamless launch protocol, transitioning your digital product from staging to a live production environment.',
-    icon: Rocket,
-  },
-  {
-    num: '06',
-    title: 'Growth & Scaling',
-    description: 'Post-launch optimization and analytics tracking to ensure your product scales effortlessly with your user base.',
-    icon: LineChart,
-  },
-  {
-    num: '07',
-    title: 'Continuous Support',
-    description: 'Ongoing technical maintenance, security patches, and feature updates to keep your software at the cutting edge.',
+    id: 'stage-3',
+    number: '03',
+    title: 'Penetration QA & Edge Hardening',
+    tagline: 'Security & Core Web Vitals',
+    duration: 'Sprint 03 // Day 29–42',
     icon: ShieldCheck,
-  }
+    overview:
+      'We put every build through rigorous OWASP vulnerability audits, automated penetration screening, and Core Web Vitals optimization to guarantee sub-400ms load times.',
+    deliverables: [
+      {
+        title: 'Cloudflare Enterprise Edge WAF',
+        desc: 'Layer 7 DDoS shield, automated rate-limiting, and bot-traffic mitigation.',
+      },
+      {
+        title: 'OWASP Top 10 Security Audit',
+        desc: 'Zero CVE vulnerabilities across all third-party libraries and server endpoints.',
+      },
+      {
+        title: '98+ Core Web Vitals Benchmark',
+        desc: 'Sub-400ms LCP, 0.00 CLS layout stability, and instant page transitions.',
+      },
+    ],
+    stack: ['Cloudflare WAF', 'OWASP ZAP', 'Playwright', 'Redis Edge', 'Lighthouse'],
+    qaGate: 'Zero CVE & 98+ Speed Verified ✓',
+    artifactCode: 'audit_report.json // 0 vulnerabilities detected • 99/100 Mobile Score',
+  },
+  {
+    id: 'stage-4',
+    number: '04',
+    title: 'Zero-Downtime Launch & Hypercare',
+    tagline: 'Production Cutover & 30D SLA',
+    duration: 'Sprint 04 // Day 43–56',
+    icon: Rocket,
+    overview:
+      'We orchestrate zero-downtime DNS cutovers with pre-warmed Edge caches, followed by 30 days of direct senior developer hypercare and SLA monitoring.',
+    deliverables: [
+      {
+        title: 'Zero-Downtime DNS Cutover',
+        desc: 'Seamless traffic migration with instant SSL TLS 1.3 certificate provisioning.',
+      },
+      {
+        title: 'Edge Cache Pre-Warming',
+        desc: 'Static asset propagation across 300+ global Edge points of presence.',
+      },
+      {
+        title: '30-Day Direct Hypercare',
+        desc: 'Direct Slack and WhatsApp channel with the architects who built your codebase.',
+      },
+    ],
+    stack: ['Edge CDN', 'Datadog', 'Sentry', 'Slack VIP', 'WhatsApp VIP'],
+    qaGate: 'Production Handover & 100% Escrow Release ✓',
+    artifactCode: 'deployment: live at https://production.domain.com [UPTIME 100%]',
+  },
 ];
 
 export default function Process() {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollRange, setScrollRange] = useState(0);
-  
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end end"]
-  });
-
-  useEffect(() => {
-    const updateScrollRange = () => {
-      if (scrollRef.current) {
-        // Calculate the exact amount to scroll: Total width - viewport width
-        setScrollRange(scrollRef.current.scrollWidth - window.innerWidth);
-      }
-    };
-    
-    updateScrollRange();
-    window.addEventListener('resize', updateScrollRange);
-    return () => window.removeEventListener('resize', updateScrollRange);
-  }, []);
-
-  const x = useTransform(scrollYProgress, [0, 1], [0, -scrollRange]);
+  const [activeStageIndex, setActiveStageIndex] = useState<number>(0);
+  const activeStage = STAGES[activeStageIndex];
 
   return (
-    <section ref={targetRef} className="relative h-[600vh] bg-[#F9FAFB] w-full">
-      {/* The sticky container holds the unified 100vh viewport */}
-      <div className="sticky top-0 h-[100dvh] w-full flex flex-col py-8 md:py-12 overflow-hidden">
+    <section
+      id="process"
+      className="relative bg-[#FCFCFD] text-[#0F172A] py-24 sm:py-32 overflow-hidden selection:bg-[#1a7097] selection:text-white"
+    >
+      {/* ── Ambient Background Lighting ── */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-40"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 50% 10%, rgba(26, 112, 151, 0.07) 0%, transparent 60%),
+            radial-gradient(circle at 80% 80%, rgba(231, 185, 0, 0.05) 0%, transparent 50%),
+            repeating-linear-gradient(
+              90deg,
+              rgba(26, 112, 151, 0.03) 0px,
+              rgba(26, 112, 151, 0.03) 1px,
+              transparent 1px,
+              transparent 48px
+            )
+          `,
+        }}
+      />
+      <div className="absolute top-1/3 -right-48 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 -left-48 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Background Elements (Static) */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute top-0 -left-4 w-72 h-72 bg-[#1a7097]/5 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
-          <div className="absolute top-0 -right-4 w-72 h-72 bg-[#FFBF00]/10 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-300/10 rounded-full mix-blend-multiply filter blur-2xl opacity-70" />
-        </div>
-
-        {/* 1. Header Section - Locked to the top of the viewport */}
-        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 shrink-0">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-5xl">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center gap-3 px-3 py-1.5 bg-gradient-to-r from-white/60 to-white/20 border border-[#1a7097]/10 rounded-full mb-6 backdrop-blur-xl shadow-[0_4px_20px_rgba(26, 112, 151,0.05)] relative overflow-hidden group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-                <span className="relative flex h-2.5 w-2.5 ml-1">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFBF00] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFBF00]"></span>
-                </span>
-                <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#1a7097] pr-2">
-                  <Typewriter
-                    words={['EXECUTION_PROTOCOL_', 'SYSTEM_ARCHITECTURE_', 'BUILD_PROCESS_']}
-                    loop={true}
-                    cursor
-                    cursorStyle=''
-                    typeSpeed={50}
-                    deleteSpeed={30}
-                    delaySpeed={2500}
-                  />
-                </span>
-              </motion.div>
-
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.1] mb-6 flex flex-wrap items-center gap-x-3">
-                <motion.span 
-                  className="text-[#1a7097]/80 inline-block"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                >
-                  How We Build
-                </motion.span>
-                <motion.div 
-                  initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }}
-                  whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2, duration: 0.8 }}
-                  className="relative inline-block"
-                >
-                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-800 to-gray-500 font-semibold tracking-tighter">
-                    Great Software.
-                  </span>
-                  
-                  {/* Decorative High-tech Accent */}
-                  <div className="absolute -right-6 top-0 text-[#FFBF00] opacity-80 font-mono text-lg font-bold">*</div>
-                  
-                  {/* Animated underline */}
-                  <motion.div 
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    whileInView={{ scaleX: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-[#1a7097] via-[#FFBF00] to-transparent origin-left rounded-full"
-                  />
-                </motion.div>
-              </h2>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed"
-              >
-                A structured, transparent approach that guides you from idea to launch—ensuring clarity, quality, and predictable delivery at every stage.
-              </motion.p>
-            </div>
+        {/* ── Section Header ── */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#1a7097] mb-4 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#E7B900]" />
+            <span className="tracking-wider uppercase">EXECUTION PROTOCOL</span>
+            <span className="text-slate-300">•</span>
+            <span className="text-slate-600">4-STAGE SPRINT LIFECYCLE</span>
           </div>
+
+          <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl lg:text-5xl text-[#0F172A] tracking-[-0.03em] leading-[1.12] mb-4 [text-wrap:balance]">
+            <span>How We Build </span>
+            <span className="bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
+              Great Software.
+            </span>
+          </h2>
+
+          <p className="font-['Plus_Jakarta_Sans',sans-serif] text-sm sm:text-base text-slate-500 font-normal leading-relaxed max-w-2xl">
+            A structured, transparent engineering lifecycle from architecture blueprint to zero-downtime production cutover. Every milestone is verifiable with zero scope creep.
+          </p>
         </div>
 
-        {/* 2. Horizontal Track Section - Takes up the bottom space */}
-        <div className="relative z-20 w-full flex-1 flex flex-col justify-center mt-4">
-          <motion.div style={{ x }} className="flex w-max">
-            <div ref={scrollRef} className="flex pl-4 sm:pl-6 lg:pl-[calc((100vw-80rem)/2+1rem)] pr-[5vw] lg:pr-[calc((100vw-80rem)/2)] items-center py-4 md:py-8">
-              {processes.map((process, index) => {
-                const IconComponent = process.icon;
-                const isLast = index === processes.length - 1;
-                return (
-                  <div key={index} className="flex items-center shrink-0">
-                    <div
-                      className="relative group w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[380px] xl:w-[420px] h-[45vh] min-h-[280px] max-h-[350px] shrink-0"
-                    >
-                      {/* Ultra-Glassmorphic Card */}
-                      <div className="absolute inset-0 bg-white/40 backdrop-blur-3xl rounded-3xl p-6 md:p-8 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(26, 112, 151,0.1)] transition-all duration-500 overflow-hidden flex flex-col justify-between hover:-translate-y-2">
-                        
-                        {/* Animated Grid Background inside card */}
-                        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" 
-                             style={{ backgroundImage: 'linear-gradient(rgba(26, 112, 151, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 112, 151, 0.05) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+        {/* ── Interactive 4-Stage Delivery Pipeline ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Left Column: Interactive 4-Stage Stepper Navigation (5 Cols) */}
+          <div className="lg:col-span-5 space-y-3">
+            <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2 px-1">
+              Select Phase to Inspect:
+            </div>
 
-                        {/* Gigantic Subtle Number */}
-                        <div className="absolute -top-2 right-0 md:-top-4 md:-right-4 text-[120px] md:text-[160px] font-bold text-[#1a7097]/[0.03] leading-none group-hover:text-[#1a7097]/[0.05] group-hover:-translate-y-4 group-hover:-translate-x-4 transition-all duration-700 pointer-events-none font-sans tracking-tighter select-none z-0">
-                          {process.num}
-                        </div>
+            {STAGES.map((stage, idx) => {
+              const IconComp = stage.icon;
+              const isActive = activeStageIndex === idx;
 
-                        {/* Top Section */}
-                        <div className="relative z-10">
-                          <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#1a7097] to-[#0a454a] flex items-center justify-center mb-6 shadow-[0_10px_20px_rgba(26, 112, 151,0.2)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-white/20 blur-md rounded-full -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-                            <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white relative z-10" strokeWidth={1.5} />
-                          </div>
-                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 tracking-tight pr-4">
-                            {process.title}
-                          </h3>
-                        </div>
+              return (
+                <button
+                  key={stage.id}
+                  type="button"
+                  onClick={() => setActiveStageIndex(idx)}
+                  className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer relative group flex items-start gap-4 ${
+                    isActive
+                      ? 'bg-white border-[#1a7097] shadow-[0_15px_35px_-10px_rgba(26,112,151,0.18)] ring-1 ring-[#1a7097]/40'
+                      : 'bg-white/70 hover:bg-white border-slate-200/80 hover:border-slate-300 shadow-2xs'
+                  }`}
+                >
+                  {/* Left Indicator Pill */}
+                  <div
+                    className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
+                      isActive
+                        ? 'bg-[#1a7097] text-white shadow-xs'
+                        : 'bg-slate-100 text-slate-500 group-hover:bg-[#1a7097]/10 group-hover:text-[#1a7097]'
+                    }`}
+                  >
+                    <IconComp className="w-5 h-5" />
+                  </div>
 
-                        {/* Bottom Section */}
-                        <div className="relative z-10 mt-auto">
-                          <div className="h-[2px] w-12 bg-[#FFBF00] mb-5 group-hover:w-full transition-all duration-700 ease-out" />
-                          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6 line-clamp-3">
-                            {process.description}
-                          </p>
-                          
-                          <div className="flex items-center gap-2 text-[#1a7097] font-semibold text-sm opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100">
-                            <span>Explore Phase</span>
-                            <MoveRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
-                          </div>
-                        </div>
-                      </div>
+                  {/* Stage Text */}
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className="font-mono text-[10.5px] font-bold text-[#1a7097]">
+                        STAGE_{stage.number}
+                      </span>
+                      <span className="font-mono text-[10px] text-slate-400">
+                        {stage.duration}
+                      </span>
                     </div>
 
-                    {/* Step Connector */}
-                    {!isLast && (
-                      <div className="w-12 sm:w-16 md:w-24 lg:w-32 shrink-0 flex items-center justify-center relative">
-                        {/* Continuous line */}
-                        <div className="absolute top-1/2 left-0 w-full h-[2px] -translate-y-1/2 bg-[#1a7097]/10 overflow-hidden">
-                           {/* Animated line segment */}
-                           <motion.div 
-                             className="h-full bg-gradient-to-r from-transparent via-[#FFBF00] to-transparent w-full"
-                             animate={{
-                               x: ['-100%', '100%']
-                             }}
-                             transition={{
-                               duration: 1.5,
-                               repeat: Infinity,
-                               ease: 'linear',
-                               delay: index * 0.2
-                             }}
-                           />
+                    <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-base text-[#0F172A] truncate">
+                      {stage.title}
+                    </h3>
+                    <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs text-slate-500 truncate mt-0.5">
+                      {stage.tagline}
+                    </p>
+                  </div>
+
+                  {/* Active Indicator Chevron */}
+                  <ChevronRight
+                    className={`w-4 h-4 shrink-0 transition-transform duration-300 mt-3 ${
+                      isActive ? 'text-[#1a7097] translate-x-1' : 'text-slate-300 group-hover:text-slate-400'
+                    }`}
+                  />
+                </button>
+              );
+            })}
+
+            {/* SLA Reassurance Card */}
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-[#E7B900]/30 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-[#E7B900]/20 flex items-center justify-center shrink-0 text-[#E7B900]">
+                <Activity className="w-4 h-4" />
+              </div>
+              <div className="text-xs">
+                <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#0F172A] block">
+                  100% Escrow Milestone Guarantee
+                </span>
+                <span className="text-slate-500 text-[11.5px]">
+                  Invoices are released only when each staging QA gate passes your sign-off.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Active Stage Telemetry Inspector (7 Cols) */}
+          <div className="lg:col-span-7">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeStage.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.3 }}
+                className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]"
+              >
+                {/* Specular Ambient Glow */}
+                <div className="absolute top-0 right-0 w-80 h-80 bg-[#1a7097]/8 rounded-full blur-3xl pointer-events-none" />
+                
+                {/* Corner Crosshairs */}
+                <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+                <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+
+                {/* Stage Header */}
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[11px] font-mono font-bold text-[#1a7097]">
+                    <Terminal className="w-3.5 h-3.5" />
+                    <span>INSPECTING STAGE {activeStage.number}</span>
+                  </div>
+
+                  <span className="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200/80">
+                    {activeStage.qaGate}
+                  </span>
+                </div>
+
+                {/* Overview Paragraph */}
+                <div className="mb-6">
+                  <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl text-[#0F172A] tracking-tight mb-2">
+                    {activeStage.title}
+                  </h3>
+                  <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                    {activeStage.overview}
+                  </p>
+                </div>
+
+                {/* Deliverables Checklist */}
+                <div className="mb-6">
+                  <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider block mb-3">
+                    Verified Deliverables for this Phase:
+                  </span>
+                  <div className="space-y-2.5">
+                    {activeStage.deliverables.map((item, dIdx) => (
+                      <div
+                        key={dIdx}
+                        className="p-3 rounded-xl bg-slate-50/70 border border-slate-200/70 flex items-start gap-3"
+                      >
+                        <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-3 h-3" />
                         </div>
-                        
-                        {/* Center Node */}
-                        <div className="relative z-10 w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#F9FAFB] border-2 border-[#1a7097]/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,191,0,0.1)]">
-                          <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#1a7097] animate-pulse" />
+                        <div className="min-w-0">
+                          <h4 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A]">
+                            {item.title}
+                          </h4>
+                          <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
+                            {item.desc}
+                          </p>
                         </div>
                       </div>
-                    )}
+                    ))}
                   </div>
-                );
-              })}
-            </div>
-          </motion.div>
+                </div>
+
+                {/* Technology Stack Tags */}
+                <div className="mb-6">
+                  <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider block mb-2.5">
+                    Engineering Stack Deployed:
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {activeStage.stack.map((tech, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="px-3 py-1 rounded-lg bg-white border border-slate-200 text-[#0F172A] text-xs font-mono font-bold shadow-2xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Live Simulated Console Terminal Output */}
+                <div className="p-3.5 rounded-xl bg-slate-900 text-slate-200 font-mono text-[11px] flex items-center justify-between gap-3 shadow-inner">
+                  <div className="flex items-center gap-2 truncate">
+                    <span className="text-emerald-400">➜</span>
+                    <span className="text-slate-400 truncate">{activeStage.artifactCode}</span>
+                  </div>
+                  <span className="text-[10px] uppercase font-bold text-[#E7B900] shrink-0">
+                    STAGE QA LOCK
+                  </span>
+                </div>
+
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
         </div>
 
       </div>

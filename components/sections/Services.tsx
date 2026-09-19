@@ -164,22 +164,7 @@ export default function Services() {
     >
       <BackgroundCanvas accent={active.accent} />
 
-      {/* Top Wavy Divider matching Hero background to reveal Services grid in the 'white space' */}
-      <div className="absolute top-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
-        <svg
-          className="relative block w-full h-[40px] md:h-[60px] lg:h-[100px]"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,100 C377,-120 700,300 1200,0 V0 H0 Z"
-            className="fill-[#1a7097]"
-          />
-        </svg>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-4 lg:px-8 lg:pb-4 pt-[calc(6rem+40px)] md:pt-[calc(6rem+60px)] lg:pt-[calc(8rem+100px)]">
+      <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-4 lg:px-8 lg:pb-4 pt-16 sm:pt-20 lg:pt-24">
         <Header />
 
         <IndustriesMarquee />
