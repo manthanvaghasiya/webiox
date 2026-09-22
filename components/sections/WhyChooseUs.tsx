@@ -291,7 +291,7 @@ export default function WhyChooseUs() {
 
               {/* Dynamic Animated Route Track */}
               <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
-                <div className="grid grid-cols-3 items-center gap-2 mb-4">
+                <div className="flex items-center justify-between gap-4 mb-4">
                   {/* Origin Client Node */}
                   <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center font-mono text-xs font-black text-[#0F172A] shrink-0">
@@ -302,27 +302,6 @@ export default function WhyChooseUs() {
                         Enterprise Client
                       </div>
                       <div className="font-mono text-[9.5px] text-slate-400">CLIENT_REQ</div>
-                    </div>
-                  </div>
-
-                  {/* Animated Packet Flight Path */}
-                  <div className="relative px-2">
-                    <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden relative">
-                      <motion.div
-                        className={`h-full rounded-full ${
-                          activeSpeedStack === 'webiox'
-                            ? 'bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-emerald-400'
-                            : 'bg-rose-400'
-                        }`}
-                        animate={{
-                          x: ['-100%', '100%'],
-                        }}
-                        transition={{
-                          repeat: Infinity,
-                          duration: activeSpeedStack === 'webiox' ? 0.65 : 2.6,
-                          ease: 'linear',
-                        }}
-                      />
                     </div>
                   </div>
 
