@@ -290,7 +290,7 @@ export default function WhyChooseUs() {
               </div>
 
               {/* Dynamic Animated Route Track */}
-              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs mb-4">
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
                 <div className="grid grid-cols-3 items-center gap-2 mb-4">
                   {/* Origin Client Node */}
                   <div className="flex items-center gap-2.5">
@@ -375,20 +375,6 @@ export default function WhyChooseUs() {
                     </span>
                   </div>
                 </div>
-              </div>
-
-              {/* Bottom Insight Footer */}
-              <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-slate-500 text-[11px]">
-                  {activeSpeedStack === 'webiox'
-                    ? '⚡ Zero Layout Shift (CLS: 0.00) • Instantaneous Next.js Prefetching'
-                    : '✕ 28 unoptimized plugins • High mobile bounce drop-off risk'}
-                </span>
-                <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                  activeSpeedStack === 'webiox' ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
-                }`}>
-                  {activeSpeedStack === 'webiox' ? '68% Lower Bounce' : '42% User Drop-Off'}
-                </span>
               </div>
             </div>
           </div>
