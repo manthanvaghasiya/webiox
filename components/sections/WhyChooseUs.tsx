@@ -26,6 +26,7 @@ import {
   ShieldAlert,
   Smartphone,
   ExternalLink,
+  MessageCircle,
 } from 'lucide-react';
 
 type PerspectiveMode = 'contrast' | 'webiox' | 'traditional';
@@ -322,13 +323,6 @@ export default function WhyChooseUs() {
                           ease: 'linear',
                         }}
                       />
-                    </div>
-                    <div className="text-center mt-1">
-                      <span className={`text-[9.5px] font-mono font-bold ${
-                        activeSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-500'
-                      }`}>
-                        {activeSpeedStack === 'webiox' ? 'Edge Fastly/Cloudflare' : 'Shared Apache / Slow IO'}
-                      </span>
                     </div>
                   </div>
 
@@ -695,9 +689,9 @@ export default function WhyChooseUs() {
                   <button
                     type="button"
                     onClick={() => setActiveChatTab('slack')}
-                    className={`px-2.5 py-0.5 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
+                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
                       activeChatTab === 'slack'
-                        ? 'bg-[#1a7097] text-white'
+                        ? 'bg-[#1a7097] text-white shadow-xs'
                         : 'text-slate-500 hover:text-[#0F172A]'
                     }`}
                   >
@@ -706,9 +700,9 @@ export default function WhyChooseUs() {
                   <button
                     type="button"
                     onClick={() => setActiveChatTab('whatsapp')}
-                    className={`px-2.5 py-0.5 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
+                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
                       activeChatTab === 'whatsapp'
-                        ? 'bg-emerald-600 text-white'
+                        ? 'bg-[#25D366] text-white shadow-xs'
                         : 'text-slate-500 hover:text-[#0F172A]'
                     }`}
                   >
@@ -717,55 +711,125 @@ export default function WhyChooseUs() {
                 </div>
               </div>
 
-              {/* Live Simulated Dev Terminal Stream */}
-              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-[#1a7097] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
-                    MV
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center gap-2">
-                        <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
-                          Manthan Vaghasiya (Lead Architect)
-                        </span>
-                        <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[9.5px] font-mono font-bold">
-                          Direct Lead Access
-                        </span>
+              {/* Dynamic Live Simulated Channel Content */}
+              <AnimatePresence mode="wait">
+                {activeChatTab === 'slack' ? (
+                  <motion.div
+                    key="slack-view"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2 }}
+                    className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-3"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-[#1a7097] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
+                        MV
                       </div>
-                      <span className="font-mono text-[10px] text-slate-400">10:42 AM</span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between mb-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
+                              Manthan Vaghasiya (Lead Architect)
+                            </span>
+                            <span className="px-1.5 py-0.5 rounded bg-[#1a7097]/10 text-[#1a7097] text-[9.5px] font-mono font-bold">
+                              Slack Direct
+                            </span>
+                          </div>
+                          <span className="font-mono text-[10px] text-slate-400">10:42 AM</span>
+                        </div>
+
+                        <p className="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed">
+                          "Sprint 03 staging build is live. Redis edge cache index is verified at 38ms TTFB with zero dropped frames. Check your staging preview link—ready for your review!"
+                        </p>
+                      </div>
                     </div>
 
-                    <p className="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed">
-                      "Sprint 03 staging build is live. Redis edge cache index is verified at 38ms TTFB with zero dropped frames. Check your staging preview link—ready for your review!"
-                    </p>
-                  </div>
-                </div>
+                    {/* Live Commit Stream Ticker */}
+                    <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                      <div className="flex items-center gap-2 truncate">
+                        <Code2 className="w-3.5 h-3.5 text-[#1a7097] shrink-0" />
+                        <span className="text-slate-700 font-bold">commit 9d42f8c:</span>
+                        <span className="truncate">feat(cache): Edge ISR warmed across global edge nodes</span>
+                      </div>
+                      <span className="text-emerald-600 font-bold shrink-0 ml-2">PASS 100%</span>
+                    </div>
 
-                {/* Live Commit Stream Ticker */}
-                <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
-                  <div className="flex items-center gap-2 truncate">
-                    <Code2 className="w-3.5 h-3.5 text-[#1a7097] shrink-0" />
-                    <span className="text-slate-700 font-bold">commit 9d42f8c:</span>
-                    <span className="truncate">feat(cache): Edge ISR warmed across global edge nodes</span>
-                  </div>
-                  <span className="text-emerald-600 font-bold shrink-0 ml-2">PASS 100%</span>
-                </div>
-
-                {/* Direct Architect CTA */}
-                <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
-                  <span className="font-mono text-[10.5px] text-slate-400">
-                    Average response: &lt; 12 mins • Direct Slack & WhatsApp VIP
-                  </span>
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#1a7097] hover:text-[#145b7c] transition-colors"
+                    {/* Direct Architect CTA */}
+                    <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+                      <span className="font-mono text-[10.5px] text-slate-400">
+                        Average response: &lt; 12 mins • Direct Private Slack Channel
+                      </span>
+                      <a
+                        href="#contact"
+                        className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#1a7097] hover:text-[#145b7c] transition-colors cursor-pointer"
+                      >
+                        <span>Request Private Slack Invite</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="whatsapp-view"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2 }}
+                    className="p-4 rounded-xl bg-emerald-50/40 border border-emerald-200/90 shadow-2xs space-y-3"
                   >
-                    <span>Connect Directly with Lead Architect</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-[#25D366] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
+                        <MessageCircle className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between mb-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
+                              Manthan Vaghasiya (Lead Architect)
+                            </span>
+                            <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[9.5px] font-mono font-bold">
+                              WhatsApp VIP Online
+                            </span>
+                          </div>
+                          <span className="font-mono text-[10px] text-emerald-700 font-bold">Active Now</span>
+                        </div>
+
+                        <div className="p-3 rounded-xl bg-white border border-emerald-100 text-slate-700 text-xs sm:text-[12.5px] leading-relaxed shadow-2xs">
+                          "Hey! Staging preview for your project is ready for your team. You have direct 24/7 access to our senior engineering squad right here on WhatsApp."
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* WhatsApp Fast Action Bar */}
+                    <div className="p-2.5 rounded-lg bg-white border border-emerald-200/80 flex items-center justify-between text-[11px] font-mono text-emerald-800">
+                      <div className="flex items-center gap-2 truncate">
+                        <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+                        <span className="font-bold">WhatsApp Hotline:</span>
+                        <span className="truncate">+91 96647 36245 (Direct to Lead Architect)</span>
+                      </div>
+                      <span className="text-emerald-700 font-bold shrink-0 ml-2">INSTANT</span>
+                    </div>
+
+                    {/* Direct WhatsApp CTA Button */}
+                    <div className="pt-2 border-t border-emerald-200/60 flex flex-wrap items-center justify-between gap-2 text-xs">
+                      <span className="font-mono text-[10.5px] text-slate-500">
+                        Zero middleman delay • Direct message to Manthan Vaghasiya
+                      </span>
+                      <a
+                        href="https://wa.me/919664736245?text=Hi%20Manthan%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Webiox."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-[11px] font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>Chat on WhatsApp VIP</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
 

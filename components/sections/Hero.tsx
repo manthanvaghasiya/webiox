@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Sparkles, Zap, ShieldCheck, Activity } from 'lucide-react';
+import { ArrowUpRight, Zap, ShieldCheck, Activity } from 'lucide-react';
 import HeroBackground from './HeroBackground';
 import EcosystemBentoGrid from './EcosystemBentoGrid';
 
@@ -35,21 +35,9 @@ export default function Hero() {
       {/* ═══════════════════════════════════════════════════════════════════════════
           MAIN STAGE: LAYER 2 (TYPOGRAPHY) + LAYER 3 (ARCHITECTURE CANVAS)
          ═══════════════════════════════════════════════════════════════════════════ */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-22 pb-2 sm:pb-3 flex-1 flex flex-col items-center justify-start text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-[110px] sm:pt-[126px] md:pt-[134px] pb-2 sm:pb-3 flex-1 flex flex-col items-center justify-start text-center">
 
-
-        {/* ── 1. Brand Eyebrow Badge ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.04 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-xs font-mono font-bold text-[#1a7097] mb-4 shadow-2xs"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-[#E7B900]" />
-          <span>WEBIOX DIGITAL STUDIO • WEB DEVELOPMENT & APPS</span>
-        </motion.div>
-
-        {/* ── 2. Dynamic Kinetic Heading (Smooth Vertical Word Rotator) ── */}
+        {/* ── Dynamic Kinetic Heading (Smooth Vertical Word Rotator) ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
