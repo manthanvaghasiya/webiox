@@ -198,8 +198,8 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
           </div>
         </div>
 
-        {/* ── Flawless High-Res Showcase Canvas (Edge-to-Edge Top-Agency Presentation) ── */}
-        <div className="relative w-full flex-1 min-h-[210px] xs:min-h-[240px] sm:min-h-[270px] md:min-h-[310px] rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-950 overflow-hidden mb-2.5 sm:mb-4 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.15)] group/device">
+        {/* ── Flawless High-Res Showcase Canvas (Crisp Landscape Rectangle Top-Agency Presentation) ── */}
+        <div className="relative w-full aspect-[16/9.5] sm:aspect-[16/9.5] md:aspect-[16/10] md:flex-1 rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-950 overflow-hidden mb-2 sm:mb-3 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.15)] group/device">
           
           {/* Full High-Resolution Showcase Image filling frame edge-to-edge */}
           <Link
@@ -376,7 +376,7 @@ export default function PortfolioPreview() {
       <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
 
       {/* ── Sticky Viewport Container (Locks in place while user scrolls through all 6 cards) ── */}
-      <div className="sticky top-14 sm:top-20 h-[calc(100dvh-64px)] sm:h-[calc(100vh-80px)] min-h-[580px] xs:min-h-[620px] max-h-[860px] w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-3 sm:gap-6 lg:gap-8 pt-2 sm:pt-3 pb-3 sm:pb-6 overflow-hidden">
+      <div className="sticky top-14 sm:top-20 h-[calc(100dvh-64px)] sm:h-[calc(100vh-80px)] min-h-[500px] xs:min-h-[540px] sm:min-h-[580px] max-h-[820px] w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-3 sm:gap-6 lg:gap-8 pt-2 sm:pt-3 pb-3 sm:pb-6 overflow-hidden">
         
         {/* ════════════════════════════════════════════════════════════════════
             LEFT COLUMN: CONCEPT 3 - AWWWARDS MAGAZINE EDITORIAL
@@ -540,7 +540,7 @@ export default function PortfolioPreview() {
             RIGHT COLUMN: STREAMLINED STACKING CARDS VIEWPORT (~58% lg)
             (On mobile: expands to flex-1 to fill the remaining height!)
            ════════════════════════════════════════════════════════════════════ */}
-        <div className="w-full lg:w-[58%] xl:w-[60%] flex-1 lg:h-full relative min-h-[380px] xs:min-h-[420px] sm:min-h-[460px] [--stack-offset:7px] sm:[--stack-offset:12px]">
+        <div className="w-full lg:w-[58%] xl:w-[60%] flex-1 lg:h-full relative min-h-[320px] xs:min-h-[350px] sm:min-h-[420px] lg:min-h-[460px] [--stack-offset:7px] sm:[--stack-offset:12px]">
           <div className="relative w-full h-full">
             {STACK_PROJECTS.map((project, index) => (
               <StackCard
