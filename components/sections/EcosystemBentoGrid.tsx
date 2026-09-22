@@ -758,8 +758,8 @@ export default function EcosystemBentoGrid() {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center"
           >
-            {/* ── LEFT COLUMN: Editorial Service Info, Deliverables & Specs ── */}
-            <div className="lg:col-span-5 flex flex-col items-start text-left pr-0 lg:pr-3">
+            {/* ── LEFT COLUMN: Editorial Service Info, Deliverables & Specs (Below on Mobile, Left on Desktop) ── */}
+            <div className="order-2 lg:order-1 lg:col-span-5 flex flex-col items-start text-left pr-0 lg:pr-3">
 
               {/* Dynamic Service Pill (No Dot) */}
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[11px] font-mono font-bold text-[#1a7097] tracking-wider backdrop-blur-md mb-2.5 transition-all">
@@ -835,8 +835,8 @@ export default function EcosystemBentoGrid() {
               </div>
             </div>
 
-            {/* ── RIGHT COLUMN: The 3D Stage (Central Device + Orbiting Satellite Cards) ── */}
-            <div className="lg:col-span-7 relative w-full min-h-[400px] sm:min-h-[490px] md:min-h-[530px] flex items-center justify-center pt-2 pb-4 overflow-hidden lg:overflow-visible">
+            {/* ── RIGHT COLUMN: The 3D Stage (First on Mobile, Right on Desktop) ── */}
+            <div className="order-1 lg:order-2 lg:col-span-7 relative w-full min-h-[400px] sm:min-h-[490px] md:min-h-[530px] flex items-center justify-center pt-2 pb-4 overflow-hidden lg:overflow-visible">
 
               {/* ── DYNAMIC SATELLITE CARDS: RENDERED PER-SERVICE (DIFFERENT COUNTS & POSITIONS) ── */}
               {activeService.cards.map((card) => (

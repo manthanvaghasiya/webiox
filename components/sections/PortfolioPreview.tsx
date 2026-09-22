@@ -198,31 +198,26 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
           </div>
         </div>
 
-        {/* ── Flawless High-Res Showcase Canvas (Impressive Studio Framing & 100% Mobile Visibility) ── */}
-        <div className="relative w-full flex-1 min-h-[190px] xs:min-h-[220px] sm:min-h-[250px] md:min-h-[290px] rounded-xl sm:rounded-2xl border border-slate-800/80 bg-gradient-to-b from-[#090D16] via-[#0F172A] to-[#090D16] overflow-hidden mb-2 sm:mb-3 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.22)] group/device flex items-center justify-center">
+        {/* ── Flawless High-Res Showcase Canvas (Edge-to-Edge Top-Agency Presentation) ── */}
+        <div className="relative w-full flex-1 min-h-[210px] xs:min-h-[240px] sm:min-h-[270px] md:min-h-[310px] rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-950 overflow-hidden mb-2.5 sm:mb-4 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.15)] group/device">
           
-          {/* Subtle Ambient Studio Spotlight behind mockup */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1a7097]/25 via-transparent to-transparent pointer-events-none" />
-
-          {/* Full High-Resolution Showcase Image with direct tap to explore */}
+          {/* Full High-Resolution Showcase Image filling frame edge-to-edge */}
           <Link
             href={`/portfolio/${project.id}`}
-            className="relative w-full h-full flex items-center justify-center p-1 sm:p-2 cursor-pointer"
+            className="relative w-full h-full block cursor-pointer overflow-hidden"
             aria-label={`View ${project.title} case study`}
           >
-            <div className="relative w-full h-full">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                priority={index <= 1}
-                className="object-contain object-center group-hover/device:scale-[1.025] transition-transform duration-500 select-none drop-shadow-[0_12px_28px_rgba(0,0,0,0.45)]"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 800px"
-              />
-            </div>
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              priority={index <= 1}
+              className="object-cover object-center group-hover/device:scale-[1.035] transition-transform duration-700 ease-out select-none"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
+            />
             
-            {/* Subtle Specular Glare */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-white/5 pointer-events-none" />
+            {/* Subtle Specular Sheen */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/15 via-transparent to-white/10 pointer-events-none" />
           </Link>
 
           {/* Live Web Link Pill on Top-Left */}
@@ -231,18 +226,17 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 sm:px-3 py-1 rounded-full bg-black/75 hover:bg-black/90 backdrop-blur-md border border-white/20 text-[9px] sm:text-[10px] font-mono text-white flex items-center gap-1 sm:gap-1.5 transition-all shadow-md z-10 cursor-pointer"
+              className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2.5 sm:px-3 py-1 rounded-full bg-black/65 hover:bg-black/85 backdrop-blur-md border border-white/20 text-[9.5px] sm:text-[10px] font-mono text-white flex items-center gap-1 sm:gap-1.5 transition-all shadow-md z-10 cursor-pointer"
             >
               <Lock className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
-              <span className="hidden xs:inline truncate max-w-[130px] sm:max-w-none">
+              <span className="truncate max-w-[130px] sm:max-w-none">
                 {project.liveLink.replace(/^https?:\/\//, '').replace(/\/$/, '')}
               </span>
-              <span className="xs:hidden font-sans font-semibold">Live</span>
               <ExternalLink className="w-2.5 h-2.5 opacity-70 shrink-0" />
             </a>
           )}
 
-          {/* Floating Metric 1 (Bottom Left) - Desktop only, so mobile image is 100% clean */}
+          {/* Floating Metric 1 (Bottom Left) - Desktop only */}
           {metrics?.pill1 && (
             <div className="hidden sm:flex absolute bottom-3 left-3 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg items-center gap-2 z-10">
               <div className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-[10px]">
