@@ -158,50 +158,52 @@ export default function WhyChooseUs() {
           </p>
 
           {/* ── Global Perspective Switcher ── */}
-          <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/90 shadow-2xs">
-            <button
-              type="button"
-              onClick={() => setMode('contrast')}
-              className={`relative px-4 py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-2 ${
-                mode === 'contrast'
-                  ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
-                  : 'text-slate-500 hover:text-[#0F172A]'
-              }`}
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5" />
-              <span>Direct Contrast View</span>
-              {mode === 'contrast' && (
-                <span className="ml-1 text-[9.5px] font-mono font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-[#1a7097] text-white">
-                  Live
-                </span>
-              )}
-            </button>
+          <div className="w-full max-w-full overflow-x-auto no-scrollbar py-1 flex justify-center">
+            <div className="inline-flex items-center p-1 sm:p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/90 shadow-2xs whitespace-nowrap">
+              <button
+                type="button"
+                onClick={() => setMode('contrast')}
+                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 ${
+                  mode === 'contrast'
+                    ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
+                    : 'text-slate-500 hover:text-[#0F172A]'
+                }`}
+              >
+                <SlidersHorizontal className="w-3.5 h-3.5" />
+                <span>Direct Contrast View</span>
+                {mode === 'contrast' && (
+                  <span className="ml-1 text-[9.5px] font-mono font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-[#1a7097] text-white">
+                    Live
+                  </span>
+                )}
+              </button>
 
-            <button
-              type="button"
-              onClick={() => setMode('webiox')}
-              className={`relative px-4 py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
-                mode === 'webiox'
-                  ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
-                  : 'text-slate-500 hover:text-[#0F172A]'
-              }`}
-            >
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-              <span>The Webiox Standard</span>
-            </button>
+              <button
+                type="button"
+                onClick={() => setMode('webiox')}
+                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
+                  mode === 'webiox'
+                    ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
+                    : 'text-slate-500 hover:text-[#0F172A]'
+                }`}
+              >
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>The Webiox Standard</span>
+              </button>
 
-            <button
-              type="button"
-              onClick={() => setMode('traditional')}
-              className={`relative px-4 py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
-                mode === 'traditional'
-                  ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
-                  : 'text-slate-500 hover:text-[#0F172A]'
-              }`}
-            >
-              <XCircle className="w-3.5 h-3.5 text-rose-500" />
-              <span>Traditional Agency Way</span>
-            </button>
+              <button
+                type="button"
+                onClick={() => setMode('traditional')}
+                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
+                  mode === 'traditional'
+                    ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
+                    : 'text-slate-500 hover:text-[#0F172A]'
+                }`}
+              >
+                <XCircle className="w-3.5 h-3.5 text-rose-500" />
+                <span>Traditional Agency Way</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -326,28 +328,28 @@ export default function WhyChooseUs() {
                 </div>
 
                 {/* Precision Telemetry Readouts */}
-                <div className="pt-3 border-t border-slate-100 grid grid-cols-3 gap-3 text-center">
-                  <div className="p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                    <span className="text-[10px] font-mono text-slate-400 block mb-0.5">TTFB Latency</span>
-                    <span className={`font-mono font-black text-sm sm:text-base ${
+                <div className="pt-3 border-t border-slate-100 grid grid-cols-3 gap-1.5 sm:gap-3 text-center">
+                  <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
+                    <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 block mb-0.5 truncate">TTFB Latency</span>
+                    <span className={`font-mono font-black text-xs sm:text-base ${
                       activeSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
                     }`}>
                       {activeSpeedStack === 'webiox' ? '38ms' : '850ms'}
                     </span>
                   </div>
 
-                  <div className="p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                    <span className="text-[10px] font-mono text-slate-400 block mb-0.5">LCP Paint</span>
-                    <span className={`font-mono font-black text-sm sm:text-base ${
+                  <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
+                    <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 block mb-0.5 truncate">LCP Paint</span>
+                    <span className={`font-mono font-black text-xs sm:text-base ${
                       activeSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
                     }`}>
                       {activeSpeedStack === 'webiox' ? '0.38s' : '3.8s'}
                     </span>
                   </div>
 
-                  <div className="p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                    <span className="text-[10px] font-mono text-slate-400 block mb-0.5">Mobile Core Vitals</span>
-                    <span className={`font-mono font-black text-sm sm:text-base ${
+                  <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
+                    <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 block mb-0.5 truncate">Core Vitals</span>
+                    <span className={`font-mono font-black text-xs sm:text-base ${
                       activeSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
                     }`}>
                       {activeSpeedStack === 'webiox' ? '99 / 100' : '48 / 100'}

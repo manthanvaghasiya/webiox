@@ -113,26 +113,28 @@ export default function Testimonials() {
           </p>
 
           {/* ── Sector Filter Tabs ── */}
-          <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/90 shadow-2xs">
-            {[
-              { id: 'all', label: 'All Partners (3)' },
-              { id: 'automotive', label: 'Automotive Flagships' },
-              { id: 'saas', label: 'Cloud SaaS & POS' },
-              { id: 'retail', label: 'Retail PWAs' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setActiveSector(tab.id as any)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-[12.5px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer ${
-                  activeSector === tab.id
-                    ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
-                    : 'text-slate-500 hover:text-[#0F172A]'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+          <div className="w-full max-w-full overflow-x-auto no-scrollbar py-1 flex justify-center">
+            <div className="inline-flex items-center p-1 sm:p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/90 shadow-2xs whitespace-nowrap">
+              {[
+                { id: 'all', label: 'All Partners (3)' },
+                { id: 'automotive', label: 'Automotive Flagships' },
+                { id: 'saas', label: 'Cloud SaaS & POS' },
+                { id: 'retail', label: 'Retail PWAs' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveSector(tab.id as any)}
+                  className={`px-3 sm:px-3.5 py-1.5 rounded-xl text-xs sm:text-[12.5px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer ${
+                    activeSector === tab.id
+                      ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
+                      : 'text-slate-500 hover:text-[#0F172A]'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 

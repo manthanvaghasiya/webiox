@@ -836,7 +836,7 @@ export default function EcosystemBentoGrid() {
             </div>
 
             {/* ── RIGHT COLUMN: The 3D Stage (Central Device + Orbiting Satellite Cards) ── */}
-            <div className="lg:col-span-7 relative w-full min-h-[440px] sm:min-h-[490px] md:min-h-[530px] flex items-center justify-center pt-2 pb-4">
+            <div className="lg:col-span-7 relative w-full min-h-[400px] sm:min-h-[490px] md:min-h-[530px] flex items-center justify-center pt-2 pb-4 overflow-hidden lg:overflow-visible">
 
               {/* ── DYNAMIC SATELLITE CARDS: RENDERED PER-SERVICE (DIFFERENT COUNTS & POSITIONS) ── */}
               {activeService.cards.map((card) => (
@@ -850,7 +850,7 @@ export default function EcosystemBentoGrid() {
                     damping: card.animation.spring.damping,
                     delay: card.animation.spring.delay,
                   }}
-                  className={`absolute z-20 ${card.positionClass}`}
+                  className={`absolute z-20 ${card.positionClass} origin-center scale-[0.82] xs:scale-90 sm:scale-100`}
                 >
                   <motion.div
                     animate={{ y: card.animation.float.y }}
@@ -1309,7 +1309,7 @@ export default function EcosystemBentoGrid() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: 'spring', stiffness: 280, damping: 24 }}
-                className="relative z-10 w-full max-w-[300px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[480px] mx-auto"
+                className="relative z-10 w-full max-w-[260px] xs:max-w-[300px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[480px] mx-auto"
               >
                 {/* 1. Browser Window Mockup */}
                 {activeService.deviceType === 'browser' && (
@@ -1373,7 +1373,7 @@ export default function EcosystemBentoGrid() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097] animate-ping" />
             <span>Select Service to Explore:</span>
           </div>
-          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center max-w-full">
             {SERVICES_DATA.map((service, index) => {
               const isActive = activeIndex === index;
               return (
@@ -1381,7 +1381,7 @@ export default function EcosystemBentoGrid() {
                   key={service.id}
                   type="button"
                   onClick={() => setActiveIndex(index)}
-                  className={`relative px-3.5 py-1.5 rounded-xl font-mono text-[11px] font-semibold transition-all duration-300 flex items-center gap-2 cursor-pointer overflow-hidden ${isActive
+                  className={`relative px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-xl font-mono text-[10px] sm:text-[11px] font-semibold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 cursor-pointer overflow-hidden ${isActive
                       ? 'bg-white border border-slate-300/90 text-[#0F172A] shadow-2xs'
                       : 'bg-transparent text-slate-500 hover:text-slate-900 hover:bg-white/60'
                     }`}

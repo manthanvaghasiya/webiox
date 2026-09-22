@@ -216,7 +216,7 @@ export default function Process() {
                   key={stage.id}
                   type="button"
                   onClick={() => setActiveStageIndex(idx)}
-                  className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer relative group flex items-start gap-4 ${
+                  className={`w-full text-left p-3.5 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer relative group flex items-start gap-3 sm:gap-4 ${
                     isActive
                       ? 'bg-white border-[#1a7097] shadow-[0_15px_35px_-10px_rgba(26,112,151,0.18)] ring-1 ring-[#1a7097]/40'
                       : 'bg-white/70 hover:bg-white border-slate-200/80 hover:border-slate-300 shadow-2xs'
@@ -224,13 +224,13 @@ export default function Process() {
                 >
                   {/* Left Indicator Pill */}
                   <div
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
                       isActive
                         ? 'bg-[#1a7097] text-white shadow-xs'
                         : 'bg-slate-100 text-slate-500 group-hover:bg-[#1a7097]/10 group-hover:text-[#1a7097]'
                     }`}
                   >
-                    <IconComp className="w-5 h-5" />
+                    <IconComp className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
                   </div>
 
                   {/* Stage Text */}
@@ -263,15 +263,15 @@ export default function Process() {
             })}
 
             {/* SLA Reassurance Card */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-[#E7B900]/30 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-[#E7B900]/20 flex items-center justify-center shrink-0 text-[#E7B900]">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-[#E7B900]/30 flex items-center gap-3">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#E7B900]/20 flex items-center justify-center shrink-0 text-[#E7B900]">
                 <Activity className="w-4 h-4" />
               </div>
               <div className="text-xs">
                 <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#0F172A] block">
                   100% Escrow Milestone Guarantee
                 </span>
-                <span className="text-slate-500 text-[11.5px]">
+                <span className="text-slate-500 text-[11px] sm:text-[11.5px]">
                   Invoices are released only when each staging QA gate passes your sign-off.
                 </span>
               </div>
@@ -287,7 +287,7 @@ export default function Process() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}
-                className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]"
+                className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-4.5 sm:p-8 relative overflow-hidden shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]"
               >
                 {/* Specular Ambient Glow */}
                 <div className="absolute top-0 right-0 w-80 h-80 bg-[#1a7097]/8 rounded-full blur-3xl pointer-events-none" />

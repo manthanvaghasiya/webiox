@@ -114,10 +114,10 @@ export default function Header() {
         initial={{ opacity: 0, y: -25, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-        className="fixed top-3.5 sm:top-5 inset-x-0 z-50 flex justify-center pointer-events-none px-3 sm:px-4"
+        className="fixed top-3 sm:top-5 inset-x-0 z-50 flex justify-center pointer-events-none px-3 sm:px-4"
       >
         <div
-          className={`pointer-events-auto bg-white/92 backdrop-blur-xl border rounded-full p-1.5 sm:p-2 pl-3 sm:pl-4 pr-1.5 sm:pr-2 transition-shadow duration-300 flex items-center max-w-fit ${
+          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border rounded-full p-1.5 sm:p-2 pl-3 sm:pl-4 pr-1.5 sm:pr-2 transition-shadow duration-300 flex items-center justify-between md:justify-start w-[calc(100vw-24px)] max-w-sm sm:max-w-md md:w-auto md:max-w-fit ${
             scrolled
               ? 'border-slate-300/90 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.04)]'
               : 'border-slate-200/80 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
@@ -127,21 +127,21 @@ export default function Header() {
           <Link
             href="/"
             aria-label="Webiox Home"
-            className="relative flex items-center hover:opacity-85 active:scale-95 transition-transform shrink-0 cursor-pointer py-1"
+            className="relative flex items-center hover:opacity-85 active:scale-95 transition-transform shrink-0 cursor-pointer py-1 mr-2 sm:mr-3"
           >
             <Image
               src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
               alt="Webiox"
-              width={120}
-              height={28}
+              width={116}
+              height={26}
               priority
               style={{ width: 'auto', height: 'auto' }}
-              className="h-6 sm:h-7 w-auto object-contain select-none pointer-events-none"
+              className="h-5.5 sm:h-7 w-auto object-contain select-none pointer-events-none"
             />
           </Link>
 
-          {/* Navigation Links (center - exact same links with expansive balanced spacing) */}
-          <div className="hidden sm:flex items-center gap-0.5 md:gap-1 mx-5 sm:mx-8 md:mx-12 lg:mx-14">
+          {/* Navigation Links (center - desktop only) */}
+          <div className="hidden md:flex items-center gap-0.5 md:gap-1 mx-4 lg:mx-8 xl:mx-12">
             {NAV_LINKS.map((link) => {
               const hasChildren = link.children && link.children.length > 0;
               const active = hasChildren
@@ -238,46 +238,28 @@ export default function Header() {
             })}
           </div>
 
-          {/* Mobile compact key links */}
-          <div className="flex sm:hidden items-center gap-0.5 mx-2">
+          {/* Right Action Group */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            {/* Action Button: Start Project */}
             <Link
-              href="/services"
-              className={[
-                'px-2 py-1 text-xs font-medium rounded-full transition-colors',
-                isActive('/services') ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold' : 'text-slate-700 hover:text-[#1a7097]',
-              ].join(' ')}
+              href="/contact"
+              className="bg-[#1a7097] hover:bg-[#145b7c] text-white shadow-[0_8px_20px_-6px_rgba(26,112,151,0.55)] hover:shadow-[0_12px_28px_-6px_rgba(26,112,151,0.65)] font-semibold text-xs sm:text-sm px-3 sm:px-4.5 py-1.5 sm:py-2 rounded-full transition-all flex items-center gap-1 cursor-pointer group whitespace-nowrap"
             >
-              Services
+              <span className="hidden xs:inline">Start Project</span>
+              <span className="inline xs:hidden">Start</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
             </Link>
-            <Link
-              href="/portfolio"
-              className={[
-                'px-2 py-1 text-xs font-medium rounded-full transition-colors',
-                isActive('/portfolio') ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold' : 'text-slate-700 hover:text-[#1a7097]',
-              ].join(' ')}
+
+            {/* Mobile menu toggle inside floating pill */}
+            <button
+              type="button"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              className="md:hidden inline-flex items-center justify-center w-8 h-8 rounded-full text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
             >
-              Portfolio
-            </Link>
+              {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
           </div>
-
-          {/* Action Button: Start Project */}
-          <Link
-            href="/contact"
-            className="bg-[#1a7097] hover:bg-[#145b7c] text-white shadow-[0_10px_25px_-8px_rgba(26,112,151,0.55)] hover:shadow-[0_14px_35px_-8px_rgba(26,112,151,0.65)] font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all flex items-center gap-1.5 shrink-0 cursor-pointer group whitespace-nowrap"
-          >
-            <span>Start Project</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-          </Link>
-
-          {/* Mobile menu toggle inside floating pill */}
-          <button
-            type="button"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            className="md:hidden inline-flex items-center justify-center w-8 h-8 rounded-full text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer ml-1"
-          >
-            <Menu className="w-4 h-4" />
-          </button>
         </div>
       </motion.nav>
 
@@ -308,22 +290,22 @@ export default function Header() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="md:hidden fixed left-4 right-4 top-20 z-50 bg-white/95 backdrop-blur-xl border border-slate-200/80 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] p-4 max-h-[calc(100vh-100px)] overflow-y-auto"
+              className="md:hidden fixed left-3 right-3 top-16 sm:top-20 z-50 bg-white/98 backdrop-blur-xl border border-slate-200/90 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] p-4 max-h-[calc(100vh-80px)] overflow-y-auto"
             >
               <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-2">
                 <Image
                   src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
                   alt="Webiox"
-                  width={120}
-                  height={30}
+                  width={116}
+                  height={28}
                   style={{ width: 'auto', height: 'auto' }}
-                  className="h-7 w-auto object-contain"
+                  className="h-6 w-auto object-contain"
                 />
                 <button
                   type="button"
                   onClick={() => setMobileOpen(false)}
                   aria-label="Close menu"
-                  className="p-1 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -425,14 +407,24 @@ export default function Header() {
                   );
                 })}
 
-                <motion.li variants={mobileItem} className="mt-3 pt-2 border-t border-slate-100">
+                <motion.li variants={mobileItem} className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
                   <Link
                     href="/contact"
-                    className="group flex items-center justify-center gap-2 w-full rounded-full bg-[#1a7097] text-white px-5 py-3 font-semibold shadow-[0_10px_30px_-10px_rgba(26,112,151,0.6)] cursor-pointer"
+                    className="group flex items-center justify-center gap-2 w-full rounded-xl bg-[#1a7097] text-white px-4 py-3 font-semibold text-sm shadow-[0_10px_25px_-8px_rgba(26,112,151,0.6)] cursor-pointer"
                   >
-                    Start Project
+                    <span>Start a Project</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
+
+                  <a
+                    href="https://wa.me/919664736245?text=Hi%20Webiox%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 text-emerald-800 px-4 py-2.5 font-semibold text-sm transition-colors cursor-pointer"
+                  >
+                    <span>Direct WhatsApp VIP</span>
+                    <ArrowUpRight className="w-4 h-4 text-emerald-600" />
+                  </a>
                 </motion.li>
               </ul>
             </motion.div>

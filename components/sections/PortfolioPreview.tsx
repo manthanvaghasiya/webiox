@@ -163,33 +163,33 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
         zIndex: index + 1,
       }}
     >
-      <div className="relative w-full h-full rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-7 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.12)] hover:border-[#1a7097]/40 transition-colors overflow-hidden flex flex-col justify-between">
+      <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-3.5 sm:p-6 lg:p-7 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12)] hover:border-[#1a7097]/40 transition-colors overflow-hidden flex flex-col justify-between">
         
         {/* Subtle Darkening Overlay when buried underneath */}
         <motion.div
           style={{ opacity: overlayOpacity }}
-          className="absolute inset-0 bg-slate-900 pointer-events-none z-30 rounded-3xl"
+          className="absolute inset-0 bg-slate-900 pointer-events-none z-30 rounded-2xl sm:rounded-3xl"
         />
 
         {/* Top Metadata Strip */}
-        <div className="flex items-center justify-between gap-3 mb-3 shrink-0">
+        <div className="flex items-center justify-between gap-3 mb-2 sm:mb-3 shrink-0">
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097] text-[11px] font-mono font-bold uppercase tracking-wider">
+            <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider">
               {project.category}
             </span>
-            <span className="text-xs font-mono text-slate-400 font-medium">
+            <span className="text-[11px] sm:text-xs font-mono text-slate-400 font-medium">
               // {project.year}
             </span>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10.5px] font-mono font-bold text-emerald-700">
+          <div className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] sm:text-[10.5px] font-mono font-bold text-emerald-700">
             <ShieldCheck className="w-3 h-3 text-emerald-600" />
             <span>{metrics?.badge || '100% Milestone Lock'}</span>
           </div>
         </div>
 
-        {/* ── Flawless High-Res Showcase Canvas (No Duplicate Browser Bars) ── */}
-        <div className="relative w-full flex-1 rounded-2xl border border-slate-200/80 bg-slate-950 overflow-hidden mb-4 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.15)] group/device">
+        {/* ── Flawless High-Res Showcase Canvas (Guaranteed Responsive Height) ── */}
+        <div className="relative w-full flex-1 min-h-[190px] sm:min-h-[250px] md:min-h-[300px] rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-950 overflow-hidden mb-2.5 sm:mb-4 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.15)] group/device">
           
           {/* Full High-Resolution Showcase Image */}
           <div className="relative w-full h-full">
@@ -197,9 +197,9 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
               src={project.image}
               alt={project.title}
               fill
-              priority={index === 0}
+              priority={index <= 1}
               className="object-cover object-center group-hover/device:scale-[1.025] transition-transform duration-700 select-none"
-              sizes="(max-width: 1024px) 100vw, 800px"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 800px"
             />
             {/* Subtle Specular Reflection */}
             <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none" />
@@ -210,25 +210,25 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
                 href={project.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white flex items-center gap-1.5 transition-all shadow-md z-10 cursor-pointer"
+                className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2.5 sm:px-3 py-1 rounded-full bg-black/65 hover:bg-black/85 backdrop-blur-md border border-white/20 text-[9.5px] sm:text-[10px] font-mono text-white flex items-center gap-1 sm:gap-1.5 transition-all shadow-md z-10 cursor-pointer"
               >
                 <Lock className="w-2.5 h-2.5 text-emerald-400" />
-                <span>{project.liveLink.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+                <span className="truncate max-w-[140px] sm:max-w-none">{project.liveLink.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
                 <ExternalLink className="w-2.5 h-2.5 opacity-70" />
               </a>
             )}
 
             {/* Floating Metric 1 (Bottom Left) */}
             {metrics?.pill1 && (
-              <div className="absolute bottom-3 left-3 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg flex items-center gap-2 z-10">
-                <div className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-[10px]">
+              <div className="absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg flex items-center gap-1.5 sm:gap-2 z-10">
+                <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-[9px] sm:text-[10px]">
                   ↑
                 </div>
                 <div>
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-xs text-[#0F172A] leading-tight">
+                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-[11px] sm:text-xs text-[#0F172A] leading-tight">
                     {metrics.pill1.value}
                   </div>
-                  <div className="text-[8.5px] font-mono text-slate-400 leading-tight">
+                  <div className="text-[7.5px] sm:text-[8.5px] font-mono text-slate-400 leading-tight">
                     {metrics.pill1.label}
                   </div>
                 </div>
@@ -237,13 +237,13 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
 
             {/* Floating Metric 2 (Top Right) */}
             {metrics?.pill2 && (
-              <div className="absolute top-3 right-3 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg flex items-center gap-1.5 z-10">
-                <Zap className="w-3 h-3 text-[#1a7097]" />
+              <div className="hidden xs:flex absolute top-2.5 right-2.5 sm:top-3 sm:right-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg items-center gap-1 sm:gap-1.5 z-10">
+                <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#1a7097]" />
                 <div>
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-xs text-[#0F172A] leading-tight">
+                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-[11px] sm:text-xs text-[#0F172A] leading-tight">
                     {metrics.pill2.value}
                   </div>
-                  <div className="text-[8.5px] font-mono text-slate-400 leading-tight">
+                  <div className="text-[7.5px] sm:text-[8.5px] font-mono text-slate-400 leading-tight">
                     {metrics.pill2.label}
                   </div>
                 </div>
@@ -253,20 +253,20 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
         </div>
 
         {/* Card Footer: Info, Tech Stack & Action Buttons */}
-        <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0">
-          <div>
-            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight leading-snug">
+        <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-2 sm:gap-3 shrink-0">
+          <div className="min-w-0 flex-1">
+            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-xl lg:text-2xl text-[#0F172A] tracking-tight leading-snug truncate">
               {project.title}
             </h3>
-            <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-[13px] text-slate-600 font-normal leading-relaxed line-clamp-1 max-w-xl">
+            <p className="font-['Plus_Jakarta_Sans',sans-serif] text-[11px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-relaxed line-clamp-1 max-w-xl">
               {project.shortDescription}
             </p>
           </div>
 
-          <div className="flex items-center gap-2.5 shrink-0">
-            {/* Tech Stack Chips */}
-            <div className="hidden md:flex items-center gap-1">
-              {project.tech.slice(0, 3).map((tech) => (
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Tech Stack Chips (Desktop only) */}
+            <div className="hidden xl:flex items-center gap-1">
+              {project.tech.slice(0, 2).map((tech) => (
                 <span
                   key={tech}
                   className="px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200/70 text-[9.5px] font-mono text-slate-600"
@@ -276,10 +276,10 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
               ))}
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Button */}
             <Link
               href={`/portfolio/${project.id}`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group/link shrink-0"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group/link shrink-0"
             >
               <span>Explore Case Study</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
@@ -358,22 +358,23 @@ export default function PortfolioPreview() {
       <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
 
       {/* ── Sticky Viewport Container (Locks in place while user scrolls through all 6 cards) ── */}
-      <div className="sticky top-16 sm:top-20 h-[calc(100vh-80px)] min-h-[580px] max-h-[760px] w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-6 lg:gap-8 pt-3 pb-6 overflow-hidden">
+      <div className="sticky top-14 sm:top-20 h-[calc(100vh-70px)] sm:h-[calc(100vh-80px)] min-h-[560px] max-h-[820px] w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-3 sm:gap-6 lg:gap-8 pt-2 sm:pt-3 pb-3 sm:pb-6 overflow-hidden">
         
         {/* ════════════════════════════════════════════════════════════════════
             LEFT COLUMN: CONCEPT 3 - AWWWARDS MAGAZINE EDITORIAL
+            (On mobile: compact intro that doesn't push the cards off-screen)
            ════════════════════════════════════════════════════════════════════ */}
         <div className="w-full lg:w-[42%] xl:w-[40%] flex flex-col justify-between text-left shrink-0 py-1">
           <div>
             {/* Top Eyebrow & Fraction Counter */}
-            <div className="flex items-center justify-between gap-3 mb-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100/90 border border-slate-200/80 text-[10.5px] font-mono font-semibold text-slate-600 shadow-2xs">
+            <div className="flex items-center justify-between gap-3 mb-1.5 sm:mb-2">
+              <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-slate-100/90 border border-slate-200/80 text-[10px] sm:text-[10.5px] font-mono font-semibold text-slate-600 shadow-2xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097] animate-pulse" />
                 <span className="font-bold tracking-wider uppercase text-[#1a7097]">
                   SELECTED WORK
                 </span>
                 <span className="text-slate-300">•</span>
-                <span>EDITORIAL ARCHIVE</span>
+                <span className="hidden xs:inline">EDITORIAL ARCHIVE</span>
               </div>
 
               {/* Minimalist Fraction Indicator */}
@@ -387,7 +388,7 @@ export default function PortfolioPreview() {
             </div>
 
             {/* Laser Progress Line */}
-            <div className="w-full h-[2px] bg-slate-200/80 rounded-full mb-3 overflow-hidden">
+            <div className="w-full h-[2px] bg-slate-200/80 rounded-full mb-2 sm:mb-3 overflow-hidden">
               <motion.div
                 className="h-full bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#E7B900]"
                 style={{
@@ -398,7 +399,7 @@ export default function PortfolioPreview() {
             </div>
 
             {/* Headline */}
-            <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] text-[#0F172A] tracking-[-0.03em] leading-[1.15] mb-2 [text-wrap:balance]">
+            <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-[32px] xl:text-[36px] text-[#0F172A] tracking-[-0.03em] leading-[1.15] mb-1 sm:mb-2 [text-wrap:balance]">
               <span>Transforming </span>
               <span className="relative inline-block text-[#1a7097] underline decoration-[#E7B900] decoration-[3px] underline-offset-[5px]">
                 Ideas
@@ -409,77 +410,79 @@ export default function PortfolioPreview() {
               </span>
             </h2>
 
-            {/* Subtitle */}
-            <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-[13px] text-slate-500 font-normal leading-relaxed mb-4 max-w-md">
+            {/* Subtitle (Desktop / Tablet) */}
+            <p className="hidden sm:block font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-[13px] text-slate-500 font-normal leading-relaxed mb-3 sm:mb-4 max-w-md">
               A curated digital retrospective of flagship web platforms, bespoke SaaS ecosystems, and user-first digital products.
             </p>
 
-            {/* ── Editorial Plate Card (Active Project Spotlight) ── */}
-            <AnimatePresence mode="wait">
-              {(() => {
-                const activeProject = STACK_PROJECTS[activeStep] || STACK_PROJECTS[0];
-                const editorial = EDITORIAL_DATA[activeProject.id] || EDITORIAL_DATA[6];
+            {/* ── Editorial Plate Card (Active Project Spotlight - Desktop Only) ── */}
+            <div className="hidden lg:block">
+              <AnimatePresence mode="wait">
+                {(() => {
+                  const activeProject = STACK_PROJECTS[activeStep] || STACK_PROJECTS[0];
+                  const editorial = EDITORIAL_DATA[activeProject.id] || EDITORIAL_DATA[6];
 
-                return (
-                  <motion.div
-                    key={activeProject.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.24, ease: 'easeOut' }}
-                    className="relative rounded-2xl bg-white/95 border border-slate-200/90 p-5 shadow-[0_12px_32px_-12px_rgba(15,23,42,0.08)] overflow-hidden"
-                  >
-                    {/* Giant Watermark Numeral */}
-                    <span className="absolute -top-4 right-2 font-mono font-black text-[100px] sm:text-[115px] text-slate-100/90 leading-none select-none pointer-events-none z-0">
-                      {editorial.indexStr}
-                    </span>
+                  return (
+                    <motion.div
+                      key={activeProject.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.24, ease: 'easeOut' }}
+                      className="relative rounded-2xl bg-white/95 border border-slate-200/90 p-5 shadow-[0_12px_32px_-12px_rgba(15,23,42,0.08)] overflow-hidden"
+                    >
+                      {/* Giant Watermark Numeral */}
+                      <span className="absolute -top-4 right-2 font-mono font-black text-[100px] sm:text-[115px] text-slate-100/90 leading-none select-none pointer-events-none z-0">
+                        {editorial.indexStr}
+                      </span>
 
-                    {/* Sector & Location Metadata */}
-                    <div className="relative z-10 font-mono text-[10px] font-bold uppercase tracking-wider text-[#1a7097] mb-1.5 flex items-center gap-1.5">
-                      <span className="w-1 h-1 rounded-full bg-[#1a7097]" />
-                      <span>{editorial.sector}</span>
-                      <span className="text-slate-300">•</span>
-                      <span className="text-slate-400">{editorial.location}</span>
-                    </div>
-
-                    {/* Project Title */}
-                    <div className="relative z-10 mb-2">
-                      <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight">
-                        {activeProject.title}
-                      </h3>
-                    </div>
-
-                    {/* Editorial Thesis / Problem Statement */}
-                    <p className="relative z-10 text-[12px] sm:text-[12.5px] text-slate-600 font-normal leading-relaxed mb-4 max-w-sm">
-                      {editorial.thesis}
-                    </p>
-
-                    {/* Editorial Stat Strip */}
-                    <div className="relative z-10 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
-                      <div>
-                        <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl text-[#1a7097] leading-none">
-                          {editorial.stat.value}
-                        </div>
-                        <div className="font-mono text-[9.5px] uppercase tracking-wider text-slate-400 mt-1">
-                          {editorial.stat.label}
-                        </div>
+                      {/* Sector & Location Metadata */}
+                      <div className="relative z-10 font-mono text-[10px] font-bold uppercase tracking-wider text-[#1a7097] mb-1.5 flex items-center gap-1.5">
+                        <span className="w-1 h-1 rounded-full bg-[#1a7097]" />
+                        <span>{editorial.sector}</span>
+                        <span className="text-slate-300">•</span>
+                        <span className="text-slate-400">{editorial.location}</span>
                       </div>
 
-                      <Link
-                        href={`/portfolio/${activeProject.id}`}
-                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0F172A] hover:bg-[#1a7097] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
-                      >
-                        <span>Case Study</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </Link>
-                    </div>
-                  </motion.div>
-                );
-              })()}
-            </AnimatePresence>
+                      {/* Project Title */}
+                      <div className="relative z-10 mb-2">
+                        <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight">
+                          {activeProject.title}
+                        </h3>
+                      </div>
+
+                      {/* Editorial Thesis / Problem Statement */}
+                      <p className="relative z-10 text-[12px] sm:text-[12.5px] text-slate-600 font-normal leading-relaxed mb-4 max-w-sm">
+                        {editorial.thesis}
+                      </p>
+
+                      {/* Editorial Stat Strip */}
+                      <div className="relative z-10 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl text-[#1a7097] leading-none">
+                            {editorial.stat.value}
+                          </div>
+                          <div className="font-mono text-[9.5px] uppercase tracking-wider text-slate-400 mt-1">
+                            {editorial.stat.label}
+                          </div>
+                        </div>
+
+                        <Link
+                          href={`/portfolio/${activeProject.id}`}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0F172A] hover:bg-[#1a7097] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
+                        >
+                          <span>Case Study</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </Link>
+                      </div>
+                    </motion.div>
+                  );
+                })()}
+              </AnimatePresence>
+            </div>
 
             {/* ── Minimalist Scrubber Dashes ── */}
-            <div className="flex items-center gap-1.5 mt-3.5 px-1">
+            <div className="flex items-center gap-1.5 mt-2 lg:mt-3.5 px-1">
               {STACK_PROJECTS.map((proj, idx) => {
                 const isActive = activeStep === idx;
                 return (
@@ -489,8 +492,8 @@ export default function PortfolioPreview() {
                     onClick={() => scrollToProject(idx)}
                     className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                       isActive
-                        ? 'w-10 bg-[#1a7097]'
-                        : 'w-3 bg-slate-200 hover:bg-slate-300'
+                        ? 'w-8 sm:w-10 bg-[#1a7097]'
+                        : 'w-2.5 sm:w-3 bg-slate-200 hover:bg-slate-300'
                     }`}
                     aria-label={`Jump to project 0${idx + 1}`}
                   />
@@ -499,8 +502,8 @@ export default function PortfolioPreview() {
             </div>
           </div>
 
-          {/* Bottom Archive Link & Stats */}
-          <div className="pt-2.5 border-t border-slate-200/70 flex items-center justify-between gap-3 mt-1">
+          {/* Bottom Archive Link & Stats (Desktop Only) */}
+          <div className="hidden lg:flex pt-2.5 border-t border-slate-200/70 items-center justify-between gap-3 mt-1">
             <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
               <span className="font-mono font-bold text-[#1a7097]">06</span>
               <span>Curated Case Studies</span>
@@ -517,8 +520,9 @@ export default function PortfolioPreview() {
 
         {/* ════════════════════════════════════════════════════════════════════
             RIGHT COLUMN: STREAMLINED STACKING CARDS VIEWPORT (~58% lg)
+            (On mobile: expands to flex-1 to fill the remaining height!)
            ════════════════════════════════════════════════════════════════════ */}
-        <div className="w-full lg:w-[58%] xl:w-[60%] h-full relative">
+        <div className="w-full lg:w-[58%] xl:w-[60%] flex-1 lg:h-full relative min-h-[360px] sm:min-h-[440px]">
           <div className="relative w-full h-full">
             {STACK_PROJECTS.map((project, index) => (
               <StackCard
