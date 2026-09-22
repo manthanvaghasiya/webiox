@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import PortfolioClient from '@/components/portfolio/PortfolioClient';
 
 export const metadata: Metadata = {
-  title: 'Flagship Portfolio & Enterprise Case Studies | Webiox',
+  title: 'Flagship Portfolio & Enterprise Case Studies',
   description: 'Explore the digital flagships, SaaS platforms, and AI automation engines engineered by Webiox Digital Solutions for market-leading businesses.',
   openGraph: {
     title: 'Flagship Portfolio & Enterprise Case Studies | Webiox',

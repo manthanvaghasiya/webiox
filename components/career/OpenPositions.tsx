@@ -10,7 +10,7 @@ const POSITIONS = [
     id: 1,
     title: 'Frontend Developer (React.js)',
     department: 'Engineering',
-    location: 'Surat, Gujarat',
+    location: 'Remote / Hybrid',
     type: 'Full-time',
     experience: '1 - 3 Years',
     description: 'We are looking for a passionate Frontend Developer skilled in React.js, Next.js, and Tailwind CSS. You will be responsible for converting complex Figma designs into responsive, high-performance web applications and ensuring cross-browser compatibility.',
@@ -19,7 +19,7 @@ const POSITIONS = [
     id: 2,
     title: 'Backend Developer (Node.js)',
     department: 'Engineering',
-    location: 'Surat, Gujarat',
+    location: 'Remote / Hybrid',
     type: 'Full-time',
     experience: '2 - 4 Years',
     description: 'Join our backend team to build scalable REST APIs and microservices. Strong experience with Node.js, Express, MongoDB/PostgreSQL, and API integrations is required. Familiarity with AWS deployment is a big plus.',
@@ -28,7 +28,7 @@ const POSITIONS = [
     id: 3,
     title: 'Business Development Executive (BDE)',
     department: 'Sales',
-    location: 'Surat, Gujarat',
+    location: 'Remote / Hybrid',
     type: 'Full-time',
     experience: '1 - 3 Years',
     description: 'We are seeking an energetic BDE to drive international sales. You must have excellent English communication skills, experience bidding on platforms like Upwork/Freelancer, and the ability to close inbound and outbound leads effectively.',
@@ -37,7 +37,7 @@ const POSITIONS = [
     id: 4,
     title: 'UI/UX Designer',
     department: 'Design',
-    location: 'Surat / Remote',
+    location: 'Remote / Hybrid',
     type: 'Full-time',
     experience: '2+ Years',
     description: 'Looking for a creative UI/UX designer who can craft modern, user-centric web and mobile interfaces. Proficiency in Figma, wireframing, prototyping, and a strong portfolio demonstrating modern design trends is mandatory.',
@@ -62,7 +62,7 @@ export default function OpenPositions() {
             Current Openings
           </h3>
           <p className="text-lg text-slate-600 font-light">
-            Don't see a perfect fit? Send your resume to <a href="mailto:careers@webiox.tech" className="text-[#1a7097] font-medium hover:underline">careers@webiox.tech</a>
+            Don't see a perfect fit? Send your resume via <Link href="/contact" className="text-[#1a7097] font-medium hover:underline">our direct talent desk</Link>.
           </p>
         </div>
 

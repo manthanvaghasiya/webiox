@@ -149,7 +149,7 @@ export default function SSRPerformanceLoop() {
                       <Zap className="w-7 h-7 text-cyan-400" />
                    </div>
                    <h3 className="text-white font-bold text-xl mb-2">Instant Load</h3>
-                   <p className="text-slate-500 text-sm">Under 50ms Time To Interactive (TTI) worldwide.</p>
+                   <p className="text-slate-500 text-sm">Under 50ms Time To Interactive (TTI) across edge networks.</p>
                 </div>
                 {/* Small Card 2 */}
                 <div className="col-span-1 h-72 rounded-3xl bg-slate-900/50 border border-white/5 p-8 relative overflow-hidden">

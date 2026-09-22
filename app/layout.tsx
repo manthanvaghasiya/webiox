@@ -21,29 +21,40 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://webiox.tech'),
   title: {
-    default: "Webiox Digital Solutions | Gujarat's Premier Tech Agency",
-    template: "%s | Webiox Digital Solutions"
+    default: "Webiox | Web Development, Apps & Custom Software Studio",
+    template: "%s | Webiox"
   },
-  description: "Gujarat's premier digital engineering & product studio. We build ultra-fast web platforms, custom SaaS architectures, and autonomous AI systems for market leaders.",
+  description: "Webiox is a premier digital engineering studio building ultra-fast web platforms, mobile apps, custom software architectures, and autonomous AI workflows.",
   keywords: [
     "Webiox",
-    "Tech Agency Surat",
-    "Gujarat Web Agency",
-    "Digital Engineering Studio",
-    "Next.js Development Agency",
-    "Custom Software India",
+    "webiox.tech",
+    "Webiox Digital Solutions",
+    "Webiox Tech",
+    "Webiocs",
+    "Webiox Agency",
+    "Web Development Agency",
+    "Next.js Development Studio",
+    "Mobile App Development",
+    "Custom Software Engineering",
     "SaaS Architecture",
-    "AI Automation Workflows"
+    "AI Workflows",
+    "Autonomous AI Systems",
+    "Technical SEO Agency",
+    "Entity SEO Optimization"
   ],
   authors: [{ name: "Webiox Digital Solutions", url: "https://webiox.tech" }],
   creator: "Webiox",
   publisher: "Webiox Digital Solutions",
   alternates: {
     canonical: '/',
+    languages: {
+      'en-US': '/',
+      'x-default': '/',
+    },
   },
   openGraph: {
-    title: "Webiox Digital Solutions | Gujarat's Premier Tech Agency",
-    description: "Engineering ultra-fast web flagships, custom SaaS architectures, and autonomous AI systems for visionary businesses.",
+    title: "Webiox | Web Development, Apps & Custom Software Studio",
+    description: "Webiox is a premier digital engineering studio building ultra-fast web platforms, mobile apps, custom software architectures, and autonomous AI workflows.",
     url: 'https://webiox.tech',
     siteName: 'Webiox Digital Solutions',
     locale: 'en_US',
@@ -59,8 +70,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Webiox Digital Solutions | Gujarat's Premier Tech Agency",
-    description: "Engineering ultra-fast web flagships, custom SaaS architectures, and autonomous AI systems for visionary businesses.",
+    title: "Webiox | Web Development, Apps & Custom Software Studio",
+    description: "Webiox is a premier digital engineering studio building ultra-fast web platforms, mobile apps, custom software architectures, and autonomous AI workflows.",
     creator: '@webiox',
     images: ['/webiox512.png'],
   },
@@ -89,6 +100,167 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLdGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://webiox.tech/#organization",
+      "name": "Webiox",
+      "legalName": "Webiox Digital Solutions",
+      "alternateName": [
+        "Webiox Tech",
+        "Webiox Agency",
+        "Webiox Digital",
+        "webiox.tech",
+        "Webiocs",
+        "Webiox Digital Solutions"
+      ],
+      "url": "https://webiox.tech",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://webiox.tech/#logo",
+        "url": "https://webiox.tech/webiox512.png",
+        "contentUrl": "https://webiox.tech/webiox512.png",
+        "caption": "Webiox Digital Solutions Logo",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://webiox.tech/webiox512.png",
+      "description": "Webiox is an independent digital engineering studio and technical search authority agency specializing in high-performance web development, mobile applications, custom software architectures, and autonomous AI workflows.",
+      "disambiguatingDescription": "Webiox (legal entity: Webiox Digital Solutions, domain: webiox.tech) is an independent technology agency and digital engineering studio specializing in web development, mobile applications, custom software engineering, and AI workflows. Webiox is an independent company and is completely distinct from Cisco Webex (the teleconferencing and video meeting platform).",
+      "slogan": "Engineering High-Performance Web, Mobile & Custom Software Solutions",
+      "priceRange": "$$",
+      "email": "manthanvaghasiya@webiox.tech",
+      "telephone": "+919664736245",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "The Palladium, Yogi Chowk",
+        "addressLocality": "Surat",
+        "postalCode": "395010",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "21.2144",
+        "longitude": "72.8890"
+      },
+      "founder": {
+        "@type": "Person",
+        "@id": "https://webiox.tech/#founder",
+        "name": "Manthan Vaghasiya",
+        "jobTitle": "Founder & Principal Software Architect",
+        "email": "manthanvaghasiya@webiox.tech",
+        "sameAs": [
+          "https://linkedin.com/in/manthanvaghasiya",
+          "https://github.com/manthanvaghasiya"
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/webiox.ai/",
+        "https://share.google/iDpXXxjX29qoPeAAO",
+        "https://www.linkedin.com/company/webiox/",
+        "https://github.com/webiox"
+      ],
+      "knowsAbout": [
+        "https://www.wikidata.org/wiki/Q386275",
+        "https://en.wikipedia.org/wiki/Web_development",
+        "https://www.wikidata.org/wiki/Q110852097",
+        "https://en.wikipedia.org/wiki/Next.js",
+        "https://www.wikidata.org/wiki/Q180711",
+        "https://en.wikipedia.org/wiki/Search_engine_optimization",
+        "https://www.wikidata.org/wiki/Q211158",
+        "https://en.wikipedia.org/wiki/Software_as_a_service",
+        "https://www.wikidata.org/wiki/Q11660",
+        "https://en.wikipedia.org/wiki/Artificial_intelligence",
+        "https://www.wikidata.org/wiki/Q1441865",
+        "https://en.wikipedia.org/wiki/Semantic_search",
+        "https://www.wikidata.org/wiki/Q33002955",
+        "https://en.wikipedia.org/wiki/Google_Knowledge_Graph"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Webiox Core Engineering & Technical Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Enterprise Web Engineering & Web Development",
+              "url": "https://webiox.tech/services/web-development",
+              "description": "Custom, high-performance web platforms and websites engineered with Next.js, React, and Node.js for maximum conversion and speed."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Native & Cross-Platform Mobile Applications",
+              "url": "https://webiox.tech/services",
+              "description": "Fluid 60 FPS iOS and Android mobile applications built with Swift, Kotlin, and React Native."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Software & SaaS Product Engineering",
+              "url": "https://webiox.tech/services/saas-development",
+              "description": "Scalable, multi-tenant cloud software architectures, ERPs, and internal tools built with TypeScript, AWS, and Docker."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Autonomous AI Workflows & Intelligent Systems",
+              "url": "https://webiox.tech/services/ai-solutions",
+              "description": "Autonomous AI agent workflows, custom LLM integrations, document intelligence pipelines, and operational automation."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "High-Conversion E-Commerce Platforms",
+              "url": "https://webiox.tech/services/ecommerce-platforms",
+              "description": "Custom headless e-commerce storefronts engineered for high throughput and zero checkout friction."
+            }
+          }
+        ]
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+919664736245",
+          "contactType": "sales",
+          "email": "manthanvaghasiya@webiox.tech",
+          "availableLanguage": ["en", "gu", "hi"]
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://webiox.tech/#website",
+      "url": "https://webiox.tech",
+      "name": "Webiox",
+      "alternateName": "Webiox Digital Solutions",
+      "publisher": {
+        "@id": "https://webiox.tech/#organization"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://webiox.tech/blog?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -99,6 +271,12 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakarta.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#1a7097]/20 selection:text-[#1a7097] overflow-x-hidden">
         <Header />
         <main className="flex-1">{children}</main>

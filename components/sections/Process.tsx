@@ -333,9 +333,9 @@ export default function Process() {
                           <Check className="w-3 h-3" />
                         </div>
                         <div className="min-w-0">
-                          <h4 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A]">
+                          <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A]">
                             {item.title}
-                          </h4>
+                          </div>
                           <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
                             {item.desc}
                           </p>

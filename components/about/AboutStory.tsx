@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import AiInnovationFoundry from './AiInnovationFoundry';
-import { Target, Lightbulb, Award } from 'lucide-react';
+import { Target, Lightbulb, Award, Building2, UserCheck, MapPin } from 'lucide-react';
 import {
   AuroraStreak,
   ConstellationDots,
@@ -136,16 +136,38 @@ export default function AboutStory() {
             <div>
               {/* Label */}
               <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase text-[#1a7097] bg-[#1a7097]/10 border border-[#1a7097]/20 mb-6">
-                Our Story
+                Our Story & Entity Profile
               </span>
 
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-6">
                 Turning business <span className="text-[#1a7097]">complexity into automated</span> simplicity.
               </h2>
 
-              <p className="text-lg text-gray-600 leading-relaxed mb-10">
-                Webiox exists to bridge the gap between manual struggle and digital mastery. We don't just build websites; we engineer high-performance engines that automate your most difficult tasks and solve your toughest business challenges. We identify your most difficult manual hurdles and build custom digital solutions that solve them permanently.
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                Webiox exists to bridge the gap between manual operational friction and engineering excellence. We don't just build websites; we engineer high-performance systems that automate intensive tasks and solve mission-critical business challenges.
               </p>
+
+              {/* Semantic Entity Definition & Grounding Block for NLP/Knowledge Graph */}
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-[#1a7097]/15 shadow-sm mb-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a7097]/5 rounded-full blur-2xl pointer-events-none" />
+                <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#1a7097] mb-3">
+                  <Building2 className="w-4 h-4" />
+                  <span>Entity Profile & Technical Grounding</span>
+                </div>
+                <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
+                  <strong className="text-slate-900 font-semibold">Webiox Digital Solutions</strong> (operating as <strong className="text-[#1a7097] font-semibold">Webiox</strong>) is an independent digital engineering and software studio founded by principal software architect <strong className="text-slate-900 font-semibold">Manthan Vaghasiya</strong>. Webiox designs, builds, and scales mission-critical web applications, mobile apps, custom software architectures, and autonomous AI workflows for market-leading enterprises.
+                </p>
+                <div className="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-500 font-mono">
+                  <span className="inline-flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#1a7097]" />
+                    The Palladium, Yogi Chowk, Surat, India
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <UserCheck className="w-3.5 h-3.5 text-[#E7B900]" />
+                    Lead Architect: Manthan Vaghasiya
+                  </span>
+                </div>
+              </div>
 
               {/* Pillars */}
               <div className="flex flex-col gap-4">

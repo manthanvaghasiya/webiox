@@ -26,4 +26,5 @@ export const CATEGORY_COLORS: Record<string, string> = {
   'AI & ML': '#8B5CF6',
   Performance: '#EF4444',
   Strategy: '#1a7097',
+  SEO: '#0ea5e9',
 };

@@ -16,13 +16,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) return { title: 'Post Not Found | Webiox' };
+  if (!post) return { title: 'Post Not Found' };
 
   return {
-    title: `${post.title} | Webiox Blog`,
+    title: post.title,
     description: post.excerpt,
     openGraph: {
-      title: post.title,
+      title: `${post.title} | Webiox`,
       description: post.excerpt,
       type: 'article',
       url: `https://webiox.tech/blog/${post.slug}`,
@@ -55,15 +55,24 @@ export default async function BlogPostPage({
     datePublished: post.date,
     author: {
       '@type': 'Person',
+      '@id': 'https://webiox.tech/#founder',
       name: post.author,
+      url: 'https://webiox.tech/about',
     },
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://webiox.tech/#organization',
       name: 'Webiox',
+      url: 'https://webiox.tech',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://webiox.tech/logo.png',
+        '@id': 'https://webiox.tech/#logo',
+        url: 'https://webiox.tech/webiox512.png',
       },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://webiox.tech/blog/${post.slug}`,
     },
     url: `https://webiox.tech/blog/${post.slug}`,
   };

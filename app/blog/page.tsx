@@ -4,10 +4,10 @@ import BlogList from '@/components/blog/BlogList';
 import BlogNewsletter from '@/components/blog/BlogNewsletter';
 
 export const metadata: Metadata = {
-  title: 'Engineering Insights & Agency Journal | Webiox',
+  title: 'Engineering Insights & Technical Journal',
   description: 'Deep dives into web architecture, avant-garde design systems, and the art of building world-class digital products by Webiox.',
   openGraph: {
-    title: 'Engineering Insights & Agency Journal | Webiox',
+    title: 'Engineering Insights & Technical Journal | Webiox',
     description: 'Deep dives into web architecture, avant-garde design systems, and the art of building world-class digital products by Webiox.',
     type: 'website',
     url: 'https://webiox.tech/blog',
@@ -23,10 +23,13 @@ export default function BlogPage() {
     url: 'https://webiox.tech/blog',
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://webiox.tech/#organization',
       name: 'Webiox',
+      url: 'https://webiox.tech',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://webiox.tech/logo.png'
+        '@id': 'https://webiox.tech/#logo',
+        url: 'https://webiox.tech/webiox512.png'
       }
     }
   };

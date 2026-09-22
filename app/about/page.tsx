@@ -7,10 +7,10 @@ import AboutTechStack from '@/components/about/AboutTechStack';
 import AboutCTA from '@/components/about/AboutCTA';
 
 export const metadata: Metadata = {
-  title: 'About Webiox | Gujarat’s Premier Engineering & Digital Product Studio',
+  title: 'About Our Studio & Engineering Leadership',
   description: 'Learn about Webiox Digital Solutions—our mission, engineering philosophy, and how we build world-class digital platforms for businesses.',
   openGraph: {
-    title: 'About Webiox | Gujarat’s Premier Engineering & Digital Product Studio',
+    title: 'About Our Studio & Engineering Leadership | Webiox',
     description: 'Learn about Webiox Digital Solutions—our mission, engineering philosophy, and how we build world-class digital platforms.',
     url: 'https://webiox.tech/about',
     type: 'website',

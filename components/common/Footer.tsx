@@ -27,9 +27,9 @@ const navColumns = [
   {
     heading: 'Core Capabilities',
     links: [
-      { label: 'Enterprise Web Flagships', href: '/services/web-development' },
-      { label: 'High-Scale E-Commerce', href: '/services/ecommerce-platforms' },
-      { label: 'Custom SaaS Architectures', href: '/services/saas-development' },
+      { label: 'Web Development & Flagships', href: '/services/web-development' },
+      { label: 'Native Mobile Applications', href: '/services' },
+      { label: 'Custom Software & SaaS', href: '/services/saas-development' },
       { label: 'Autonomous AI Workflows', href: '/services/ai-solutions' },
     ],
   },
@@ -45,9 +45,9 @@ const navColumns = [
 ];
 
 const socials = [
-  { icon: MessageCircle, href: 'https://twitter.com/webiox', label: 'Twitter' },
-  { icon: Globe, href: 'https://linkedin.com/company/webiox', label: 'LinkedIn' },
-  { icon: Camera, href: 'https://instagram.com/webiox', label: 'Instagram' },
+  { icon: Camera, href: 'https://www.instagram.com/webiox.ai/', label: 'Instagram' },
+  { icon: Globe, href: 'https://www.linkedin.com/company/webiox/', label: 'LinkedIn' },
+  { icon: MapPin, href: 'https://share.google/iDpXXxjX29qoPeAAO', label: 'Google Profile' },
   { icon: Code2, href: 'https://github.com/webiox', label: 'GitHub' },
 ];
 
@@ -74,6 +74,13 @@ export default function Footer() {
   const isInView = useInView(ref, { once: true, margin: '-60px' });
   const pathname = usePathname();
   const isHomePage = pathname === '/';
+  const [deskEmail, setDeskEmail] = React.useState('');
+
+  React.useEffect(() => {
+    const user = 'manthanvaghasiya';
+    const domain = 'webiox.tech';
+    setDeskEmail(`${user}@${domain}`);
+  }, []);
 
   if (pathname?.startsWith('/admin')) {
     return null;
@@ -82,8 +89,12 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
+      itemScope
+      itemType="https://schema.org/Organization"
       className="relative overflow-hidden selection:bg-[#1a7097] selection:text-white"
     >
+      <meta itemProp="name" content="Webiox Digital Solutions" />
+      <meta itemProp="url" content="https://webiox.tech" />
       {/* ━━━━━━━━━━━━━━━━ TOP LAUNCHPAD CTA (Luminous Light Mode) ━━━━━━━━━━━━━━━━ */}
       {isHomePage && (
         <div className="relative z-20 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-[#FCFCFD]">
@@ -204,7 +215,7 @@ export default function Footer() {
               </Link>
 
               <p className="text-slate-400 font-['Plus_Jakarta_Sans',sans-serif] text-sm leading-relaxed mb-6 max-w-sm">
-                Gujarat's premier digital engineering & product studio. We build ultra-fast web flagships, custom SaaS architectures, and autonomous AI systems for market leaders.
+                Premier digital engineering studio. We build ultra-fast web flagships, mobile applications, custom software architectures, and autonomous AI systems for market leaders.
               </p>
 
               {/* Social Channels */}
@@ -227,9 +238,9 @@ export default function Footer() {
             {/* Nav Columns (2 + 2 cols) */}
             {navColumns.map((col) => (
               <motion.div key={col.heading} variants={itemAnim} className="lg:col-span-2">
-                <h4 className="text-[11px] font-mono tracking-[0.2em] uppercase text-slate-400 mb-5 font-bold">
+                <h3 className="text-[11px] font-mono tracking-[0.2em] uppercase text-slate-400 mb-5 font-bold">
                   {col.heading}
-                </h4>
+                </h3>
                 <ul className="flex flex-col gap-3">
                   {col.links.map((link) => (
                     <li key={link.label}>
@@ -247,28 +258,40 @@ export default function Footer() {
 
             {/* Direct Contact Block (4 cols) */}
             <motion.div variants={itemAnim} className="lg:col-span-4 lg:pl-6">
-              <h4 className="text-[11px] font-mono tracking-[0.2em] uppercase text-slate-400 mb-5 font-bold">
+              <h3 className="text-[11px] font-mono tracking-[0.2em] uppercase text-slate-400 mb-5 font-bold">
                 Direct Engineering Desk
-              </h4>
+              </h3>
               <div className="flex flex-col gap-3.5 text-sm font-['Plus_Jakarta_Sans',sans-serif]">
-                <a
-                  href="mailto:manthanvaghasiya@webiox.tech"
+                <Link
+                  href="/contact"
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
+                  aria-label="Contact Lead Architect"
                 >
                   <Mail className="w-4 h-4 text-[#1a7097] shrink-0" />
-                  <span className="truncate">manthanvaghasiya@webiox.tech</span>
-                </a>
+                  <span className="truncate">Contact Lead Architect</span>
+                </Link>
                 <a
                   href="tel:+919664736245"
+                  itemProp="telephone"
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
                 >
                   <Phone className="w-4 h-4 text-[#E7B900] shrink-0" />
                   <span>+91 96647 36245</span>
                 </a>
-                <div className="flex items-start gap-3 text-slate-400 leading-relaxed">
+                <address
+                  itemProp="address"
+                  className="not-italic flex items-start gap-3 text-slate-400 leading-relaxed"
+                  itemScope
+                  itemType="https://schema.org/PostalAddress"
+                >
                   <MapPin className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
-                  <span>The Palladium, Yogi Chowk, Surat, Gujarat 395010</span>
-                </div>
+                  <span>
+                    <span itemProp="streetAddress">The Palladium, Yogi Chowk</span>,{' '}
+                    <span itemProp="addressLocality">Surat</span>{' '}
+                    <span itemProp="postalCode">395010</span>,{' '}
+                    <span itemProp="addressCountry">India</span>
+                  </span>
+                </address>
               </div>
             </motion.div>
           </motion.div>

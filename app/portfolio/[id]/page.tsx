@@ -21,12 +21,12 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: 'Project Not Found | Webiox Digital Solutions',
+      title: 'Project Not Found',
     };
   }
 
   return {
-    title: `${project.title} — Case Study | Webiox Digital Solutions`,
+    title: `${project.title} — Case Study`,
     description: project.shortDescription,
     openGraph: {
       title: `${project.title} — Case Study | Webiox`,

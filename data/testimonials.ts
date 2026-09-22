@@ -23,7 +23,7 @@ export const testimonials: Testimonial[] = [
     author: 'Priya Shah',
     role: 'Co-Founder & Tech Lead',
     company: 'Sadguru Car Surat',
-    quote: 'Working with Webiox was game-changing for our operations. They built a custom staff PWA and local SEO engine that placed us #1 on Google for pre-owned luxury cars across South Gujarat.',
+    quote: 'Working with Webiox was game-changing for our operations. They built a custom staff PWA and search optimization architecture that placed us #1 on Google for pre-owned luxury cars.',
     image: '/priyaben.png',
     rating: 5,
   },

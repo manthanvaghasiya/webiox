@@ -75,14 +75,14 @@ const EDITORIAL_DATA: Record<number, EditorialProjectData> = {
   6: {
     indexStr: '01',
     sector: 'Automotive Discovery & Retail',
-    location: 'Surat, Gujarat',
+    location: 'Enterprise Web',
     thesis: 'Crafting a high-speed vehicle discovery portal with sub-second ISR edge caching and direct WhatsApp transaction flows.',
     stat: { value: '+185%', label: 'Organic Inquiries in 90 Days' },
   },
   5: {
     indexStr: '02',
     sector: 'Commercial Dealership & Fleet',
-    location: 'Surat, Gujarat',
+    location: 'Dealership OS',
     thesis: 'Unifying multi-lot vehicle inventories with real-time sync and an offline-capable staff PWA for floor sales agility.',
     stat: { value: '150+', label: 'Live Vehicles Synchronized' },
   },
@@ -103,7 +103,7 @@ const EDITORIAL_DATA: Record<number, EditorialProjectData> = {
   2: {
     indexStr: '05',
     sector: 'FMCG & Dairy Enterprise ERP',
-    location: 'Gujarat Dairy Belt',
+    location: 'AgriTech Cloud',
     thesis: 'Digitizing multi-generational dairy trade with a 6 AM peak-hour POS terminal and automated ledger debt tracking.',
     stat: { value: '99.99%', label: 'Cloud Uptime SLA & Zero Lost Credit' },
   },

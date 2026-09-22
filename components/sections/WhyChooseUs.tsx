@@ -144,7 +144,7 @@ export default function WhyChooseUs() {
 
           {/* Headline */}
           <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl lg:text-5xl text-[#0F172A] tracking-[-0.03em] leading-[1.12] mb-4 [text-wrap:balance]">
-            <span>Why Gujarat's Top Enterprises </span>
+            <span>Why Ambitious Enterprises </span>
             <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
               Choose Webiox.
@@ -245,7 +245,7 @@ export default function WhyChooseUs() {
                   </h3>
                 </div>
                 <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-xl">
-                  Next.js 15 App Router with Incremental Static Regeneration (ISR) and Edge Redis caching. Zero cold starts, sub-400ms LCP, and instant page transitions across Gujarat and worldwide.
+                  Next.js 15 App Router with Incremental Static Regeneration (ISR) and Edge Redis caching. Zero cold starts, sub-400ms LCP, and instant page transitions with sub-second edge delivery.
                 </p>
               </div>
             </div>
@@ -298,7 +298,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="min-w-0">
                       <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
-                        Client (Gujarat)
+                        Enterprise Client
                       </div>
                       <div className="font-mono text-[9.5px] text-slate-400">CLIENT_REQ</div>
                     </div>
@@ -747,7 +747,7 @@ export default function WhyChooseUs() {
                   <div className="flex items-center gap-2 truncate">
                     <Code2 className="w-3.5 h-3.5 text-[#1a7097] shrink-0" />
                     <span className="text-slate-700 font-bold">commit 9d42f8c:</span>
-                    <span className="truncate">feat(cache): Edge ISR warmed for 21 Gujarat regions</span>
+                    <span className="truncate">feat(cache): Edge ISR warmed across global edge nodes</span>
                   </div>
                   <span className="text-emerald-600 font-bold shrink-0 ml-2">PASS 100%</span>
                 </div>
@@ -780,9 +780,9 @@ export default function WhyChooseUs() {
               <ShieldCheck className="w-6 h-6 text-[#E7B900]" />
             </div>
             <div>
-              <h4 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
+              <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
                 Guaranteed Milestone Delivery & 30-Day Hypercare
-              </h4>
+              </h3>
               <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed max-w-2xl">
                 Every contract includes strict SLA milestones, zero hidden scope fees, and 30 days of direct post-launch developer support.
               </p>

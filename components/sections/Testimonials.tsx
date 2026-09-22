@@ -37,15 +37,15 @@ const EXTENDED_TESTIMONIALS: ExtendedTestimonial[] = [
     sectorLabel: 'Automotive Digital Flagship',
     metric: '+140%',
     metricLabel: 'Verified Buyer Inquiries',
-    location: 'Surat, Gujarat',
+    location: 'Commercial Automotive',
   },
   {
     ...testimonials[1],
     sector: 'retail',
-    sectorLabel: 'Retail PWA & Regional SEO',
+    sectorLabel: 'Retail PWA & SEO Architecture',
     metric: '#1 Rank',
-    metricLabel: 'Google South Gujarat SEO',
-    location: 'Surat, Gujarat',
+    metricLabel: 'Google Search Authority',
+    location: 'Automotive Retail',
   },
   {
     ...testimonials[2],
@@ -209,9 +209,9 @@ export default function Testimonials() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm text-[#0F172A] truncate">
+                    <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm text-[#0F172A] truncate">
                       {testimonial.author}
-                    </h4>
+                    </h3>
                     <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-semibold text-[#1a7097] truncate">
                       {testimonial.role} • {testimonial.company}
                     </p>

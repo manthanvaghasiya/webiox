@@ -8,10 +8,10 @@ import HeroBackground from './HeroBackground';
 import EcosystemBentoGrid from './EcosystemBentoGrid';
 
 const ROTATING_SERVICES = [
-  'AI Workflows',
-  'Custom Software',
-  'Digital Platforms',
+  'Web Platforms',
   'Mobile Apps',
+  'Custom Software',
+  'AI Workflows',
 ];
 
 export default function Hero() {
@@ -26,7 +26,7 @@ export default function Hero() {
 
   return (
     <section className="relative w-full min-h-[calc(100vh-76px)] bg-[#FCFCFD] text-[#090D15] flex flex-col justify-between overflow-hidden selection:bg-[#1a7097] selection:text-white">
-      
+
       {/* ═══════════════════════════════════════════════════════════════════════════
           LAYER 1: LIVING BACKGROUND MESH, AURORA ORBS, CONCENTRIC RINGS & GRAIN
          ═══════════════════════════════════════════════════════════════════════════ */}
@@ -36,7 +36,18 @@ export default function Hero() {
           MAIN STAGE: LAYER 2 (TYPOGRAPHY) + LAYER 3 (ARCHITECTURE CANVAS)
          ═══════════════════════════════════════════════════════════════════════════ */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-22 pb-2 sm:pb-3 flex-1 flex flex-col items-center justify-start text-center">
-        
+
+
+        {/* ── 1. Brand Eyebrow Badge ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.04 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-xs font-mono font-bold text-[#1a7097] mb-4 shadow-2xs"
+        >
+          <Sparkles className="w-3.5 h-3.5 text-[#E7B900]" />
+          <span>WEBIOX DIGITAL STUDIO • WEB DEVELOPMENT & APPS</span>
+        </motion.div>
 
         {/* ── 2. Dynamic Kinetic Heading (Smooth Vertical Word Rotator) ── */}
         <motion.div
@@ -95,9 +106,9 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.14 }}
           className="max-w-2xl mx-auto mb-7 sm:mb-8 text-center px-2"
         >
-          <p className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2">
-            We build high-performance digital products that help businesses scale faster.
-          </p>
+          <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2">
+            Engineering high-performance web development platforms, mobile apps, and custom software.
+          </h2>
           <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed">
             Full-cycle engineering squads that take products from zero to production at startup speed — with fixed-scope milestone deliverables and zero scope creep.
           </p>

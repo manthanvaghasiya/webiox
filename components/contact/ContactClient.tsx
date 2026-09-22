@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, Sparkles, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
 import { submitInquiry } from '@/app/actions/contact';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const SERVICES_OPTIONS = [
   'Enterprise Web Engineering',
@@ -34,6 +34,13 @@ export default function ContactClient() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [teamEmail, setTeamEmail] = useState('');
+
+  useEffect(() => {
+    const u = 'manthanvaghasiya';
+    const d = 'webiox.tech';
+    setTeamEmail(`${u}@${d}`);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -117,8 +124,11 @@ export default function ContactClient() {
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-1">Email Our Team</h3>
             <p className="text-xs text-slate-500 mb-4">Official proposal & inquiries</p>
-            <a href="mailto:manthanvaghasiya@webiox.tech" className="text-[#1a7097] font-bold text-sm hover:underline">
-              manthanvaghasiya@webiox.tech
+            <a
+              href={teamEmail ? `mailto:${teamEmail}` : '#contact-form'}
+              className="text-[#1a7097] font-bold text-sm hover:underline"
+            >
+              {teamEmail || 'manthanvaghasiya [at] webiox.tech'}
             </a>
           </div>
 
@@ -148,10 +158,17 @@ export default function ContactClient() {
               <MapPin className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-1">Visit Studio</h3>
-            <p className="text-xs text-slate-500 mb-4">Surat Tech Hub, Gujarat</p>
-            <p className="text-slate-700 font-medium text-sm leading-relaxed">
-              The Palladium, Yogi Chowk, <br /> Surat, Gujarat 395010
-            </p>
+            <p className="text-xs text-slate-500 mb-4">Technical Headquarters</p>
+            <address
+              className="not-italic text-slate-700 font-medium text-sm leading-relaxed"
+              itemScope
+              itemType="https://schema.org/PostalAddress"
+            >
+              <span itemProp="streetAddress">The Palladium, Yogi Chowk</span>, <br />
+              <span itemProp="addressLocality">Surat</span>{' '}
+              <span itemProp="postalCode">395010</span>,{' '}
+              <span itemProp="addressCountry">India</span>
+            </address>
           </div>
 
         </div>

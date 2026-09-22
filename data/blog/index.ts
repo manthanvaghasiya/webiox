@@ -8,8 +8,10 @@ import post5 from './zero-downtime-deployments';
 import post6 from './ai-powered-features-practical';
 import post7 from './web-vitals-masterclass';
 import post8 from './agency-to-product-lessons';
+import post9 from './webiox-ecommerce-seo-case-study';
+import post10 from './webiox-technical-seo-audit-checklist';
 
-export const blogPosts = [post1, post2, post3, post4, post5, post6, post7, post8];
+export const blogPosts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10];
 export const allCategories = Array.from(new Set(blogPosts.map((p) => p.category)));
 export const allTags = Array.from(new Set(blogPosts.flatMap((p) => p.tags)));
 

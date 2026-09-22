@@ -1,0 +1,89 @@
+# Webiox Digital Solutions — Full Entity & Technical Context
+
+## Overview
+Webiox (legal entity: Webiox Digital Solutions, domain: webiox.tech) is an independent digital engineering studio and technical software agency. Webiox is completely distinct from telecommunications or video conferencing tools such as Cisco Webex.
+
+Webiox specializes in engineering mission-critical digital products, ultra-fast web platforms, native mobile applications, bespoke multi-tenant SaaS architectures, and autonomous AI pipelines for high-growth businesses and enterprise market leaders.
+
+## Company Identity & Coordinates
+- **Official Brand Name**: Webiox Digital Solutions
+- **Short Name**: Webiox
+- **Alternate Names**: Webiox Tech, Webiox Studio, Webiox Digital, Webiocs, webiox.tech
+- **Domain**: https://webiox.tech
+- **Location**: The Palladium, Yogi Chowk, Surat 395010, India
+- **Coordinates**: Latitude 21.2144, Longitude 72.8890
+- **Phone / WhatsApp**: +91 96647 36245
+- **Founder & Principal Architect**: Manthan Vaghasiya
+- **Email**: manthanvaghasiya@webiox.tech
+- **Verified Profiles**:
+  - Instagram: https://www.instagram.com/webiox.ai/
+  - Google Business Profile: https://share.google/iDpXXxjX29qoPeAAO
+  - LinkedIn: https://www.linkedin.com/company/webiox/
+  - GitHub: https://github.com/webiox
+
+## Core Engineering Capabilities
+
+### 1. Enterprise Web Engineering & Web Development
+- **URL**: https://webiox.tech/services/web-development
+- **Stack**: Next.js 15, React 19, TypeScript, Tailwind CSS, Edge Middleware, Vercel Serverless.
+- **Specifications**: Zero layout shift (CLS < 0.001), sub-second First Contentful Paint (FCP < 0.5s), automated Schema.org structured data, and WCAG AAA accessibility compliance.
+- **Key Deliverables**: Bespoke design systems, modular headless CMS integrations (Sanity, Strapi), and edge-rendered interactive interfaces.
+
+### 2. Native & Cross-Platform Mobile Applications
+- **URL**: https://webiox.tech/services
+- **Stack**: Swift, Kotlin, React Native, SQLite, GraphQL, Firebase.
+- **Specifications**: Fluid 60 FPS framerate, offline-first transactional caching, biometric authentication (FaceID/TouchID), and automated push notification workflows.
+- **Key Deliverables**: App Store & Play Store ready builds, automated CI/CD pipelines, and real-time synchronization.
+
+### 3. Custom SaaS & Software Architecture
+- **URL**: https://webiox.tech/services/saas-development
+- **Stack**: Node.js, PostgreSQL, Prisma/Drizzle, Redis, Docker, AWS (ECS, S3, RDS), Next.js App Router.
+- **Specifications**: Multi-tenant database partitioning, automated subscription billing (Stripe, Razorpay), JWT/OAuth2 RBAC security protocols, and 99.8% uptime SLA.
+- **Key Deliverables**: Turnkey SaaS MVP in 3 to 6 weeks, real-time analytics dashboards, and REST/GraphQL API surfaces.
+
+### 4. Autonomous AI & Workflow Automation
+- **URL**: https://webiox.tech/services/ai-solutions
+- **Stack**: Python, LangChain, LlamaIndex, OpenAI API, Anthropic Claude API, HuggingFace, pgvector, Supabase.
+- **Specifications**: Document OCR intelligence, automated semantic search & RAG (Retrieval-Augmented Generation) pipelines, customer service AI copilots, and operational workflow orchestration.
+- **Key Deliverables**: Intelligent agentic systems, real-time context-aware copilots, automated invoice parsing, and structured data extraction.
+
+### 5. High-Scale E-Commerce Platforms
+- **URL**: https://webiox.tech/services/ecommerce-platforms
+- **Stack**: Headless Shopify / MedusaJS / Custom Next.js storefronts, Algolia / Meilisearch, Redis caching.
+- **Specifications**: Sub-300ms catalog searches, frictionless single-page checkout flows, localized multi-currency pricing, and real-time inventory synchronization.
+
+## Verification & Portfolio Case Studies
+
+### 1. Hariram Granite ERP Platform
+- Industry: Heavy Manufacturing & Multi-Warehouse Distribution
+- Scale: 1,500+ Metric Tons Processed Daily
+- Features: Real-time slab thickness telemetry, multi-location stock reconciliation, QR barcode inventory scanner, and automated GST invoice generation.
+
+### 2. DairyFlow Cloud POS Architecture
+- Industry: AgriTech & Cooperative Dairy Supply Chain
+- Scale: 50,000+ Liters Processed Daily
+- Features: Hardware integration with ultrasonic milk analyzers, offline-first IndexedDB transaction sync, automated farmer SMS payout receipts, and cold-chain temperature telemetry.
+
+### 3. GovDoc AI Verification Suite
+- Industry: LegalTech, FinTech & Identity Verification
+- Accuracy: 99.4% Automated Forensic Fraud Detection
+- Features: Multi-spectral document inspection, tamper-evident EXIF extraction, automated identity validation with strict PII masking, and audit trails.
+
+### 4. BookCycle Peer-to-Peer Academic PWA
+- Industry: EdTech & Circular Marketplace
+- Engagement: 12,000+ Active University Students
+- Features: Radius-based geolocation matching, peer-to-peer textbook barter, escrow chat validation, and zero-commission community recirculation.
+
+### 5. Dealership OS Automotive Platform
+- Industry: Automotive Retail & Used Car Dealerships
+- Features: Multi-branch vehicle catalog, live status checking, integrated EMI calculator, and automated lead capture funnel.
+
+### 6. StyleCraft Design System
+- Industry: Design Engineering & Enterprise UI Tooling
+- Features: Tokenized design tokens in Figma and code, 40+ accessible React components, zero-runtime CSS overhead, and dark/light mode synchronization.
+
+## Engagement Model & Guarantees
+- **Velocity**: Production-ready MVP delivery in 3–6 weeks.
+- **Payment Structure**: Strict Escrow Milestone Deliverables — clients approve each phase before disbursement.
+- **Warranty**: 30 days of complimentary post-launch hypercare and developer support.
+- **Architecture Code Ownership**: Full IP rights and repository ownership transferred upon completion.

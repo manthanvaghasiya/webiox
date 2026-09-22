@@ -11,13 +11,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const service = services.find((s) => s.id === id);
-  if (!service) return { title: 'Service Not Found | Webiox' };
+  if (!service) return { title: 'Service Not Found' };
   
   return {
-    title: `${service.title} | Webiox Digital Solutions`,
+    title: `${service.title} Services`,
     description: service.description,
     openGraph: {
-      title: `${service.title} | Webiox Digital Solutions`,
+      title: `${service.title} Services | Webiox`,
       description: service.description,
       url: `https://webiox.tech/services/${service.id}`,
     },

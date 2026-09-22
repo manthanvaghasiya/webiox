@@ -28,7 +28,7 @@ radial-gradient(at 50% 95%, rgba(199,232,155,0.32) 0px, transparent 55%)`;
 
 const stats = [
   { icon: Briefcase, value: 20, suffix: '+', label: 'Projects Engineered', desc: 'From custom MVPs to enterprise flagships' },
-  { icon: Users, value: 15, suffix: '+', label: 'Visionary Partners', desc: 'Across Gujarat, India & international clients' },
+  { icon: Users, value: 15, suffix: '+', label: 'Visionary Partners', desc: 'High-growth businesses & market leaders' },
   { icon: Calendar, value: 99, suffix: '%', label: 'On-Time Delivery', desc: 'Agile sprints with transparent engineering' },
   { icon: ThumbsUp, value: 100, suffix: '%', label: 'Client Satisfaction', desc: '5-star rated across all production deliveries' },
 ];
