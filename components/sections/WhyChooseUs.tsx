@@ -827,45 +827,6 @@ export default function WhyChooseUs() {
           </a>
         </div>
 
-        {/* ── Live Performance Metrics Bar ── */}
-        <div className="mt-12 pt-10 border-t border-slate-200/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div>
-            <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl text-[#0F172A] mb-1">
-              99.8<span className="text-[#E7B900]">%</span>
-            </div>
-            <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">
-              Uptime & Performance SLA
-            </div>
-          </div>
-
-          <div>
-            <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl text-[#0F172A] mb-1">
-              38<span className="text-[#1a7097]">ms</span>
-            </div>
-            <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">
-              Average Edge TTFB
-            </div>
-          </div>
-
-          <div>
-            <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl text-[#0F172A] mb-1">
-              100<span className="text-[#E7B900]">%</span>
-            </div>
-            <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">
-              Milestone Lock Guarantee
-            </div>
-          </div>
-
-          <div>
-            <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl text-[#0F172A] mb-1">
-              0<span className="text-[#1a7097]">%</span>
-            </div>
-            <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">
-              Middlemen Overhead
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   );
