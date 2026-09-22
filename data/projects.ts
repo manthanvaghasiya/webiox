@@ -50,7 +50,7 @@ export const allProjects: Project[] = [
         ],
         tech: ['React', 'Vite', 'Node.js', 'Express'],
         image: '/sadguru.png',
-        modalImage: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2000&auto=format&fit=crop',
+        modalImage: '/sadguru.png',
         githubLink: '#',
         liveLink: 'https://sadgurucarsurat.com/'
     },
@@ -126,7 +126,7 @@ export const allProjects: Project[] = [
         ],
         tech: ['React', 'Node.js', 'Express', 'Vercel'],
         image: '/GovDocVerifyPlatform.png',
-        modalImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop',
+        modalImage: '/GovDocVerifyPlatform.png',
         githubLink: '#',
         liveLink: 'https://vercel.com'
     }

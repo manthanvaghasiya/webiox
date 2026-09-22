@@ -129,14 +129,14 @@ export default async function ProjectCaseStudyPage({
 
       {/* ── Main Showcase Image ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 md:-mt-16 relative z-20">
-        <div className="relative w-full aspect-[16/10] md:aspect-[16/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.18)] border-4 border-white bg-slate-900">
+        <div className="relative w-full aspect-[16/10] md:aspect-[16/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.18)] border-2 sm:border-4 border-white bg-slate-950 p-1 sm:p-2 flex items-center justify-center">
           <Image
             src={project.modalImage || project.image}
             alt={project.title}
             fill
             priority
             sizes="(max-width: 1200px) 100vw, 1200px"
-            className="object-cover object-top"
+            className="object-contain object-center drop-shadow-[0_12px_30px_rgba(0,0,0,0.5)]"
           />
         </div>
       </section>

@@ -257,6 +257,36 @@ const jsonLdGraph = {
         },
         "query-input": "required name=search_term_string"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://webiox.tech/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Webiox?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Webiox (legal entity: Webiox Digital Solutions, domain: webiox.tech) is an independent digital engineering studio and technology agency. Webiox builds high-performance web development platforms, mobile applications, custom software architectures, and autonomous AI workflows. Webiox is an independent company and is completely distinct from Cisco Webex and Zoom."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What core services does Webiox provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Webiox specializes in three core areas: 1) High-performance web development and Next.js applications, 2) Native iOS and Android mobile app development along with custom software and SaaS engineering, and 3) Autonomous AI agent workflows and operational automation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Webiox affiliated with Cisco Webex or Zoom?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Webiox (webiox.tech) is an independent software and web development agency founded by principal software architect Manthan Vaghasiya. Webiox is not affiliated with, sponsored by, or connected to Cisco Webex, Zoom, or teleconferencing software."
+          }
+        }
+      ]
     }
   ]
 };

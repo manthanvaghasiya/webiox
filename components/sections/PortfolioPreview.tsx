@@ -149,7 +149,6 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
   const overlayOpacity = useTransform(progress, [outStart, outEnd], [0, 0.22]);
 
   const metrics = PROJECT_METRICS[project.id];
-  const stackTopOffset = index * 12; // 12px visible header peek per stacked card
 
   return (
     <motion.div
@@ -158,12 +157,12 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
         y,
         scale,
         filter,
-        top: `${stackTopOffset}px`,
-        height: `calc(100% - ${(totalCards - 1) * 12}px)`,
+        top: `calc(var(--stack-offset, 7px) * ${index})`,
+        height: `calc(100% - (var(--stack-offset, 7px) * ${totalCards - 1}))`,
         zIndex: index + 1,
       }}
     >
-      <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-3.5 sm:p-6 lg:p-7 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12)] hover:border-[#1a7097]/40 transition-colors overflow-hidden flex flex-col justify-between">
+      <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-3 sm:p-5 lg:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12)] hover:border-[#1a7097]/40 transition-colors overflow-hidden flex flex-col justify-between">
         
         {/* Subtle Darkening Overlay when buried underneath */}
         <motion.div
@@ -172,93 +171,117 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
         />
 
         {/* Top Metadata Strip */}
-        <div className="flex items-center justify-between gap-3 mb-2 sm:mb-3 shrink-0">
-          <div className="flex items-center gap-2">
-            <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider">
+        <div className="flex items-center justify-between gap-2 mb-2 sm:mb-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+            <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider truncate">
               {project.category}
             </span>
-            <span className="text-[11px] sm:text-xs font-mono text-slate-400 font-medium">
+            <span className="text-[10px] sm:text-xs font-mono text-slate-400 font-medium shrink-0">
               // {project.year}
             </span>
           </div>
 
-          <div className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] sm:text-[10.5px] font-mono font-bold text-emerald-700">
-            <ShieldCheck className="w-3 h-3 text-emerald-600" />
-            <span>{metrics?.badge || '100% Milestone Lock'}</span>
+          <div className="flex items-center gap-1.5 shrink-0">
+            {/* Mobile Metric Highlight - Keeps canvas clean while highlighting performance */}
+            {metrics?.pill1 && (
+              <div className="sm:hidden inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-mono font-bold text-emerald-700">
+                <TrendingUp className="w-2.5 h-2.5 text-emerald-600" />
+                <span>{metrics.pill1.value}</span>
+              </div>
+            )}
+
+            {/* Desktop Badge */}
+            <div className="hidden sm:inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] sm:text-[10.5px] font-mono font-bold text-emerald-700">
+              <ShieldCheck className="w-3 h-3 text-emerald-600" />
+              <span>{metrics?.badge || '100% Milestone Lock'}</span>
+            </div>
           </div>
         </div>
 
-        {/* ── Flawless High-Res Showcase Canvas (Guaranteed Responsive Height) ── */}
-        <div className="relative w-full flex-1 min-h-[190px] sm:min-h-[250px] md:min-h-[300px] rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-950 overflow-hidden mb-2.5 sm:mb-4 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.15)] group/device">
+        {/* ── Flawless High-Res Showcase Canvas (Impressive Studio Framing & 100% Mobile Visibility) ── */}
+        <div className="relative w-full flex-1 min-h-[190px] xs:min-h-[220px] sm:min-h-[250px] md:min-h-[290px] rounded-xl sm:rounded-2xl border border-slate-800/80 bg-gradient-to-b from-[#090D16] via-[#0F172A] to-[#090D16] overflow-hidden mb-2 sm:mb-3 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.22)] group/device flex items-center justify-center">
           
-          {/* Full High-Resolution Showcase Image */}
-          <div className="relative w-full h-full">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              priority={index <= 1}
-              className="object-cover object-center group-hover/device:scale-[1.025] transition-transform duration-700 select-none"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 800px"
-            />
-            {/* Subtle Specular Reflection */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none" />
+          {/* Subtle Ambient Studio Spotlight behind mockup */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1a7097]/25 via-transparent to-transparent pointer-events-none" />
 
-            {/* Live Web Link Pill on Top-Left */}
-            {project.liveLink && project.liveLink !== '#' && (
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2.5 sm:px-3 py-1 rounded-full bg-black/65 hover:bg-black/85 backdrop-blur-md border border-white/20 text-[9.5px] sm:text-[10px] font-mono text-white flex items-center gap-1 sm:gap-1.5 transition-all shadow-md z-10 cursor-pointer"
-              >
-                <Lock className="w-2.5 h-2.5 text-emerald-400" />
-                <span className="truncate max-w-[140px] sm:max-w-none">{project.liveLink.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
-                <ExternalLink className="w-2.5 h-2.5 opacity-70" />
-              </a>
-            )}
+          {/* Full High-Resolution Showcase Image with direct tap to explore */}
+          <Link
+            href={`/portfolio/${project.id}`}
+            className="relative w-full h-full flex items-center justify-center p-1 sm:p-2 cursor-pointer"
+            aria-label={`View ${project.title} case study`}
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                priority={index <= 1}
+                className="object-contain object-center group-hover/device:scale-[1.025] transition-transform duration-500 select-none drop-shadow-[0_12px_28px_rgba(0,0,0,0.45)]"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 800px"
+              />
+            </div>
+            
+            {/* Subtle Specular Glare */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-white/5 pointer-events-none" />
+          </Link>
 
-            {/* Floating Metric 1 (Bottom Left) */}
-            {metrics?.pill1 && (
-              <div className="absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg flex items-center gap-1.5 sm:gap-2 z-10">
-                <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-[9px] sm:text-[10px]">
-                  ↑
+          {/* Live Web Link Pill on Top-Left */}
+          {project.liveLink && project.liveLink !== '#' && (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 sm:px-3 py-1 rounded-full bg-black/75 hover:bg-black/90 backdrop-blur-md border border-white/20 text-[9px] sm:text-[10px] font-mono text-white flex items-center gap-1 sm:gap-1.5 transition-all shadow-md z-10 cursor-pointer"
+            >
+              <Lock className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
+              <span className="hidden xs:inline truncate max-w-[130px] sm:max-w-none">
+                {project.liveLink.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+              </span>
+              <span className="xs:hidden font-sans font-semibold">Live</span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-70 shrink-0" />
+            </a>
+          )}
+
+          {/* Floating Metric 1 (Bottom Left) - Desktop only, so mobile image is 100% clean */}
+          {metrics?.pill1 && (
+            <div className="hidden sm:flex absolute bottom-3 left-3 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg items-center gap-2 z-10">
+              <div className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-[10px]">
+                ↑
+              </div>
+              <div>
+                <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-xs text-[#0F172A] leading-tight">
+                  {metrics.pill1.value}
                 </div>
-                <div>
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-[11px] sm:text-xs text-[#0F172A] leading-tight">
-                    {metrics.pill1.value}
-                  </div>
-                  <div className="text-[7.5px] sm:text-[8.5px] font-mono text-slate-400 leading-tight">
-                    {metrics.pill1.label}
-                  </div>
+                <div className="text-[8.5px] font-mono text-slate-400 leading-tight">
+                  {metrics.pill1.label}
                 </div>
               </div>
-            )}
+            </div>
+          )}
 
-            {/* Floating Metric 2 (Top Right) */}
-            {metrics?.pill2 && (
-              <div className="hidden xs:flex absolute top-2.5 right-2.5 sm:top-3 sm:right-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg items-center gap-1 sm:gap-1.5 z-10">
-                <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#1a7097]" />
-                <div>
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-[11px] sm:text-xs text-[#0F172A] leading-tight">
-                    {metrics.pill2.value}
-                  </div>
-                  <div className="text-[7.5px] sm:text-[8.5px] font-mono text-slate-400 leading-tight">
-                    {metrics.pill2.label}
-                  </div>
+          {/* Floating Metric 2 (Top Right) - Desktop only */}
+          {metrics?.pill2 && (
+            <div className="hidden sm:flex absolute top-3 right-3 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg items-center gap-1.5 z-10">
+              <Zap className="w-3 h-3 text-[#1a7097]" />
+              <div>
+                <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-xs text-[#0F172A] leading-tight">
+                  {metrics.pill2.value}
+                </div>
+                <div className="text-[8.5px] font-mono text-slate-400 leading-tight">
+                  {metrics.pill2.label}
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         {/* Card Footer: Info, Tech Stack & Action Buttons */}
         <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-2 sm:gap-3 shrink-0">
           <div className="min-w-0 flex-1">
-            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-xl lg:text-2xl text-[#0F172A] tracking-tight leading-snug truncate">
+            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm xs:text-base sm:text-xl lg:text-2xl text-[#0F172A] tracking-tight leading-snug truncate">
               {project.title}
             </h3>
-            <p className="font-['Plus_Jakarta_Sans',sans-serif] text-[11px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-relaxed line-clamp-1 max-w-xl">
+            <p className="font-['Plus_Jakarta_Sans',sans-serif] text-[10px] xs:text-[11px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-relaxed line-clamp-1 max-w-xl">
               {project.shortDescription}
             </p>
           </div>
@@ -279,9 +302,10 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
             {/* Action Button */}
             <Link
               href={`/portfolio/${project.id}`}
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group/link shrink-0"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group/link shrink-0"
             >
-              <span>Explore Case Study</span>
+              <span className="hidden xs:inline">Explore Case Study</span>
+              <span className="xs:hidden">Case Study</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
@@ -358,7 +382,7 @@ export default function PortfolioPreview() {
       <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
 
       {/* ── Sticky Viewport Container (Locks in place while user scrolls through all 6 cards) ── */}
-      <div className="sticky top-14 sm:top-20 h-[calc(100vh-70px)] sm:h-[calc(100vh-80px)] min-h-[560px] max-h-[820px] w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-3 sm:gap-6 lg:gap-8 pt-2 sm:pt-3 pb-3 sm:pb-6 overflow-hidden">
+      <div className="sticky top-14 sm:top-20 h-[calc(100dvh-64px)] sm:h-[calc(100vh-80px)] min-h-[580px] xs:min-h-[620px] max-h-[860px] w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-3 sm:gap-6 lg:gap-8 pt-2 sm:pt-3 pb-3 sm:pb-6 overflow-hidden">
         
         {/* ════════════════════════════════════════════════════════════════════
             LEFT COLUMN: CONCEPT 3 - AWWWARDS MAGAZINE EDITORIAL
@@ -522,7 +546,7 @@ export default function PortfolioPreview() {
             RIGHT COLUMN: STREAMLINED STACKING CARDS VIEWPORT (~58% lg)
             (On mobile: expands to flex-1 to fill the remaining height!)
            ════════════════════════════════════════════════════════════════════ */}
-        <div className="w-full lg:w-[58%] xl:w-[60%] flex-1 lg:h-full relative min-h-[360px] sm:min-h-[440px]">
+        <div className="w-full lg:w-[58%] xl:w-[60%] flex-1 lg:h-full relative min-h-[380px] xs:min-h-[420px] sm:min-h-[460px] [--stack-offset:7px] sm:[--stack-offset:12px]">
           <div className="relative w-full h-full">
             {STACK_PROJECTS.map((project, index) => (
               <StackCard

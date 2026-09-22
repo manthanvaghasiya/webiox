@@ -67,9 +67,9 @@ const DeepDiveProjectMobile = ({ project, index }: DeepDiveProjectMobileProps) =
                whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ once: true, margin: "-10%" }}
                transition={{ duration: 0.8, delay: 0.2 }}
-               className="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] mt-2"
+               className="w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.15)] bg-slate-950 border border-slate-800/80 p-1.5 mt-2 flex items-center justify-center"
             >
-               <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+               <img src={project.image} alt={project.title} className="w-full h-full object-contain rounded-xl select-none" />
             </motion.div>
 
             {/* Content Box */}
