@@ -5,61 +5,84 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
-import { Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react';
+import {
+  Menu,
+  X,
+  ArrowUpRight,
+  ChevronDown,
+  Sparkles,
+  MessageCircle,
+  Phone,
+  ArrowRight,
+  Briefcase,
+  FileText,
+  Mail,
+} from 'lucide-react';
 
 interface SubLink {
   readonly name: string;
   readonly href: string;
+  readonly desc?: string;
+  readonly badge?: string;
 }
 
 interface NavLink {
   readonly name: string;
   readonly href: string;
+  readonly badge?: string;
   readonly children?: readonly SubLink[];
 }
 
 const NAV_LINKS: readonly NavLink[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Services', href: '/services', badge: '4 Squads' },
+  { name: 'Portfolio', href: '/portfolio', badge: 'Selected Work' },
   {
     name: 'Company',
     href: '#',
     children: [
-      { name: 'Blog', href: '/blog' },
-      { name: 'Contact Us', href: '/contact' },
-      { name: 'Career', href: '/career' },
+      { name: 'Blog', href: '/blog', desc: 'Engineering insights & tech guides' },
+      { name: 'Contact Us', href: '/contact', desc: 'Direct architect consultation' },
+      { name: 'Career', href: '/career', desc: 'Join our high-velocity team', badge: 'Hiring' },
     ],
   },
 ] as const;
 
 const BRAND_TEAL = '#1a7097';
 
-const mobilePanel: Variants = {
-  hidden: { opacity: 0, y: -8, transition: { when: 'afterChildren' } },
+const mobileDrawerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: -16,
+    scale: 0.98,
+    transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1] },
+  },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { when: 'beforeChildren', staggerChildren: 0.06, delayChildren: 0.05 },
+    scale: 1,
+    transition: {
+      duration: 0.3,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.05,
+      delayChildren: 0.05,
+    },
   },
 };
 
-const mobileItem: Variants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } },
+const mobileItemVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [hovered, setHovered] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [pillDropdownOpen, setPillDropdownOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
-  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pillDropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -71,7 +94,7 @@ export default function Header() {
   }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -100,13 +123,11 @@ export default function Header() {
   const isActive = (href: string) =>
     mounted ? (href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)) : false;
 
-  const indicatorKey = hovered ?? NAV_LINKS.find((l) => isActive(l.href))?.href ?? null;
-
   return (
     <>
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           PERMANENT FLOATING CAPSULE PILL NAVBAR
-          (Always visible, sleek floating capsule matching user's design)
+          (Precision-engineered for all mobile & desktop viewports)
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <motion.nav
         key="floating-pill"
@@ -114,13 +135,13 @@ export default function Header() {
         initial={{ opacity: 0, y: -25, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-        className="fixed top-3 sm:top-5 inset-x-0 z-50 flex justify-center pointer-events-none px-3 sm:px-4"
+        className="fixed top-2.5 sm:top-5 inset-x-0 z-50 flex justify-center pointer-events-none px-3 sm:px-4"
       >
         <div
-          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border rounded-full p-1.5 sm:p-2 pl-3 sm:pl-4 pr-1.5 sm:pr-2 transition-shadow duration-300 flex items-center justify-between md:justify-start w-[calc(100vw-24px)] max-w-sm sm:max-w-md md:w-auto md:max-w-fit ${
+          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border rounded-full p-1.5 sm:p-2 pl-3 sm:pl-4 pr-1.5 sm:pr-2 transition-all duration-300 flex items-center justify-between md:justify-start w-[calc(100vw-24px)] max-w-sm sm:max-w-md md:w-auto md:max-w-fit ${
             scrolled
-              ? 'border-slate-300/90 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.04)]'
-              : 'border-slate-200/80 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
+              ? 'border-slate-300/90 shadow-[0_20px_50px_-10px_rgba(15,23,42,0.14),0_1px_3px_rgba(0,0,0,0.04)]'
+              : 'border-slate-200/80 shadow-[0_14px_38px_-10px_rgba(15,23,42,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
           }`}
         >
           {/* Brand Logo (left) */}
@@ -187,7 +208,7 @@ export default function Header() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 8, scale: 0.96 }}
                           transition={{ duration: 0.18 }}
-                          className="absolute top-full right-0 mt-2.5 w-44 py-2 bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200/80 shadow-[0_20px_45px_rgba(0,0,0,0.12)]"
+                          className="absolute top-full right-0 mt-2.5 w-52 py-2 bg-white/98 backdrop-blur-xl rounded-2xl border border-slate-200/90 shadow-[0_20px_45px_rgba(0,0,0,0.12)]"
                         >
                           {link.children!.map((child) => {
                             const childActive = isActive(child.href);
@@ -196,19 +217,26 @@ export default function Header() {
                                 <Link
                                   href={child.href}
                                   className={[
-                                    'flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg mx-1 transition-colors',
+                                    'flex items-center justify-between px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg mx-1 transition-colors',
                                     childActive
                                       ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold'
                                       : 'text-slate-700 hover:text-[#1a7097] hover:bg-slate-50',
                                   ].join(' ')}
                                 >
-                                  {childActive && (
-                                    <span
-                                      aria-hidden
-                                      className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
-                                    />
+                                  <div className="flex items-center gap-2">
+                                    {childActive && (
+                                      <span
+                                        aria-hidden
+                                        className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
+                                      />
+                                    )}
+                                    <span>{child.name}</span>
+                                  </div>
+                                  {child.badge && (
+                                    <span className="px-1.5 py-0.5 rounded-full bg-[#E7B900]/15 text-[#9a7b00] font-mono text-[9px] font-bold">
+                                      {child.badge}
+                                    </span>
                                   )}
-                                  {child.name}
                                 </Link>
                               </li>
                             );
@@ -243,21 +271,25 @@ export default function Header() {
             {/* Action Button: Start Project */}
             <Link
               href="/contact"
-              className="bg-[#1a7097] hover:bg-[#145b7c] text-white shadow-[0_8px_20px_-6px_rgba(26,112,151,0.55)] hover:shadow-[0_12px_28px_-6px_rgba(26,112,151,0.65)] font-semibold text-xs sm:text-sm px-3 sm:px-4.5 py-1.5 sm:py-2 rounded-full transition-all flex items-center gap-1 cursor-pointer group whitespace-nowrap"
+              className="bg-[#1a7097] hover:bg-[#145b7c] text-white shadow-[0_8px_20px_-6px_rgba(26,112,151,0.55)] hover:shadow-[0_12px_28px_-6px_rgba(26,112,151,0.65)] font-semibold text-xs sm:text-sm px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full transition-all flex items-center gap-1 cursor-pointer group whitespace-nowrap active:scale-95"
             >
               <span className="hidden xs:inline">Start Project</span>
               <span className="inline xs:hidden">Start</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
             </Link>
 
-            {/* Mobile menu toggle inside floating pill */}
+            {/* Mobile menu toggle inside floating pill (High-Precision Animated Toggle) */}
             <button
               type="button"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              className="md:hidden inline-flex items-center justify-center w-8 h-8 rounded-full text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
+              className={`md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border transition-all cursor-pointer active:scale-90 ${
+                mobileOpen
+                  ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                  : 'bg-slate-100/90 hover:bg-slate-200/90 text-slate-800 border-slate-200/80'
+              }`}
             >
-              {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4.5 h-4.5" />}
             </button>
           </div>
         </div>
@@ -265,168 +297,231 @@ export default function Header() {
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           STATE 3: MOBILE NAVIGATION DRAWER
-          (Unified drawer accessible from either top or scrolled state)
+          (Top-tier, fluid luxury mobile menu with direct WhatsApp & Architect access)
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <AnimatePresence>
         {mobileOpen && (
           <>
+            {/* Backdrop with Blur */}
             <motion.div
               key="mobile-backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.24 }}
               onClick={() => setMobileOpen(false)}
-              className="md:hidden fixed inset-0 bg-slate-950/50 backdrop-blur-sm z-50"
+              className="md:hidden fixed inset-0 bg-slate-950/60 backdrop-blur-md z-50"
               aria-hidden
             />
+
+            {/* Slide-Down Menu Sheet */}
             <motion.div
               id="mobile-menu"
               key="mobile-panel"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation"
-              variants={mobilePanel}
+              variants={mobileDrawerVariants}
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="md:hidden fixed left-3 right-3 top-16 sm:top-20 z-50 bg-white/98 backdrop-blur-xl border border-slate-200/90 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] p-4 max-h-[calc(100vh-80px)] overflow-y-auto"
+              className="md:hidden fixed left-3 right-3 top-14 sm:top-18 z-50 bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_30px_70px_-15px_rgba(15,23,42,0.3)] p-4 sm:p-5 max-h-[calc(100vh-76px)] overflow-y-auto overscroll-contain flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-2">
-                <Image
-                  src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
-                  alt="Webiox"
-                  width={116}
-                  height={28}
-                  style={{ width: 'auto', height: 'auto' }}
-                  className="h-6 w-auto object-contain"
-                />
-                <button
-                  type="button"
-                  onClick={() => setMobileOpen(false)}
-                  aria-label="Close menu"
-                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
+              <div>
+                {/* Top Header Strip inside Drawer */}
+                <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-3">
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
+                      alt="Webiox"
+                      width={116}
+                      height={28}
+                      style={{ width: 'auto', height: 'auto' }}
+                      className="h-6 w-auto object-contain"
+                    />
+                    <span className="px-2 py-0.5 rounded-md bg-[#1a7097]/10 text-[#1a7097] text-[9.5px] font-mono font-bold uppercase tracking-wider">
+                      STUDIO
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setMobileOpen(false)}
+                    aria-label="Close menu"
+                    className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
 
-              <ul className="flex flex-col gap-1">
-                {NAV_LINKS.map((link) => {
-                  const hasChildren = link.children && link.children.length > 0;
-                  const active = hasChildren
-                    ? link.children!.some((c) => isActive(c.href))
-                    : isActive(link.href);
+                {/* Primary Navigation Links */}
+                <ul className="flex flex-col gap-1">
+                  {NAV_LINKS.map((link, idx) => {
+                    const hasChildren = link.children && link.children.length > 0;
+                    const active = hasChildren
+                      ? link.children!.some((c) => isActive(c.href))
+                      : isActive(link.href);
 
-                  if (hasChildren) {
+                    if (hasChildren) {
+                      return (
+                        <motion.li key={link.name} variants={mobileItemVariants}>
+                          <button
+                            type="button"
+                            onClick={() => setMobileCompanyOpen((v) => !v)}
+                            aria-expanded={mobileCompanyOpen}
+                            className={[
+                              'flex items-center justify-between w-full px-3.5 py-2.5 rounded-2xl text-base font-bold transition-colors cursor-pointer',
+                              active
+                                ? 'bg-[#1a7097]/10 text-[#1a7097]'
+                                : 'text-slate-800 hover:bg-slate-50',
+                            ].join(' ')}
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className="font-mono text-xs text-slate-400 font-semibold">
+                                0{idx + 1}
+                              </span>
+                              <span>{link.name}</span>
+                            </div>
+                            <ChevronDown
+                              className={[
+                                'w-4 h-4 transition-transform duration-300 text-slate-500',
+                                mobileCompanyOpen ? 'rotate-180' : '',
+                              ].join(' ')}
+                            />
+                          </button>
+
+                          <AnimatePresence>
+                            {mobileCompanyOpen && (
+                              <motion.ul
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                                className="overflow-hidden pl-7 pr-2 space-y-1 pt-1 pb-2"
+                              >
+                                {link.children!.map((child) => {
+                                  const childActive = isActive(child.href);
+                                  return (
+                                    <li key={child.href}>
+                                      <Link
+                                        href={child.href}
+                                        aria-current={childActive ? 'page' : undefined}
+                                        className={[
+                                          'flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium transition-colors',
+                                          childActive
+                                            ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold'
+                                            : 'text-slate-600 hover:text-[#1a7097] hover:bg-slate-50',
+                                        ].join(' ')}
+                                      >
+                                        <div className="min-w-0">
+                                          <div className="flex items-center gap-1.5">
+                                            {childActive && (
+                                              <span
+                                                aria-hidden
+                                                className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
+                                              />
+                                            )}
+                                            <span>{child.name}</span>
+                                          </div>
+                                          {child.desc && (
+                                            <div className="text-[11px] text-slate-400 font-normal truncate mt-0.5">
+                                              {child.desc}
+                                            </div>
+                                          )}
+                                        </div>
+
+                                        {child.badge && (
+                                          <span className="px-2 py-0.5 rounded-full bg-[#E7B900]/15 text-[#9a7b00] font-mono text-[9px] font-bold">
+                                            {child.badge}
+                                          </span>
+                                        )}
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
+                              </motion.ul>
+                            )}
+                          </AnimatePresence>
+                        </motion.li>
+                      );
+                    }
+
                     return (
-                      <motion.li key={link.name} variants={mobileItem}>
-                        <button
-                          type="button"
-                          onClick={() => setMobileCompanyOpen((v) => !v)}
-                          aria-expanded={mobileCompanyOpen}
+                      <motion.li key={link.href} variants={mobileItemVariants}>
+                        <Link
+                          href={link.href}
+                          aria-current={active ? 'page' : undefined}
                           className={[
-                            'flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-base font-semibold transition-colors',
+                            'flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-base font-bold transition-colors cursor-pointer',
                             active
                               ? 'bg-[#1a7097]/10 text-[#1a7097]'
-                              : 'text-slate-800 hover:bg-slate-900/5',
+                              : 'text-slate-800 hover:bg-slate-50',
                           ].join(' ')}
                         >
-                          <span>{link.name}</span>
-                          <ChevronDown
-                            className={[
-                              'w-4 h-4 transition-transform duration-300',
-                              mobileCompanyOpen ? 'rotate-180' : '',
-                            ].join(' ')}
-                          />
-                        </button>
-                        <AnimatePresence>
-                          {mobileCompanyOpen && (
-                            <motion.ul
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                              className="overflow-hidden pl-3"
-                            >
-                              {link.children!.map((child) => {
-                                const childActive = isActive(child.href);
-                                return (
-                                  <li key={child.href}>
-                                    <Link
-                                      href={child.href}
-                                      aria-current={childActive ? 'page' : undefined}
-                                      className={[
-                                        'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
-                                        childActive
-                                          ? 'text-[#1a7097] bg-[#1a7097]/5'
-                                          : 'text-slate-600 hover:text-[#1a7097] hover:bg-slate-50',
-                                      ].join(' ')}
-                                    >
-                                      {childActive && (
-                                        <span
-                                          aria-hidden
-                                          className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
-                                          style={{ boxShadow: `0 0 0 4px ${BRAND_TEAL}1A` }}
-                                        />
-                                      )}
-                                      {child.name}
-                                    </Link>
-                                  </li>
-                                );
-                              })}
-                            </motion.ul>
+                          <div className="flex items-center gap-2.5">
+                            <span className="font-mono text-xs text-slate-400 font-semibold">
+                              0{idx + 1}
+                            </span>
+                            <span>{link.name}</span>
+                          </div>
+
+                          {link.badge && (
+                            <span className="px-2 py-0.5 rounded-full bg-[#1a7097]/10 text-[#1a7097] font-mono text-[10px] font-semibold">
+                              {link.badge}
+                            </span>
                           )}
-                        </AnimatePresence>
+                        </Link>
                       </motion.li>
                     );
-                  }
+                  })}
+                </ul>
 
-                  return (
-                    <motion.li key={link.href} variants={mobileItem}>
-                      <Link
-                        href={link.href}
-                        aria-current={active ? 'page' : undefined}
-                        className={[
-                          'flex items-center justify-between px-3.5 py-2.5 rounded-xl text-base font-semibold transition-colors',
-                          active
-                            ? 'bg-[#1a7097]/10 text-[#1a7097]'
-                            : 'text-slate-800 hover:bg-slate-900/5',
-                        ].join(' ')}
-                      >
-                        <span>{link.name}</span>
-                        {active && (
-                          <span
-                            aria-hidden
-                            className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
-                            style={{ boxShadow: `0 0 0 4px ${BRAND_TEAL}1A` }}
-                          />
-                        )}
-                      </Link>
-                    </motion.li>
-                  );
-                })}
-
-                <motion.li variants={mobileItem} className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
-                  <Link
-                    href="/contact"
-                    className="group flex items-center justify-center gap-2 w-full rounded-xl bg-[#1a7097] text-white px-4 py-3 font-semibold text-sm shadow-[0_10px_25px_-8px_rgba(26,112,151,0.6)] cursor-pointer"
-                  >
-                    <span>Start a Project</span>
-                    <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
+                {/* Direct Architect VIP Access Box */}
+                <motion.div
+                  variants={mobileItemVariants}
+                  className="mt-3.5 p-3 rounded-2xl bg-gradient-to-r from-slate-50 to-emerald-50/50 border border-slate-200/80 flex items-center justify-between gap-3"
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-xl bg-[#1a7097] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
+                      MV
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
+                        Manthan Vaghasiya
+                      </div>
+                      <div className="flex items-center gap-1 text-[10.5px] font-mono text-emerald-700">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span>Lead Architect VIP Online</span>
+                      </div>
+                    </div>
+                  </div>
 
                   <a
-                    href="https://wa.me/919664736245?text=Hi%20Webiox%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                    href="https://wa.me/919664736245?text=Hi%20Manthan%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Webiox."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 text-emerald-800 px-4 py-2.5 font-semibold text-sm transition-colors cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-[10.5px] font-bold shrink-0 transition-colors shadow-2xs flex items-center gap-1"
                   >
-                    <span>Direct WhatsApp VIP</span>
-                    <ArrowUpRight className="w-4 h-4 text-emerald-600" />
+                    <MessageCircle className="w-3 h-3" />
+                    <span>WhatsApp</span>
                   </a>
-                </motion.li>
-              </ul>
+                </motion.div>
+              </div>
+
+              {/* Bottom Quick Action CTAs */}
+              <motion.div variants={mobileItemVariants} className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <Link
+                  href="/contact"
+                  className="group flex items-center justify-center gap-2 w-full rounded-2xl bg-[#1a7097] hover:bg-[#145b7c] text-white px-4 py-3 font-semibold text-sm shadow-[0_10px_25px_-8px_rgba(26,112,151,0.55)] cursor-pointer transition-all active:scale-[0.98]"
+                >
+                  <span>Start Your Project</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+
+                <div className="flex items-center justify-between px-2 pt-1 text-[11px] font-mono text-slate-400">
+                  <span>Avg response: &lt; 15 mins</span>
+                  <span>Surat // 21.17°N 72.83°E</span>
+                </div>
+              </motion.div>
             </motion.div>
           </>
         )}
