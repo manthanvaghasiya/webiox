@@ -213,7 +213,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
               fill
               priority={index <= 1}
               className="object-cover object-center group-hover/device:scale-[1.035] transition-transform duration-700 ease-out select-none"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
+              sizes="(max-width: 640px) 380px, (max-width: 1024px) 60vw, 720px"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-black/15 via-transparent to-white/10 pointer-events-none" />
           </Link>
@@ -403,7 +403,7 @@ export default function PortfolioPreview() {
               <span>0{mobileIndex + 1} / 0{STACK_PROJECTS.length}</span>
             </div>
 
-            <span className="font-mono text-[10px] text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/60">
+            <span className="font-mono text-[10px] text-slate-600 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/80">
               SWIPE / TAP
             </span>
           </div>
@@ -470,7 +470,7 @@ export default function PortfolioPreview() {
                     fill
                     priority
                     className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out select-none"
-                    sizes="(max-width: 640px) 100vw, 600px"
+                    sizes="(max-width: 640px) 380px, (max-width: 1024px) 50vw, 600px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/15 via-transparent to-white/10 pointer-events-none" />
                 </Link>
@@ -563,20 +563,24 @@ export default function PortfolioPreview() {
             <ChevronLeft className="w-4 h-4" />
           </button>
 
-          {/* 6 Scrubber dashes */}
-          <div className="flex items-center gap-1.5">
+          {/* 6 Scrubber dashes (Touch-friendly 44px targets) */}
+          <div className="flex items-center gap-1">
             {STACK_PROJECTS.map((_, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => setMobileIndex(idx)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  mobileIndex === idx
-                    ? 'w-7 bg-[#1a7097]'
-                    : 'w-2 bg-slate-200 hover:bg-slate-300'
-                }`}
+                className="p-2.5 flex items-center justify-center cursor-pointer -m-1"
                 aria-label={`Go to project 0${idx + 1}`}
-              />
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 block ${
+                    mobileIndex === idx
+                      ? 'w-7 bg-[#1a7097]'
+                      : 'w-2 bg-slate-200 hover:bg-slate-300'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 

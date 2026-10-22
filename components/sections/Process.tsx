@@ -224,7 +224,7 @@ export default function Process() {
                       <span className="font-mono text-[10.5px] font-bold text-[#1a7097]">
                         STAGE_{stage.number}
                       </span>
-                      <span className="font-mono text-[10px] text-slate-400">
+                      <span className="font-mono text-[10px] text-slate-500 font-medium">
                         {stage.duration}
                       </span>
                     </div>
@@ -278,8 +278,8 @@ export default function Process() {
                 <div className="absolute top-0 right-0 w-80 h-80 bg-[#1a7097]/8 rounded-full blur-3xl pointer-events-none" />
                 
                 {/* Corner Crosshairs */}
-                <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-                <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+                <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+                <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
 
                 {/* Stage Header */}
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
@@ -305,7 +305,7 @@ export default function Process() {
 
                 {/* Deliverables Checklist */}
                 <div className="mb-6">
-                  <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider block mb-3">
+                  <span className="text-[11px] font-mono font-bold text-slate-600 uppercase tracking-wider block mb-3">
                     Verified Deliverables for this Phase:
                   </span>
                   <div className="space-y-2.5">
@@ -332,7 +332,7 @@ export default function Process() {
 
                 {/* Technology Stack Tags */}
                 <div className="mb-6">
-                  <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider block mb-2.5">
+                  <span className="text-[11px] font-mono font-bold text-slate-600 uppercase tracking-wider block mb-2.5">
                     Engineering Stack Deployed:
                   </span>
                   <div className="flex flex-wrap gap-2">

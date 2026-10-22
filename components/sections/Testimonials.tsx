@@ -140,8 +140,8 @@ export default function Testimonials() {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#1a7097]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#1a7097]/10 transition-colors duration-500" />
                 
                 {/* Corner Crosshairs */}
-                <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-                <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+                <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+                <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
 
                 <div>
                   {/* Top Bar: Sector Tag & Verified Badge */}
@@ -202,7 +202,7 @@ export default function Testimonials() {
                     <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-semibold text-[#1a7097] truncate">
                       {testimonial.role} • {testimonial.company}
                     </p>
-                    <p className="font-mono text-[10px] text-slate-400 truncate">
+                    <p className="font-mono text-[10px] text-slate-600 font-medium truncate">
                       {testimonial.location}
                     </p>
                   </div>

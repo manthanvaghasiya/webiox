@@ -217,9 +217,9 @@ export default function WhyChooseUs() {
         isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-start gap-4 sm:gap-5`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#1a7097]/8'} rounded-full blur-3xl pointer-events-none`} />
-        <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-        <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-        <div className="absolute bottom-3 right-3 text-slate-300 font-mono text-[9px] select-none pointer-events-none">
+        <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+        <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+        <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
           {isTraditional ? 'LEGACY_MONOLITH // UNCACHED' : 'SURAT_EDGE // 21.17°N 72.83°E'}
         </div>
 
@@ -236,7 +236,7 @@ export default function WhyChooseUs() {
             <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
               isTraditional
                 ? 'bg-rose-50 border border-rose-200/80 text-rose-700'
-                : 'bg-emerald-50 border border-emerald-200/80 text-emerald-700'
+                : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
             }`}>
               <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500 animate-ping'}`} />
               <span>{isTraditional ? '850MS ORIGIN BOTTLENECK' : 'SUB-SECOND EDGE ACTIVE'}</span>
@@ -305,14 +305,14 @@ export default function WhyChooseUs() {
                   <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
                     Client Browser
                   </div>
-                  <div className="font-mono text-[9px] text-slate-400">SURAT_REQ</div>
+                  <div className="font-mono text-[9px] text-slate-500 font-medium">SURAT_REQ</div>
                 </div>
               </div>
 
               {/* Hop 2: Middle Pipe Arrow */}
               <div className="flex-1 flex flex-col items-center px-2">
-                <div className="flex items-center gap-1 text-[9.5px] font-mono font-bold text-slate-400 mb-0.5">
-                  <span className={effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'}>
+                <div className="flex items-center gap-1 text-[9.5px] font-mono font-bold text-slate-500 mb-0.5">
+                  <span className={effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'}>
                     {effectiveSpeedStack === 'webiox' ? '⚡ 38ms Edge Route' : '✕ 850ms Origin Delay'}
                   </span>
                 </div>
@@ -330,14 +330,14 @@ export default function WhyChooseUs() {
                     {effectiveSpeedStack === 'webiox' ? 'Mumbai Edge PoP' : 'Uncached Apache'}
                   </div>
                   <div className={`font-mono text-[9px] font-bold ${
-                    effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                    effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
                   }`}>
                     {effectiveSpeedStack === 'webiox' ? 'Hit (Redis ISR)' : 'Cold Origin Parse'}
                   </div>
                 </div>
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                   effectiveSpeedStack === 'webiox'
-                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-200/80'
+                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
                     : 'bg-rose-50 text-rose-700 border border-rose-200/80'
                 }`}>
                   <Server className="w-4 h-4" />
@@ -356,7 +356,7 @@ export default function WhyChooseUs() {
                 </span>
               </div>
               <span className={`font-bold shrink-0 text-[10px] ${
-                effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
               }`}>
                 {effectiveSpeedStack === 'webiox' ? 'CACHE: HIT (4ms)' : 'CACHE: MISS (Cold)'}
               </span>
@@ -365,36 +365,36 @@ export default function WhyChooseUs() {
             {/* 4 Technical Metric Indicators */}
             <div className="pt-2 border-t border-slate-100 grid grid-cols-4 gap-1.5 sm:gap-2 text-center">
               <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                <span className="text-[9px] font-mono text-slate-400 block mb-0.5 truncate">TTFB Latency</span>
+                <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">TTFB Latency</span>
                 <span className={`font-mono font-black text-xs sm:text-base ${
-                  effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                  effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
                 }`}>
                   {effectiveSpeedStack === 'webiox' ? '38ms' : '850ms'}
                 </span>
               </div>
 
               <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                <span className="text-[9px] font-mono text-slate-400 block mb-0.5 truncate">LCP Paint</span>
+                <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">LCP Paint</span>
                 <span className={`font-mono font-black text-xs sm:text-base ${
-                  effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                  effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
                 }`}>
                   {effectiveSpeedStack === 'webiox' ? '0.38s' : '3.8s'}
                 </span>
               </div>
 
               <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                <span className="text-[9px] font-mono text-slate-400 block mb-0.5 truncate">Bundle Size</span>
+                <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">Bundle Size</span>
                 <span className={`font-mono font-black text-xs sm:text-base ${
-                  effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                  effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
                 }`}>
                   {effectiveSpeedStack === 'webiox' ? '78 KB' : '2.4 MB'}
                 </span>
               </div>
 
               <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                <span className="text-[9px] font-mono text-slate-400 block mb-0.5 truncate">Core Vitals</span>
+                <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">Core Vitals</span>
                 <span className={`font-mono font-black text-xs sm:text-base ${
-                  effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                  effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
                 }`}>
                   {effectiveSpeedStack === 'webiox' ? '99 / 100' : '48 / 100'}
                 </span>
@@ -1107,18 +1107,22 @@ export default function WhyChooseUs() {
               <span>Prev</span>
             </button>
 
-            {/* 4 dots with active pill */}
-            <div className="flex items-center gap-1.5">
+            {/* 4 dots with active pill (Touch-friendly 44px touch targets) */}
+            <div className="flex items-center gap-1">
               {PILLARS.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => setMobilePillar(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                    mobilePillar === idx ? 'w-6 bg-[#1a7097]' : 'w-2 bg-slate-200 hover:bg-slate-300'
-                  }`}
+                  className="p-2.5 flex items-center justify-center cursor-pointer -m-1"
                   aria-label={`Go to pillar 0${idx + 1}`}
-                />
+                >
+                  <span
+                    className={`h-2 rounded-full transition-all duration-300 block ${
+                      mobilePillar === idx ? 'w-6 bg-[#1a7097]' : 'w-2 bg-slate-200 hover:bg-slate-300'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
 

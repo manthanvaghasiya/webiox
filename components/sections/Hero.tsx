@@ -37,14 +37,8 @@ export default function Hero() {
          ═══════════════════════════════════════════════════════════════════════════ */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-[110px] sm:pt-[126px] md:pt-[134px] pb-2 sm:pb-3 flex-1 flex flex-col items-center justify-start text-center">
 
-        {/* ── Dynamic Kinetic Heading (Smooth Vertical Word Rotator) ── */}
-        {/* ── Dynamic Kinetic Heading (Smooth Vertical Word Rotator) ── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="w-full max-w-5xl mx-auto mb-4 px-2"
-        >
+        {/* ── Dynamic Kinetic Heading (Smooth Vertical Word Rotator - Painted instantly for LCP) ── */}
+        <div className="w-full max-w-5xl mx-auto mb-4 px-2">
           <h1 className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] leading-[1.18] tracking-[-0.025em] text-[#0F172A] text-center [text-wrap:balance]">
             <span className="inline-block">Developing</span>{' '}
             <span className="inline-flex justify-center min-w-[175px] xs:min-w-[205px] sm:min-w-[255px] md:min-w-[305px] relative h-[1.22em] overflow-hidden align-top text-[#1a7097]">
@@ -86,22 +80,17 @@ export default function Hero() {
               </span>
             </span>
           </h1>
-        </motion.div>
+        </div>
 
-        {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context) ── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.45, delay: 0.1 }}
-          className="max-w-2xl mx-auto mb-7 sm:mb-8 text-center px-2"
-        >
+        {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context - Painted instantly for LCP) ── */}
+        <div className="max-w-2xl mx-auto mb-7 sm:mb-8 text-center px-2">
           <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2">
             Engineering high-performance web development platforms, mobile apps, and enterprise software architecture.
           </h2>
           <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed">
             Full-cycle engineering squads that take products from zero to production at startup speed — with fixed-scope milestone deliverables and zero scope creep.
           </p>
-        </motion.div>
+        </div>
 
         {/* ── 4. High-Converting CTA Area: Get a Free Consultation + Doodle Arrow + Badge (Exact Image 1 & 2 Match) ── */}
         <motion.div

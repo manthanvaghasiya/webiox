@@ -218,8 +218,8 @@ export default function HeroBackground() {
       {/* Bottom Center: Fresh Mint Emerald Accent */}
       <div className="absolute bottom-10 left-1/3 w-[450px] h-[260px] bg-emerald-100/35 rounded-full blur-[125px] animate-float-slow-2 pointer-events-none" />
 
-      {/* ── 3. Concentric Focal Blueprint Depth Rings ── */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] pointer-events-none opacity-40">
+      {/* ── 3. Concentric Focal Blueprint Depth Rings (Desktop only, pinned to fixed coordinate to eliminate CLS) ── */}
+      <div className="hidden md:block absolute top-[360px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] pointer-events-none opacity-40">
         {/* Outer Ring */}
         <div className="absolute inset-0 rounded-full border border-slate-200/70 border-dashed animate-rotate-slow" />
         {/* Middle Ring */}
