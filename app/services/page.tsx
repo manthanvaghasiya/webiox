@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'Enterprise Web Engineering, E-Commerce Infrastructure, SaaS Platforms, Autonomous AI Solutions, and Native Mobile Ecosystems.',
     url: 'https://webiox.tech/services',
     type: 'website',
-    images: ['/webiox512.png'],
+    images: ['/logo_without_background512.png'],
   },
 };
 

@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/webiox512.png',
+        url: '/logo_without_background512.png',
         width: 512,
         height: 512,
         alt: 'Webiox Digital Solutions Logo',
@@ -87,18 +87,18 @@ export const metadata: Metadata = {
     title: "Webiox | Web Development, Apps & Custom Software Studio",
     description: "Webiox is a premier digital engineering studio building ultra-fast web platforms, mobile apps, custom software architectures, and autonomous AI workflows.",
     creator: '@webiox',
-    images: ['/webiox512.png'],
+    images: ['/logo_without_background512.png'],
   },
   icons: {
     icon: [
-      { url: '/webiox32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/webiox48.png', sizes: '48x48', type: 'image/png' },
-      { url: '/webiox96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/webiox192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/webiox512.png', sizes: '512x512', type: 'image/png' },
+      { url: '/logo_without_background32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo_without_background48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/logo_without_background96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/logo_without_background192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/logo_without_background512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: '/webiox192.png' },
+      { url: '/logo_without_background192.png' },
     ],
   },
   robots: {
@@ -134,13 +134,13 @@ const jsonLdGraph = {
       "logo": {
         "@type": "ImageObject",
         "@id": "https://webiox.tech/#logo",
-        "url": "https://webiox.tech/webiox512.png",
-        "contentUrl": "https://webiox.tech/webiox512.png",
+        "url": "https://webiox.tech/logo_without_background512.png",
+        "contentUrl": "https://webiox.tech/logo_without_background512.png",
         "caption": "Webiox Digital Solutions Logo",
         "width": 512,
         "height": 512
       },
-      "image": "https://webiox.tech/webiox512.png",
+      "image": "https://webiox.tech/logo_without_background512.png",
       "description": "Webiox is an independent digital engineering studio and technical search authority agency specializing in high-performance web development, mobile applications, custom software architectures, and autonomous AI workflows.",
       "disambiguatingDescription": "Webiox (legal entity: Webiox Digital Solutions, domain: webiox.tech) is an independent technology agency and digital engineering studio specializing in web development, mobile applications, custom software engineering, and AI workflows. Webiox is an independent company and is completely distinct from Cisco Webex (the teleconferencing and video meeting platform).",
       "slogan": "Engineering High-Performance Web, Mobile & Custom Software Solutions",

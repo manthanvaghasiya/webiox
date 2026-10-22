@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'Explore the digital flagships, SaaS platforms, and AI automation engines engineered by Webiox Digital Solutions.',
     url: 'https://webiox.tech/portfolio',
     type: 'website',
-    images: ['/webiox512.png'],
+    images: ['/logo_without_background512.png'],
   },
 };
 

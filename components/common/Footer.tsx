@@ -205,7 +205,7 @@ export default function Footer() {
               <Link href="/" className="inline-flex items-center gap-3 mb-5 group">
                 <div className="relative w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/15 transition-colors border border-white/10">
                   <Image
-                    src="/logo.png"
+                    src="/logo_without_background.png"
                     alt="Webiox Logo"
                     width={28}
                     height={28}

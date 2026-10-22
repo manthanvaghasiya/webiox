@@ -29,7 +29,7 @@ export default function BlogPage() {
       logo: {
         '@type': 'ImageObject',
         '@id': 'https://webiox.tech/#logo',
-        url: 'https://webiox.tech/webiox512.png'
+        url: 'https://webiox.tech/logo_without_background512.png'
       }
     }
   };
