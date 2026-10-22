@@ -14,8 +14,9 @@ export default function HeroBackground() {
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    let animId: number;
+    let animId = 0;
     let isVisible = true;
+    let hasStarted = false;
     let width = (canvas.width = canvas.parentElement?.clientWidth || window.innerWidth);
     let height = (canvas.height = canvas.parentElement?.clientHeight || window.innerHeight);
 
@@ -29,7 +30,8 @@ export default function HeroBackground() {
     const handleResize = () => {
       if (!canvas) return;
       if (window.innerWidth < 768) {
-        cancelAnimationFrame(animId);
+        if (animId) cancelAnimationFrame(animId);
+        animId = 0;
         return;
       }
       width = canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
@@ -42,11 +44,20 @@ export default function HeroBackground() {
       mouse.targetY = e.clientY - rect.top;
     };
 
+    const startAnimation = () => {
+      if (hasStarted || !isVisible || animId) return;
+      hasStarted = true;
+      render();
+    };
+
     // Pause animation when hero is offscreen
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
-        if (isVisible && !animId) {
+        if (!isVisible && animId) {
+          cancelAnimationFrame(animId);
+          animId = 0;
+        } else if (isVisible && hasStarted && !animId) {
           render();
         }
       },
@@ -185,9 +196,11 @@ export default function HeroBackground() {
     // Defer canvas startup to idle time to eliminate Total Blocking Time (TBT) on initial paint
     let idleTimer: NodeJS.Timeout | null = null;
     if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      window.requestIdleCallback(() => render(), { timeout: 1200 });
+      window.requestIdleCallback(() => {
+        idleTimer = setTimeout(() => startAnimation(), 400);
+      }, { timeout: 2000 });
     } else {
-      idleTimer = setTimeout(() => render(), 250);
+      idleTimer = setTimeout(() => startAnimation(), 800);
     }
 
     return () => {

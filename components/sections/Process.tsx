@@ -188,7 +188,7 @@ export default function Process() {
           
           {/* Left Column: Interactive 4-Stage Stepper Navigation (5 Cols) */}
           <div className="lg:col-span-5 space-y-3">
-            <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2 px-1">
+            <div className="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider mb-2 px-1">
               Select Phase to Inspect:
             </div>
 
@@ -224,7 +224,7 @@ export default function Process() {
                       <span className="font-mono text-[10.5px] font-bold text-[#1a7097]">
                         STAGE_{stage.number}
                       </span>
-                      <span className="font-mono text-[10px] text-slate-500 font-medium">
+                      <span className="font-mono text-[10px] text-slate-600 font-medium">
                         {stage.duration}
                       </span>
                     </div>
@@ -351,7 +351,7 @@ export default function Process() {
                 <div className="p-3.5 rounded-xl bg-slate-900 text-slate-200 font-mono text-[11px] flex items-center justify-between gap-3 shadow-inner">
                   <div className="flex items-center gap-2 truncate">
                     <span className="text-emerald-400">➜</span>
-                    <span className="text-slate-400 truncate">{activeStage.artifactCode}</span>
+                    <span className="text-slate-300 truncate">{activeStage.artifactCode}</span>
                   </div>
                   <span className="text-[10px] uppercase font-bold text-[#E7B900] shrink-0">
                     STAGE QA LOCK

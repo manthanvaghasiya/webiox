@@ -178,7 +178,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
             <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider truncate">
               {project.category}
             </span>
-            <span className="text-[10px] sm:text-xs font-mono text-slate-400 font-medium shrink-0">
+            <span className="text-[10px] sm:text-xs font-mono text-slate-500 font-medium shrink-0">
               // {project.year}
             </span>
           </div>
@@ -244,7 +244,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
                 <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-xs text-[#0F172A] leading-tight">
                   {metrics.pill1.value}
                 </div>
-                <div className="text-[8.5px] font-mono text-slate-400 leading-tight">
+                <div className="text-[8.5px] font-mono text-slate-600 leading-tight">
                   {metrics.pill1.label}
                 </div>
               </div>
@@ -259,7 +259,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
                 <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-xs text-[#0F172A] leading-tight">
                   {metrics.pill2.value}
                 </div>
-                <div className="text-[8.5px] font-mono text-slate-400 leading-tight">
+                <div className="text-[8.5px] font-mono text-slate-600 leading-tight">
                   {metrics.pill2.label}
                 </div>
               </div>
@@ -294,6 +294,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
             {/* Action Button */}
             <Link
               href={`/portfolio/${project.id}`}
+              aria-label={`Explore ${project.title} case study`}
               className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group/link shrink-0"
             >
               <span><span className="hidden xs:inline">Explore </span>Case Study</span>
@@ -444,7 +445,7 @@ export default function PortfolioPreview() {
                   <span className="px-2.5 py-0.5 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097] text-[10px] font-mono font-bold uppercase tracking-wider truncate">
                     {activeMobileProj.category}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400 font-medium shrink-0">
+                  <span className="text-[10px] font-mono text-slate-600 font-medium shrink-0">
                     // {activeMobileProj.year}
                   </span>
                 </div>
@@ -513,7 +514,7 @@ export default function PortfolioPreview() {
                       <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#1a7097] leading-none">
                         {mobileEditorial.stat.value}
                       </div>
-                      <div className="font-mono text-[9px] uppercase tracking-wider text-slate-400 mt-0.5 truncate">
+                      <div className="font-mono text-[9px] uppercase tracking-wider text-slate-600 font-medium mt-0.5 truncate">
                         {mobileEditorial.stat.label}
                       </div>
                     </div>
@@ -541,6 +542,7 @@ export default function PortfolioPreview() {
 
                 <Link
                   href={`/portfolio/${activeMobileProj.id}`}
+                  aria-label={`Explore ${activeMobileProj.title} case study`}
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
                 >
                   <span>Explore Case Study</span>
@@ -637,11 +639,11 @@ export default function PortfolioPreview() {
                   <span className="text-slate-500">CURATED ARCHIVE</span>
                 </div>
 
-                <div className="inline-flex items-center gap-1 font-mono text-xs text-slate-400 font-semibold px-2.5 py-0.5 rounded-md bg-slate-50 border border-slate-200/60">
+                <div className="inline-flex items-center gap-1 font-mono text-xs text-slate-600 font-semibold px-2.5 py-0.5 rounded-md bg-slate-50 border border-slate-200/80">
                   <span className="text-[#1a7097] font-bold text-sm">
                     0{activeStep + 1}
                   </span>
-                  <span className="text-slate-300">/</span>
+                  <span className="text-slate-400" aria-hidden="true">/</span>
                   <span>0{STACK_PROJECTS.length}</span>
                 </div>
               </div>
@@ -691,7 +693,7 @@ export default function PortfolioPreview() {
                             <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097]" />
                             <span>{editorial.sector}</span>
                           </div>
-                          <span className="font-mono text-[10px] text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/60">
+                          <span className="font-mono text-[10px] text-slate-600 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/80">
                             // {activeProject.year}
                           </span>
                         </div>
@@ -725,7 +727,7 @@ export default function PortfolioPreview() {
                           <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl xl:text-3xl text-[#1a7097] leading-none">
                             {editorial.stat.value}
                           </div>
-                          <div className="font-mono text-[10px] uppercase tracking-wider text-slate-400 mt-1">
+                          <div className="font-mono text-[10px] uppercase tracking-wider text-slate-600 font-medium mt-1">
                             {editorial.stat.label}
                           </div>
                         </div>
@@ -740,12 +742,13 @@ export default function PortfolioPreview() {
                               aria-label={`Open ${activeProject.title} live website`}
                             >
                               <span>Live Site</span>
-                              <ExternalLink className="w-3 h-3 text-slate-400" />
+                              <ExternalLink className="w-3 h-3 text-slate-500" aria-hidden="true" />
                             </a>
                           )}
 
                           <Link
                             href={`/portfolio/${activeProject.id}`}
+                            aria-label={`Explore ${activeProject.title} case study`}
                             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0F172A] hover:bg-[#1a7097] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
                           >
                             <span>Case Study</span>
@@ -762,7 +765,7 @@ export default function PortfolioPreview() {
             {/* Bottom: Scrubber Navigation + Full Archive Link */}
             <div className="pt-3 border-t border-slate-200/80 flex items-center justify-between gap-3 shrink-0">
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1">
                   {STACK_PROJECTS.map((proj, idx) => {
                     const isActive = activeStep === idx;
                     return (
@@ -770,17 +773,21 @@ export default function PortfolioPreview() {
                         key={proj.id}
                         type="button"
                         onClick={() => scrollToProject(idx)}
-                        className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                          isActive
-                            ? 'w-9 bg-[#1a7097] shadow-xs'
-                            : 'w-2.5 bg-slate-200 hover:bg-slate-300'
-                        }`}
+                        className="p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer -m-1"
                         aria-label={`Jump to project 0${idx + 1}`}
-                      />
+                      >
+                        <span
+                          className={`h-2.5 rounded-full transition-all duration-300 block ${
+                            isActive
+                              ? 'w-9 bg-[#1a7097] shadow-xs'
+                              : 'w-2.5 bg-slate-200 hover:bg-slate-300'
+                          }`}
+                        />
+                      </button>
                     );
                   })}
                 </div>
-                <span className="hidden sm:inline font-mono text-[10.5px] text-slate-400 font-medium">
+                <span className="hidden sm:inline font-mono text-[10.5px] text-slate-600 font-medium">
                   SCROLL / CLICK
                 </span>
               </div>

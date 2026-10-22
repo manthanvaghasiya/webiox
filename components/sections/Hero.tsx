@@ -112,7 +112,7 @@ export default function Hero() {
           </Link>
 
           {/* Curved Doodle Arrow (from Reference Image 1) */}
-          <div className="hidden sm:flex items-center text-slate-400">
+          <div aria-hidden="true" className="hidden sm:flex items-center text-slate-400 select-none pointer-events-none">
             <svg
               width="44"
               height="24"

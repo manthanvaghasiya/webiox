@@ -419,9 +419,9 @@ export default function WhyChooseUs() {
         isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#E7B900]/8'} rounded-full blur-3xl pointer-events-none`} />
-        <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-        <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-        <div className="absolute bottom-3 right-3 text-slate-300 font-mono text-[9px] select-none pointer-events-none">
+        <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+        <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+        <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
           {isTraditional ? 'DRIFT_RISK // HOURLY_DRAIN' : 'SLA_PROTOCOL // ZERO_DRIFT'}
         </div>
 
@@ -495,7 +495,7 @@ export default function WhyChooseUs() {
                 <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] block">
                   {currentGate.name}
                 </span>
-                <span className="font-mono text-[10px] text-slate-400">
+                <span className="font-mono text-[10px] text-slate-600 font-medium">
                   {currentGate.duration}
                 </span>
               </div>
@@ -527,7 +527,7 @@ export default function WhyChooseUs() {
             </div>
 
             <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono">
-              <span className="text-slate-400">{currentGate.verification}</span>
+              <span className="text-slate-600 font-medium">{currentGate.verification}</span>
               <span className={`font-bold ${isTraditional ? 'text-rose-600' : 'text-[#1a7097]'}`}>
                 {isTraditional ? 'Scope Drift Warning ✕' : 'QA Gate Verified ✓'}
               </span>
@@ -550,9 +550,9 @@ export default function WhyChooseUs() {
         isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-emerald-500/8'} rounded-full blur-3xl pointer-events-none`} />
-        <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-        <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-        <div className="absolute bottom-3 right-3 text-slate-300 font-mono text-[9px] select-none pointer-events-none">
+        <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+        <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+        <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
           {isTraditional ? 'EXPLOIT_SURFACE // ZERO_WAF' : 'DEFENSE_CORE // SOC_2_READY'}
         </div>
 
@@ -664,9 +664,9 @@ export default function WhyChooseUs() {
         isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#1a7097]/8'} rounded-full blur-3xl pointer-events-none`} />
-        <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-        <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
-        <div className="absolute bottom-3 right-3 text-slate-300 font-mono text-[9px] select-none pointer-events-none">
+        <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+        <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
+        <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
           {isTraditional ? 'MIDDLEMEN_CHAIN // 48H_LAG' : 'SQUAD_UPLINK // SURAT_DIRECT'}
         </div>
 
@@ -692,7 +692,7 @@ export default function WhyChooseUs() {
               <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight">
                 {isTraditional ? 'The Middleman Telephone Game.' : 'Direct Senior Engineers.'}
               </h3>
-              <span className={`font-mono text-xs font-bold ${isTraditional ? 'text-rose-500' : 'text-slate-400'}`}>
+              <span className={`font-mono text-xs font-bold ${isTraditional ? 'text-rose-600' : 'text-slate-600 font-semibold'}`}>
                 {isTraditional ? '3 Layers of Middlemen' : 'Zero Middlemen'}
               </span>
             </div>
@@ -707,12 +707,12 @@ export default function WhyChooseUs() {
         <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-4 sm:p-5">
           {isTraditional ? (
             <div className="space-y-2.5">
-              <div className="flex items-center justify-between text-xs font-mono text-slate-500 pb-2 border-b border-slate-200">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600 pb-2 border-b border-slate-200">
                 <span className="font-bold text-rose-700 flex items-center gap-1.5">
                   <XCircle className="w-3.5 h-3.5 text-rose-600" />
                   <span>Traditional Agency Inbox Runaround</span>
                 </span>
-                <span className="text-[10px] text-slate-400">Response Delay: 3 Days</span>
+                <span className="text-[10px] text-slate-600 font-medium">Response Delay: 3 Days</span>
               </div>
 
               <div className="p-3.5 rounded-xl bg-rose-50/40 border border-rose-200/80 shadow-2xs space-y-2">
@@ -725,7 +725,7 @@ export default function WhyChooseUs() {
                       <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
                         Sarah (Junior Account Coordinator)
                       </span>
-                      <span className="font-mono text-[10px] text-slate-400">3 days ago</span>
+                      <span className="font-mono text-[10px] text-slate-600 font-medium">3 days ago</span>
                     </div>
                     <p className="text-slate-600 text-xs sm:text-[12px] leading-relaxed">
                       "Hi! I forwarded your urgent styling ticket to our offshore contractor. They said this is out of scope and requires an extra $1,600 change order and 2 weeks. I've scheduled a catch-up call for next Thursday."
@@ -740,7 +740,7 @@ export default function WhyChooseUs() {
               </div>
 
               <div className="pt-1 flex flex-wrap items-center justify-between gap-2 text-xs">
-                <span className="font-mono text-[10px] text-slate-400">
+                <span className="font-mono text-[10px] text-slate-600 font-medium">
                   Multiple account managers • 0 direct developer access
                 </span>
                 <span className="font-mono text-[10.5px] font-bold text-rose-600">
@@ -819,7 +819,7 @@ export default function WhyChooseUs() {
                               Slack Direct
                             </span>
                           </div>
-                          <span className="font-mono text-[10px] text-slate-400">10:42 AM</span>
+                          <span className="font-mono text-[10px] text-slate-600 font-medium">10:42 AM</span>
                         </div>
 
                         <p className="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed">
@@ -834,11 +834,11 @@ export default function WhyChooseUs() {
                         <span className="text-slate-700 font-bold">commit 9d42f8c:</span>
                         <span className="truncate">feat(cache): Edge ISR warmed across global edge nodes</span>
                       </div>
-                      <span className="text-emerald-600 font-bold shrink-0 ml-2">PASS 100%</span>
+                      <span className="text-emerald-700 font-bold shrink-0 ml-2">PASS 100%</span>
                     </div>
 
                     <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
-                      <span className="font-mono text-[10px] text-slate-400">
+                      <span className="font-mono text-[10px] text-slate-600 font-medium">
                         Average response: &lt; 12 mins • Direct Private Slack
                       </span>
                       <a
@@ -1067,7 +1067,7 @@ export default function WhyChooseUs() {
                       : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#1a7097]' : 'text-slate-400'}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#1a7097]' : 'text-slate-500'}`} />
                   <span className="font-mono text-[9px] leading-none">{p.num}</span>
                   <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[9.5px] truncate max-w-full font-bold">
                     {p.title}

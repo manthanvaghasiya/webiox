@@ -470,7 +470,7 @@ const CYCLE_DURATION = 6.5; // Comfortable, generous 6.5-second reading cycle
 
 function MobileAppScreen() {
   return (
-    <div className="w-full h-full bg-[#f8fafc] text-slate-800 flex flex-col justify-between pt-7 sm:pt-8 pb-2 px-3 sm:px-3.5 select-none font-['Plus_Jakarta_Sans',sans-serif] overflow-hidden">
+    <div aria-hidden="true" className="w-full h-full bg-[#f8fafc] text-slate-800 flex flex-col justify-between pt-7 sm:pt-8 pb-2 px-3 sm:px-3.5 select-none font-['Plus_Jakarta_Sans',sans-serif] overflow-hidden">
       {/* 1. iOS Status Bar */}
       <div className="flex items-center justify-between px-1 mb-1 text-slate-800 shrink-0">
         <span className="font-bold text-[10px] tracking-tight">9:41</span>
@@ -796,7 +796,7 @@ export default function EcosystemBentoGrid() {
                   </div>
                   <div className="text-left leading-tight">
                     <div className="text-[11px] font-bold text-[#0F172A]">{activeService.metricHighlight.label}</div>
-                    <div className="text-[9.5px] text-slate-400 font-mono">{activeService.metricHighlight.sub}</div>
+                    <div className="text-[9.5px] text-slate-600 font-mono font-medium">{activeService.metricHighlight.sub}</div>
                   </div>
                 </div>
 
@@ -871,7 +871,7 @@ export default function EcosystemBentoGrid() {
                           <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] sm:text-[13px] text-[#0F172A]">
                             Budget Scores
                           </span>
-                          <span className="text-[10px] font-medium text-slate-400 flex items-center gap-0.5 cursor-pointer hover:text-slate-600">
+                          <span className="text-[10px] font-medium text-slate-600 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
                             This Month <span className="text-[8px]">▼</span>
                           </span>
                         </div>
@@ -964,7 +964,7 @@ export default function EcosystemBentoGrid() {
                       /* 3. Cash Flow: Amount Received & Amount Spent */
                       <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#1a7097]/50 transition-all">
                         <div>
-                          <span className="block text-[10px] text-slate-400 font-medium mb-0.5">Amount Received</span>
+                          <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Amount Received</span>
                           <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
                             <span className="text-emerald-500 font-bold">↑</span>
                             <span>$965</span>
@@ -972,7 +972,7 @@ export default function EcosystemBentoGrid() {
                         </div>
                         <div className="w-[1px] h-8 bg-slate-200/80" />
                         <div>
-                          <span className="block text-[10px] text-slate-400 font-medium mb-0.5">Amount Spent</span>
+                          <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Amount Spent</span>
                           <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
                             <span className="text-rose-500 font-bold">↓</span>
                             <span>$950</span>
@@ -982,12 +982,12 @@ export default function EcosystemBentoGrid() {
                     ) : card.widgetType === 'amount_saved' ? (
                       /* 4. Amount Saved Widget (Mobile App Service) */
                       <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#1a7097]/50 transition-all">
-                        <span className="block text-[10px] text-slate-400 font-medium mb-1">Amount Saved</span>
+                        <span className="block text-[10px] text-slate-600 font-medium mb-1">Amount Saved</span>
                         <div className="flex items-center justify-between gap-3">
                           <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg sm:text-xl text-[#0F172A]">
                             $734.50
                           </span>
-                          <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-bold text-emerald-600 flex items-center gap-0.5">
+                          <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-bold text-emerald-700 flex items-center gap-0.5">
                             <span>+4.2%</span>
                             <TrendingUp className="w-2.5 h-2.5" />
                           </span>
@@ -1007,7 +1007,7 @@ export default function EcosystemBentoGrid() {
                           <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] sm:text-[13px] text-[#0F172A]">
                             AI Workload
                           </span>
-                          <span className="text-[10px] font-medium text-slate-400 flex items-center gap-0.5 cursor-pointer hover:text-slate-600">
+                          <span className="text-[10px] font-medium text-slate-600 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
                             This Month <span className="text-[8px]">▼</span>
                           </span>
                         </div>
@@ -1100,17 +1100,17 @@ export default function EcosystemBentoGrid() {
                       /* 3. AI Impact Dual Metric Pill (Mobile Style) */
                       <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#1a7097]/50 transition-all">
                         <div>
-                          <span className="block text-[10px] text-slate-400 font-medium mb-0.5">Hours Saved</span>
+                          <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Hours Saved</span>
                           <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
-                            <span className="text-emerald-500 font-bold">↑</span>
+                            <span className="text-emerald-600 font-bold">↑</span>
                             <span>1,850h</span>
                           </div>
                         </div>
                         <div className="w-[1px] h-8 bg-slate-200/80" />
                         <div>
-                          <span className="block text-[10px] text-slate-400 font-medium mb-0.5">Cost Reduced</span>
+                          <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Cost Reduced</span>
                           <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
-                            <span className="text-emerald-500 font-bold">↓</span>
+                            <span className="text-emerald-600 font-bold">↓</span>
                             <span>85%</span>
                           </div>
                         </div>
@@ -1118,12 +1118,12 @@ export default function EcosystemBentoGrid() {
                     ) : card.widgetType === 'ai_stat' ? (
                       /* 4. AI Decisions Dispatched Stat Card (Mobile Style) */
                       <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#1a7097]/50 transition-all">
-                        <span className="block text-[10px] text-slate-400 font-medium mb-1">Decisions Dispatched</span>
+                        <span className="block text-[10px] text-slate-600 font-medium mb-1">Decisions Dispatched</span>
                         <div className="flex items-center justify-between gap-3">
                           <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg sm:text-xl text-[#0F172A]">
                             840k/mo
                           </span>
-                          <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-bold text-emerald-600 flex items-center gap-0.5">
+                          <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-bold text-emerald-700 flex items-center gap-0.5">
                             <span>+28.4%</span>
                             <TrendingUp className="w-2.5 h-2.5" />
                           </span>
@@ -1134,7 +1134,7 @@ export default function EcosystemBentoGrid() {
                       <div className="p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_20px_45px_-10px_rgba(15,23,42,0.13),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#1a7097]/50 transition-all group">
                         {/* Header: Title + Dedicated Technical Icon */}
                         <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase tracking-wider">
+                          <span className="text-[10px] font-mono text-slate-600 font-semibold uppercase tracking-wider">
                             {card.title}
                           </span>
                           <span className="p-1 rounded-md bg-[#1a7097]/10 text-[#1a7097]">
@@ -1198,7 +1198,7 @@ export default function EcosystemBentoGrid() {
                                 <span className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-700 text-[8px] font-bold flex items-center justify-center border border-emerald-300">
                                   100
                                 </span>
-                                <span className="text-[7.5px] font-mono text-slate-400 mt-0.5">{item}</span>
+                                <span className="text-[7.5px] font-mono text-slate-600 mt-0.5">{item}</span>
                               </div>
                             ))}
                           </div>
@@ -1211,26 +1211,26 @@ export default function EcosystemBentoGrid() {
                                 <Star key={i} className="w-3 h-3 fill-[#E7B900]" />
                               ))}
                             </div>
-                            <span className="text-[9px] font-mono text-slate-400 ml-1">{card.sub}</span>
+                            <span className="text-[9px] font-mono text-slate-600 ml-1">{card.sub}</span>
                           </div>
                         )}
 
                         {card.widgetType === 'circle_ring' && (
                           <div className="flex items-center gap-2 pt-1.5 border-t border-slate-100">
                             <div className="w-5 h-5 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
-                            <span className="text-[9.5px] font-mono text-slate-500">{card.sub}</span>
+                            <span className="text-[9.5px] font-mono text-slate-600">{card.sub}</span>
                           </div>
                         )}
 
                         {card.widgetType === 'fps' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-500">
+                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-600">
                             <span>{card.sub}</span>
                             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                           </div>
                         )}
 
                         {card.widgetType === 'tech_stack' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1 text-[9px] font-mono text-slate-500">
+                          <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1 text-[9px] font-mono text-slate-600">
                             <ShieldCheck className="w-3 h-3 text-emerald-600" />
                             <span>{card.sub}</span>
                           </div>
@@ -1238,20 +1238,20 @@ export default function EcosystemBentoGrid() {
 
                         {card.widgetType === 'sparkline' && (
                           <div className="flex items-center justify-between pt-1.5 border-t border-slate-100 text-[9.5px] font-mono">
-                            <span className="text-slate-500">{card.sub}</span>
-                            <span className="text-emerald-600 font-bold">Active</span>
+                            <span className="text-slate-600">{card.sub}</span>
+                            <span className="text-emerald-700 font-bold">Active</span>
                           </div>
                         )}
 
                         {card.widgetType === 'latency' && (
                           <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono">
-                            <span className="text-slate-500">{card.sub}</span>
+                            <span className="text-slate-600">{card.sub}</span>
                             <span className="text-[#1a7097] font-bold">Sub-50ms</span>
                           </div>
                         )}
 
                         {card.widgetType === 'clusters' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-500">
+                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-600">
                             <span>{card.sub}</span>
                             <span className="flex gap-1">
                               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -1276,7 +1276,7 @@ export default function EcosystemBentoGrid() {
                         )}
 
                         {card.widgetType === 'radar' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-500">
+                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-600">
                             <span>{card.sub}</span>
                             <span className="flex h-2 w-2 relative">
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -1286,8 +1286,8 @@ export default function EcosystemBentoGrid() {
                         )}
 
                         {card.widgetType === 'terminal' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1 font-mono text-[9px] text-emerald-600">
-                            <span className="text-slate-400">$</span>
+                          <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1 font-mono text-[9px] text-emerald-700">
+                            <span className="text-slate-600">$</span>
                             <span>{card.sub}</span>
                             <span className="w-1.5 h-3 bg-emerald-500 animate-pulse" />
                           </div>
@@ -1316,11 +1316,11 @@ export default function EcosystemBentoGrid() {
                         <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90" />
                         <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/90" />
                       </div>
-                      <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] font-mono text-slate-500 shadow-2xs">
-                        <Lock className="w-2.5 h-2.5 text-emerald-600" />
+                      <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] font-mono text-slate-600 shadow-2xs">
+                        <Lock className="w-2.5 h-2.5 text-emerald-700" />
                         <span>{activeService.mockupUrl}</span>
                       </div>
-                      <div className="w-6 flex justify-end text-slate-400">
+                      <div className="w-6 flex justify-end text-slate-500" aria-hidden="true">
                         <Maximize2 className="w-3 h-3 opacity-60" />
                       </div>
                     </div>
