@@ -71,22 +71,7 @@ export default function Testimonials() {
       className="relative py-24 sm:py-32 bg-[#FCFCFD] text-[#0F172A] overflow-hidden selection:bg-[#1a7097] selection:text-white"
     >
       {/* ── Ambient Background Lighting ── */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-40"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 50% 0%, rgba(26, 112, 151, 0.08) 0%, transparent 65%),
-            radial-gradient(circle at 15% 70%, rgba(231, 185, 0, 0.05) 0%, transparent 50%),
-            repeating-linear-gradient(
-              90deg,
-              rgba(26, 112, 151, 0.035) 0px,
-              rgba(26, 112, 151, 0.035) 1px,
-              transparent 1px,
-              transparent 48px
-            )
-          `,
-        }}
-      />
+      <div className="absolute inset-0 pointer-events-none opacity-40 bg-section-pattern" />
       <div className="absolute top-1/4 -right-48 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -left-48 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
 

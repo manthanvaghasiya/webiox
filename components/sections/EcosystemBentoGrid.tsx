@@ -713,13 +713,11 @@ export default function EcosystemBentoGrid() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[380px] rounded-full blur-3xl pointer-events-none"
-          style={{
-            background:
-              activeService.id === 'ai'
-                ? 'radial-gradient(circle, rgba(231,185,0,0.16) 0%, rgba(26,112,151,0.06) 60%, transparent 80%)'
-                : 'radial-gradient(circle, rgba(26,112,151,0.15) 0%, rgba(56,189,248,0.08) 60%, transparent 80%)',
-          }}
+          className={`absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[380px] rounded-full blur-3xl pointer-events-none transition-colors duration-700 ${
+            activeService.id === 'ai'
+              ? 'bg-[radial-gradient(circle,rgba(231,185,0,0.16)_0%,rgba(26,112,151,0.06)_60%,transparent_80%)]'
+              : 'bg-[radial-gradient(circle,rgba(26,112,151,0.15)_0%,rgba(56,189,248,0.08)_60%,transparent_80%)]'
+          }`}
         />
 
         {/* Fixed Header: OUR CORE SERVICES // 4 Dedicated Engineering Squads */}
@@ -765,7 +763,9 @@ export default function EcosystemBentoGrid() {
               {/* Headline */}
               <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] text-[#0F172A] tracking-[-0.03em] leading-[1.18] mb-2.5 selection:bg-[#1a7097] selection:text-white">
                 <span>{activeService.titlePrimary} </span>
-                <span style={{ color: activeService.accentColor }}>{activeService.titleAccent}</span>
+                <span className={activeService.accentColor === '#E7B900' ? 'text-[#E7B900]' : 'text-[#1a7097]'}>
+                  {activeService.titleAccent}
+                </span>
               </h2>
 
               {/* Description */}

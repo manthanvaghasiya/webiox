@@ -384,20 +384,7 @@ export default function PortfolioPreview() {
   return (
     <section className="relative bg-[#FCFCFD] text-[#0F172A] selection:bg-[#1a7097] selection:text-white overflow-hidden">
       {/* ── Ambient Background Lighting (Curtain Glows & Subtle Fluting) ── */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-30"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(
-              90deg,
-              rgba(26, 112, 151, 0.035) 0px,
-              rgba(26, 112, 151, 0.035) 1px,
-              transparent 1px,
-              transparent 48px
-            )
-          `,
-        }}
-      />
+      <div className="absolute inset-0 pointer-events-none opacity-30 bg-fluted-grid" />
       <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl pointer-events-none" />
       <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
 

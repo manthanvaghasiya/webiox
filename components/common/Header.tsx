@@ -156,7 +156,6 @@ export default function Header() {
               width={116}
               height={26}
               priority
-              style={{ width: 'auto', height: 'auto' }}
               className="h-5.5 sm:h-7 w-auto object-contain select-none pointer-events-none"
             />
           </Link>
@@ -335,7 +334,6 @@ export default function Header() {
                       alt="Webiox"
                       width={116}
                       height={28}
-                      style={{ width: 'auto', height: 'auto' }}
                       className="h-6 w-auto object-contain"
                     />
                     <span className="px-2 py-0.5 rounded-md bg-[#1a7097]/10 text-[#1a7097] text-[9.5px] font-mono font-bold uppercase tracking-wider">

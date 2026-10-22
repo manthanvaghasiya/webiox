@@ -212,11 +212,7 @@ export default function Footer() {
         {/* Subtle dot grid */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 pointer-events-none opacity-[0.035]"
-          style={{
-            backgroundImage: 'radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px)',
-            backgroundSize: '32px 32px',
-          }}
+          className="absolute inset-0 pointer-events-none opacity-[0.035] bg-dot-pattern"
         />
 
         {/* ── Main Footer Grid ── */}
