@@ -216,15 +216,21 @@ export default function Testimonials() {
 
         {/* ── Bottom Rating Summary Strip ── */}
         <div className="mt-14 pt-8 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 sm:gap-3">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-[#E7B900] text-[#E7B900]" />
               ))}
             </div>
-            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#0F172A]">
-              4.9 / 5.0 Average Rating
-            </span>
+            <a
+              href="https://share.google/QRrJWd4R7VcAIxN9S"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View verified 4.9 rating on Google Business Profile"
+              className="inline-flex items-center gap-1 text-[#0F172A] hover:text-[#1a7097] transition-colors font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm"
+            >
+              <span>4.9 / 5.0 Verified Google Rating</span>
+            </a>
             <span className="text-slate-300">•</span>
             <span className="font-mono text-xs text-slate-500">
               100% On-Time Milestone Delivery

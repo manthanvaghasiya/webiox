@@ -171,9 +171,17 @@ const jsonLdGraph = {
           "https://github.com/manthanvaghasiya"
         ]
       },
+      "hasMap": "https://share.google/QRrJWd4R7VcAIxN9S",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "18",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "sameAs": [
         "https://www.instagram.com/webiox.ai/",
-        "https://share.google/iDpXXxjX29qoPeAAO",
+        "https://share.google/QRrJWd4R7VcAIxN9S",
         "https://www.linkedin.com/company/webiox/",
         "https://github.com/webiox",
         "https://x.com/webiox_tech",

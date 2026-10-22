@@ -78,7 +78,7 @@ const socials = [
   { icon: FacebookIcon, href: 'https://www.facebook.com/webiox', label: 'Facebook' },
   { icon: YouTubeIcon, href: 'https://www.youtube.com/@webiox', label: 'YouTube' },
   { icon: Code2, href: 'https://github.com/webiox', label: 'GitHub' },
-  { icon: MapPin, href: 'https://share.google/iDpXXxjX29qoPeAAO', label: 'Google Profile' },
+  { icon: MapPin, href: 'https://share.google/QRrJWd4R7VcAIxN9S', label: 'Google Business Profile' },
 ];
 
 /* ─── Scroll to top ─── */
