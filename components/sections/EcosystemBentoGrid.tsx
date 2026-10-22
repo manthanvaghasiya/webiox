@@ -112,7 +112,7 @@ const SERVICES_DATA: ServiceSlide[] = [
     mockupUrl: 'solutionshub.agency/platform',
     deliverables: [
       {
-        title: 'Next.js 15 & React 19 Architecture',
+        title: 'Next.js 16 & React 19 Architecture',
         desc: 'Server-side rendering, dynamic edge caching, and sub-0.5s initial page loads.',
       },
       {
@@ -124,7 +124,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         desc: 'Tailor-made editorial workflows with Sanity, Strapi, or Shopify Plus.',
       },
     ],
-    techStack: ['Next.js 15', 'React 19', 'TypeScript', 'TailwindCSS', 'Vercel Edge'],
+    techStack: ['Next.js 16', 'React 19', 'TypeScript', 'TailwindCSS', 'Vercel Edge'],
     metricHighlight: {
       value: '3.2x',
       label: 'Speed Multiplier',

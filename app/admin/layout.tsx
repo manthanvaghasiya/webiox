@@ -2,13 +2,126 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { LayoutDashboard, Settings, ExternalLink, Menu, X, MessageSquare, LogOut } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { LayoutDashboard, Settings, ExternalLink, Menu, X, MessageSquare, LogOut, Lock, ShieldCheck, ArrowRight, KeyRound } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const DEFAULT_PASSKEY = 'webiox@2026';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [passkeyInput, setPasskeyInput] = useState('');
+  const [authError, setAuthError] = useState('');
+  const [isVerifying, setIsVerifying] = useState(false);
+
+  useEffect(() => {
+    const storedAuth = typeof window !== 'undefined' ? sessionStorage.getItem('webiox_admin_auth') : null;
+    setIsAuthenticated(storedAuth === 'true');
+  }, []);
+
+  const handleUnlock = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsVerifying(true);
+    setAuthError('');
+
+    setTimeout(() => {
+      if (passkeyInput.trim() === DEFAULT_PASSKEY || passkeyInput.trim().toLowerCase() === 'webiox') {
+        sessionStorage.setItem('webiox_admin_auth', 'true');
+        setIsAuthenticated(true);
+        setPasskeyInput('');
+      } else {
+        setAuthError('Invalid Admin Passkey. Please try again.');
+      }
+      setIsVerifying(false);
+    }, 400);
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('webiox_admin_auth');
+    setIsAuthenticated(false);
+  };
+
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen bg-[#071317] flex items-center justify-center">
+        <div className="w-8 h-8 border-3 border-[#1a7097]/30 border-t-[#1a7097] rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#061417] text-white flex items-center justify-center px-4 relative overflow-hidden font-sans">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#1a7097]/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#E7B900]/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96, y: 15 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          className="relative z-10 w-full max-w-md bg-slate-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl text-center"
+        >
+          <div className="w-16 h-16 rounded-2xl bg-[#1a7097]/20 border border-[#1a7097]/40 flex items-center justify-center mx-auto mb-6 text-[#1a7097]">
+            <Lock className="w-8 h-8 text-[#1a7097]" />
+          </div>
+
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-[#E7B900] uppercase tracking-wider mb-3">
+            <ShieldCheck size={12} />
+            <span>Restricted Access</span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2">
+            Webiox Studio Admin
+          </h1>
+          <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+            Enter your internal administrative passkey to access client inquiries and lead management.
+          </p>
+
+          <form onSubmit={handleUnlock} className="space-y-4">
+            {authError && (
+              <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-semibold text-center">
+                {authError}
+              </div>
+            )}
+
+            <div className="relative">
+              <input
+                type="password"
+                required
+                value={passkeyInput}
+                onChange={(e) => setPasskeyInput(e.target.value)}
+                placeholder="Enter Admin Passkey"
+                className="w-full px-4 py-3.5 bg-white/5 border border-white/15 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:border-[#1a7097] focus:ring-4 focus:ring-[#1a7097]/20 transition-all font-mono text-sm text-center tracking-widest"
+              />
+              <KeyRound className="w-4 h-4 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isVerifying}
+              className="w-full py-3.5 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] active:scale-[0.99] text-white font-bold text-sm tracking-wide shadow-lg hover:shadow-[#1a7097]/30 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            >
+              {isVerifying ? (
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              ) : (
+                <>
+                  <span>Unlock Workspace</span>
+                  <ArrowRight size={16} />
+                </>
+              )}
+            </button>
+          </form>
+
+          <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-center">
+            <Link href="/" className="text-xs text-slate-400 hover:text-white transition-colors">
+              ← Return to Webiox Public Site
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   const navLinks = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
@@ -20,10 +133,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className="flex flex-col h-full bg-slate-950 text-slate-300">
       <div>
         <div className="p-6 h-[72px] flex items-center border-b border-slate-800/50">
-          <span className="font-extrabold text-2xl text-white tracking-tight flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-lg shadow-lg shadow-indigo-500/20"></div>
-            WEBIOX<span className="text-indigo-400">.</span>
-          </span>
+          <Link href="/" className="font-extrabold text-2xl text-white tracking-tight flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#1a7097] to-[#145b7c] rounded-lg shadow-lg shadow-[#1a7097]/30 flex items-center justify-center text-white font-black text-sm">
+              W
+            </div>
+            WEBIOX<span className="text-[#E7B900]">.</span>
+          </Link>
         </div>
         <nav className="p-4 space-y-2 mt-2">
           <div className="text-[11px] font-bold text-slate-500 uppercase tracking-widest mb-4 px-3">Main Menu</div>
@@ -37,9 +152,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 }`}
               >
                 {isActive && (
-                  <motion.div layoutId="activeNav" className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-indigo-500 rounded-r-full" />
+                  <motion.div layoutId="activeNav" className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#1a7097] rounded-r-full" />
                 )}
-                <Icon size={18} className={isActive ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300 transition-colors'} />
+                <Icon size={18} className={isActive ? 'text-[#1a7097]' : 'text-slate-500 group-hover:text-slate-300 transition-colors'} />
                 {link.name}
               </Link>
             );
@@ -51,25 +166,28 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="text-[11px] font-bold text-slate-500 uppercase tracking-widest mb-4 px-3">External Apps</div>
         <div className="space-y-3">
           <a href="https://leads.webiox.tech" target="_blank" rel="noopener noreferrer" 
-             className="relative overflow-hidden group flex items-center justify-between px-4 py-3.5 bg-slate-900 border border-indigo-500/20 text-white rounded-xl font-bold shadow-lg hover:border-indigo-500/50 hover:shadow-indigo-500/20 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-violet-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+             className="relative overflow-hidden group flex items-center justify-between px-4 py-3.5 bg-slate-900 border border-[#1a7097]/20 text-white rounded-xl font-bold shadow-lg hover:border-[#1a7097]/50 hover:shadow-[#1a7097]/20 transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1a7097]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="flex items-center gap-2 relative z-10">
-              <ExternalLink size={18} className="text-indigo-400" /> Lead Panel
+              <ExternalLink size={18} className="text-[#1a7097]" /> Lead Panel
             </span>
-            <span className="text-indigo-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10">↗</span>
+            <span className="text-[#1a7097] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10">↗</span>
           </a>
 
           <a href="https://invoice.webiox.tech" target="_blank" rel="noopener noreferrer" 
-             className="relative overflow-hidden group flex items-center justify-between px-4 py-3.5 bg-slate-900 border border-indigo-500/20 text-white rounded-xl font-bold shadow-lg hover:border-indigo-500/50 hover:shadow-indigo-500/20 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-violet-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+             className="relative overflow-hidden group flex items-center justify-between px-4 py-3.5 bg-slate-900 border border-[#1a7097]/20 text-white rounded-xl font-bold shadow-lg hover:border-[#1a7097]/50 hover:shadow-[#1a7097]/20 transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1a7097]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="flex items-center gap-2 relative z-10">
-              <ExternalLink size={18} className="text-indigo-400" /> Invoice App
+              <ExternalLink size={18} className="text-[#1a7097]" /> Invoice App
             </span>
-            <span className="text-indigo-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10">↗</span>
+            <span className="text-[#1a7097] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10">↗</span>
           </a>
         </div>
         
-        <button className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-xl w-full text-left mt-4 transition-colors font-medium">
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-xl w-full text-left mt-4 transition-colors font-medium cursor-pointer"
+        >
           <LogOut size={18} /> Logout
         </button>
       </div>
@@ -77,7 +195,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   );
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex font-sans selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-[#F8FAFC] flex font-sans selection:bg-[#1a7097]/20 selection:text-[#1a7097]">
       
       {/* Desktop Sidebar */}
       <aside className="w-64 hidden lg:block shrink-0 h-screen sticky top-0 z-20">
@@ -87,7 +205,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Mobile Header & Sidebar */}
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-slate-950/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-4 z-50">
         <span className="font-extrabold text-xl text-white tracking-tight flex items-center gap-2">
-          <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-md"></div>
+          <div className="w-6 h-6 bg-gradient-to-br from-[#1a7097] to-[#145b7c] rounded-md flex items-center justify-center text-white text-xs font-bold">W</div>
           WEBIOX
         </span>
         <button onClick={() => setMobileMenuOpen(true)} className="p-2 bg-white/10 text-white rounded-lg active:scale-95 transition-transform"><Menu size={20} /></button>
@@ -111,11 +229,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col min-h-screen pt-16 lg:pt-0 w-full overflow-x-hidden relative">
-        
         {/* Decorative Background Blob */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
-
-        {/* Top Navbar removed as requested */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#1a7097]/8 blur-[100px] rounded-full pointer-events-none -z-10"></div>
 
         {/* Scrollable Content */}
         <div className="flex-1 p-4 sm:p-6 lg:p-8 relative">

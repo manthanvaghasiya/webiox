@@ -4,24 +4,25 @@
 
 ## Core Capabilities & Services
 
-- [Enterprise Web Development](https://webiox.tech/services/web-development): Sub-second page loads, 99+ Core Web Vitals, Next.js 15, React 19, dynamic edge caching, and conversion-focused web architecture.
-- [Mobile Application Engineering](https://webiox.tech/services): Silky-smooth 60 FPS iOS and Android mobile applications built with Swift, Kotlin, and React Native with offline-first synchronization.
-- [Custom Software & SaaS Engineering](https://webiox.tech/services/saas-development): Scalable multi-tenant cloud software, distributed databases (PostgreSQL, Redis), role-based access control, and Docker/AWS infrastructure.
+- [Enterprise Web Development](https://webiox.tech/services/web-development): Sub-second page loads, 99+ Core Web Vitals, Next.js 16, React 19, dynamic edge caching, and conversion-focused web architecture.
+- [Mobile Application Engineering](https://webiox.tech/services/mobile-apps): Silky-smooth 60 FPS iOS and Android mobile applications built with Swift, Kotlin, and React Native with offline-first synchronization.
+- [Custom Software & SaaS Engineering](https://webiox.tech/services/saas-development): Scalable multi-tenant cloud software, distributed databases (PostgreSQL, MongoDB, Redis), role-based access control, and robust cloud infrastructure.
 - [Autonomous AI Workflows](https://webiox.tech/services/ai-solutions): Custom LLM integrations, document intelligence pipelines, intelligent agentic workflows, and automated business processes.
 - [High-Scale E-Commerce](https://webiox.tech/services/ecommerce-platforms): Headless storefronts, real-time inventory management, razor-sharp checkout funnels, and enterprise ERP integrations.
+- [UI/UX Design & Prototyping](https://webiox.tech/services/ui-ux-design): Design systems, interactive clickable prototypes, and conversion-engineered interfaces.
 
 ## Flagship Case Studies
 
-- [Hariram Granite ERP](https://webiox.tech/portfolio/1): Real-time inventory tracking, multi-warehouse telemetry, and invoice processing system handling 1,500+ tons daily.
-- [DairyFlow Cloud POS](https://webiox.tech/portfolio/2): Real-time FAT/SNF billing, edge-cached farmer payouts, and offline-first milk collection architecture.
-- [GovDoc AI Verification Platform](https://webiox.tech/portfolio/3): Computer vision and OCR pipeline for automated government document fraud detection and instant KYC validation.
-- [BookCycle PWA](https://webiox.tech/portfolio/4): Peer-to-peer textbook recirculation marketplace with geolocation radius matching and zero-fee student escrow.
-- [Dealership OS](https://webiox.tech/portfolio/5): Multi-outlet automotive management suite with instant loan eligibility calculator and vehicle inventory telemetry.
-- [StyleCraft Design System](https://webiox.tech/portfolio/6): Tokenized cross-platform UI component architecture with zero-runtime CSS-in-JS and WCAG AAA compliance.
+- [Hariram Motors](https://webiox.tech/portfolio/6): Comprehensive automotive showroom and inventory platform with real-time vehicle filtering, EMI loan calculators, and direct inquiries.
+- [DairyFlow Cloud POS](https://webiox.tech/portfolio/2): SaaS ERP platform for dairy businesses featuring high-traffic POS, Udhaar credit ledger, and perishable inventory management.
+- [Surat BookCycle](https://webiox.tech/portfolio/3): Hyper-local peer-to-peer textbook recirculation marketplace for university students with JWT auth and book listing management.
+- [LifeOS Personal Operating System](https://webiox.tech/portfolio/4): All-in-one personal productivity platform unifying Recharts financial analytics and GitHub-style habit streak trackers.
+- [Sadguru Car Surat](https://webiox.tech/portfolio/5): Premium automotive discovery portal with rich visual catalog, multi-criteria filtering, and customer consultation booking.
+- [GovDoc Verify Platform](https://webiox.tech/portfolio/1): Intelligent cloud-based document verification and compliance pipeline for automated validation and audit tracking.
 
 ## Technical Architecture & Standards
 
-- **Frontend**: Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Framer Motion.
+- **Frontend**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Framer Motion.
 - **Mobile**: React Native, Swift, Kotlin, offline-first SQLite/WatermelonDB.
 - **Backend & Cloud**: Node.js, Next.js Server Actions, PostgreSQL, Redis, Docker, AWS, Vercel Edge Network.
 - **Performance Benchmarks**: Sub-0.5s First Contentful Paint, 99+ Google Lighthouse / Core Web Vitals score.

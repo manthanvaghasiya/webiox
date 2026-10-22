@@ -12,6 +12,11 @@ const OrbitalCanvas = ({ mouseX, mouseY }: { mouseX: number; mouseY: number }) =
   const animRef = useRef<number>(0);
   const particlesRef = useRef<any[]>([]);
   const orbitsRef = useRef<any[]>([]);
+  const mouseRef = useRef({ x: mouseX, y: mouseY });
+
+  useEffect(() => {
+    mouseRef.current = { x: mouseX, y: mouseY };
+  }, [mouseX, mouseY]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -69,8 +74,8 @@ const OrbitalCanvas = ({ mouseX, mouseY }: { mouseX: number; mouseY: number }) =
 
       ctx.clearRect(0, 0, w, h);
 
-      const mxNorm = (mouseX / w - 0.5) * 30;
-      const myNorm = (mouseY / h - 0.5) * 30;
+      const mxNorm = (mouseRef.current.x / w - 0.5) * 30;
+      const myNorm = (mouseRef.current.y / h - 0.5) * 30;
 
       // Draw orbits
       orbitsRef.current.forEach((orbit) => {
@@ -143,7 +148,7 @@ const OrbitalCanvas = ({ mouseX, mouseY }: { mouseX: number; mouseY: number }) =
       cancelAnimationFrame(animRef.current);
       window.removeEventListener('resize', resize);
     };
-  }, [mouseX, mouseY]);
+  }, []);
 
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0" />;
 };

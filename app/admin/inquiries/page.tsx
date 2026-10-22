@@ -59,7 +59,7 @@ export default function InquiriesManager() {
 
       {loading && inquiries.length === 0 ? (
         <div className="flex-1 flex items-center justify-center">
-          <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+          <div className="w-10 h-10 border-4 border-[#1a7097]/20 border-t-[#1a7097] rounded-full animate-spin"></div>
         </div>
       ) : (
         <div className="flex-1 flex flex-col lg:flex-row gap-6 min-h-0">
@@ -68,7 +68,7 @@ export default function InquiriesManager() {
           <div className="w-full lg:w-1/3 bg-white/80 backdrop-blur-xl rounded-3xl border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-y-auto flex flex-col">
             <div className="p-5 border-b border-slate-100 sticky top-0 bg-white/90 backdrop-blur-md z-10 flex justify-between items-center">
                <h3 className="font-bold text-slate-900">Inbox ({inquiries.length})</h3>
-               <button onClick={load} disabled={loading} className="text-indigo-600 text-sm font-semibold hover:text-indigo-800 disabled:opacity-50">
+               <button onClick={load} disabled={loading} className="text-[#1a7097] text-sm font-semibold hover:text-[#145b7c] disabled:opacity-50 cursor-pointer">
                  {loading ? 'Refreshing...' : 'Refresh'}
                </button>
             </div>
@@ -80,7 +80,7 @@ export default function InquiriesManager() {
                   <button 
                     key={inq.id}
                     onClick={() => setSelectedInquiry(inq)}
-                    className={`w-full text-left p-5 hover:bg-indigo-50/50 transition-colors ${selectedInquiry?.id === inq.id ? 'bg-indigo-50/80 border-l-4 border-indigo-600' : 'border-l-4 border-transparent'}`}
+                    className={`w-full text-left p-5 hover:bg-[#1a7097]/5 transition-colors cursor-pointer ${selectedInquiry?.id === inq.id ? 'bg-[#1a7097]/10 border-l-4 border-[#1a7097]' : 'border-l-4 border-transparent'}`}
                   >
                     <div className="flex justify-between items-start mb-1">
                       <h4 className="font-bold text-slate-900 truncate pr-2">{inq.name}</h4>
@@ -90,7 +90,7 @@ export default function InquiriesManager() {
                         <span className="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">New</span>
                       )}
                     </div>
-                    <p className="text-xs font-bold text-indigo-600 mb-2">{inq.service}</p>
+                    <p className="text-xs font-bold text-[#1a7097] mb-2">{inq.service}</p>
                     <p className="text-sm text-slate-500 line-clamp-2 leading-relaxed">{inq.message}</p>
                   </button>
                 ))
@@ -132,7 +132,7 @@ export default function InquiriesManager() {
                       <button 
                         onClick={() => handleResolve(selectedInquiry.id)}
                         disabled={isProcessing}
-                        className="flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-600 font-bold rounded-xl hover:bg-emerald-100 transition-colors disabled:opacity-50"
+                        className="flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-600 font-bold rounded-xl hover:bg-emerald-100 transition-colors disabled:opacity-50 cursor-pointer"
                       >
                         <CheckCircle size={16} /> Mark Resolved
                       </button>
@@ -140,7 +140,7 @@ export default function InquiriesManager() {
                     <button 
                       onClick={() => handleDelete(selectedInquiry.id)}
                       disabled={isProcessing}
-                      className="flex items-center gap-2 px-4 py-2 bg-rose-50 text-rose-600 font-bold rounded-xl hover:bg-rose-100 transition-colors disabled:opacity-50"
+                      className="flex items-center gap-2 px-4 py-2 bg-rose-50 text-rose-600 font-bold rounded-xl hover:bg-rose-100 transition-colors disabled:opacity-50 cursor-pointer"
                     >
                       <Trash2 size={16} /> Delete
                     </button>
@@ -152,9 +152,9 @@ export default function InquiriesManager() {
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1.5"><Building2 size={14}/> Company</p>
                     <p className="font-semibold text-slate-900">{selectedInquiry.company || 'Not specified'}</p>
                   </div>
-                  <div className="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100/50">
-                    <p className="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-1 flex items-center gap-1.5"><Calendar size={14}/> Service Requested</p>
-                    <p className="font-bold text-indigo-900">{selectedInquiry.service}</p>
+                  <div className="bg-[#1a7097]/5 p-4 rounded-2xl border border-[#1a7097]/15">
+                    <p className="text-xs font-bold text-[#1a7097] uppercase tracking-wider mb-1 flex items-center gap-1.5"><Calendar size={14}/> Service Requested</p>
+                    <p className="font-bold text-slate-900">{selectedInquiry.service}</p>
                   </div>
                 </div>
 
@@ -172,7 +172,7 @@ export default function InquiriesManager() {
 
             {isProcessing && (
               <div className="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-3xl flex items-center justify-center z-20">
-                <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+                <div className="w-8 h-8 border-4 border-[#1a7097]/20 border-t-[#1a7097] rounded-full animate-spin"></div>
               </div>
             )}
           </div>

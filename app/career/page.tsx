@@ -5,8 +5,14 @@ import PerksBenefits from '@/components/career/PerksBenefits';
 import OpenPositions from '@/components/career/OpenPositions';
 
 export const metadata: Metadata = {
-  title: 'Careers | Webiox Digital Solutions',
-  description: 'Join Webiox and build the future of digital architecture. Explore our open roles, culture, and benefits.',
+  title: 'Careers & Engineering Opportunities',
+  description: 'Join Webiox Digital Solutions. Build high-performance web platforms, mobile apps, and autonomous AI systems. Explore open engineering, design, and sales roles.',
+  openGraph: {
+    title: 'Careers & Engineering Opportunities | Webiox',
+    description: 'Join Webiox Digital Solutions. Build high-performance web platforms, mobile apps, and autonomous AI systems. Explore open engineering, design, and sales roles.',
+    url: 'https://webiox.tech/career',
+    type: 'website',
+  },
 };
 
 export default function CareerPage() {

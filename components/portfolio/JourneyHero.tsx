@@ -1,14 +1,15 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { allProjects } from '@/data/projects';
 import { ArrowDownRight, Sparkles } from 'lucide-react';
 
 export default function JourneyHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   const images = allProjects.map((p) => p.image);
 
@@ -22,11 +23,14 @@ export default function JourneyHero() {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [mouseX, mouseY]);
+
+  const spotlightBg = useMotionTemplate`radial-gradient(circle 600px at ${mouseX}px ${mouseY}px, rgba(255, 191, 0, 0.08), transparent 80%)`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -43,15 +47,15 @@ export default function JourneyHero() {
       className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#1a7097] text-white selection:bg-[#FFBF00]/30 selection:text-[#FFBF00]"
     >
       {/* Dynamic Cursor Light */}
-      <div 
+      <motion.div 
         className="pointer-events-none absolute inset-0 z-0 opacity-40 transition-opacity duration-500 hidden lg:block"
         style={{
-          background: `radial-gradient(circle 600px at ${mousePos.x}px ${mousePos.y}px, rgba(255, 191, 0, 0.08), transparent 80%)`
+          background: spotlightBg
         }}
       />
 
       {/* Atmospheric Background */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#11737a] via-[#1a7097] to-[#0a454a] opacity-80" />
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#145b7c] via-[#1a7097] to-[#0b3345] opacity-80" />
       
       {/* Noise Texture Overlay */}
       <div 

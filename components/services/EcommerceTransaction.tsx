@@ -48,13 +48,28 @@ export default function EcommerceTransaction() {
   };
 
   useEffect(() => {
-    let frameId: number;
-    const loop = () => {
+    updatePaths();
+    const timer = setTimeout(updatePaths, 100);
+
+    const handleResize = () => {
       updatePaths();
-      frameId = requestAnimationFrame(loop);
     };
-    loop();
-    return () => cancelAnimationFrame(frameId);
+
+    window.addEventListener('resize', handleResize);
+
+    let resizeObserver: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined' && containerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        updatePaths();
+      });
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', handleResize);
+      if (resizeObserver) resizeObserver.disconnect();
+    };
   }, []);
 
   // Auto-loop orchestration

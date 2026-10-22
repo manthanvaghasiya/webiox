@@ -61,7 +61,7 @@ const SPRINT_GATES: SprintGate[] = [
     phase: 'Core Development',
     status: 'Verified & Signed Off',
     duration: 'Sprint 02 (Day 15–28)',
-    deliverables: ['Next.js 15 Server Components', 'Zero-Trust JWT Auth & RBAC', 'Edge Redis Cache Invalidation'],
+    deliverables: ['Next.js 16 Server Components', 'Zero-Trust JWT Auth & RBAC', 'Edge Redis Cache Invalidation'],
     verification: 'SIGN_HASH: 0x3E1B...78A0',
   },
   {
@@ -143,7 +143,7 @@ export default function WhyChooseUs() {
             Sub-Second Edge Infrastructure.
           </h3>
           <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-xl">
-            Next.js 15 App Router with Incremental Static Regeneration (ISR) and Edge Redis caching. Zero cold starts, sub-400ms LCP, and instant page transitions with sub-second edge delivery.
+            Next.js 16 App Router with Incremental Static Regeneration (ISR) and Edge Redis caching. Zero cold starts, sub-400ms LCP, and instant page transitions with sub-second edge delivery.
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import { staggerContainer, fadeUpVariant, lineDrawVariant, letterStaggerContainer, letterVariant } from '../../lib/motion/about';
 
 const rotatingWords = [
@@ -28,6 +28,9 @@ export default function AboutHero() {
   const mouseY = useMotionValue(0);
   const spotlightX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const spotlightY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+
+  const bg1 = useMotionTemplate`radial-gradient(circle 600px at ${spotlightX}px ${spotlightY}px, rgba(255,191,0,0.15), transparent 80%)`;
+  const bg2 = useMotionTemplate`radial-gradient(circle 300px at ${spotlightX}px ${spotlightY}px, rgba(255,255,255,0.1), transparent 80%)`;
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -59,13 +62,13 @@ export default function AboutHero() {
       <motion.div
         className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen"
         style={{
-          background: `radial-gradient(circle 600px at calc(${spotlightX.get()}px) calc(${spotlightY.get()}px), rgba(255,191,0,0.15), transparent 80%)`,
+          background: bg1,
         }}
       />
       <motion.div
         className="absolute inset-0 z-0 pointer-events-none opacity-30 mix-blend-color-dodge"
         style={{
-          background: `radial-gradient(circle 300px at calc(${spotlightX.get()}px) calc(${spotlightY.get()}px), rgba(255,255,255,0.1), transparent 80%)`,
+          background: bg2,
         }}
       />
 

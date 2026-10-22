@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, JetBrains_Mono, Alice, Zain } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
@@ -15,6 +15,20 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const alice = Alice({
+  variable: "--font-alice",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
+
+const zain = Zain({
+  variable: "--font-zain",
+  subsets: ["latin"],
+  weight: ["400", "700", "800", "900"],
   display: "swap",
 });
 
@@ -196,7 +210,7 @@ const jsonLdGraph = {
             "itemOffered": {
               "@type": "Service",
               "name": "Native & Cross-Platform Mobile Applications",
-              "url": "https://webiox.tech/services",
+              "url": "https://webiox.tech/services/mobile-apps",
               "description": "Fluid 60 FPS iOS and Android mobile applications built with Swift, Kotlin, and React Native."
             }
           },
@@ -225,6 +239,15 @@ const jsonLdGraph = {
               "name": "High-Conversion E-Commerce Platforms",
               "url": "https://webiox.tech/services/ecommerce-platforms",
               "description": "Custom headless e-commerce storefronts engineered for high throughput and zero checkout friction."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "UI/UX Design Systems & Prototyping",
+              "url": "https://webiox.tech/services/ui-ux-design",
+              "description": "Conversion-focused user interface design, tokenized design systems in Figma, and interactive clickable prototypes."
             }
           }
         ]
@@ -299,7 +322,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${jetbrainsMono.variable} h-full antialiased overflow-x-hidden`}
+      className={`${plusJakarta.variable} ${jetbrainsMono.variable} ${alice.variable} ${zain.variable} h-full antialiased overflow-x-hidden`}
     >
       <head>
         <script

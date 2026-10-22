@@ -28,9 +28,11 @@ const navColumns = [
     heading: 'Core Capabilities',
     links: [
       { label: 'Web Development & Flagships', href: '/services/web-development' },
-      { label: 'Native Mobile Applications', href: '/services' },
+      { label: 'High-Conversion E-Commerce', href: '/services/ecommerce-platforms' },
       { label: 'Custom Software & SaaS', href: '/services/saas-development' },
       { label: 'Autonomous AI Workflows', href: '/services/ai-solutions' },
+      { label: 'UI/UX Design & Systems', href: '/services/ui-ux-design' },
+      { label: 'Native Mobile Applications', href: '/services/mobile-apps' },
     ],
   },
   {
@@ -39,6 +41,7 @@ const navColumns = [
       { label: 'About Webiox', href: '/about' },
       { label: 'Selected Work', href: '/portfolio' },
       { label: 'Engineering Blog', href: '/blog' },
+      { label: 'Career Opportunities', href: '/career' },
       { label: 'Direct Contact', href: '/contact' },
     ],
   },
@@ -299,7 +302,7 @@ export default function Footer() {
           {/* ── Bottom Bar ── */}
           <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs font-mono text-slate-500">
-              &copy; {new Date().getFullYear()} Webiox Digital Solutions. Built with Next.js 15 & Tailwind.
+              &copy; {new Date().getFullYear()} Webiox Digital Solutions. Built with Next.js 16 & Tailwind.
             </p>
 
             <div className="flex items-center gap-4 text-xs font-mono text-slate-500">

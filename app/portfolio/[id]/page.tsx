@@ -66,8 +66,29 @@ export default async function ProjectCaseStudyPage({
 
   const summaryParagraph = project.fullDescription.split('\n\n')[0] || project.shortDescription;
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.title,
+    headline: project.shortDescription,
+    description: project.shortDescription,
+    image: `https://webiox.tech${project.image}`,
+    creator: {
+      '@type': 'Organization',
+      '@id': 'https://webiox.tech/#organization',
+      name: 'Webiox Digital Solutions',
+    },
+    url: `https://webiox.tech/portfolio/${project.id}`,
+    genre: project.category,
+    dateCreated: project.year,
+  };
+
   return (
     <div className="min-h-screen bg-[#F9FAFB] text-slate-900 selection:bg-[#1a7097]/20 selection:text-[#1a7097] font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       
       {/* ── Top Hero Header ── */}
       <section className="relative w-full bg-[#051F22] text-white pt-28 pb-16 md:pt-36 md:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">

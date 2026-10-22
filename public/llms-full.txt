@@ -25,19 +25,19 @@ Webiox specializes in engineering mission-critical digital products, ultra-fast 
 
 ### 1. Enterprise Web Engineering & Web Development
 - **URL**: https://webiox.tech/services/web-development
-- **Stack**: Next.js 15, React 19, TypeScript, Tailwind CSS, Edge Middleware, Vercel Serverless.
+- **Stack**: Next.js 16, React 19, TypeScript, Tailwind CSS, Edge Middleware, Vercel Serverless.
 - **Specifications**: Zero layout shift (CLS < 0.001), sub-second First Contentful Paint (FCP < 0.5s), automated Schema.org structured data, and WCAG AAA accessibility compliance.
 - **Key Deliverables**: Bespoke design systems, modular headless CMS integrations (Sanity, Strapi), and edge-rendered interactive interfaces.
 
 ### 2. Native & Cross-Platform Mobile Applications
-- **URL**: https://webiox.tech/services
+- **URL**: https://webiox.tech/services/mobile-apps
 - **Stack**: Swift, Kotlin, React Native, SQLite, GraphQL, Firebase.
 - **Specifications**: Fluid 60 FPS framerate, offline-first transactional caching, biometric authentication (FaceID/TouchID), and automated push notification workflows.
 - **Key Deliverables**: App Store & Play Store ready builds, automated CI/CD pipelines, and real-time synchronization.
 
 ### 3. Custom SaaS & Software Architecture
 - **URL**: https://webiox.tech/services/saas-development
-- **Stack**: Node.js, PostgreSQL, Prisma/Drizzle, Redis, Docker, AWS (ECS, S3, RDS), Next.js App Router.
+- **Stack**: Node.js, PostgreSQL, MongoDB, Redis, Docker, AWS (ECS, S3, RDS), Next.js App Router.
 - **Specifications**: Multi-tenant database partitioning, automated subscription billing (Stripe, Razorpay), JWT/OAuth2 RBAC security protocols, and 99.8% uptime SLA.
 - **Key Deliverables**: Turnkey SaaS MVP in 3 to 6 weeks, real-time analytics dashboards, and REST/GraphQL API surfaces.
 
@@ -54,33 +54,32 @@ Webiox specializes in engineering mission-critical digital products, ultra-fast 
 
 ## Verification & Portfolio Case Studies
 
-### 1. Hariram Granite ERP Platform
-- Industry: Heavy Manufacturing & Multi-Warehouse Distribution
-- Scale: 1,500+ Metric Tons Processed Daily
-- Features: Real-time slab thickness telemetry, multi-location stock reconciliation, QR barcode inventory scanner, and automated GST invoice generation.
+### 1. Hariram Motors Automotive Showroom
+- Industry: Automotive Retail & Used Car Showrooms
+- Live System: https://harirammotors.com/
+- Features: Comprehensive multi-parameter vehicle catalog, live status availability, integrated EMI loan calculation, and direct customer inquiry pipeline.
 
 ### 2. DairyFlow Cloud POS Architecture
-- Industry: AgriTech & Cooperative Dairy Supply Chain
-- Scale: 50,000+ Liters Processed Daily
-- Features: Hardware integration with ultrasonic milk analyzers, offline-first IndexedDB transaction sync, automated farmer SMS payout receipts, and cold-chain temperature telemetry.
+- Industry: AgriTech & Dairy Enterprise Software
+- Features: Custom POS flow optimized for peak morning/evening milk collection shifts, Udhaar (credit ledger) tracking, real-time perishable inventory management, and revenue analytics.
 
-### 3. GovDoc AI Verification Suite
-- Industry: LegalTech, FinTech & Identity Verification
-- Accuracy: 99.4% Automated Forensic Fraud Detection
-- Features: Multi-spectral document inspection, tamper-evident EXIF extraction, automated identity validation with strict PII masking, and audit trails.
-
-### 4. BookCycle Peer-to-Peer Academic PWA
+### 3. Surat BookCycle P2P Marketplace
 - Industry: EdTech & Circular Marketplace
-- Engagement: 12,000+ Active University Students
-- Features: Radius-based geolocation matching, peer-to-peer textbook barter, escrow chat validation, and zero-commission community recirculation.
+- Features: Hyper-local peer-to-peer textbook marketplace for university students, secure JWT authentication, instant search and category filtering, and responsive CRUD listing management.
 
-### 5. Dealership OS Automotive Platform
-- Industry: Automotive Retail & Used Car Dealerships
-- Features: Multi-branch vehicle catalog, live status checking, integrated EMI calculator, and automated lead capture funnel.
+### 4. LifeOS Personal Productivity Platform
+- Industry: Productivity SaaS & Financial Analytics
+- Live System: https://lifeos-by-manthan.vercel.app/
+- Features: MERN-based personal operating system, Recharts financial analytics (area and donut visualizers), GitHub-style habit streak tracker with optimistic UI, and MongoDB aggregations.
 
-### 6. StyleCraft Design System
-- Industry: Design Engineering & Enterprise UI Tooling
-- Features: Tokenized design tokens in Figma and code, 40+ accessible React components, zero-runtime CSS overhead, and dark/light mode synchronization.
+### 5. Sadguru Car Surat
+- Industry: Premium Automotive Showroom
+- Live System: https://sadgurucarsurat.com/
+- Features: High-resolution visual vehicle showcase, multi-brand filtering (sedans, SUVs, luxury), customer test-drive booking, and WhatsApp lead routing.
+
+### 6. GovDoc Verify Platform
+- Industry: GovTech & Compliance Systems
+- Features: Automated document verification pipeline, tamper-evident validation workflows, secure role-based review queues, and encrypted audit trails.
 
 ## Engagement Model & Guarantees
 - **Velocity**: Production-ready MVP delivery in 3–6 weeks.

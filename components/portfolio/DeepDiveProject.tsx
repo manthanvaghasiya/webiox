@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { Project } from '@/data/projects';
 import DeepDiveProjectMobile from './DeepDiveProjectMobile';
@@ -39,10 +40,10 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
    const [isRevealed, setIsRevealed] = useState(false);
 
    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-      // Trigger reveal ONLY AFTER the image has perfectly finished settling on the left (0.4)
-      if (latest > 0.7 && !isRevealed) {
+      // Trigger reveal immediately after image settles on the left
+      if (latest > 0.42 && !isRevealed) {
          setIsRevealed(true);
-      } else if (latest < 0.7 && isRevealed) {
+      } else if (latest < 0.42 && isRevealed) {
          setIsRevealed(false);
       }
    });
@@ -56,7 +57,7 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
          if (para.trim().startsWith('•')) {
             return (
                <div key={i} className="flex items-start gap-1.5 md:gap-3 mt-0.5 md:mt-2">
-                  <span className="text-primary mt-1 flex-shrink-0">
+                  <span className="text-[#1a7097] mt-1 flex-shrink-0">
                      <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                      </svg>
@@ -99,19 +100,19 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
 
             {/* Emerging Text & Architecture Panel */}
             <motion.div
-               animate={{ opacity: isRevealed ? 1 : 0, y: isRevealed ? 0 : 50 }}
-               transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1] }}
+               animate={{ opacity: isRevealed ? 1 : 0, y: isRevealed ? 0 : 30 }}
+               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                className="absolute top-24 md:top-28 lg:top-[15vh] left-[5vw] md:left-auto right-[5vw] 2xl:right-[8vw] w-[90vw] md:w-[50vw] lg:w-[45vw] 2xl:w-[40vw] h-auto flex flex-col z-10 pointer-events-none md:pointer-events-auto"
             >
-               <div className="pointer-events-auto flex flex-col gap-3 md:gap-5 lg:gap-6 max-w-2xl ml-auto bg-slate-50/90 backdrop-blur-xl p-5 md:p-8 lg:p-10 rounded-[1.5rem] md:rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-white/50">
+               <div className="pointer-events-auto flex flex-col gap-3 md:gap-5 lg:gap-6 max-w-2xl ml-auto bg-white/95 backdrop-blur-xl p-5 md:p-8 lg:p-10 rounded-[1.5rem] md:rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-slate-200/80">
 
-                  <div className="flex flex-wrap items-center gap-2 md:gap-4 text-[10px] md:text-xs font-mono uppercase tracking-[0.1em] md:tracking-[0.3em] text-primary">
+                  <div className="flex flex-wrap items-center gap-2 md:gap-4 text-[10px] md:text-xs font-mono uppercase tracking-[0.1em] md:tracking-[0.2em] text-[#1a7097] font-semibold">
                      <span>{project.year}</span>
                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
                      <span>{project.category}</span>
                   </div>
 
-                  <h2 className="text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-slate-900 tracking-tighter leading-[1] font-['IBM_Plex_Sans']">
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.05]">
                      {project.title}
                   </h2>
 
@@ -121,7 +122,7 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
 
                   <div className="flex flex-wrap gap-2 md:gap-3 mt-3 md:mt-4">
                      {project.tech.map((tech, i) => (
-                        <span key={i} className="px-3 py-1.5 md:px-5 md:py-2 bg-slate-100/80 text-slate-600 rounded-full text-[9px] md:text-[10px] font-bold tracking-widest uppercase shadow-sm">
+                        <span key={i} className="px-3 py-1.5 md:px-4 md:py-1.5 bg-slate-100 text-slate-700 rounded-lg text-[10px] md:text-xs font-mono font-medium border border-slate-200/70">
                            {tech}
                         </span>
                      ))}
@@ -130,19 +131,36 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
                </div>
             </motion.div>
 
-            {/* Persistent Live Demo Action */}
+            {/* Persistent Action Bar */}
             <motion.div
-               className="absolute bottom-6 md:bottom-10 left-[5vw] 2xl:left-[8vw] z-40 pointer-events-auto"
+               className="absolute bottom-6 md:bottom-10 left-[5vw] 2xl:left-[8vw] z-40 pointer-events-auto flex items-center gap-3"
             >
-               <a href={project.liveLink} className="group relative px-6 py-3 md:px-8 md:py-4 bg-slate-900 shadow-2xl text-white rounded-full overflow-hidden hover:shadow-[0_10px_30px_rgba(33,166,139,0.3)] transition-all duration-300 inline-flex items-center gap-2 border border-slate-700/50">
-                  <div className="absolute inset-0 bg-primary translate-y-[110%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
-                  <span className="relative z-10 font-semibold tracking-widest text-[10px] md:text-xs uppercase flex items-center gap-2 whitespace-nowrap">
-                     Live Demo
-                     <svg className="w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                     </svg>
-                  </span>
-               </a>
+               {project.liveLink && project.liveLink !== '#' && (
+                  <a
+                     href={project.liveLink}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="group relative px-6 py-3 md:px-7 md:py-3.5 bg-slate-900 shadow-xl text-white rounded-full overflow-hidden hover:shadow-[0_10px_30px_rgba(26,112,151,0.3)] transition-all duration-300 inline-flex items-center gap-2 border border-slate-700/50"
+                  >
+                     <div className="absolute inset-0 bg-[#1a7097] translate-y-[110%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
+                     <span className="relative z-10 font-bold tracking-wider text-[10px] md:text-xs uppercase flex items-center gap-2 whitespace-nowrap">
+                        Live Demo
+                        <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                     </span>
+                  </a>
+               )}
+
+               <Link
+                  href={`/portfolio/${project.id}`}
+                  className="px-6 py-3 md:px-7 md:py-3.5 bg-[#1a7097] hover:bg-[#145b7c] shadow-lg text-white rounded-full transition-all duration-300 inline-flex items-center gap-2 font-bold tracking-wider text-[10px] md:text-xs uppercase cursor-pointer group"
+               >
+                  <span>Explore Case Study</span>
+                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+               </Link>
             </motion.div>
 
          </motion.div>

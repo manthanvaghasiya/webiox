@@ -63,7 +63,7 @@ export default function SettingsPage() {
           {/* Section: Password Update */}
           <div className="border-b border-slate-100 pb-8">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 bg-[#1a7097]/10 text-[#1a7097] rounded-2xl flex items-center justify-center shrink-0">
                 <Key size={24} />
               </div>
               <div>
@@ -86,7 +86,7 @@ export default function SettingsPage() {
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
                   placeholder="Enter current password" 
-                  className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 text-slate-900 font-medium transition-all" 
+                  className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-[#1a7097]/10 focus:border-[#1a7097] text-slate-900 font-medium transition-all" 
                 />
               </div>
 
@@ -97,7 +97,7 @@ export default function SettingsPage() {
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   placeholder="Enter new password (min. 8 characters)" 
-                  className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 text-slate-900 font-medium transition-all" 
+                  className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-[#1a7097]/10 focus:border-[#1a7097] text-slate-900 font-medium transition-all" 
                 />
               </div>
 
@@ -108,7 +108,7 @@ export default function SettingsPage() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="Confirm new password" 
-                  className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 text-slate-900 font-medium transition-all" 
+                  className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-[#1a7097]/10 focus:border-[#1a7097] text-slate-900 font-medium transition-all" 
                 />
               </div>
 
@@ -116,7 +116,7 @@ export default function SettingsPage() {
                 <button 
                   type="submit"
                   disabled={isSaving}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-600/20 transition-all disabled:opacity-70"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#1a7097] hover:bg-[#145b7c] text-white font-bold rounded-xl hover:shadow-lg hover:shadow-[#1a7097]/20 transition-all disabled:opacity-70 cursor-pointer"
                 >
                   {isSaving ? (
                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -134,7 +134,7 @@ export default function SettingsPage() {
           {/* Section: Active Sessions */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Shield size={20} className="text-indigo-600" />
+              <Shield size={20} className="text-[#1a7097]" />
               <h3 className="text-lg font-bold text-slate-900">Active Admin Sessions</h3>
             </div>
             <p className="text-sm text-slate-500 font-medium mb-4">Devices currently authenticated to access the Webiox admin portal.</p>

@@ -59,7 +59,7 @@ const STAGES: Stage[] = [
         desc: 'Strict TypeScript interfaces and REST/GraphQL endpoint specifications.',
       },
     ],
-    stack: ['Figma', 'TypeScript', 'Prisma', 'PostgreSQL', 'Next.js 15'],
+    stack: ['Figma', 'TypeScript', 'Prisma', 'PostgreSQL', 'Next.js 16'],
     qaGate: 'Architecture & UX Sign-off ✓',
     artifactCode: 'schema.prisma // 14 models verified • 0 circular dependencies',
   },
@@ -71,10 +71,10 @@ const STAGES: Stage[] = [
     duration: 'Sprint 02 // Day 15–28',
     icon: Code2,
     overview:
-      'Our senior architects construct your core application on Next.js 15 App Router with server actions, stateless JWT auth, and automated GitHub Actions deployment pipelines.',
+      'Our senior architects construct your core application on Next.js 16 App Router with server actions, stateless JWT auth, and automated GitHub Actions deployment pipelines.',
     deliverables: [
       {
-        title: 'Next.js 15 Server Components',
+        title: 'Next.js 16 Server Components',
         desc: 'Sub-second rendering with streaming SSR and granular data caching.',
       },
       {
@@ -86,7 +86,7 @@ const STAGES: Stage[] = [
         desc: 'Continuous linting, type-checking, and automatic PR staging preview environments.',
       },
     ],
-    stack: ['Next.js 15', 'React 19', 'Tailwind CSS', 'Docker', 'GitHub Actions'],
+    stack: ['Next.js 16', 'React 19', 'Tailwind CSS', 'Docker', 'GitHub Actions'],
     qaGate: 'Core Engine CI/CD Passed ✓',
     artifactCode: 'git commit -m "feat(core): sub-second streaming engine active" [PASS]',
   },

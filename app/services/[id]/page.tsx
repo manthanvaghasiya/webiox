@@ -42,8 +42,27 @@ export default async function ServiceDetail({
     notFound();
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.title,
+    description: service.description,
+    provider: {
+      '@type': 'Organization',
+      '@id': 'https://webiox.tech/#organization',
+      name: 'Webiox Digital Solutions',
+    },
+    url: `https://webiox.tech/services/${service.id}`,
+    serviceType: service.title,
+    areaServed: 'Global',
+  };
+
   return (
     <div className="min-h-screen bg-[#F9FAFB]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       
       {/* Massive Hero Section */}
       <section className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden">
@@ -59,7 +78,7 @@ export default async function ServiceDetail({
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20">
-          <Link href="/#services" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-12 transition-colors font-medium">
+          <Link href="/services" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-12 transition-colors font-medium">
             <ChevronLeft className="w-5 h-5" />
             Back to Services
           </Link>

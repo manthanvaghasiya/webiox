@@ -56,7 +56,7 @@ export const allProjects: Project[] = [
     },
     {
         id: 4,
-        title: 'LifeOS ',
+        title: 'LifeOS',
         category: 'SaaS Development',
         year: '2025',
         shortDescription: "An all-in-one personal operating system that combines financial tracking and habit consistency.",
@@ -75,7 +75,7 @@ export const allProjects: Project[] = [
     },
     {
         id: 3,
-        title: 'Surat BookCycle ',
+        title: 'Surat BookCycle',
         category: 'Web Development',
         year: '2026',
         shortDescription: "A hyper-local P2P marketplace connecting students to buy, sell, and exchange used textbooks.",
@@ -94,7 +94,7 @@ export const allProjects: Project[] = [
     },
     {
         id: 2,
-        title: 'DairyFlow ',
+        title: 'DairyFlow',
         category: 'SaaS Development',
         year: '2025',
         shortDescription: "A modern ERP-style platform helping dairy shops manage sales, credit (udhaar), and inventory.",

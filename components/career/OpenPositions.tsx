@@ -130,7 +130,7 @@ export default function OpenPositions() {
                         
                         <Link 
                           href={`/contact?role=${encodeURIComponent(pos.title)}`}
-                          className="group inline-flex items-center justify-center gap-2 bg-[#1a7097] text-white px-6 py-3 rounded-full font-semibold transition-all hover:bg-[#11737a] hover:shadow-lg w-full sm:w-auto"
+                          className="group inline-flex items-center justify-center gap-2 bg-[#1a7097] text-white px-6 py-3 rounded-full font-semibold transition-all hover:bg-[#145b7c] hover:shadow-lg w-full sm:w-auto"
                         >
                           Apply Now
                           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

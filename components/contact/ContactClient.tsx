@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, Sparkles, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
 import { submitInquiry } from '@/app/actions/contact';
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const SERVICES_OPTIONS = [
   'Enterprise Web Engineering',
@@ -12,6 +13,7 @@ const SERVICES_OPTIONS = [
   'AI & Autonomous Workflows',
   'UI/UX Design Systems',
   'Cross-Platform Mobile Apps',
+  'Other / Career Application',
 ];
 
 const BUDGET_OPTIONS = [
@@ -22,6 +24,10 @@ const BUDGET_OPTIONS = [
 ];
 
 export default function ContactClient() {
+  const searchParams = useSearchParams();
+  const role = searchParams?.get('role');
+  const serviceParam = searchParams?.get('service');
+
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -35,6 +41,24 @@ export default function ContactClient() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [teamEmail, setTeamEmail] = useState('');
+
+  useEffect(() => {
+    if (role) {
+      setFormState((prev) => ({
+        ...prev,
+        service: 'Other / Career Application',
+        message: prev.message || `Applying for ${role} position.\n\nLinkedIn / Portfolio: \nKey experience: `,
+      }));
+    } else if (serviceParam) {
+      const match = SERVICES_OPTIONS.find((s) => s.toLowerCase().includes(serviceParam.toLowerCase()));
+      if (match) {
+        setFormState((prev) => ({
+          ...prev,
+          service: match,
+        }));
+      }
+    }
+  }, [role, serviceParam]);
 
   useEffect(() => {
     const u = 'manthanvaghasiya';

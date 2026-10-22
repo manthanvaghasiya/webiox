@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import DeepDiveProject from '@/components/portfolio/DeepDiveProject';
 import JourneyHero from '@/components/portfolio/JourneyHero';
 import PortfolioFilter from '@/components/portfolio/PortfolioFilter';
@@ -67,21 +69,25 @@ export default function PortfolioClient() {
         )}
       </div>
 
-      {/* Elegant Footer Release */}
-      <footer className="h-[45vh] w-full flex flex-col items-center justify-center relative bg-slate-50 z-10 overflow-hidden text-center px-6">
-        <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#1a7097] mb-4">
+      {/* Pre-Footer Action Block */}
+      <section className="py-20 md:py-28 w-full flex flex-col items-center justify-center relative bg-slate-50 z-10 overflow-hidden text-center px-6 border-t border-slate-200/60">
+        <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#1a7097] font-bold mb-3">
           Engineered by Webiox
         </span>
-        <h2 className="text-slate-900 text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight uppercase mb-6">
-          Ready to Engineer Yours?
+        <h2 className="text-slate-900 text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-6">
+          Ready to Engineer Your Flagship Platform?
         </h2>
-        <a
+        <p className="text-slate-500 max-w-xl text-sm sm:text-base mb-8 font-normal leading-relaxed">
+          From concept architecture to zero-downtime production deployments, our senior squads deliver at startup speed with milestone-locked precision.
+        </p>
+        <Link
           href="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#1a7097] text-white font-bold hover:bg-[#145b7c] transition-colors shadow-lg"
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#1a7097] hover:bg-[#145b7c] text-white font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-[#1a7097]/25"
         >
-          Start a Project
-        </a>
-      </footer>
+          <span>Start a Project</span>
+          <ArrowUpRight className="w-4 h-4" />
+        </Link>
+      </section>
     </main>
   );
 }

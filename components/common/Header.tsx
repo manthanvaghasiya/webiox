@@ -36,7 +36,7 @@ interface NavLink {
 const NAV_LINKS: readonly NavLink[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services', badge: '4 Squads' },
+  { name: 'Services', href: '/services', badge: '6 Services' },
   { name: 'Portfolio', href: '/portfolio', badge: 'Selected Work' },
   {
     name: 'Company',
