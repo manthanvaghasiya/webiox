@@ -919,7 +919,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="relative bg-[#FCFCFD] text-[#0F172A] py-20 sm:py-28 lg:py-32 overflow-hidden selection:bg-[#1a7097] selection:text-white"
+      className="relative bg-[#FCFCFD] text-[#0F172A] pt-20 sm:pt-28 lg:pt-32 pb-14 sm:pb-20 lg:pb-24 overflow-hidden selection:bg-[#1a7097] selection:text-white"
     >
       {/* ── Ambient Background Lighting (Curtain Glows & Micro-Grid) ── */}
       <div

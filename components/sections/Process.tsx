@@ -153,7 +153,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="relative bg-[#FCFCFD] text-[#0F172A] py-24 sm:py-32 overflow-hidden selection:bg-[#1a7097] selection:text-white"
+      className="relative bg-[#FCFCFD] text-[#0F172A] pt-12 sm:pt-16 pb-24 sm:pb-32 overflow-hidden selection:bg-[#1a7097] selection:text-white"
     >
       {/* ── Ambient Background Lighting ── */}
       <div
