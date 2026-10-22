@@ -326,7 +326,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${jetbrainsMono.variable} ${zain.variable} h-full antialiased overflow-x-hidden`}
+      className={`${plusJakarta.variable} ${jetbrainsMono.variable} ${zain.variable} antialiased`}
     >
       <head>
         <script

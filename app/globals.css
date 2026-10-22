@@ -62,9 +62,14 @@
   font-family: var(--font-sans);
 }
 
-html,
+html {
+  background: #FAFBFC;
+  color: #090D16;
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
   background: #FAFBFC;
   color: #090D16;
