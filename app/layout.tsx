@@ -24,6 +24,7 @@ const zain = Zain({
   subsets: ["latin"],
   weight: ["400", "700", "800", "900"],
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {

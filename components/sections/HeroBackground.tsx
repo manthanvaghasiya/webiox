@@ -182,11 +182,18 @@ export default function HeroBackground() {
       animId = requestAnimationFrame(render);
     };
 
-    render();
+    // Defer canvas startup to idle time to eliminate Total Blocking Time (TBT) on initial paint
+    let idleTimer: NodeJS.Timeout | null = null;
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      window.requestIdleCallback(() => render(), { timeout: 1200 });
+    } else {
+      idleTimer = setTimeout(() => render(), 250);
+    }
 
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      if (idleTimer) clearTimeout(idleTimer);
       observer.disconnect();
       cancelAnimationFrame(animId);
     };
