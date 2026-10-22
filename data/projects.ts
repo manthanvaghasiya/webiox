@@ -21,7 +21,7 @@ export const allProjects: Project[] = [
         title: 'Hariram Motors',
         category: 'Web Development',
         year: '2024',
-        shortDescription: "A modern, premium pre-owned car dealership platform in Surat for seamless buying and selling.",
+        shortDescription: "A high-performance automotive retail and discovery showroom in Surat for seamless vehicle buying and selling.",
         fullDescription: "Hariram Motors is a digital dealership platform for verified second-hand cars in Surat, designed to deliver a luxury browsing experience.\n\n• Developed a high-performance inventory showcase for certified pre-owned vehicles with advanced filtering.\n• Implemented responsive, modern UI/UX with smooth micro-animations to enhance user engagement.\n• Integrated local SEO best practices and AutoDealer schema to dominate local search rankings.\n• Built an intuitive mobile-first interface allowing users to explore cars and book test drives seamlessly.",
         features: [
             "Premium Vehicle Inventory Showcase",
@@ -40,7 +40,7 @@ export const allProjects: Project[] = [
         title: 'Sadguru Car Surat',
         category: 'Web Development',
         year: '2024',
-        shortDescription: "Surat's trusted pre-owned car dealership platform with robust inventory and staff management.",
+        shortDescription: "Enterprise multi-lot dealership management software with real-time staff sync and fleet operations.",
         fullDescription: "Sadguru Car Melo is a comprehensive digital dealership platform built to streamline the buying, selling, and exchanging of pre-owned cars in Surat.\n\n• Integrated a dynamic vehicle inventory management system for 150+ certified cars.\n• Built a dedicated Staff Portal with PWA capabilities for on-the-go dealership management.\n• Optimized for high local search visibility using AutoDealer rich snippets and JSON-LD schema.\n• Designed a responsive, high-performance customer interface for browsing available inventory.",
         features: [
             "Dynamic Vehicle Inventory System",

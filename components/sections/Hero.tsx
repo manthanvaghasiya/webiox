@@ -96,7 +96,7 @@ export default function Hero() {
           className="max-w-2xl mx-auto mb-7 sm:mb-8 text-center px-2"
         >
           <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2">
-            Engineering high-performance web development platforms, mobile apps, and custom software.
+            Engineering high-performance web development platforms, mobile apps, and enterprise software architecture.
           </h2>
           <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed">
             Full-cycle engineering squads that take products from zero to production at startup speed — with fixed-scope milestone deliverables and zero scope creep.

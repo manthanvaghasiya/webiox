@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Plus_Jakarta_Sans, JetBrains_Mono, Zain } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
@@ -30,10 +29,10 @@ const zain = Zain({
 export const metadata: Metadata = {
   metadataBase: new URL('https://webiox.tech'),
   title: {
-    default: "Webiox | Web Development, Apps & Custom Software Studio",
+    default: "Webiox | Web Development, Apps & Software Architecture Studio",
     template: "%s | Webiox"
   },
-  description: "Webiox is a premier digital engineering studio building ultra-fast web platforms, mobile apps, custom software architectures, and autonomous AI workflows.",
+  description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, enterprise software architecture, and autonomous AI workflows.",
   keywords: [
     "Webiox",
     "webiox.tech",
@@ -41,10 +40,13 @@ export const metadata: Metadata = {
     "Webiox Tech",
     "Webiocs",
     "Webiox Agency",
+    "Web Development",
     "Web Development Agency",
     "Next.js Development Studio",
     "Mobile App Development",
     "Custom Software Engineering",
+    "Software Architecture",
+    "Enterprise Software",
     "SaaS Architecture",
     "AI Workflows",
     "Autonomous AI Systems",
@@ -62,8 +64,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Webiox | Web Development, Apps & Custom Software Studio",
-    description: "Webiox is a premier digital engineering studio building ultra-fast web platforms, mobile apps, custom software architectures, and autonomous AI workflows.",
+    title: "Webiox | Web Development, Apps & Software Architecture Studio",
+    description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, enterprise software architecture, and autonomous AI workflows.",
     url: 'https://webiox.tech',
     siteName: 'Webiox Digital Solutions',
     locale: 'en_US',
@@ -79,8 +81,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Webiox | Web Development, Apps & Custom Software Studio",
-    description: "Webiox is a premier digital engineering studio building ultra-fast web platforms, mobile apps, custom software architectures, and autonomous AI workflows.",
+    title: "Webiox | Web Development, Apps & Software Architecture Studio",
+    description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, enterprise software architecture, and autonomous AI workflows.",
     site: '@webiox_tech',
     creator: '@webiox_tech',
     images: ['/logo_without_background512.png'],
@@ -330,24 +332,23 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
-        {/* Google Analytics 4 (GA4) Tracking */}
-        <Script
-          strategy="afterInteractive"
+        {/* Google Analytics 4 (GA4) Tracking - Inlined in static head for instant crawler & audit tool detection */}
+        <script
+          async
           src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
         />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-        >
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${gaId}', {
-              page_path: window.location.pathname,
-            });
-          `}
-        </Script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaId}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#1a7097]/20 selection:text-[#1a7097] overflow-x-hidden">
         <Header />
