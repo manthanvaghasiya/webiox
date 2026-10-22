@@ -46,8 +46,8 @@ export default function Hero() {
         >
           <h1 className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] leading-[1.18] tracking-[-0.025em] text-[#0F172A] text-center [text-wrap:balance]">
             <span className="inline-block">Developing</span>{' '}
-            <span className="inline-flex relative h-[1.22em] overflow-hidden align-top text-[#1a7097] min-w-[210px] sm:min-w-[280px] md:min-w-[360px] lg:min-w-[420px] justify-center text-center">
-              <AnimatePresence mode="wait">
+            <span className="inline-flex relative h-[1.22em] overflow-hidden align-top text-[#1a7097]">
+              <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span
                   key={currentWordIndex}
                   initial={{ y: 40, opacity: 0, filter: 'blur(4px)' }}
@@ -58,7 +58,7 @@ export default function Hero() {
                     opacity: { duration: 0.22 },
                     filter: { duration: 0.18 },
                   }}
-                  className="inline-block whitespace-nowrap bg-gradient-to-r from-[#1a7097] via-[#1f82af] to-[#0ea5e9] bg-clip-text text-transparent"
+                  className="inline-block whitespace-nowrap bg-gradient-to-r from-[#1a7097] via-[#1f82af] to-[#0ea5e9] bg-clip-text text-transparent px-1"
                 >
                   {ROTATING_SERVICES[currentWordIndex]}
                 </motion.span>
