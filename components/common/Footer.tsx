@@ -191,7 +191,7 @@ export default function Footer() {
                 <a
                   href="https://wa.me/919664736245"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-[#0F172A] font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-base shadow-xs hover:border-slate-300 transition-all cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-600" />
@@ -255,7 +255,7 @@ export default function Footer() {
                     key={s.label}
                     href={s.href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     aria-label={s.label}
                     className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-[#E7B900] hover:bg-white/10 transition-all cursor-pointer"
                   >

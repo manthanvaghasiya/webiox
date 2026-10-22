@@ -169,7 +169,7 @@ export default function ContactClient() {
               <a
                 href="https://wa.me/919664736245?text=Hello%20Webiox,%20I%20would%20like%20to%20discuss%20a%20project."
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-1.5 text-xs text-emerald-600 font-bold hover:underline mt-1"
               >
                 <MessageCircle size={14} /> Chat on WhatsApp

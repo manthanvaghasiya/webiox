@@ -497,7 +497,7 @@ export default function Header() {
                   <a
                     href="https://wa.me/919664736245?text=Hi%20Manthan%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Webiox."
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="px-2.5 py-1 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-[10.5px] font-bold shrink-0 transition-colors shadow-2xs flex items-center gap-1"
                   >
                     <MessageCircle className="w-3 h-3" />
