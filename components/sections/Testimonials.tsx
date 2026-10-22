@@ -192,6 +192,7 @@ export default function Testimonials() {
                       alt={testimonial.author}
                       width={48}
                       height={48}
+                      loading="lazy"
                       className="w-12 h-12 rounded-full object-cover object-center bg-slate-100 border border-slate-200 shadow-2xs"
                     />
                   </div>
@@ -231,7 +232,8 @@ export default function Testimonials() {
           </div>
 
           <a
-            href="#contact"
+            href="/portfolio"
+            aria-label="Read more partner case briefs in our curated portfolio archive"
             className="inline-flex items-center gap-1.5 font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#1a7097] hover:text-[#145b7c] transition-colors"
           >
             <span>Read More Partner Case Briefs</span>

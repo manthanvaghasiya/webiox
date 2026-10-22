@@ -842,7 +842,8 @@ export default function WhyChooseUs() {
                         Average response: &lt; 12 mins • Direct Private Slack
                       </span>
                       <a
-                        href="#contact"
+                        href="/contact"
+                        aria-label="Request Slack invite from Webiox lead architect"
                         className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#1a7097] hover:text-[#145b7c] transition-colors cursor-pointer"
                       >
                         <span>Request Slack Invite</span>
@@ -1176,7 +1177,8 @@ export default function WhyChooseUs() {
           </div>
 
           <a
-            href="#contact"
+            href="/contact"
+            aria-label="Claim your Webiox advantage - Contact our engineering team"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-xs sm:text-sm font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-lg shadow-[#1a7097]/20 hover:shadow-xl hover:shadow-[#1a7097]/30 transition-all shrink-0 cursor-pointer group"
           >
             <span>Claim Your Webiox Advantage</span>

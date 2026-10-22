@@ -85,7 +85,7 @@ export default function Hero() {
         {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context - Painted instantly for LCP) ── */}
         <div className="max-w-2xl mx-auto mb-7 sm:mb-8 text-center px-2">
           <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2">
-            Engineering high-performance web development platforms, mobile apps, and enterprise software architecture.
+            Engineering high-performance web platforms, mobile apps & enterprise software.
           </h2>
           <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed">
             Whether you&apos;re already an industry leader or striving to become one — connect with us. We build high-impact web platforms, modernize your digital profile, and engineer the technology that turns your business into a market leader.

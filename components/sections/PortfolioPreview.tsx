@@ -224,6 +224,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Visit live website for ${project.title}`}
               className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2.5 sm:px-3 py-1 rounded-full bg-black/65 hover:bg-black/85 backdrop-blur-md border border-white/20 text-[9.5px] sm:text-[10px] font-mono text-white flex items-center gap-1 sm:gap-1.5 transition-all shadow-md z-10 cursor-pointer"
             >
               <Lock className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
@@ -484,6 +485,7 @@ export default function PortfolioPreview() {
                     href={activeMobileProj.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Visit live website for ${activeMobileProj.title}`}
                     className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-black/70 hover:bg-black/85 backdrop-blur-md border border-white/20 text-[9.5px] font-mono text-white flex items-center gap-1.5 transition-all shadow-md z-10"
                   >
                     <Lock className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
@@ -605,6 +607,7 @@ export default function PortfolioPreview() {
           </div>
           <Link
             href="/portfolio"
+            aria-label="View full portfolio archive of all 6 curated case studies"
             className="inline-flex items-center gap-1.5 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#1a7097] hover:underline"
           >
             <span>View Full Archive</span>
@@ -794,6 +797,7 @@ export default function PortfolioPreview() {
 
               <Link
                 href="/portfolio"
+                aria-label="View full portfolio archive of all 6 curated case studies"
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#0F172A] text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold border border-slate-200/80 transition-all cursor-pointer group shadow-2xs"
               >
                 <span>View Full Archive (06)</span>

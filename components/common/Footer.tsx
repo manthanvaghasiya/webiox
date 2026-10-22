@@ -119,15 +119,11 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      itemScope
-      itemType="https://schema.org/Organization"
       className="relative overflow-hidden selection:bg-[#1a7097] selection:text-white"
     >
-      <meta itemProp="name" content="Webiox Digital Solutions" />
-      <meta itemProp="url" content="https://webiox.tech" />
       {/* ━━━━━━━━━━━━━━━━ TOP LAUNCHPAD CTA (Luminous Light Mode) ━━━━━━━━━━━━━━━━ */}
       {isHomePage && (
-        <div className="relative z-20 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-[#FCFCFD]">
+        <div id="contact" className="relative z-20 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-[#FCFCFD]">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -182,6 +178,7 @@ export default function Footer() {
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3.5 w-full sm:w-auto shrink-0 relative z-10">
                 <Link
                   href="/contact"
+                  aria-label="Start a project with Webiox architects"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-[#1a7097] hover:bg-[#145b7c] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-base shadow-xl shadow-[#1a7097]/25 hover:shadow-2xl hover:shadow-[#1a7097]/35 transition-all cursor-pointer group"
                 >
                   <span>Start a Project</span>
@@ -191,7 +188,8 @@ export default function Footer() {
                 <a
                   href="https://wa.me/919664736245"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer me"
+                  aria-label="Connect with Webiox on direct WhatsApp VIP"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-[#0F172A] font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-base shadow-xs hover:border-slate-300 transition-all cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-600" />
@@ -298,37 +296,44 @@ export default function Footer() {
                 </Link>
                 <a
                   href="tel:+919664736245"
-                  itemProp="telephone"
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
                 >
                   <Phone className="w-4 h-4 text-[#E7B900] shrink-0" />
                   <span>+91 96647 36245</span>
                 </a>
-                <address
-                  itemProp="address"
-                  className="not-italic flex items-start gap-3 text-slate-400 leading-relaxed"
-                  itemScope
-                  itemType="https://schema.org/PostalAddress"
-                >
+                <address className="not-italic flex items-start gap-3 text-slate-400 leading-relaxed">
                   <MapPin className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
                   <span>
-                    <span itemProp="streetAddress">The Palladium, Yogi Chowk</span>,{' '}
-                    <span itemProp="addressLocality">Surat</span>{' '}
-                    <span itemProp="postalCode">395010</span>,{' '}
-                    <span itemProp="addressCountry">India</span>
+                    The Palladium, Yogi Chowk, Surat 395010, Gujarat, India
                   </span>
                 </address>
               </div>
             </motion.div>
           </motion.div>
 
+          {/* ── E-E-A-T Professional Disclaimer & Trust Verification Strip ── */}
+          <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] font-mono text-slate-400">
+            <div className="max-w-2xl leading-relaxed">
+              <span className="text-slate-300 font-bold">Engineering Quality & SLA Disclaimer:</span>{' '}
+              Webiox Digital Solutions delivers custom enterprise software architectures, web applications, and digital engineering services. All milestone deliverables include verified CI/CD test gates, OWASP compliance audits, and a 30-day post-launch warranty.
+            </div>
+            <div className="flex items-center gap-3 shrink-0">
+              <span className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-emerald-400 font-bold">
+                ✓ OWASP Audited
+              </span>
+              <span className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300">
+                Updated: Oct 2026
+              </span>
+            </div>
+          </div>
+
           {/* ── Bottom Bar ── */}
-          <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs font-mono text-slate-500">
-              &copy; {new Date().getFullYear()} Webiox Digital Solutions. Built with Next.js 16 & Tailwind.
+          <div className="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs font-mono text-slate-400">
+              &copy; {new Date().getFullYear()} Webiox Digital Solutions. Founded & Architected by Manthan Vaghasiya.
             </p>
 
-            <div className="flex items-center gap-4 text-xs font-mono text-slate-500">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono text-slate-400">
               <Link href="/privacy" className="hover:text-white transition-colors">
                 Privacy Policy
               </Link>
@@ -337,10 +342,14 @@ export default function Footer() {
                 Terms of Service
               </Link>
               <span>•</span>
+              <Link href="/terms" className="hover:text-white transition-colors">
+                Editorial & Code Standards
+              </Link>
+              <span>•</span>
               <button
                 type="button"
                 onClick={scrollToTop}
-                aria-label="Back to top"
+                aria-label="Back to top of page"
                 className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
               >
                 <ArrowUp className="w-4 h-4" />

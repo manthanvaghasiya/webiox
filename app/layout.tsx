@@ -30,10 +30,10 @@ const zain = Zain({
 export const metadata: Metadata = {
   metadataBase: new URL('https://webiox.tech'),
   title: {
-    default: "Webiox | Web Development, Apps & Software Architecture Studio",
+    default: "Webiox | Web Development, Apps & Software Architecture",
     template: "%s | Webiox"
   },
-  description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, enterprise software architecture, and autonomous AI workflows.",
+  description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, software architecture, and autonomous AI systems.",
   keywords: [
     "Webiox",
     "webiox.tech",
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Webiox | Web Development, Apps & Software Architecture Studio",
-    description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, enterprise software architecture, and autonomous AI workflows.",
+    title: "Webiox | Web Development, Apps & Software Architecture",
+    description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, software architecture, and autonomous AI systems.",
     url: 'https://webiox.tech',
     siteName: 'Webiox Digital Solutions',
     locale: 'en_US',
@@ -82,8 +82,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Webiox | Web Development, Apps & Software Architecture Studio",
-    description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, enterprise software architecture, and autonomous AI workflows.",
+    title: "Webiox | Web Development, Apps & Software Architecture",
+    description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, software architecture, and autonomous AI systems.",
     site: '@webiox_tech',
     creator: '@webiox_tech',
     images: ['/logo_without_background512.png'],
@@ -103,6 +103,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -117,7 +118,8 @@ const jsonLdGraph = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["Organization", "ProfessionalService"],
+      "@type": "ProfessionalService",
+      "additionalType": "https://schema.org/Organization",
       "@id": "https://webiox.tech/#organization",
       "name": "Webiox",
       "legalName": "Webiox Digital Solutions",
@@ -274,6 +276,8 @@ const jsonLdGraph = {
         "@id": "https://webiox.tech/#organization"
       },
       "inLanguage": "en-US",
+      "datePublished": "2024-01-15T00:00:00+05:30",
+      "dateModified": "2026-10-22T21:00:00+05:30",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
@@ -289,18 +293,42 @@ const jsonLdGraph = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is Webiox?",
+          "name": "What is Webiox and who do you work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Webiox (legal entity: Webiox Digital Solutions, domain: webiox.tech) is an independent digital engineering studio and technology agency. Webiox builds high-performance web development platforms, mobile applications, custom software architectures, and autonomous AI workflows. Webiox is an independent company and is completely distinct from Cisco Webex and Zoom."
+            "text": "Webiox (legal entity: Webiox Digital Solutions, domain: webiox.tech) is an independent digital engineering studio and technical architecture agency. We partner with both established market authorities and ambitious growing businesses to engineer high-velocity web platforms, mobile applications, custom cloud software, and autonomous AI workflows."
           }
         },
         {
           "@type": "Question",
-          "name": "What core services does Webiox provide?",
+          "name": "Can Webiox help my business if we are not an industry leader yet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Webiox specializes in three core areas: 1) High-performance web development and Next.js applications, 2) Native iOS and Android mobile app development along with custom software and SaaS engineering, and 3) Autonomous AI agent workflows and operational automation."
+            "text": "Absolutely. That is our core mission. If you are already an industry leader, we protect and scale your competitive digital advantage. If you are not an industry leader yet, we build your modern digital profile, engineer custom high-converting web applications, and optimize your technical architecture to accelerate your growth and transform you into the market leader in your sector."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What core engineering services does Webiox provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We specialize in three integrated disciplines: 1) High-Performance Web Platforms engineered with Next.js 16, React 19, and sub-second edge CDN caching; 2) Mobile Applications & SaaS Architectures for iOS, Android, and multi-tenant cloud ecosystems; and 3) Autonomous AI Workflows, LLM integrations, and intelligent automation pipelines that eliminate operational bottlenecks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Webiox ensure on-time delivery with zero scope creep?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every project operates on strict 14-day sprint milestone gates with signed cryptographic verification. Client invoices are held in escrow and released only after staging deliverables pass automated CI/CD audits, Core Web Vitals checks, and your sign-off. We never charge open-ended hourly billing or surprise change fees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technology stack and security standards do you deploy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We engineer with TypeScript, Next.js 16 App Router, React 19, Tailwind CSS, PostgreSQL, Prisma, Redis, Docker, and AWS/Cloudflare edge networks. Every production build undergoes OWASP automated vulnerability scanning, zero-knowledge session encryption, and strict WCAG AA accessibility compliance."
           }
         },
         {
@@ -329,44 +357,36 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${jetbrainsMono.variable} ${zain.variable} antialiased`}
     >
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        <link rel="help" type="text/plain" href="/llms.txt" title="LLM Information" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Architecture Specification" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
-        {/* Google Analytics 4 (GA4) Tracking - Inlined in static head for instant crawler & audit tool detection */}
+        {/* Google Analytics 4 (GA4) Tracking */}
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${gaId}', {
-                page_path: window.location.pathname,
-              });
-            `,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{page_path:window.location.pathname});`,
           }}
         />
-        {/* Meta (Facebook) Pixel - Inlined for instant crawler & audit tool detection */}
+        {/* Meta (Facebook) Pixel */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '${process.env.NEXT_PUBLIC_FB_PIXEL_ID || '1088421989781878'}');
-              fbq('track', 'PageView');
-            `,
+            __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${process.env.NEXT_PUBLIC_FB_PIXEL_ID || '1088421989781878'}');fbq('track','PageView');`,
           }}
         />
+      </head>
+      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#1a7097]/20 selection:text-[#1a7097] overflow-x-clip">
+        {/* Facebook Pixel Fallback for non-JS browsers (Valid in body per HTML5 spec) */}
         <noscript>
           <img
             height="1"
@@ -376,10 +396,15 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-      </head>
-      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#1a7097]/20 selection:text-[#1a7097] overflow-x-clip">
+        {/* Accessibility Skip-to-Content Link */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[9999] px-4 py-2 bg-[#1a7097] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs rounded-xl shadow-2xl transition-all"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>
