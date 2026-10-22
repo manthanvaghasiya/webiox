@@ -23,7 +23,6 @@
   --font-sans: var(--font-plus-jakarta), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
   --font-zain: var(--font-zain), 'Zain', sans-serif;
-  --font-alice: var(--font-alice), 'Alice', serif;
 
   /* Locked Brand Color Palette */
   --color-brand-blue: #1a7097;
@@ -58,9 +57,6 @@
 /* Ensure compatibility with dynamic font classes */
 .font-\[Zain\] {
   font-family: var(--font-zain), sans-serif;
-}
-.font-\[Alice\] {
-  font-family: var(--font-alice), serif;
 }
 .font-\[IBM_Plex_Sans\] {
   font-family: var(--font-sans);
@@ -235,4 +231,26 @@ body {
 
 .bento-card:hover {
   box-shadow: 0 16px 48px -12px rgba(26, 112, 151, 0.16);
+}
+
+/* ── Architectural Blueprint Dot & Line Grid ── */
+.bg-blueprint-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.08) 1px, transparent 0),
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px, 112px 112px, 112px 112px;
+  mask-image: radial-gradient(ellipse at 50% 45%, black 45%, transparent 84%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 45%, black 45%, transparent 84%);
+}
+
+/* ── Subtle Fluted Vertical Curtain Light Background ── */
+.bg-fluted-grid {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(26, 112, 151, 0.04) 0px,
+    rgba(26, 112, 151, 0.04) 1px,
+    transparent 1px,
+    transparent 48px
+  );
 }

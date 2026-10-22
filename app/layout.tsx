@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, JetBrains_Mono, Alice, Zain } from "next/font/google";
+import Script from "next/script";
+import { Plus_Jakarta_Sans, JetBrains_Mono, Zain } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
@@ -9,19 +10,13 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
+  preload: true,
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const alice = Alice({
-  variable: "--font-alice",
-  subsets: ["latin"],
-  weight: ["400"],
   display: "swap",
 });
 
@@ -86,7 +81,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Webiox | Web Development, Apps & Custom Software Studio",
     description: "Webiox is a premier digital engineering studio building ultra-fast web platforms, mobile apps, custom software architectures, and autonomous AI workflows.",
-    creator: '@webiox',
+    site: '@webiox_tech',
+    creator: '@webiox_tech',
     images: ['/logo_without_background512.png'],
   },
   icons: {
@@ -174,7 +170,10 @@ const jsonLdGraph = {
         "https://www.instagram.com/webiox.ai/",
         "https://share.google/iDpXXxjX29qoPeAAO",
         "https://www.linkedin.com/company/webiox/",
-        "https://github.com/webiox"
+        "https://github.com/webiox",
+        "https://x.com/webiox_tech",
+        "https://www.facebook.com/webiox",
+        "https://www.youtube.com/@webiox"
       ],
       "knowsAbout": [
         "https://www.wikidata.org/wiki/Q386275",
@@ -319,16 +318,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-D8X9VRH46J";
+
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${jetbrainsMono.variable} ${alice.variable} ${zain.variable} h-full antialiased overflow-x-hidden`}
+      className={`${plusJakarta.variable} ${jetbrainsMono.variable} ${zain.variable} h-full antialiased overflow-x-hidden`}
     >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
+        {/* Google Analytics 4 (GA4) Tracking */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaId}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
       </head>
       <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#1a7097]/20 selection:text-[#1a7097] overflow-x-hidden">
         <Header />

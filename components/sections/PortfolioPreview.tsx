@@ -296,8 +296,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
               href={`/portfolio/${project.id}`}
               className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group/link shrink-0"
             >
-              <span className="hidden xs:inline">Explore Case Study</span>
-              <span className="xs:hidden">Case Study</span>
+              <span><span className="hidden xs:inline">Explore </span>Case Study</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
             </Link>
           </div>

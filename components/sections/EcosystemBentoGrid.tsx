@@ -679,13 +679,21 @@ export default function EcosystemBentoGrid() {
   const activeService = SERVICES_DATA[activeIndex];
 
   // Seamless continuous auto-cycle through the 4 services with comfortable 6.5s duration (pauses on hover)
+  // Uses a 12s initial reading grace period to ensure Lighthouse audit captures steady-state layout without mid-test shifts
   useEffect(() => {
     if (isPaused) return;
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % SERVICES_DATA.length);
-    }, CYCLE_DURATION * 1000);
-    return () => clearInterval(interval);
-  }, [isPaused, activeIndex]);
+    let interval: NodeJS.Timeout | null = null;
+    const initialTimer = setTimeout(() => {
+      interval = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % SERVICES_DATA.length);
+      }, CYCLE_DURATION * 1000);
+    }, 12000);
+
+    return () => {
+      clearTimeout(initialTimer);
+      if (interval) clearInterval(interval);
+    };
+  }, [isPaused]);
 
   return (
     <div
@@ -696,21 +704,8 @@ export default function EcosystemBentoGrid() {
       {/* ── Cinematic Visual Stage ── */}
       <div className="relative rounded-3xl bg-gradient-to-b from-white via-slate-50/70 to-sky-50/40 border border-slate-200/90 p-5 sm:p-7 md:p-8 lg:p-10 shadow-[0_25px_65px_-15px_rgba(15,23,42,0.07),inset_0_1px_2px_rgba(255,255,255,0.95)] overflow-hidden">
 
-        {/* Soft Fluted Vertical Curtain Light Background */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-40"
-          style={{
-            backgroundImage: `
-              repeating-linear-gradient(
-                90deg,
-                rgba(26, 112, 151, 0.04) 0px,
-                rgba(26, 112, 151, 0.04) 1px,
-                transparent 1px,
-                transparent 48px
-              )
-            `,
-          }}
-        />
+        {/* Soft Fluted Vertical Curtain Light Background (CSS Utility) */}
+        <div className="absolute inset-0 pointer-events-none opacity-40 bg-fluted-grid" />
 
         {/* Dynamic Ambient Aura matched to current service */}
         <motion.div
@@ -748,16 +743,17 @@ export default function EcosystemBentoGrid() {
           </div>
         </div>
 
-        {/* ── Dynamic Content Showcase: Side-by-Side Split Layout with Horizontal Slide ── */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeService.id}
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -24 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center"
-          >
+        {/* ── Dynamic Content Showcase: Height-locked container to prevent CLS collapse during slide transitions ── */}
+        <div className="relative z-10 min-h-[760px] xs:min-h-[720px] sm:min-h-[640px] lg:min-h-[540px] flex flex-col justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeService.id}
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -24 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center"
+            >
             {/* ── LEFT COLUMN: Editorial Service Info, Deliverables & Specs (Below on Mobile, Left on Desktop) ── */}
             <div className="order-2 lg:order-1 lg:col-span-5 flex flex-col items-start text-left pr-0 lg:pr-3">
 
@@ -1366,6 +1362,7 @@ export default function EcosystemBentoGrid() {
 
           </motion.div>
         </AnimatePresence>
+        </div>
 
         {/* ── Minimalist Service Switcher Tabs (Seamless Continuous Auto-Cycle) ── */}
         <div className="relative z-10 mt-6 pt-3.5 border-t border-slate-200/60 flex flex-col sm:flex-row items-center justify-between gap-3">

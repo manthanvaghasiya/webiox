@@ -273,8 +273,7 @@ export default function Header() {
               href="/contact"
               className="bg-[#1a7097] hover:bg-[#145b7c] text-white shadow-[0_8px_20px_-6px_rgba(26,112,151,0.55)] hover:shadow-[0_12px_28px_-6px_rgba(26,112,151,0.65)] font-semibold text-xs sm:text-sm px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full transition-all flex items-center gap-1 cursor-pointer group whitespace-nowrap active:scale-95"
             >
-              <span className="hidden sm:inline">Get Free Consultation</span>
-              <span className="inline sm:hidden">Free Consultation</span>
+              <span><span className="hidden sm:inline">Get </span>Free Consultation</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
             </Link>
 

@@ -6,12 +6,16 @@ export default function HeroBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
+    // Skip heavy 60fps canvas calculations on mobile devices to preserve CPU & Core Web Vitals
+    if (window.innerWidth < 768) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
     let animId: number;
+    let isVisible = true;
     let width = (canvas.width = canvas.parentElement?.clientWidth || window.innerWidth);
     let height = (canvas.height = canvas.parentElement?.clientHeight || window.innerHeight);
 
@@ -24,6 +28,10 @@ export default function HeroBackground() {
 
     const handleResize = () => {
       if (!canvas) return;
+      if (window.innerWidth < 768) {
+        cancelAnimationFrame(animId);
+        return;
+      }
       width = canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
       height = canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
     };
@@ -34,15 +42,27 @@ export default function HeroBackground() {
       mouse.targetY = e.clientY - rect.top;
     };
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('mousemove', handleMouseMove);
+    // Pause animation when hero is offscreen
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animId) {
+          render();
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(canvas);
 
-    // 44 Architectural Nodal Constellation Particles
-    const nodes = Array.from({ length: 44 }, () => ({
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    // 24 Architectural Nodal Constellation Particles (optimized for 60fps with low CPU)
+    const nodes = Array.from({ length: 24 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.42,
-      vy: (Math.random() - 0.5) * 0.42,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
       radius: Math.random() * 2 + 1.2,
       isGold: Math.random() > 0.62,
     }));
@@ -167,6 +187,7 @@ export default function HeroBackground() {
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      observer.disconnect();
       cancelAnimationFrame(animId);
     };
   }, []);
@@ -174,8 +195,8 @@ export default function HeroBackground() {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
       
-      {/* ── 1. Interactive Canvas (Waves + Constellation + Spotlight) ── */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+      {/* ── 1. Interactive Canvas (Waves + Constellation + Spotlight) - Desktop/Tablet only ── */}
+      <canvas ref={canvasRef} className="hidden md:block absolute inset-0 w-full h-full" />
 
       {/* ── 2. Living Aurora Gradient Mesh (4 Floating Kinetic Orbs) ── */}
       {/* Top Left: Electric Cyan Azure */}
@@ -200,20 +221,8 @@ export default function HeroBackground() {
         <div className="absolute inset-[220px] rounded-full border border-slate-200/60 border-dotted" />
       </div>
 
-      {/* ── 4. Precision Architectural Blueprint Dot & Line Grid ── */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.38]"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.08) 1px, transparent 0),
-            linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px)
-          `,
-          backgroundSize: '28px 28px, 112px 112px, 112px 112px',
-          maskImage: 'radial-gradient(ellipse at 50% 45%, black 45%, transparent 84%)',
-          WebkitMaskImage: 'radial-gradient(ellipse at 50% 45%, black 45%, transparent 84%)',
-        }}
-      />
+      {/* ── 4. Precision Architectural Blueprint Dot & Line Grid (CSS Utility) ── */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.38] bg-blueprint-grid" />
 
       {/* ── 5. Analog Tactile Texture (3.5% Micro-Noise Grain) ── */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.4] bg-noise" />
