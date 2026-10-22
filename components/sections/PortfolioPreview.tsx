@@ -165,7 +165,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
       }}
     >
       <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-3 sm:p-5 lg:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12)] hover:border-[#1a7097]/40 transition-colors overflow-hidden flex flex-col justify-between">
-        
+
         {/* Subtle Darkening Overlay when buried underneath */}
         <motion.div
           style={{ opacity: overlayOpacity }}
@@ -383,11 +383,13 @@ export default function PortfolioPreview() {
   const mobileEditorial = EDITORIAL_DATA[activeMobileProj.id];
 
   return (
-    <section className="relative bg-[#FCFCFD] text-[#0F172A] selection:bg-[#1a7097] selection:text-white overflow-hidden">
+    <section id="portfolio" className="relative bg-[#FCFCFD] text-[#0F172A] selection:bg-[#1a7097] selection:text-white">
       {/* ── Ambient Background Lighting (Curtain Glows & Subtle Fluting) ── */}
-      <div className="absolute inset-0 pointer-events-none opacity-30 bg-fluted-grid" />
-      <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 opacity-30 bg-fluted-grid" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl" />
+        <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl" />
+      </div>
 
       {/* ════════════════════════════════════════════════════════════════════
           MOBILE SHOWCASE: ZERO-SCROLL-TRAP TOUCH DECK (block lg:hidden)
@@ -576,11 +578,10 @@ export default function PortfolioPreview() {
                 aria-label={`Go to project 0${idx + 1}`}
               >
                 <span
-                  className={`h-2 rounded-full transition-all duration-300 block ${
-                    mobileIndex === idx
+                  className={`h-2 rounded-full transition-all duration-300 block ${mobileIndex === idx
                       ? 'w-7 bg-[#1a7097]'
                       : 'w-2 bg-slate-200 hover:bg-slate-300'
-                  }`}
+                    }`}
                 />
               </button>
             ))}
@@ -618,15 +619,15 @@ export default function PortfolioPreview() {
       {/* ════════════════════════════════════════════════════════════════════
           DESKTOP: 320vh STICKY SCROLL MAGAZINE RETROSPECTIVE (hidden lg:block)
          ════════════════════════════════════════════════════════════════════ */}
-      <div ref={containerRef} className="hidden lg:block relative h-[320vh]">
+      <div ref={containerRef} className="hidden lg:block relative h-[280vh]">
         {/* ── Sticky Viewport Container (Seamlessly anchors in viewport beneath navbar) ── */}
         <div className="sticky top-16 sm:top-20 h-[calc(100vh-4rem)] sm:h-[calc(100vh-5rem)] w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-stretch justify-between gap-6 lg:gap-8 xl:gap-10 py-3 sm:py-5 overflow-hidden">
-          
+
           {/* ════════════════════════════════════════════════════════════════════
               LEFT COLUMN: CONCEPT 3 - AWWWARDS MAGAZINE EDITORIAL
              ════════════════════════════════════════════════════════════════════ */}
           <div className="w-full lg:w-[44%] xl:w-[42%] flex flex-col justify-between text-left shrink-0 h-full">
-            
+
             {/* Top: Eyebrow + Headline + Subtitle (Tight, cohesive typographic block) */}
             <div className="shrink-0">
               <div className="flex items-center justify-between gap-3 mb-2">
@@ -777,11 +778,10 @@ export default function PortfolioPreview() {
                         aria-label={`Jump to project 0${idx + 1}`}
                       >
                         <span
-                          className={`h-2.5 rounded-full transition-all duration-300 block ${
-                            isActive
+                          className={`h-2.5 rounded-full transition-all duration-300 block ${isActive
                               ? 'w-9 bg-[#1a7097] shadow-xs'
                               : 'w-2.5 bg-slate-200 hover:bg-slate-300'
-                          }`}
+                            }`}
                         />
                       </button>
                     );

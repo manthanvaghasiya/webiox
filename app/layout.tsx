@@ -377,9 +377,9 @@ export default function RootLayout({
           />
         </noscript>
       </head>
-      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#1a7097]/20 selection:text-[#1a7097] overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#1a7097]/20 selection:text-[#1a7097] overflow-x-clip">
         <Header />
-        <main className="flex-1 overflow-x-hidden">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>
