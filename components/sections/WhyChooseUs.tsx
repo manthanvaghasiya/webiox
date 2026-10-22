@@ -215,7 +215,7 @@ export default function WhyChooseUs() {
     return (
       <div className={`w-full h-full rounded-3xl bg-white border ${
         isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]'
-      } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
+      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-start gap-4 sm:gap-5`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#1a7097]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -223,8 +223,9 @@ export default function WhyChooseUs() {
           {isTraditional ? 'LEGACY_MONOLITH // UNCACHED' : 'SURAT_EDGE // 21.17°N 72.83°E'}
         </div>
 
+        {/* Header Block */}
         <div>
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
               isTraditional ? 'bg-rose-50 border border-rose-200 text-rose-700' : 'bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097]'
             }`}>
@@ -242,11 +243,11 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          <div className="mb-5">
+          <div>
             <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
               {isTraditional ? 'Monolithic Infrastructure Lag.' : 'Sub-Second Edge Infrastructure.'}
             </h3>
-            <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-xl">
+            <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-2xl">
               {isTraditional
                 ? 'Legacy WordPress/PHP monoliths with 30+ unpatched plugins, uncached origin bottlenecks, and sluggish database queries. 850ms TTFB, 3.8s LCP paint, and failed Core Web Vitals.'
                 : 'Next.js 16 App Router with Incremental Static Regeneration (ISR) and Edge Redis caching. Zero cold starts, sub-400ms LCP, and instant page transitions with sub-second edge delivery.'}
@@ -254,8 +255,9 @@ export default function WhyChooseUs() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-4 sm:p-5 relative overflow-hidden">
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-3 text-xs font-mono">
+        {/* Live Route & Benchmark Profiler Console */}
+        <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-4 sm:p-5 relative overflow-hidden flex flex-col gap-3">
+          <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
             <div className="flex items-center gap-2">
               <Radio className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-500' : 'text-[#1a7097] animate-pulse'}`} />
               <span className="text-slate-700 font-bold uppercase tracking-wider text-[10.5px]">
@@ -291,32 +293,49 @@ export default function WhyChooseUs() {
             )}
           </div>
 
-          <div className="p-3 sm:p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
-            <div className="flex items-center justify-between gap-4 mb-3">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center font-mono text-xs font-black text-[#0F172A] shrink-0">
+          {/* Interactive Hop Network Pipeline */}
+          <div className="p-3 sm:p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
+            <div className="flex items-center justify-between gap-3 mb-2.5">
+              {/* Hop 1: Client */}
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
                   <Smartphone className="w-4 h-4 text-[#1a7097]" />
                 </div>
                 <div className="min-w-0">
                   <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
-                    Enterprise Client
+                    Client Browser
                   </div>
-                  <div className="font-mono text-[9px] text-slate-400">CLIENT_REQ</div>
+                  <div className="font-mono text-[9px] text-slate-400">SURAT_REQ</div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-end gap-2.5 text-right">
+              {/* Hop 2: Middle Pipe Arrow */}
+              <div className="flex-1 flex flex-col items-center px-2">
+                <div className="flex items-center gap-1 text-[9.5px] font-mono font-bold text-slate-400 mb-0.5">
+                  <span className={effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'}>
+                    {effectiveSpeedStack === 'webiox' ? '⚡ 38ms Edge Route' : '✕ 850ms Origin Delay'}
+                  </span>
+                </div>
+                <div className="w-full h-1 rounded-full bg-slate-100 relative overflow-hidden">
+                  <div className={`h-full rounded-full ${
+                    effectiveSpeedStack === 'webiox' ? 'w-full bg-gradient-to-r from-[#1a7097] to-emerald-500 animate-pulse' : 'w-1/3 bg-rose-500'
+                  }`} />
+                </div>
+              </div>
+
+              {/* Hop 3: Edge Destination */}
+              <div className="flex items-center gap-2 text-right shrink-0">
                 <div className="min-w-0">
                   <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
-                    {effectiveSpeedStack === 'webiox' ? 'Mumbai Edge PoP' : 'Uncached Apache Origin'}
+                    {effectiveSpeedStack === 'webiox' ? 'Mumbai Edge PoP' : 'Uncached Apache'}
                   </div>
                   <div className={`font-mono text-[9px] font-bold ${
                     effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
                   }`}>
-                    {effectiveSpeedStack === 'webiox' ? '38ms Cache Hit' : '850ms Cold Parse'}
+                    {effectiveSpeedStack === 'webiox' ? 'Hit (Redis ISR)' : 'Cold Origin Parse'}
                   </div>
                 </div>
-                <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center font-mono text-xs font-black shrink-0 ${
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                   effectiveSpeedStack === 'webiox'
                     ? 'bg-emerald-50 text-emerald-700 border border-emerald-200/80'
                     : 'bg-rose-50 text-rose-700 border border-rose-200/80'
@@ -326,7 +345,25 @@ export default function WhyChooseUs() {
               </div>
             </div>
 
-            <div className="pt-2.5 border-t border-slate-100 grid grid-cols-3 gap-1.5 sm:gap-3 text-center">
+            {/* Live HTTP Edge Request Ticker */}
+            <div className="py-2 px-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[10.5px] font-mono mb-2.5">
+              <div className="flex items-center gap-2 truncate">
+                <span className="px-1.5 py-0.5 rounded bg-slate-200/70 text-slate-700 font-bold text-[9px]">
+                  GET
+                </span>
+                <span className="text-slate-600 truncate">
+                  {effectiveSpeedStack === 'webiox' ? '/api/v1/catalog-index • 200 OK' : '/wp-admin/admin-ajax.php • 200 OK'}
+                </span>
+              </div>
+              <span className={`font-bold shrink-0 text-[10px] ${
+                effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+              }`}>
+                {effectiveSpeedStack === 'webiox' ? 'CACHE: HIT (4ms)' : 'CACHE: MISS (Cold)'}
+              </span>
+            </div>
+
+            {/* 4 Technical Metric Indicators */}
+            <div className="pt-2 border-t border-slate-100 grid grid-cols-4 gap-1.5 sm:gap-2 text-center">
               <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
                 <span className="text-[9px] font-mono text-slate-400 block mb-0.5 truncate">TTFB Latency</span>
                 <span className={`font-mono font-black text-xs sm:text-base ${
@@ -342,6 +379,15 @@ export default function WhyChooseUs() {
                   effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
                 }`}>
                   {effectiveSpeedStack === 'webiox' ? '0.38s' : '3.8s'}
+                </span>
+              </div>
+
+              <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
+                <span className="text-[9px] font-mono text-slate-400 block mb-0.5 truncate">Bundle Size</span>
+                <span className={`font-mono font-black text-xs sm:text-base ${
+                  effectiveSpeedStack === 'webiox' ? 'text-emerald-600' : 'text-rose-600'
+                }`}>
+                  {effectiveSpeedStack === 'webiox' ? '78 KB' : '2.4 MB'}
                 </span>
               </div>
 
