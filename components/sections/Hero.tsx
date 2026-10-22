@@ -88,7 +88,7 @@ export default function Hero() {
             Engineering high-performance web development platforms, mobile apps, and enterprise software architecture.
           </h2>
           <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed">
-            Full-cycle engineering squads that take products from zero to production at startup speed — with fixed-scope milestone deliverables and zero scope creep.
+            Whether you&apos;re already an industry leader or striving to become one — connect with us. We build high-impact web platforms, modernize your digital profile, and engineer the technology that turns your business into a market leader.
           </p>
         </div>
 
