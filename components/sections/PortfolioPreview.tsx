@@ -547,7 +547,7 @@ export default function PortfolioPreview() {
                 <Link
                   href={`/portfolio/${activeMobileProj.id}`}
                   aria-label={`Explore ${activeMobileProj.title} case study`}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
+                  className="inline-flex items-center gap-1.5 min-h-[44px] px-4 py-2 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-[0.98] group"
                 >
                   <span>Explore Case Study</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -557,16 +557,16 @@ export default function PortfolioPreview() {
           </AnimatePresence>
         </div>
 
-        {/* Mobile Navigation Controls: Prev, 6 Scrubber dashes, Next */}
+        {/* Mobile Navigation Controls: Prev, 6 Scrubber dashes, Next (Touch targets >= 44px) */}
         <div className="flex items-center justify-between gap-3 mt-3 pt-1.5">
           <button
             type="button"
             onClick={() => setMobileIndex((prev) => Math.max(0, prev - 1))}
             disabled={mobileIndex === 0}
-            className="w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-700 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 active:scale-95 shadow-2xs flex items-center justify-center transition-all cursor-pointer"
+            className="w-11 h-11 rounded-xl border border-slate-200 bg-white text-slate-700 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 active:scale-95 shadow-2xs flex items-center justify-center transition-all cursor-pointer"
             aria-label="Previous project"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-4.5 h-4.5" />
           </button>
 
           {/* 6 Scrubber dashes (Touch-friendly 44px targets) */}
@@ -593,10 +593,10 @@ export default function PortfolioPreview() {
             type="button"
             onClick={() => setMobileIndex((prev) => Math.min(STACK_PROJECTS.length - 1, prev + 1))}
             disabled={mobileIndex === STACK_PROJECTS.length - 1}
-            className="w-9 h-9 rounded-xl bg-[#377a9b] text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#2b6683] active:scale-95 shadow-xs flex items-center justify-center transition-all cursor-pointer"
+            className="w-11 h-11 rounded-xl bg-[#377a9b] text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#2b6683] active:scale-95 shadow-xs flex items-center justify-center transition-all cursor-pointer"
             aria-label="Next project"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-4.5 h-4.5" />
           </button>
         </div>
 

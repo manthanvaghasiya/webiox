@@ -20,22 +20,42 @@ const FAQS: FAQItem[] = [
   {
     category: 'Growth & Positioning',
     question: 'Can Webiox help my business if we are not an industry leader yet?',
-    answer: 'Absolutely. That is our core mission. If you are already an industry leader, we protect and scale your competitive digital advantage. If you are not an industry leader yet, we build your modern digital profile, engineer custom high-converting web applications, and optimize your technical architecture to accelerate your growth and transform you into the market leader in your sector.',
+    answer: 'Yes, accelerating your growth is our primary mission. If you are already an industry leader, we protect and scale your competitive digital advantage. If you are striving to become one, we architect your digital profile, engineer custom web platforms with sub-second performance, and build the technology that positions you as the market leader in your sector.',
+  },
+  {
+    category: 'Architecture Comparison',
+    question: 'How does custom Next.js 16 web development compare to WordPress or templates?',
+    answer: 'Custom Next.js 16 architecture delivers 0.38s page loads, 99+ Core Web Vitals, and 0 known security CVEs. In contrast, WordPress and CMS templates average 3.8s load times, bloated 2.5MB+ scripts, and frequent plugin vulnerability breaches. Custom engineering gives you 100% IP ownership with zero vendor lock-in.',
   },
   {
     category: 'Core Capabilities',
     question: 'What core engineering services does Webiox provide?',
-    answer: 'We specialize in three integrated disciplines: 1) High-Performance Web Platforms engineered with Next.js 16, React 19, and sub-second edge CDN caching; 2) Mobile Applications & SaaS Architectures for iOS, Android, and multi-tenant cloud ecosystems; and 3) Autonomous AI Workflows, LLM integrations, and intelligent automation pipelines that eliminate operational bottlenecks.',
+    answer: 'We specialize in four integrated disciplines: 1) High-Performance Web Platforms with Next.js 16 and edge caching; 2) Native & Cross-Platform Mobile Apps for iOS and Android; 3) Scalable SaaS Architectures with multi-tenant partitioning; and 4) Autonomous AI Workflows and LLM integrations that automate operational bottlenecks.',
   },
   {
     category: 'Milestone Guarantees',
     question: 'How does Webiox ensure on-time delivery with zero scope creep?',
-    answer: 'Every project operates on strict 14-day sprint milestone gates with signed cryptographic verification. Client invoices are held in escrow and released only after staging deliverables pass automated CI/CD audits, Core Web Vitals checks, and your sign-off. We never charge open-ended hourly billing or surprise change fees.',
+    answer: 'Every project operates on strict 14-day sprint milestone gates with signed cryptographic verification. Client invoices are held in escrow and released only after staging deliverables pass automated CI/CD audits, Core Web Vitals checks, and your explicit sign-off. We never charge open-ended hourly billing.',
+  },
+  {
+    category: 'Performance Benchmarks',
+    question: 'How do you achieve sub-second page loads and 99+ Core Web Vitals?',
+    answer: 'We utilize Next.js 16 React Server Components, streaming SSR, aggressive static ISR at 300+ global Cloudflare Edge nodes, automated AVIF/WebP image compression, and zero-runtime CSS. This limits total initial JavaScript bundles to under 80KB.',
   },
   {
     category: 'Architecture & Security',
     question: 'What technology stack and security standards do you deploy?',
     answer: 'We engineer with TypeScript, Next.js 16 App Router, React 19, Tailwind CSS, PostgreSQL, Prisma, Redis, Docker, and AWS/Cloudflare edge networks. Every production build undergoes OWASP automated vulnerability scanning, zero-knowledge session encryption, and strict WCAG AA accessibility compliance.',
+  },
+  {
+    category: 'IP & Ownership',
+    question: 'Who owns the source code and intellectual property after launch?',
+    answer: 'You own 100% of the intellectual property, design tokens, and source code. Upon milestone completion, complete repository ownership is transferred to your GitHub or GitLab organization with comprehensive architectural documentation and zero recurring licensing lock-ins.',
+  },
+  {
+    category: 'Mobile Engineering',
+    question: 'How does Webiox approach mobile app development for iOS and Android?',
+    answer: 'We engineer high-performance mobile applications using Swift, Kotlin, and React Native, targeting consistent 60 FPS animations, biometric authentication, offline-first SQLite caching, and instant cloud synchronization.',
   },
   {
     category: 'Brand Independence',
@@ -51,11 +71,30 @@ export default function FAQSection() {
     setOpenIndex((prev) => (prev === idx ? null : idx));
   };
 
+  // Structured Schema.org FAQPage for Answer Engine & Google snippet scraping
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <section
       id="faq"
       className="relative py-20 sm:py-28 bg-[#FCFCFD] text-[#0F172A] selection:bg-[#377a9b] selection:text-white border-t border-slate-200/80"
     >
+      {/* Schema.org FAQPage JSON-LD Graph */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none opacity-30 bg-fluted-grid" />
       <div className="absolute top-1/3 -left-32 w-80 h-80 rounded-full bg-[#377a9b]/8 blur-3xl pointer-events-none" />
