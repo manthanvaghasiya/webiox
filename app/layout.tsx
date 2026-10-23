@@ -1,4 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#ffffff",
+};
 import { Plus_Jakarta_Sans, JetBrains_Mono, Zain } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
@@ -486,7 +493,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#377a9b]/20 selection:text-[#377a9b] overflow-x-clip">
+      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#377a9b]/20 selection:text-[#377a9b] overflow-x-hidden w-full max-w-full">
         {/* Facebook Pixel Fallback for non-JS browsers (Valid in body per HTML5 spec) */}
         <noscript>
           <img
@@ -505,7 +512,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Header />
-        <main id="main-content" className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

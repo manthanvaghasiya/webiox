@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -721,17 +721,17 @@ export default function EcosystemBentoGrid() {
         />
 
         {/* Fixed Header: OUR CORE SERVICES // 4 Dedicated Engineering Squads */}
-        <div className="relative z-20 mb-3 sm:mb-4 pb-2.5 border-b border-slate-200/60 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <span className="relative flex h-2 w-2">
+        <div className="relative z-20 mb-3 sm:mb-4 pb-2.5 border-b border-slate-200/60 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2.5">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#377a9b] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#377a9b]" />
             </span>
-            <span className="font-mono font-extrabold text-xs sm:text-[12.5px] uppercase tracking-[0.2em] bg-gradient-to-r from-[#377a9b] via-[#0284c7] to-[#377a9b] bg-clip-text text-transparent">
+            <span className="font-mono font-extrabold text-[11px] sm:text-[12.5px] uppercase tracking-[0.16em] sm:tracking-[0.2em] bg-gradient-to-r from-[#377a9b] via-[#0284c7] to-[#377a9b] bg-clip-text text-transparent">
               OUR CORE SERVICES
             </span>
-            <span className="text-slate-300 font-mono font-light text-sm">/</span>
-            <span className="font-mono text-xs sm:text-[12px] text-[#0F172A] font-bold tracking-wide">
+            <span className="text-slate-300 font-mono font-light text-sm hidden xs:inline">/</span>
+            <span className="font-mono text-[11px] sm:text-[12px] text-[#0F172A] font-bold tracking-wide">
               4 Dedicated Engineering Squads
             </span>
           </div>

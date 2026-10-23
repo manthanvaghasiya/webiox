@@ -128,14 +128,14 @@ export default function Header() {
           - Desktop (≥ md): Centered luxury floating capsule island
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <header
-        className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 md:top-5 md:flex md:justify-center md:pointer-events-none md:px-4 ${
+        className={`fixed top-0 left-0 right-0 inset-x-0 w-full max-w-full z-40 transition-all duration-300 md:top-5 md:flex md:justify-center md:pointer-events-none md:px-4 ${
           scrolled
             ? 'bg-white/95 border-b border-slate-200/90 shadow-xs md:bg-transparent md:border-b-0 md:shadow-none'
             : 'bg-white/90 border-b border-slate-200/70 md:bg-transparent md:border-b-0'
         } backdrop-blur-xl md:backdrop-blur-none`}
       >
         <div
-          className={`pointer-events-auto transition-all duration-300 flex items-center justify-between w-full h-15 sm:h-16 px-4 sm:px-6 md:h-auto md:w-auto md:max-w-fit md:py-2 md:px-4 md:rounded-full md:border md:border-slate-200/80 md:bg-white/95 md:backdrop-blur-xl ${
+          className={`pointer-events-auto transition-all duration-300 flex items-center justify-between w-full max-w-full h-15 sm:h-16 px-4 sm:px-6 md:h-auto md:w-auto md:max-w-fit md:py-2 md:px-4 md:rounded-full md:border md:border-slate-200/80 md:bg-white/95 md:backdrop-blur-xl ${
             scrolled
               ? 'md:border-slate-300/90 md:shadow-[0_20px_50px_-10px_rgba(15,23,42,0.14),0_1px_3px_rgba(0,0,0,0.04)]'
               : 'md:border-slate-200/80 md:shadow-[0_12px_36px_-10px_rgba(15,23,42,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
