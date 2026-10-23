@@ -139,7 +139,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '+14% MoM Growth',
         iconType: 'activity',
         widgetType: 'gauge',
-        positionClass: '-top-3 sm:-top-1 left-0 sm:left-2 md:left-4 w-48 sm:w-56',
+        positionClass: '-top-3 sm:-top-1 left-0 sm:left-2 md:left-4 w-40 sm:w-46',
         animation: {
           initial: { opacity: 0, x: 180, y: 70, scale: 0.25, rotate: 22 },
           restRotate: -3.5,
@@ -154,7 +154,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'Global 100% Edge CDN',
         iconType: 'zap',
         widgetType: 'bars',
-        positionClass: 'bottom-1 sm:bottom-3 left-0 sm:left-2 md:left-4 w-46 sm:w-54',
+        positionClass: 'bottom-1 sm:bottom-3 left-0 sm:left-2 md:left-4 w-38 sm:w-44',
         animation: {
           initial: { opacity: 0, x: 140, y: -80, scale: 0.25, rotate: -16 },
           restRotate: 2.5,
@@ -169,7 +169,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'Perf • A11y • Best • SEO',
         iconType: 'check',
         widgetType: 'audit',
-        positionClass: 'top-6 sm:top-10 right-0 sm:right-2 md:right-4 w-50 sm:w-60',
+        positionClass: 'top-6 sm:top-10 right-0 sm:right-2 md:right-4 w-42 sm:w-48',
         animation: {
           initial: { opacity: 0, x: -190, y: 40, scale: 0.25, rotate: -20 },
           restRotate: -2,
@@ -239,7 +239,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'This Month',
         iconType: 'activity',
         widgetType: 'budget_donut',
-        positionClass: 'top-24 sm:top-28 left-0 sm:left-2 md:left-4 w-56 sm:w-64',
+        positionClass: 'top-20 sm:top-24 left-0 sm:left-2 md:left-4 w-44 sm:w-50',
         animation: {
           initial: { opacity: 0, x: 140, y: 10, scale: 0.25, rotate: 12 },
           restRotate: 0,
@@ -254,7 +254,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '$950',
         iconType: 'zap',
         widgetType: 'cash_flow',
-        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-52 sm:w-60',
+        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-40 sm:w-46',
         animation: {
           initial: { opacity: 0, x: -130, y: 60, scale: 0.25, rotate: -15 },
           restRotate: 0,
@@ -269,7 +269,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '+4.2%',
         iconType: 'trending',
         widgetType: 'amount_saved',
-        positionClass: 'bottom-10 sm:bottom-14 right-0 sm:right-2 md:right-4 w-46 sm:w-52',
+        positionClass: 'bottom-8 sm:bottom-12 right-0 sm:right-2 md:right-4 w-38 sm:w-42',
         animation: {
           initial: { opacity: 0, x: -140, y: -60, scale: 0.25, rotate: 14 },
           restRotate: 0,
@@ -324,7 +324,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '38 Nodes Healthy',
         iconType: 'activity',
         widgetType: 'sparkline',
-        positionClass: '-top-2 sm:top-0 right-0 sm:right-2 md:right-4 w-50 sm:w-60',
+        positionClass: '-top-2 sm:top-0 right-0 sm:right-2 md:right-4 w-40 sm:w-48',
         animation: {
           initial: { opacity: 0, x: -190, y: 60, scale: 0.25, rotate: 18 },
           restRotate: 3,
@@ -339,7 +339,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'Redis Edge Tier',
         iconType: 'zap',
         widgetType: 'latency',
-        positionClass: 'bottom-2 sm:bottom-4 right-0 sm:right-2 md:right-4 w-48 sm:w-56',
+        positionClass: 'bottom-2 sm:bottom-4 right-0 sm:right-2 md:right-4 w-38 sm:w-44',
         animation: {
           initial: { opacity: 0, x: -160, y: -90, scale: 0.25, rotate: -22 },
           restRotate: -3.5,
@@ -354,7 +354,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '3 Regions • SOC-2 Ready',
         iconType: 'shield',
         widgetType: 'clusters',
-        positionClass: 'top-10 sm:top-14 left-0 sm:left-2 md:left-4 w-52 sm:w-62',
+        positionClass: 'top-8 sm:top-12 left-0 sm:left-2 md:left-4 w-42 sm:w-48',
         animation: {
           initial: { opacity: 0, x: 210, y: -10, scale: 0.25, rotate: -14 },
           restRotate: -2,
@@ -424,7 +424,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'This Month',
         iconType: 'activity',
         widgetType: 'ai_donut',
-        positionClass: 'top-24 sm:top-28 left-0 sm:left-2 md:left-4 w-56 sm:w-64',
+        positionClass: 'top-20 sm:top-24 left-0 sm:left-2 md:left-4 w-44 sm:w-50',
         animation: {
           initial: { opacity: 0, x: 140, y: 10, scale: 0.25, rotate: 12 },
           restRotate: 0,
@@ -439,7 +439,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '85%',
         iconType: 'zap',
         widgetType: 'ai_metrics',
-        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-52 sm:w-60',
+        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-40 sm:w-46',
         animation: {
           initial: { opacity: 0, x: -130, y: 60, scale: 0.25, rotate: -15 },
           restRotate: 0,
@@ -454,7 +454,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '+28.4%',
         iconType: 'trending',
         widgetType: 'ai_stat',
-        positionClass: 'bottom-10 sm:bottom-14 right-0 sm:right-2 md:right-4 w-46 sm:w-54',
+        positionClass: 'bottom-8 sm:bottom-12 right-0 sm:right-2 md:right-4 w-38 sm:w-44',
         animation: {
           initial: { opacity: 0, x: -140, y: -60, scale: 0.25, rotate: 14 },
           restRotate: 0,
@@ -833,7 +833,7 @@ export default function EcosystemBentoGrid() {
                     damping: card.animation.spring.damping,
                     delay: card.animation.spring.delay,
                   }}
-                  className={`hidden sm:block absolute z-20 ${card.positionClass} origin-center scale-[0.82] xs:scale-90 sm:scale-100`}
+                  className={`hidden sm:block absolute z-20 ${card.positionClass} origin-center scale-[0.70] sm:scale-[0.78] lg:scale-[0.82]`}
                 >
                   <motion.div
                     animate={{ y: card.animation.float.y }}
@@ -846,26 +846,26 @@ export default function EcosystemBentoGrid() {
                   >
                     {/* 1. Trend Circle Badge (From Reference Design) */}
                     {card.widgetType === 'trend_circle' ? (
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#377a9b] to-sky-400 p-0.5 shadow-[0_12px_28px_-4px_rgba(55,122,155,0.4)] flex items-center justify-center border-2 border-white">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-[#377a9b] to-sky-400 p-0.5 shadow-[0_8px_20px_-3px_rgba(55,122,155,0.35)] flex items-center justify-center border-2 border-white">
                         <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#377a9b] to-sky-400">
-                          <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
+                          <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-white stroke-[2.5]" />
                         </div>
                       </div>
                     ) : card.widgetType === 'budget_donut' ? (
                       /* 2. Budget Scores Donut Widget (From Reference Design) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] sm:text-[13px] text-[#0F172A]">
+                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] sm:text-[11.5px] text-[#0F172A]">
                             Budget Scores
                           </span>
-                          <span className="text-[10px] font-medium text-slate-600 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
-                            This Month <span className="text-[8px]">▼</span>
+                          <span className="text-[9px] font-medium text-slate-500 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
+                            This Month <span className="text-[7px]">▼</span>
                           </span>
                         </div>
 
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2.5">
                           {/* SVG Donut Chart with 4 precise slices */}
-                          <div className="relative w-14 h-14 shrink-0">
+                          <div className="relative w-11 h-11 shrink-0">
                             <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
                               {/* Needs (52.1%) */}
                               <circle
@@ -915,32 +915,32 @@ export default function EcosystemBentoGrid() {
                           </div>
 
                           {/* Legend */}
-                          <div className="grid grid-cols-1 gap-0.5 text-[9px] sm:text-[9.5px] font-medium text-slate-600 flex-1">
+                          <div className="grid grid-cols-1 gap-0.5 text-[8.5px] sm:text-[9px] font-medium text-slate-600 flex-1">
                             <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1.5">
+                              <span className="flex items-center gap-1">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
                                 Needs
                               </span>
                               <span className="font-bold text-[#0F172A]">52.1%</span>
                             </div>
                             <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1.5">
+                              <span className="flex items-center gap-1">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
                                 Wants
                               </span>
                               <span className="font-bold text-[#0F172A]">22.8%</span>
                             </div>
                             <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1.5">
+                              <span className="flex items-center gap-1">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8]" />
-                                Nice to have
+                                Nice
                               </span>
                               <span className="font-bold text-[#0F172A]">13.9%</span>
                             </div>
                             <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1.5">
+                              <span className="flex items-center gap-1">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#93c5fd]" />
-                                Trade Sales
+                                Trade
                               </span>
                               <span className="font-bold text-[#0F172A]">11.2%</span>
                             </div>
@@ -949,18 +949,18 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'cash_flow' ? (
                       /* 3. Cash Flow: Amount Received & Amount Spent */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#377a9b]/50 transition-all">
+                      <div className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-2.5 sm:gap-3 hover:border-[#377a9b]/50 transition-all">
                         <div>
-                          <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Amount Received</span>
-                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
+                          <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Received</span>
+                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-xs sm:text-sm">
                             <span className="text-emerald-500 font-bold">↑</span>
                             <span>$965</span>
                           </div>
                         </div>
-                        <div className="w-[1px] h-8 bg-slate-200/80" />
+                        <div className="w-[1px] h-6 bg-slate-200/80" />
                         <div>
-                          <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Amount Spent</span>
-                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
+                          <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Spent</span>
+                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-xs sm:text-sm">
                             <span className="text-rose-500 font-bold">↓</span>
                             <span>$950</span>
                           </div>
@@ -968,13 +968,13 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'amount_saved' ? (
                       /* 4. Amount Saved Widget (Mobile App Service) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
-                        <span className="block text-[10px] text-slate-600 font-medium mb-1">Amount Saved</span>
-                        <div className="flex items-center justify-between gap-3">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg sm:text-xl text-[#0F172A]">
+                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
+                        <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Amount Saved</span>
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
                             $734.50
                           </span>
-                          <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-bold text-emerald-700 flex items-center gap-0.5">
+                          <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[9px] font-bold text-emerald-700 flex items-center gap-0.5">
                             <span>+4.2%</span>
                             <TrendingUp className="w-2.5 h-2.5" />
                           </span>
@@ -982,26 +982,26 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'ai_circle' ? (
                       /* 1. AI Glowing Pulse Circle Badge (Mobile Style) */
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b] p-0.5 shadow-[0_12px_28px_-4px_rgba(255,195,18,0.4)] flex items-center justify-center border-2 border-white">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b] p-0.5 shadow-[0_8px_20px_-3px_rgba(255,195,18,0.35)] flex items-center justify-center border-2 border-white">
                         <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b]">
-                          <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
+                          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white stroke-[2.5]" />
                         </div>
                       </div>
                     ) : card.widgetType === 'ai_donut' ? (
                       /* 2. AI Workload Donut Widget (Mobile Style) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] sm:text-[13px] text-[#0F172A]">
+                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] sm:text-[11.5px] text-[#0F172A]">
                             AI Workload
                           </span>
-                          <span className="text-[10px] font-medium text-slate-600 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
-                            This Month <span className="text-[8px]">▼</span>
+                          <span className="text-[9px] font-medium text-slate-500 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
+                            This Month <span className="text-[7px]">▼</span>
                           </span>
                         </div>
 
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2.5">
                           {/* SVG Donut Chart with 4 precise slices */}
-                          <div className="relative w-14 h-14 shrink-0">
+                          <div className="relative w-11 h-11 shrink-0">
                             <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
                               {/* Reasoning (48.2%) */}
                               <circle
@@ -1051,30 +1051,30 @@ export default function EcosystemBentoGrid() {
                           </div>
 
                           {/* Legend */}
-                          <div className="grid grid-cols-1 gap-0.5 text-[9px] sm:text-[9.5px] font-medium text-slate-600 flex-1">
+                          <div className="grid grid-cols-1 gap-0.5 text-[8.5px] sm:text-[9px] font-medium text-slate-600 flex-1">
                             <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1.5">
+                              <span className="flex items-center gap-1">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
                                 Reasoning
                               </span>
                               <span className="font-bold text-[#0F172A]">48.2%</span>
                             </div>
                             <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1.5">
+                              <span className="flex items-center gap-1">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
                                 Extraction
                               </span>
                               <span className="font-bold text-[#0F172A]">26.4%</span>
                             </div>
                             <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1.5">
+                              <span className="flex items-center gap-1">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#ffc312]" />
                                 Automation
                               </span>
                               <span className="font-bold text-[#0F172A]">15.8%</span>
                             </div>
                             <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1.5">
+                              <span className="flex items-center gap-1">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8]" />
                                 Correction
                               </span>
@@ -1085,18 +1085,18 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'ai_metrics' ? (
                       /* 3. AI Impact Dual Metric Pill (Mobile Style) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#377a9b]/50 transition-all">
+                      <div className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-2.5 sm:gap-3 hover:border-[#377a9b]/50 transition-all">
                         <div>
-                          <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Hours Saved</span>
-                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
+                          <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Hours Saved</span>
+                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-xs sm:text-sm">
                             <span className="text-emerald-600 font-bold">↑</span>
                             <span>1,850h</span>
                           </div>
                         </div>
-                        <div className="w-[1px] h-8 bg-slate-200/80" />
+                        <div className="w-[1px] h-6 bg-slate-200/80" />
                         <div>
-                          <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Cost Reduced</span>
-                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
+                          <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Cost Reduced</span>
+                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-xs sm:text-sm">
                             <span className="text-emerald-600 font-bold">↓</span>
                             <span>85%</span>
                           </div>
@@ -1104,13 +1104,13 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'ai_stat' ? (
                       /* 4. AI Decisions Dispatched Stat Card (Mobile Style) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
-                        <span className="block text-[10px] text-slate-600 font-medium mb-1">Decisions Dispatched</span>
-                        <div className="flex items-center justify-between gap-3">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg sm:text-xl text-[#0F172A]">
+                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
+                        <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Decisions Dispatched</span>
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
                             840k/mo
                           </span>
-                          <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-bold text-emerald-700 flex items-center gap-0.5">
+                          <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[9px] font-bold text-emerald-700 flex items-center gap-0.5">
                             <span>+28.4%</span>
                             <TrendingUp className="w-2.5 h-2.5" />
                           </span>
@@ -1118,32 +1118,32 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : (
                       /* Standard Satellite Card */
-                      <div className="p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_20px_45px_-10px_rgba(15,23,42,0.13),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all group">
+                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all group">
                         {/* Header: Title + Dedicated Technical Icon */}
-                        <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-[10px] font-mono text-slate-600 font-semibold uppercase tracking-wider">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-[9px] font-mono text-slate-500 font-semibold uppercase tracking-wider">
                             {card.title}
                           </span>
-                          <span className="p-1 rounded-md bg-[#377a9b]/10 text-[#377a9b]">
-                            {card.iconType === 'activity' && <Activity className="w-3 h-3" />}
-                            {card.iconType === 'zap' && <Zap className="w-3 h-3 text-emerald-600" />}
-                            {card.iconType === 'star' && <Star className="w-3 h-3 text-[#ffc312] fill-[#ffc312]" />}
-                            {card.iconType === 'shield' && <ShieldCheck className="w-3 h-3 text-emerald-600" />}
-                            {card.iconType === 'check' && <CheckCircle2 className="w-3 h-3 text-emerald-600" />}
-                            {card.iconType === 'terminal' && <Terminal className="w-3 h-3 text-emerald-600" />}
-                            {card.iconType === 'cpu' && <Cpu className="w-3 h-3 text-[#377a9b]" />}
-                            {card.iconType === 'trending' && <TrendingUp className="w-3 h-3 text-[#ffc312]" />}
+                          <span className="p-0.5 rounded-md bg-[#377a9b]/10 text-[#377a9b]">
+                            {card.iconType === 'activity' && <Activity className="w-2.5 h-2.5" />}
+                            {card.iconType === 'zap' && <Zap className="w-2.5 h-2.5 text-emerald-600" />}
+                            {card.iconType === 'star' && <Star className="w-2.5 h-2.5 text-[#ffc312] fill-[#ffc312]" />}
+                            {card.iconType === 'shield' && <ShieldCheck className="w-2.5 h-2.5 text-emerald-600" />}
+                            {card.iconType === 'check' && <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600" />}
+                            {card.iconType === 'terminal' && <Terminal className="w-2.5 h-2.5 text-emerald-600" />}
+                            {card.iconType === 'cpu' && <Cpu className="w-2.5 h-2.5 text-[#377a9b]" />}
+                            {card.iconType === 'trending' && <TrendingUp className="w-2.5 h-2.5 text-[#ffc312]" />}
                           </span>
                         </div>
 
                         {/* Value */}
-                        <div className="flex items-baseline gap-2 mb-1.5">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A]">
+                        <div className="flex items-baseline gap-1.5 mb-1">
+                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
                             {card.value}
                           </span>
                           {card.widgetType === 'gauge' && (
-                            <span className="text-[10px] font-mono font-bold text-emerald-600 flex items-center">
-                              <TrendingUp className="w-2.5 h-2.5 mr-0.5" />
+                            <span className="text-[9px] font-mono font-bold text-emerald-600 flex items-center">
+                              <TrendingUp className="w-2 h-2 mr-0.5" />
                               Growth
                             </span>
                           )}
