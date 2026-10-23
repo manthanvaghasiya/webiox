@@ -22,8 +22,8 @@ const statsDots: Dot[] = [
   { x: '55%', y: '82%', size: 2, delay: 0.4, color: 'yellow' },
 ];
 
-const statsMesh = `radial-gradient(at 15% 18%, rgba(26, 112, 151,0.07) 0px, transparent 50%),
-radial-gradient(at 85% 32%, rgba(255,191,0,0.06) 0px, transparent 50%),
+const statsMesh = `radial-gradient(at 15% 18%, rgba(55, 122, 155,0.07) 0px, transparent 50%),
+radial-gradient(at 85% 32%, rgba(255, 195, 18,0.06) 0px, transparent 50%),
 radial-gradient(at 50% 95%, rgba(199,232,155,0.32) 0px, transparent 55%)`;
 
 const stats = [
@@ -64,25 +64,25 @@ const StatCard = ({ icon: Icon, value, suffix, label, desc, delay }: any) => {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className="relative group bg-white/60 backdrop-blur-md rounded-[2rem] p-5 sm:p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#1a7097]/10 hover:border-[#1a7097]/30 hover:shadow-[0_20px_40px_rgba(26, 112, 151,0.1)] transition-all duration-500 overflow-hidden cursor-default z-10"
+      className="relative group bg-white/60 backdrop-blur-md rounded-[2rem] p-5 sm:p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#377a9b]/10 hover:border-[#377a9b]/30 hover:shadow-[0_20px_40px_rgba(55, 122, 155,0.1)] transition-all duration-500 overflow-hidden cursor-default z-10"
     >
       {/* Dynamic Background Glow on Hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#FFBF00]/0 to-[#FFBF00]/0 group-hover:from-[#FFBF00]/5 group-hover:to-[#1a7097]/5 transition-all duration-700" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#ffc312]/0 to-[#ffc312]/0 group-hover:from-[#ffc312]/5 group-hover:to-[#377a9b]/5 transition-all duration-700" />
 
       {/* Top accent bar */}
-      <div className="absolute top-0 left-0 h-[3px] w-full bg-[#FFBF00] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-out rounded-t-2xl" />
+      <div className="absolute top-0 left-0 h-[3px] w-full bg-[#ffc312] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-out rounded-t-2xl" />
 
       {/* Icon */}
-      <div className="w-14 h-14 rounded-2xl bg-[#1a7097]/5 border border-[#1a7097]/10 flex items-center justify-center mb-4 md:mb-8 group-hover:bg-[#1a7097] group-hover:shadow-[0_0_20px_rgba(26, 112, 151,0.3)] transition-all duration-500 transform group-hover:-rotate-6">
-        <Icon className="w-6 h-6 text-[#1a7097] group-hover:text-white transition-colors duration-500" />
+      <div className="w-14 h-14 rounded-2xl bg-[#377a9b]/5 border border-[#377a9b]/10 flex items-center justify-center mb-4 md:mb-8 group-hover:bg-[#377a9b] group-hover:shadow-[0_0_20px_rgba(55, 122, 155,0.3)] transition-all duration-500 transform group-hover:-rotate-6">
+        <Icon className="w-6 h-6 text-[#377a9b] group-hover:text-white transition-colors duration-500" />
       </div>
 
       {/* Count */}
       <div className="flex items-end gap-1 mb-3 relative z-10">
-        <span className="text-4xl md:text-5xl font-black text-gray-900 tabular-nums leading-none tracking-tight group-hover:text-[#1a7097] transition-colors duration-300">
+        <span className="text-4xl md:text-5xl font-black text-gray-900 tabular-nums leading-none tracking-tight group-hover:text-[#377a9b] transition-colors duration-300">
           {count}
         </span>
-        <span className="text-3xl font-black text-[#FFBF00] leading-none pb-0.5">{suffix}</span>
+        <span className="text-3xl font-black text-[#ffc312] leading-none pb-0.5">{suffix}</span>
       </div>
 
       {/* Label */}
@@ -110,14 +110,14 @@ const MobileStatCard = ({ icon: Icon, value, suffix, label, desc, delay, index }
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="relative overflow-hidden rounded-[18px] bg-gradient-to-b from-[#1a7097] to-[#072F33] flex flex-col items-center text-center pt-7 pb-10 w-full"
+      className="relative overflow-hidden rounded-[18px] bg-gradient-to-b from-[#377a9b] to-[#173747] flex flex-col items-center text-center pt-7 pb-10 w-full"
       style={{
         boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 12px 24px rgba(0,0,0,0.5)',
       }}
     >
       {index === 0 && (
-        <div className="absolute top-3 left-3 rounded-md bg-[#051A1D]/80 border border-[#FFBF00]/30 px-2 py-0.5 z-10">
-          <span className="text-[7px] font-bold uppercase tracking-widest text-[#FFBF00]">Stat</span>
+        <div className="absolute top-3 left-3 rounded-md bg-[#0F172A]/80 border border-[#ffc312]/30 px-2 py-0.5 z-10">
+          <span className="text-[7px] font-bold uppercase tracking-widest text-[#ffc312]">Stat</span>
         </div>
       )}
 
@@ -127,7 +127,7 @@ const MobileStatCard = ({ icon: Icon, value, suffix, label, desc, delay, index }
       
       <div className="flex items-baseline gap-0.5 mb-1 relative z-10">
         <span className="text-[1.8rem] leading-none font-bold text-white tracking-tight">{count}</span>
-        <span className="text-lg font-bold text-[#FFBF00] leading-none">{suffix}</span>
+        <span className="text-lg font-bold text-[#ffc312] leading-none">{suffix}</span>
       </div>
       
       <h3 className="text-xs font-semibold text-white mb-2 relative z-10 px-2 leading-tight">
@@ -139,7 +139,7 @@ const MobileStatCard = ({ icon: Icon, value, suffix, label, desc, delay, index }
       </p>
       
       <div 
-        className="absolute bottom-0 left-0 w-full h-7 border-t border-white/10 bg-[#1a7097]/40"
+        className="absolute bottom-0 left-0 w-full h-7 border-t border-white/10 bg-[#377a9b]/40"
         style={{ 
           backgroundImage: 'repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 4px)'
         }}
@@ -155,14 +155,14 @@ export default function AboutStats() {
       <motion.div
         animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-[20%] -left-1/4 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(26, 112, 151,0.08),transparent_60%)] pointer-events-none blur-[90px] z-0"
+        className="absolute -top-[20%] -left-1/4 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(55, 122, 155,0.08),transparent_60%)] pointer-events-none blur-[90px] z-0"
       />
 
       {/* Animated blob 2 — yellow right */}
       <motion.div
         animate={{ x: [0, -40, 0], y: [0, 50, 0], scale: [1, 1.12, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute top-1/4 -right-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(255,191,0,0.07),transparent_60%)] pointer-events-none blur-[100px] z-0"
+        className="absolute top-1/4 -right-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(255, 195, 18,0.07),transparent_60%)] pointer-events-none blur-[100px] z-0"
       />
 
       {/* Animated blob 3 — mint bottom-center */}
@@ -191,7 +191,7 @@ export default function AboutStats() {
         className="absolute inset-0 pointer-events-none z-0"
         style={{
           backgroundImage:
-            'radial-gradient(rgba(26, 112, 151,0.08) 1px, transparent 1px)',
+            'radial-gradient(rgba(55, 122, 155,0.08) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
           maskImage:
             'radial-gradient(ellipse at center, black 30%, transparent 80%)',
@@ -209,20 +209,20 @@ export default function AboutStats() {
       >
         <path
           d="M0,40 Q360,10 720,40 T1440,40"
-          stroke="rgba(26, 112, 151,0.3)"
+          stroke="rgba(55, 122, 155,0.3)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="6 6"
         />
         <path
           d="M0,80 Q360,50 720,80 T1440,80"
-          stroke="rgba(26, 112, 151,0.2)"
+          stroke="rgba(55, 122, 155,0.2)"
           strokeWidth="1"
           fill="none"
         />
         <path
           d="M0,120 Q360,90 720,120 T1440,120"
-          stroke="rgba(255,191,0,0.3)"
+          stroke="rgba(255, 195, 18,0.3)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="2 8"
@@ -238,16 +238,16 @@ export default function AboutStats() {
         </div>
 
         {/* Mobile View */}
-        <div className="sm:hidden -mx-2 px-4 py-16 bg-white relative overflow-hidden rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#1a7097]/10">
+        <div className="sm:hidden -mx-2 px-4 py-16 bg-white relative overflow-hidden rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#377a9b]/10">
           {/* Hexagon Backgrounds */}
           <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4">
-             <Hexagon className="w-64 h-64 text-[#1a7097] opacity-10" />
+             <Hexagon className="w-64 h-64 text-[#377a9b] opacity-10" />
           </div>
           <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4">
-             <Hexagon className="w-72 h-72 text-[#1a7097] opacity-10" />
+             <Hexagon className="w-72 h-72 text-[#377a9b] opacity-10" />
           </div>
           <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-             <Hexagon className="w-96 h-96 text-[#1a7097] opacity-5" />
+             <Hexagon className="w-96 h-96 text-[#377a9b] opacity-5" />
           </div>
           
           <div className="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none">

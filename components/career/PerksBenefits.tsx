@@ -5,32 +5,32 @@ import { Stethoscope, Clock, PartyPopper, CalendarDays, TrendingUp, MonitorPlay 
 
 const PERKS = [
   {
-    icon: <Stethoscope className="w-8 h-8 text-[#FFBF00]" />,
+    icon: <Stethoscope className="w-8 h-8 text-[#ffc312]" />,
     title: 'Health Benefits',
     description: 'Comprehensive medical insurance and health checkups for you and your family to ensure peace of mind.',
   },
   {
-    icon: <CalendarDays className="w-8 h-8 text-[#FFBF00]" />,
+    icon: <CalendarDays className="w-8 h-8 text-[#ffc312]" />,
     title: 'Generous Leaves',
     description: 'A well-balanced leave policy including Casual Leaves, Sick Leaves, Paid Time Off, and all major festival holidays.',
   },
   {
-    icon: <Clock className="w-8 h-8 text-[#FFBF00]" />,
+    icon: <Clock className="w-8 h-8 text-[#ffc312]" />,
     title: 'Flexible Timings',
     description: 'We prioritize output over strict hours. Enjoy flexible shifts and a supportive environment to balance work and life.',
   },
   {
-    icon: <TrendingUp className="w-8 h-8 text-[#FFBF00]" />,
+    icon: <TrendingUp className="w-8 h-8 text-[#ffc312]" />,
     title: 'Career Growth',
     description: 'Regular performance appraisals, skill development programs, and clear pathways to senior and leadership roles.',
   },
   {
-    icon: <MonitorPlay className="w-8 h-8 text-[#FFBF00]" />,
+    icon: <MonitorPlay className="w-8 h-8 text-[#ffc312]" />,
     title: 'Modern Workspace',
     description: 'Work from our state-of-the-art office in Surat with the latest hardware, dual monitors, and high-speed connectivity.',
   },
   {
-    icon: <PartyPopper className="w-8 h-8 text-[#FFBF00]" />,
+    icon: <PartyPopper className="w-8 h-8 text-[#ffc312]" />,
     title: 'Fun & Culture',
     description: 'Frequent team outings, festive celebrations, Friday fun activities, and an always-stocked pantry.',
   },
@@ -41,8 +41,8 @@ export default function PerksBenefits() {
     <section className="w-full bg-slate-900 text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[#1a7097]/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] bg-[#FFBF00]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[#377a9b]/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] bg-[#ffc312]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-24">

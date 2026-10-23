@@ -37,8 +37,8 @@ export interface Dot {
 }
 
 const dotColors: Record<DotColor, string> = {
-  teal: '#1a7097',
-  yellow: '#FFBF00',
+  teal: '#377a9b',
+  yellow: '#ffc312',
 };
 
 /** Floating constellation of soft-glow particles that pulse + drift */
@@ -79,8 +79,8 @@ export const ConstellationDots = ({ dots }: { dots: Dot[] }) => (
 export type StreakColor = 'teal' | 'yellow' | 'mint';
 
 const streakColors: Record<StreakColor, string> = {
-  teal: 'rgba(26, 112, 151,0.11)',
-  yellow: 'rgba(255,191,0,0.11)',
+  teal: 'rgba(55, 122, 155,0.11)',
+  yellow: 'rgba(255, 195, 18,0.11)',
   mint: 'rgba(199,232,155,0.3)',
 };
 

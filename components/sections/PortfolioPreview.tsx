@@ -164,7 +164,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
         zIndex: index + 1,
       }}
     >
-      <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-3 sm:p-5 lg:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12)] hover:border-[#1a7097]/40 transition-colors overflow-hidden flex flex-col justify-between">
+      <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-3 sm:p-5 lg:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12)] hover:border-[#377a9b]/40 transition-colors overflow-hidden flex flex-col justify-between">
 
         {/* Subtle Darkening Overlay when buried underneath */}
         <motion.div
@@ -175,7 +175,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
         {/* Top Metadata Strip */}
         <div className="flex items-center justify-between gap-2 mb-2 sm:mb-2.5 shrink-0">
           <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
-            <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider truncate">
+            <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider truncate">
               {project.category}
             </span>
             <span className="text-[10px] sm:text-xs font-mono text-slate-500 font-medium shrink-0">
@@ -255,7 +255,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
           {/* Floating Metric 2 (Top Right) - Desktop only */}
           {metrics?.pill2 && (
             <div className="hidden sm:flex absolute top-3 right-3 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg items-center gap-1.5 z-10">
-              <Zap className="w-3 h-3 text-[#1a7097]" />
+              <Zap className="w-3 h-3 text-[#377a9b]" />
               <div>
                 <div className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-xs text-[#0F172A] leading-tight">
                   {metrics.pill2.value}
@@ -296,7 +296,7 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
             <Link
               href={`/portfolio/${project.id}`}
               aria-label={`Explore ${project.title} case study`}
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group/link shrink-0"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group/link shrink-0"
             >
               <span><span className="hidden xs:inline">Explore </span>Case Study</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
@@ -384,12 +384,12 @@ export default function PortfolioPreview() {
   const mobileEditorial = EDITORIAL_DATA[activeMobileProj.id];
 
   return (
-    <section id="portfolio" className="relative bg-[#FCFCFD] text-[#0F172A] selection:bg-[#1a7097] selection:text-white">
+    <section id="portfolio" className="relative bg-[#FCFCFD] text-[#0F172A] selection:bg-[#377a9b] selection:text-white">
       {/* ── Ambient Background Lighting (Curtain Glows & Subtle Fluting) ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 opacity-30 bg-fluted-grid" />
-        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl" />
-        <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-[#377a9b]/8 blur-3xl" />
+        <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#ffc312]/8 blur-3xl" />
       </div>
 
       {/* ════════════════════════════════════════════════════════════════════
@@ -400,8 +400,8 @@ export default function PortfolioPreview() {
         {/* Mobile Header: Eyebrow & Headline */}
         <div className="mb-3.5">
           <div className="flex items-center justify-between gap-2 mb-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[10.5px] font-mono font-bold text-[#1a7097]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097] animate-pulse" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/20 text-[10.5px] font-mono font-bold text-[#377a9b]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b] animate-pulse" />
               <span className="tracking-wider uppercase">SELECTED WORK</span>
               <span className="text-slate-300">•</span>
               <span>0{mobileIndex + 1} / 0{STACK_PROJECTS.length}</span>
@@ -414,11 +414,11 @@ export default function PortfolioPreview() {
 
           <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl xs:text-3xl text-[#0F172A] tracking-[-0.03em] leading-[1.15] mb-1.5 [text-wrap:balance]">
             <span>Transforming </span>
-            <span className="text-[#1a7097] underline decoration-[#E7B900] decoration-[3px] underline-offset-[4px]">
+            <span className="text-[#377a9b] underline decoration-[#ffc312] decoration-[3px] underline-offset-[4px]">
               Ideas
             </span>
             <span> into </span>
-            <span className="bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#377a9b] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
               Production Reality.
             </span>
           </h2>
@@ -445,7 +445,7 @@ export default function PortfolioPreview() {
               {/* Top Metadata Strip */}
               <div className="flex items-center justify-between gap-2 mb-2.5">
                 <div className="flex items-center gap-1.5 min-w-0">
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097] text-[10px] font-mono font-bold uppercase tracking-wider truncate">
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b] text-[10px] font-mono font-bold uppercase tracking-wider truncate">
                     {activeMobileProj.category}
                   </span>
                   <span className="text-[10px] font-mono text-slate-600 font-medium shrink-0">
@@ -503,7 +503,7 @@ export default function PortfolioPreview() {
                   <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base xs:text-lg text-[#0F172A] tracking-tight leading-snug">
                     {activeMobileProj.title}
                   </h3>
-                  <span className="font-mono text-[11px] font-extrabold text-[#1a7097] shrink-0">
+                  <span className="font-mono text-[11px] font-extrabold text-[#377a9b] shrink-0">
                     0{mobileIndex + 1}
                   </span>
                 </div>
@@ -515,7 +515,7 @@ export default function PortfolioPreview() {
                 {mobileEditorial && (
                   <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between gap-3">
                     <div>
-                      <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#1a7097] leading-none">
+                      <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#377a9b] leading-none">
                         {mobileEditorial.stat.value}
                       </div>
                       <div className="font-mono text-[9px] uppercase tracking-wider text-slate-600 font-medium mt-0.5 truncate">
@@ -547,7 +547,7 @@ export default function PortfolioPreview() {
                 <Link
                   href={`/portfolio/${activeMobileProj.id}`}
                   aria-label={`Explore ${activeMobileProj.title} case study`}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
                 >
                   <span>Explore Case Study</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -581,7 +581,7 @@ export default function PortfolioPreview() {
               >
                 <span
                   className={`h-2 rounded-full transition-all duration-300 block ${mobileIndex === idx
-                      ? 'w-7 bg-[#1a7097]'
+                      ? 'w-7 bg-[#377a9b]'
                       : 'w-2 bg-slate-200 hover:bg-slate-300'
                     }`}
                 />
@@ -593,7 +593,7 @@ export default function PortfolioPreview() {
             type="button"
             onClick={() => setMobileIndex((prev) => Math.min(STACK_PROJECTS.length - 1, prev + 1))}
             disabled={mobileIndex === STACK_PROJECTS.length - 1}
-            className="w-9 h-9 rounded-xl bg-[#1a7097] text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#145b7c] active:scale-95 shadow-xs flex items-center justify-center transition-all cursor-pointer"
+            className="w-9 h-9 rounded-xl bg-[#377a9b] text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#2b6683] active:scale-95 shadow-xs flex items-center justify-center transition-all cursor-pointer"
             aria-label="Next project"
           >
             <ChevronRight className="w-4 h-4" />
@@ -603,12 +603,12 @@ export default function PortfolioPreview() {
         {/* Mobile Archive Link */}
         <div className="mt-3 pt-2.5 border-t border-slate-200/70 flex items-center justify-between">
           <div className="text-xs text-slate-500 font-medium">
-            <span className="font-mono font-bold text-[#1a7097]">06</span> Curated Case Studies
+            <span className="font-mono font-bold text-[#377a9b]">06</span> Curated Case Studies
           </div>
           <Link
             href="/portfolio"
             aria-label="View full portfolio archive of all 6 curated case studies"
-            className="inline-flex items-center gap-1.5 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#1a7097] hover:underline"
+            className="inline-flex items-center gap-1.5 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#377a9b] hover:underline"
           >
             <span>View Full Archive</span>
             <ArrowUpRight className="w-3 h-3" />
@@ -635,8 +635,8 @@ export default function PortfolioPreview() {
             <div className="shrink-0">
               <div className="flex items-center justify-between gap-3 mb-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100/90 border border-slate-200/80 text-[10.5px] font-mono font-semibold text-slate-700 shadow-2xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097] animate-pulse" />
-                  <span className="font-bold tracking-wider uppercase text-[#1a7097]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b] animate-pulse" />
+                  <span className="font-bold tracking-wider uppercase text-[#377a9b]">
                     SELECTED WORK
                   </span>
                   <span className="text-slate-300">•</span>
@@ -644,7 +644,7 @@ export default function PortfolioPreview() {
                 </div>
 
                 <div className="inline-flex items-center gap-1 font-mono text-xs text-slate-600 font-semibold px-2.5 py-0.5 rounded-md bg-slate-50 border border-slate-200/80">
-                  <span className="text-[#1a7097] font-bold text-sm">
+                  <span className="text-[#377a9b] font-bold text-sm">
                     0{activeStep + 1}
                   </span>
                   <span className="text-slate-400" aria-hidden="true">/</span>
@@ -654,11 +654,11 @@ export default function PortfolioPreview() {
 
               <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl lg:text-[32px] xl:text-[34px] text-[#0F172A] tracking-[-0.03em] leading-[1.14] mb-1.5 [text-wrap:balance]">
                 <span>Transforming </span>
-                <span className="relative inline-block text-[#1a7097] underline decoration-[#E7B900] decoration-[3px] underline-offset-[5px]">
+                <span className="relative inline-block text-[#377a9b] underline decoration-[#ffc312] decoration-[3px] underline-offset-[5px]">
                   Ideas
                 </span>
                 <span> into </span>
-                <span className="bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#377a9b] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
                   Production Reality.
                 </span>
               </h2>
@@ -688,13 +688,13 @@ export default function PortfolioPreview() {
                       <span className="absolute -top-4 right-3 font-mono font-black text-[105px] xl:text-[120px] text-slate-100/80 leading-none select-none pointer-events-none z-0">
                         {editorial.indexStr}
                       </span>
-                      <div className="absolute top-0 right-0 w-36 h-36 bg-[#1a7097]/5 rounded-full blur-2xl pointer-events-none" />
+                      <div className="absolute top-0 right-0 w-36 h-36 bg-[#377a9b]/5 rounded-full blur-2xl pointer-events-none" />
 
                       {/* Top Metadata Strip */}
                       <div className="relative z-10">
                         <div className="flex items-center justify-between gap-2 mb-2">
-                          <div className="flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-wider text-[#1a7097]">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097]" />
+                          <div className="flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-wider text-[#377a9b]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
                             <span>{editorial.sector}</span>
                           </div>
                           <span className="font-mono text-[10px] text-slate-600 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/80">
@@ -728,7 +728,7 @@ export default function PortfolioPreview() {
                       {/* Editorial Stat Strip & Actions */}
                       <div className="relative z-10 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
                         <div>
-                          <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl xl:text-3xl text-[#1a7097] leading-none">
+                          <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl xl:text-3xl text-[#377a9b] leading-none">
                             {editorial.stat.value}
                           </div>
                           <div className="font-mono text-[10px] uppercase tracking-wider text-slate-600 font-medium mt-1">
@@ -753,7 +753,7 @@ export default function PortfolioPreview() {
                           <Link
                             href={`/portfolio/${activeProject.id}`}
                             aria-label={`Explore ${activeProject.title} case study`}
-                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0F172A] hover:bg-[#1a7097] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0F172A] hover:bg-[#377a9b] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
                           >
                             <span>Case Study</span>
                             <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -782,7 +782,7 @@ export default function PortfolioPreview() {
                       >
                         <span
                           className={`h-2.5 rounded-full transition-all duration-300 block ${isActive
-                              ? 'w-9 bg-[#1a7097] shadow-xs'
+                              ? 'w-9 bg-[#377a9b] shadow-xs'
                               : 'w-2.5 bg-slate-200 hover:bg-slate-300'
                             }`}
                         />

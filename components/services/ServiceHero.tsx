@@ -45,7 +45,7 @@ const OrbitalCanvas = ({ mouseX, mouseY }: { mouseX: number; mouseY: number }) =
       vy: (Math.random() - 0.5) * 0.4,
       size: Math.random() * 2 + 0.5,
       alpha: Math.random() * 0.5 + 0.2,
-      color: Math.random() > 0.7 ? '#FFBF00' : '#ffffff',
+      color: Math.random() > 0.7 ? '#ffc312' : '#ffffff',
     }));
 
     orbitsRef.current = Array.from({ length: 4 }, (_, i) => ({
@@ -57,7 +57,7 @@ const OrbitalCanvas = ({ mouseX, mouseY }: { mouseX: number; mouseY: number }) =
       dots: Array.from({ length: 3 + i }, (_, j) => ({
         offset: (j / (3 + i)) * Math.PI * 2,
         size: 2 + Math.random() * 2,
-        color: i % 2 === 0 ? '#FFBF00' : '#1a7097',
+        color: i % 2 === 0 ? '#ffc312' : '#377a9b',
       })),
     }));
 
@@ -159,10 +159,10 @@ const ServicePill = ({ icon: Icon, label, delay, x, y }: any) => (
     initial={{ opacity: 0, scale: 0.5, filter: 'blur(10px)' }}
     animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
     transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
-    className={`absolute ${x} ${y} hidden lg:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] z-20 group hover:border-[#FFBF00]/30 hover:bg-white/[0.08] transition-all duration-500 cursor-default`}
+    className={`absolute ${x} ${y} hidden lg:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] z-20 group hover:border-[#ffc312]/30 hover:bg-white/[0.08] transition-all duration-500 cursor-default`}
   >
-    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFBF00]/20 to-[#1a7097]/20 flex items-center justify-center group-hover:from-[#FFBF00]/40 group-hover:to-[#1a7097]/40 transition-all duration-500">
-      <Icon className="w-4 h-4 text-[#FFBF00]" />
+    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#ffc312]/20 to-[#377a9b]/20 flex items-center justify-center group-hover:from-[#ffc312]/40 group-hover:to-[#377a9b]/40 transition-all duration-500">
+      <Icon className="w-4 h-4 text-[#ffc312]" />
     </div>
     <span className="text-xs font-semibold text-white/70 tracking-wide group-hover:text-white/90 transition-colors">{label}</span>
   </motion.div>
@@ -193,7 +193,7 @@ const CounterStat = ({ value, suffix, label, delay }: { value: number; suffix: s
       className="text-center group"
     >
       <div className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-        {count}<span className="text-[#FFBF00]">{suffix}</span>
+        {count}<span className="text-[#ffc312]">{suffix}</span>
       </div>
       <div className="text-xs text-white/40 font-medium tracking-widest uppercase mt-1">{label}</div>
     </motion.div>
@@ -232,14 +232,14 @@ export default function ServiceHero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#1a7097]"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#377a9b]"
     >
       {/* Orbital Canvas Background */}
       <OrbitalCanvas mouseX={mouse.x} mouseY={mouse.y} />
 
       {/* Ambient Gradient Orbs */}
       <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-black/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[-20%] right-[-15%] w-[50vw] h-[50vw] bg-[#FFBF00]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[-20%] right-[-15%] w-[50vw] h-[50vw] bg-[#ffc312]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-[40%] left-[50%] w-[30vw] h-[30vw] bg-teal-300/10 rounded-full blur-[120px] pointer-events-none -translate-x-1/2" />
 
       {/* Noise Texture */}
@@ -298,16 +298,16 @@ export default function ServiceHero() {
           initial={{ opacity: 0, y: -20, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-xl mb-10 md:mb-14 group hover:border-[#FFBF00]/20 transition-colors duration-500"
+          className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-xl mb-10 md:mb-14 group hover:border-[#ffc312]/20 transition-colors duration-500"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFBF00] opacity-60" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FFBF00]" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffc312] opacity-60" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ffc312]" />
           </span>
           <span className="text-[10px] sm:text-xs font-bold tracking-[0.35em] text-white/60 uppercase">
             What We Do
           </span>
-          <Sparkles className="w-3 h-3 text-[#FFBF00]/60" />
+          <Sparkles className="w-3 h-3 text-[#ffc312]/60" />
         </motion.div>
 
         {/* Main Headline — Dramatic Brand Typography */}
@@ -336,10 +336,10 @@ export default function ServiceHero() {
               transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="text-[3.2rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8.5rem] font-bold leading-[1] tracking-tighter font-[Zain] flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6"
             >
-              <span className="text-[#FFBF00] font-[Alice] italic normal-case lowercase text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[7.5rem] mt-2 md:mt-4" style={{ WebkitTextStroke: '0px' }}>
+              <span className="text-[#ffc312] font-[Alice] italic normal-case lowercase text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[7.5rem] mt-2 md:mt-4" style={{ WebkitTextStroke: '0px' }}>
                 drive
               </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] via-amber-300 to-[#F9FAFB]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffc312] via-amber-300 to-[#F9FAFB]">
                 Growth.
               </span>
             </motion.h1>
@@ -353,11 +353,11 @@ export default function ServiceHero() {
           transition={{ duration: 1, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-4 sm:gap-6 mb-6"
         >
-          <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50 hidden min-[400px]:block" />
+          <div className="h-[1px] w-8 sm:w-12 bg-[#ffc312]/50 hidden min-[400px]:block" />
           <span className="text-base sm:text-2xl md:text-3xl font-[Alice] text-[#F9FAFB]/60 tracking-wide text-center">
             Engineering. Design. Optimization.
           </span>
-          <div className="h-[1px] w-8 sm:w-12 bg-[#FFBF00]/50 hidden min-[400px]:block" />
+          <div className="h-[1px] w-8 sm:w-12 bg-[#ffc312]/50 hidden min-[400px]:block" />
         </motion.div>
 
         <motion.p
@@ -368,7 +368,7 @@ export default function ServiceHero() {
         >
           We are engineers, not hobbyists. We skip the generic templates and build{' '}
           high-performance, scalable web platforms designed to{' '}
-          <span className="text-[#FFBF00] font-medium">solve real business problems</span>.
+          <span className="text-[#ffc312] font-medium">solve real business problems</span>.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -382,7 +382,7 @@ export default function ServiceHero() {
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="group relative h-14 px-10 rounded-full bg-[#F9FAFB] text-[#1a7097] font-bold text-sm tracking-wide overflow-hidden shadow-[0_0_50px_rgba(249,250,251,0.15)] hover:shadow-[0_0_70px_rgba(249,250,251,0.25)] transition-shadow duration-500 flex items-center gap-3"
+              className="group relative h-14 px-10 rounded-full bg-[#F9FAFB] text-[#377a9b] font-bold text-sm tracking-wide overflow-hidden shadow-[0_0_50px_rgba(249,250,251,0.15)] hover:shadow-[0_0_70px_rgba(249,250,251,0.25)] transition-shadow duration-500 flex items-center gap-3"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <span className="relative z-10">Start a Project</span>
@@ -417,7 +417,7 @@ export default function ServiceHero() {
                   onClick={() => setActiveService(i)}
                   className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-400 ${
                     activeService === i
-                      ? 'bg-[#FFBF00]/15 border border-[#FFBF00]/30 text-[#FFBF00]'
+                      ? 'bg-[#ffc312]/15 border border-[#ffc312]/30 text-[#ffc312]'
                       : 'bg-white/[0.03] border border-transparent text-white/30 hover:text-white/50'
                   }`}
                 >

@@ -68,19 +68,19 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative py-24 sm:py-32 bg-[#FCFCFD] text-[#0F172A] overflow-hidden selection:bg-[#1a7097] selection:text-white"
+      className="relative py-24 sm:py-32 bg-[#FCFCFD] text-[#0F172A] overflow-hidden selection:bg-[#377a9b] selection:text-white"
     >
       {/* ── Ambient Background Lighting ── */}
       <div className="absolute inset-0 pointer-events-none opacity-40 bg-section-pattern" />
-      <div className="absolute top-1/4 -right-48 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -left-48 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -right-48 w-96 h-96 rounded-full bg-[#377a9b]/8 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-48 w-96 h-96 rounded-full bg-[#ffc312]/8 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ── Section Header ── */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#1a7097] mb-4 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#E7B900]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#377a9b] mb-4 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#ffc312]" />
             <span className="tracking-wider uppercase">CLIENT SUCCESS & ROI</span>
             <span className="text-slate-300">•</span>
             <span className="text-slate-600">VERIFIED ENTERPRISE PROOF</span>
@@ -88,7 +88,7 @@ export default function Testimonials() {
 
           <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl lg:text-5xl text-[#0F172A] tracking-[-0.03em] leading-[1.12] mb-4 [text-wrap:balance]">
             <span>What Our Partners </span>
-            <span className="bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#377a9b] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
               Say About Us.
             </span>
           </h2>
@@ -134,10 +134,10 @@ export default function Testimonials() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35, delay: index * 0.08 }}
-                className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden transition-all duration-500 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.1)] hover:shadow-[0_30px_70px_-12px_rgba(26,112,151,0.22)] hover:border-[#1a7097]/50 flex flex-col justify-between group"
+                className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden transition-all duration-500 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.1)] hover:shadow-[0_30px_70px_-12px_rgba(55, 122, 155,0.22)] hover:border-[#377a9b]/50 flex flex-col justify-between group"
               >
                 {/* Specular Ambient Glow */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#1a7097]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#1a7097]/10 transition-colors duration-500" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#377a9b]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#377a9b]/10 transition-colors duration-500" />
                 
                 {/* Corner Crosshairs */}
                 <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -146,7 +146,7 @@ export default function Testimonials() {
                 <div>
                   {/* Top Bar: Sector Tag & Verified Badge */}
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#1a7097] bg-[#1a7097]/10 px-2.5 py-0.5 rounded-full border border-[#1a7097]/20">
+                    <span className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#377a9b] bg-[#377a9b]/10 px-2.5 py-0.5 rounded-full border border-[#377a9b]/20">
                       {testimonial.sectorLabel}
                     </span>
 
@@ -172,7 +172,7 @@ export default function Testimonials() {
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="w-4 h-4 fill-[#E7B900] text-[#E7B900] drop-shadow-2xs"
+                          className="w-4 h-4 fill-[#ffc312] text-[#ffc312] drop-shadow-2xs"
                         />
                       ))}
                     </div>
@@ -200,7 +200,7 @@ export default function Testimonials() {
                     <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm text-[#0F172A] truncate">
                       {testimonial.author}
                     </h3>
-                    <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-semibold text-[#1a7097] truncate">
+                    <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-semibold text-[#377a9b] truncate">
                       {testimonial.role} • {testimonial.company}
                     </p>
                     <p className="font-mono text-[10px] text-slate-600 font-medium truncate">
@@ -219,7 +219,7 @@ export default function Testimonials() {
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 sm:gap-3">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-[#E7B900] text-[#E7B900]" />
+                <Star key={i} className="w-5 h-5 fill-[#ffc312] text-[#ffc312]" />
               ))}
             </div>
             <a
@@ -227,7 +227,7 @@ export default function Testimonials() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View verified 4.9 rating on Google Business Profile"
-              className="inline-flex items-center gap-1 text-[#0F172A] hover:text-[#1a7097] transition-colors font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm"
+              className="inline-flex items-center gap-1 text-[#0F172A] hover:text-[#377a9b] transition-colors font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm"
             >
               <span>4.9 / 5.0 Verified Google Rating</span>
             </a>
@@ -240,7 +240,7 @@ export default function Testimonials() {
           <a
             href="/portfolio"
             aria-label="Read more partner case briefs in our curated portfolio archive"
-            className="inline-flex items-center gap-1.5 font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#1a7097] hover:text-[#145b7c] transition-colors"
+            className="inline-flex items-center gap-1.5 font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#377a9b] hover:text-[#2b6683] transition-colors"
           >
             <span>Read More Partner Case Briefs</span>
             <ArrowRight className="w-3.5 h-3.5" />

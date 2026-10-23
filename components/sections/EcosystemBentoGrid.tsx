@@ -105,7 +105,7 @@ const SERVICES_DATA: ServiceSlide[] = [
     tagline: 'Sub-Second Latency • 99+ Core Web Vitals • Modern Tech Stack',
     description:
       'Ultra-fast Next.js & React architectures with sub-second page loads, responsive design, and 99+ Core Web Vitals engineered to scale your digital presence.',
-    accentColor: '#1a7097',
+    accentColor: '#377a9b',
     secondaryColor: '#38bdf8',
     deviceType: 'browser',
     mockupImage: '/showcase/web_screen.png',
@@ -190,7 +190,7 @@ const SERVICES_DATA: ServiceSlide[] = [
     tagline: 'Fluid 60 FPS • Offline-First Sync • Biometric Security',
     description:
       'Bespoke native Swift, Kotlin, and React Native mobile applications built with buttery-smooth 60 FPS interactions, offline-first sync, and bank-grade biometric security.',
-    accentColor: '#1a7097',
+    accentColor: '#377a9b',
     secondaryColor: '#0ea5e9',
     deviceType: 'mobile',
     mockupImage: '/showcase/mobile_app.png',
@@ -290,7 +290,7 @@ const SERVICES_DATA: ServiceSlide[] = [
     tagline: 'Kubernetes Scalability • Microservices • SOC-2 Ready',
     description:
       'Mission-critical custom software, distributed microservices, and automated Kubernetes cloud platforms with automated failover, ACID compliance, and SOC-2 security.',
-    accentColor: '#1a7097',
+    accentColor: '#377a9b',
     secondaryColor: '#6366f1',
     deviceType: 'browser',
     mockupImage: '/showcase/saas_cloud.jpg',
@@ -375,7 +375,7 @@ const SERVICES_DATA: ServiceSlide[] = [
     tagline: 'Multi-Model Squads • Zero Manual Ops • Self-Healing',
     description:
       'Custom LLM orchestration squads, autonomous RPA bots, and intelligent document processing pipelines that eliminate manual operational overhead with guaranteed precision.',
-    accentColor: '#E7B900',
+    accentColor: '#ffc312',
     secondaryColor: '#f59e0b',
     deviceType: 'browser',
     mockupImage: '/showcase/ai_agent.jpg',
@@ -507,12 +507,12 @@ function MobileAppScreen() {
         </div>
         <div className="w-6 h-6 rounded-full bg-white border border-slate-200/80 shadow-2xs flex items-center justify-center text-slate-700 relative cursor-pointer hover:bg-slate-50 transition-colors">
           <Bell className="w-3 h-3 text-slate-600" />
-          <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-[#1a7097]" />
+          <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
         </div>
       </div>
 
       {/* 3. Luxury Credit Card (Salary Card 10,000$, VISA, •••• 3042) */}
-      <div className="relative rounded-2xl bg-gradient-to-tr from-[#1a7097] via-[#0284c7] to-[#38bdf8] p-3 text-white shadow-[0_14px_28px_-8px_rgba(26,112,151,0.45)] overflow-hidden mb-1 shrink-0">
+      <div className="relative rounded-2xl bg-gradient-to-tr from-[#377a9b] via-[#0284c7] to-[#38bdf8] p-3 text-white shadow-[0_14px_28px_-8px_rgba(55, 122, 155,0.45)] overflow-hidden mb-1 shrink-0">
         {/* Holographic Watermark / Ambient Arcs */}
         <div className="absolute -right-8 -bottom-8 w-28 h-28 rounded-full bg-white/10 pointer-events-none" />
         <div className="absolute -right-2 -top-6 w-20 h-20 rounded-full bg-white/10 pointer-events-none" />
@@ -558,7 +558,7 @@ function MobileAppScreen() {
 
       {/* 4. Card Carousel Indicator Dots */}
       <div className="flex items-center justify-center gap-1 mb-1.5 shrink-0">
-        <span className="w-3.5 h-1 rounded-full bg-[#1a7097]" />
+        <span className="w-3.5 h-1 rounded-full bg-[#377a9b]" />
         <span className="w-1 h-1 rounded-full bg-slate-300" />
         <span className="w-1 h-1 rounded-full bg-slate-300" />
       </div>
@@ -575,7 +575,7 @@ function MobileAppScreen() {
             </div>
           </div>
           <div className="w-5 h-5 rounded-md bg-slate-50 border border-slate-200/60 flex items-center justify-center text-slate-500">
-            <Activity className="w-2.5 h-2.5 text-[#1a7097]" />
+            <Activity className="w-2.5 h-2.5 text-[#377a9b]" />
           </div>
         </div>
 
@@ -584,8 +584,8 @@ function MobileAppScreen() {
           <svg viewBox="0 0 200 50" className="w-full h-full overflow-visible" preserveAspectRatio="none">
             <defs>
               <linearGradient id="mobileSpendGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#1a7097" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#1a7097" stopOpacity="0.0" />
+                <stop offset="0%" stopColor="#377a9b" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#377a9b" stopOpacity="0.0" />
               </linearGradient>
             </defs>
             {/* Area Fill */}
@@ -597,13 +597,13 @@ function MobileAppScreen() {
             <path
               d="M 0,42 Q 25,40 50,32 T 100,24 T 150,10 T 200,28"
               fill="none"
-              stroke="#1a7097"
+              stroke="#377a9b"
               strokeWidth="2.5"
               strokeLinecap="round"
             />
             {/* Peak Highlight Circle */}
-            <circle cx="150" cy="10" r="3" fill="#ffffff" stroke="#1a7097" strokeWidth="2" />
-            <circle cx="150" cy="10" r="5" fill="#1a7097" fillOpacity="0.25" />
+            <circle cx="150" cy="10" r="3" fill="#ffffff" stroke="#377a9b" strokeWidth="2" />
+            <circle cx="150" cy="10" r="5" fill="#377a9b" fillOpacity="0.25" />
           </svg>
         </div>
 
@@ -613,7 +613,7 @@ function MobileAppScreen() {
           <span>Tue</span>
           <span>Wed</span>
           <span>Thu</span>
-          <span className="font-bold text-[#1a7097]">Fri</span>
+          <span className="font-bold text-[#377a9b]">Fri</span>
           <span>Sat</span>
           <span>Sun</span>
         </div>
@@ -621,25 +621,25 @@ function MobileAppScreen() {
 
       {/* 6. Quick Action Row */}
       <div className="grid grid-cols-4 gap-1.5 mb-1.5 shrink-0">
-        <div className="p-1 rounded-xl bg-white border border-slate-200/70 shadow-2xs flex flex-col items-center gap-0.5 cursor-pointer hover:border-[#1a7097]/40 transition-all">
-          <div className="w-5 h-5 rounded-full bg-blue-50 text-[#1a7097] flex items-center justify-center">
+        <div className="p-1 rounded-xl bg-white border border-slate-200/70 shadow-2xs flex flex-col items-center gap-0.5 cursor-pointer hover:border-[#377a9b]/40 transition-all">
+          <div className="w-5 h-5 rounded-full bg-blue-50 text-[#377a9b] flex items-center justify-center">
             <ArrowUpRight className="w-2.5 h-2.5 stroke-[2.5]" />
           </div>
           <span className="text-[7.5px] font-semibold text-slate-600">Transfer</span>
         </div>
-        <div className="p-1 rounded-xl bg-white border border-slate-200/70 shadow-2xs flex flex-col items-center gap-0.5 cursor-pointer hover:border-[#1a7097]/40 transition-all">
+        <div className="p-1 rounded-xl bg-white border border-slate-200/70 shadow-2xs flex flex-col items-center gap-0.5 cursor-pointer hover:border-[#377a9b]/40 transition-all">
           <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
             <Plus className="w-2.5 h-2.5 stroke-[2.5]" />
           </div>
           <span className="text-[7.5px] font-semibold text-slate-600">Top-up</span>
         </div>
-        <div className="p-1 rounded-xl bg-white border border-slate-200/70 shadow-2xs flex flex-col items-center gap-0.5 cursor-pointer hover:border-[#1a7097]/40 transition-all">
+        <div className="p-1 rounded-xl bg-white border border-slate-200/70 shadow-2xs flex flex-col items-center gap-0.5 cursor-pointer hover:border-[#377a9b]/40 transition-all">
           <div className="w-5 h-5 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center">
             <Zap className="w-2.5 h-2.5 stroke-[2.5]" />
           </div>
           <span className="text-[7.5px] font-semibold text-slate-600">Pay</span>
         </div>
-        <div className="p-1 rounded-xl bg-white border border-slate-200/70 shadow-2xs flex flex-col items-center gap-0.5 cursor-pointer hover:border-[#1a7097]/40 transition-all">
+        <div className="p-1 rounded-xl bg-white border border-slate-200/70 shadow-2xs flex flex-col items-center gap-0.5 cursor-pointer hover:border-[#377a9b]/40 transition-all">
           <div className="w-5 h-5 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center">
             <Activity className="w-2.5 h-2.5 stroke-[2.5]" />
           </div>
@@ -651,7 +651,7 @@ function MobileAppScreen() {
       <div className="rounded-xl bg-white p-2 border border-slate-200/70 shadow-2xs mb-0.5 shrink-0">
         <div className="flex items-center justify-between text-[8px] mb-1">
           <span className="font-bold text-[#0F172A]">Recent Activity</span>
-          <span className="text-[7px] text-[#1a7097] font-semibold cursor-pointer">See all</span>
+          <span className="text-[7px] text-[#377a9b] font-semibold cursor-pointer">See all</span>
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
@@ -715,8 +715,8 @@ export default function EcosystemBentoGrid() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className={`absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[380px] rounded-full blur-3xl pointer-events-none transition-colors duration-700 ${
             activeService.id === 'ai'
-              ? 'bg-[radial-gradient(circle,rgba(231,185,0,0.16)_0%,rgba(26,112,151,0.06)_60%,transparent_80%)]'
-              : 'bg-[radial-gradient(circle,rgba(26,112,151,0.15)_0%,rgba(56,189,248,0.08)_60%,transparent_80%)]'
+              ? 'bg-[radial-gradient(circle,rgba(255, 195, 18,0.16)_0%,rgba(55, 122, 155,0.06)_60%,transparent_80%)]'
+              : 'bg-[radial-gradient(circle,rgba(55, 122, 155,0.15)_0%,rgba(56,189,248,0.08)_60%,transparent_80%)]'
           }`}
         />
 
@@ -724,10 +724,10 @@ export default function EcosystemBentoGrid() {
         <div className="relative z-20 mb-3 sm:mb-4 pb-2.5 border-b border-slate-200/60 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1a7097] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1a7097]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#377a9b] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#377a9b]" />
             </span>
-            <span className="font-mono font-extrabold text-xs sm:text-[12.5px] uppercase tracking-[0.2em] bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#1a7097] bg-clip-text text-transparent">
+            <span className="font-mono font-extrabold text-xs sm:text-[12.5px] uppercase tracking-[0.2em] bg-gradient-to-r from-[#377a9b] via-[#0284c7] to-[#377a9b] bg-clip-text text-transparent">
               OUR CORE SERVICES
             </span>
             <span className="text-slate-300 font-mono font-light text-sm">/</span>
@@ -756,20 +756,20 @@ export default function EcosystemBentoGrid() {
             <div className="order-2 lg:order-1 lg:col-span-5 flex flex-col items-start text-left pr-0 lg:pr-3">
 
               {/* Dynamic Service Pill (No Dot) */}
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[11px] font-mono font-bold text-[#1a7097] tracking-wider backdrop-blur-md mb-2.5 transition-all">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[11px] font-mono font-bold text-[#377a9b] tracking-wider backdrop-blur-md mb-2.5 transition-all">
                 SERVICE {activeService.index} // {activeService.badge}
               </div>
 
               {/* Headline */}
-              <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] text-[#0F172A] tracking-[-0.03em] leading-[1.18] mb-2.5 selection:bg-[#1a7097] selection:text-white">
+              <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] text-[#0F172A] tracking-[-0.03em] leading-[1.18] mb-2.5 selection:bg-[#377a9b] selection:text-white">
                 <span>{activeService.titlePrimary} </span>
-                <span className={activeService.accentColor === '#E7B900' ? 'text-[#E7B900]' : 'text-[#1a7097]'}>
+                <span className={activeService.accentColor === '#ffc312' ? 'text-[#ffc312]' : 'text-[#377a9b]'}>
                   {activeService.titleAccent}
                 </span>
               </h2>
 
               {/* Description */}
-              <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-[13.5px] text-[#475569] font-normal leading-[1.6] mb-3.5 selection:bg-[#1a7097] selection:text-white">
+              <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-[13.5px] text-[#475569] font-normal leading-[1.6] mb-3.5 selection:bg-[#377a9b] selection:text-white">
                 {activeService.description}
               </p>
 
@@ -777,8 +777,8 @@ export default function EcosystemBentoGrid() {
               <div className="w-full space-y-2 mb-3.5 pt-2 border-t border-slate-200/60">
                 {activeService.deliverables.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2.5 text-left">
-                    <div className="w-4 h-4 rounded-full bg-[#1a7097]/10 text-[#1a7097] flex items-center justify-center shrink-0 border border-[#1a7097]/20">
-                      <CheckCircle2 className="w-3 h-3 text-[#1a7097]" />
+                    <div className="w-4 h-4 rounded-full bg-[#377a9b]/10 text-[#377a9b] flex items-center justify-center shrink-0 border border-[#377a9b]/20">
+                      <CheckCircle2 className="w-3 h-3 text-[#377a9b]" />
                     </div>
                     <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A] leading-tight">
                       {item.title}
@@ -791,7 +791,7 @@ export default function EcosystemBentoGrid() {
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
                 {/* Highlight Metric Pill */}
                 <div className="p-2.5 rounded-xl bg-white/90 border border-slate-200/80 shadow-2xs flex items-center gap-2.5">
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg text-[#1a7097] leading-none shrink-0">
+                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg text-[#377a9b] leading-none shrink-0">
                     {activeService.metricHighlight.value}
                   </div>
                   <div className="text-left leading-tight">
@@ -817,14 +817,14 @@ export default function EcosystemBentoGrid() {
               <div className="flex items-center gap-3 pt-1 flex-wrap">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
                 >
                   <span>Start {activeService.badge.toLowerCase()} project</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-1 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-slate-600 hover:text-[#1a7097] transition-colors"
+                  className="inline-flex items-center gap-1 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-slate-600 hover:text-[#377a9b] transition-colors"
                 >
                   <span>View capabilities →</span>
                 </Link>
@@ -859,14 +859,14 @@ export default function EcosystemBentoGrid() {
                   >
                     {/* 1. Trend Circle Badge (From Reference Design) */}
                     {card.widgetType === 'trend_circle' ? (
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#1a7097] to-sky-400 p-0.5 shadow-[0_12px_28px_-4px_rgba(26,112,151,0.4)] flex items-center justify-center border-2 border-white">
-                        <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#1a7097] to-sky-400">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#377a9b] to-sky-400 p-0.5 shadow-[0_12px_28px_-4px_rgba(55, 122, 155,0.4)] flex items-center justify-center border-2 border-white">
+                        <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#377a9b] to-sky-400">
                           <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
                         </div>
                       </div>
                     ) : card.widgetType === 'budget_donut' ? (
                       /* 2. Budget Scores Donut Widget (From Reference Design) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#1a7097]/50 transition-all">
+                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
                         <div className="flex items-center justify-between mb-2">
                           <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] sm:text-[13px] text-[#0F172A]">
                             Budget Scores
@@ -886,7 +886,7 @@ export default function EcosystemBentoGrid() {
                                 cy="18"
                                 r="14"
                                 fill="transparent"
-                                stroke="#1a7097"
+                                stroke="#377a9b"
                                 strokeWidth="5"
                                 strokeDasharray="52.1 47.9"
                                 strokeDashoffset="0"
@@ -931,7 +931,7 @@ export default function EcosystemBentoGrid() {
                           <div className="grid grid-cols-1 gap-0.5 text-[9px] sm:text-[9.5px] font-medium text-slate-600 flex-1">
                             <div className="flex items-center justify-between">
                               <span className="flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097]" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
                                 Needs
                               </span>
                               <span className="font-bold text-[#0F172A]">52.1%</span>
@@ -962,7 +962,7 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'cash_flow' ? (
                       /* 3. Cash Flow: Amount Received & Amount Spent */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#1a7097]/50 transition-all">
+                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#377a9b]/50 transition-all">
                         <div>
                           <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Amount Received</span>
                           <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
@@ -981,7 +981,7 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'amount_saved' ? (
                       /* 4. Amount Saved Widget (Mobile App Service) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#1a7097]/50 transition-all">
+                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
                         <span className="block text-[10px] text-slate-600 font-medium mb-1">Amount Saved</span>
                         <div className="flex items-center justify-between gap-3">
                           <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg sm:text-xl text-[#0F172A]">
@@ -995,14 +995,14 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'ai_circle' ? (
                       /* 1. AI Glowing Pulse Circle Badge (Mobile Style) */
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#E7B900] via-[#f59e0b] to-[#1a7097] p-0.5 shadow-[0_12px_28px_-4px_rgba(231,185,0,0.4)] flex items-center justify-center border-2 border-white">
-                        <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#E7B900] via-[#f59e0b] to-[#1a7097]">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b] p-0.5 shadow-[0_12px_28px_-4px_rgba(255, 195, 18,0.4)] flex items-center justify-center border-2 border-white">
+                        <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b]">
                           <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
                         </div>
                       </div>
                     ) : card.widgetType === 'ai_donut' ? (
                       /* 2. AI Workload Donut Widget (Mobile Style) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#1a7097]/50 transition-all">
+                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
                         <div className="flex items-center justify-between mb-2">
                           <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] sm:text-[13px] text-[#0F172A]">
                             AI Workload
@@ -1022,7 +1022,7 @@ export default function EcosystemBentoGrid() {
                                 cy="18"
                                 r="14"
                                 fill="transparent"
-                                stroke="#1a7097"
+                                stroke="#377a9b"
                                 strokeWidth="5"
                                 strokeDasharray="48.2 51.8"
                                 strokeDashoffset="0"
@@ -1044,7 +1044,7 @@ export default function EcosystemBentoGrid() {
                                 cy="18"
                                 r="14"
                                 fill="transparent"
-                                stroke="#E7B900"
+                                stroke="#ffc312"
                                 strokeWidth="5"
                                 strokeDasharray="15.8 84.2"
                                 strokeDashoffset="-74.6"
@@ -1067,7 +1067,7 @@ export default function EcosystemBentoGrid() {
                           <div className="grid grid-cols-1 gap-0.5 text-[9px] sm:text-[9.5px] font-medium text-slate-600 flex-1">
                             <div className="flex items-center justify-between">
                               <span className="flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097]" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
                                 Reasoning
                               </span>
                               <span className="font-bold text-[#0F172A]">48.2%</span>
@@ -1081,7 +1081,7 @@ export default function EcosystemBentoGrid() {
                             </div>
                             <div className="flex items-center justify-between">
                               <span className="flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#E7B900]" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#ffc312]" />
                                 Automation
                               </span>
                               <span className="font-bold text-[#0F172A]">15.8%</span>
@@ -1098,7 +1098,7 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'ai_metrics' ? (
                       /* 3. AI Impact Dual Metric Pill (Mobile Style) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#1a7097]/50 transition-all">
+                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#377a9b]/50 transition-all">
                         <div>
                           <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Hours Saved</span>
                           <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
@@ -1117,7 +1117,7 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'ai_stat' ? (
                       /* 4. AI Decisions Dispatched Stat Card (Mobile Style) */
-                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#1a7097]/50 transition-all">
+                      <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
                         <span className="block text-[10px] text-slate-600 font-medium mb-1">Decisions Dispatched</span>
                         <div className="flex items-center justify-between gap-3">
                           <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg sm:text-xl text-[#0F172A]">
@@ -1131,21 +1131,21 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : (
                       /* Standard Satellite Card */
-                      <div className="p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_20px_45px_-10px_rgba(15,23,42,0.13),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#1a7097]/50 transition-all group">
+                      <div className="p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_20px_45px_-10px_rgba(15,23,42,0.13),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all group">
                         {/* Header: Title + Dedicated Technical Icon */}
                         <div className="flex items-center justify-between mb-1.5">
                           <span className="text-[10px] font-mono text-slate-600 font-semibold uppercase tracking-wider">
                             {card.title}
                           </span>
-                          <span className="p-1 rounded-md bg-[#1a7097]/10 text-[#1a7097]">
+                          <span className="p-1 rounded-md bg-[#377a9b]/10 text-[#377a9b]">
                             {card.iconType === 'activity' && <Activity className="w-3 h-3" />}
                             {card.iconType === 'zap' && <Zap className="w-3 h-3 text-emerald-600" />}
-                            {card.iconType === 'star' && <Star className="w-3 h-3 text-[#E7B900] fill-[#E7B900]" />}
+                            {card.iconType === 'star' && <Star className="w-3 h-3 text-[#ffc312] fill-[#ffc312]" />}
                             {card.iconType === 'shield' && <ShieldCheck className="w-3 h-3 text-emerald-600" />}
                             {card.iconType === 'check' && <CheckCircle2 className="w-3 h-3 text-emerald-600" />}
                             {card.iconType === 'terminal' && <Terminal className="w-3 h-3 text-emerald-600" />}
-                            {card.iconType === 'cpu' && <Cpu className="w-3 h-3 text-[#1a7097]" />}
-                            {card.iconType === 'trending' && <TrendingUp className="w-3 h-3 text-[#E7B900]" />}
+                            {card.iconType === 'cpu' && <Cpu className="w-3 h-3 text-[#377a9b]" />}
+                            {card.iconType === 'trending' && <TrendingUp className="w-3 h-3 text-[#ffc312]" />}
                           </span>
                         </div>
 
@@ -1179,14 +1179,14 @@ export default function EcosystemBentoGrid() {
                           <div className="pt-1.5 border-t border-slate-100">
                             <div className="flex justify-between text-[9px] font-mono text-slate-500 mb-1">
                               <span>Edge CDN Nodes</span>
-                              <strong className="text-[#1a7097]">Global 100%</strong>
+                              <strong className="text-[#377a9b]">Global 100%</strong>
                             </div>
                             <div className="flex items-end gap-1 h-5">
-                              <div className="w-2 h-2.5 bg-[#1a7097]/40 rounded-xs" />
-                              <div className="w-2 h-4 bg-[#1a7097]/60 rounded-xs" />
-                              <div className="w-2 h-5 bg-[#1a7097] rounded-xs" />
-                              <div className="w-2 h-3.5 bg-[#1a7097]/70 rounded-xs" />
-                              <div className="w-2 h-5 bg-[#E7B900] rounded-xs" />
+                              <div className="w-2 h-2.5 bg-[#377a9b]/40 rounded-xs" />
+                              <div className="w-2 h-4 bg-[#377a9b]/60 rounded-xs" />
+                              <div className="w-2 h-5 bg-[#377a9b] rounded-xs" />
+                              <div className="w-2 h-3.5 bg-[#377a9b]/70 rounded-xs" />
+                              <div className="w-2 h-5 bg-[#ffc312] rounded-xs" />
                             </div>
                           </div>
                         )}
@@ -1206,9 +1206,9 @@ export default function EcosystemBentoGrid() {
 
                         {card.widgetType === 'stars' && (
                           <div className="flex items-center gap-1 pt-1.5 border-t border-slate-100">
-                            <div className="flex text-[#E7B900]">
+                            <div className="flex text-[#ffc312]">
                               {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="w-3 h-3 fill-[#E7B900]" />
+                                <Star key={i} className="w-3 h-3 fill-[#ffc312]" />
                               ))}
                             </div>
                             <span className="text-[9px] font-mono text-slate-600 ml-1">{card.sub}</span>
@@ -1246,7 +1246,7 @@ export default function EcosystemBentoGrid() {
                         {card.widgetType === 'latency' && (
                           <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono">
                             <span className="text-slate-600">{card.sub}</span>
-                            <span className="text-[#1a7097] font-bold">Sub-50ms</span>
+                            <span className="text-[#377a9b] font-bold">Sub-50ms</span>
                           </div>
                         )}
 
@@ -1263,14 +1263,14 @@ export default function EcosystemBentoGrid() {
 
                         {card.widgetType === 'gold_badge' && (
                           <div className="flex items-center gap-1.5 pt-1.5 border-t border-slate-100 text-[9.5px] font-mono text-amber-700">
-                            <Sparkles className="w-3 h-3 text-[#E7B900]" />
+                            <Sparkles className="w-3 h-3 text-[#ffc312]" />
                             <span>{card.sub}</span>
                           </div>
                         )}
 
                         {card.widgetType === 'router' && (
                           <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1.5 text-[9px] font-mono text-slate-600">
-                            <Cpu className="w-3 h-3 text-[#1a7097]" />
+                            <Cpu className="w-3 h-3 text-[#377a9b]" />
                             <span>{card.sub}</span>
                           </div>
                         )}
@@ -1367,7 +1367,7 @@ export default function EcosystemBentoGrid() {
         {/* ── Minimalist Service Switcher Tabs (Seamless Continuous Auto-Cycle) ── */}
         <div className="relative z-10 mt-6 pt-3.5 border-t border-slate-200/60 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[10.5px] font-mono text-slate-500 uppercase tracking-wider font-semibold">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#1a7097] animate-ping" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b] animate-ping" />
             <span>Select Service to Explore:</span>
           </div>
           <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center max-w-full">
@@ -1384,7 +1384,7 @@ export default function EcosystemBentoGrid() {
                     }`}
                 >
                   <span
-                    className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-[#1a7097]' : 'bg-slate-300'
+                    className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-[#377a9b]' : 'bg-slate-300'
                       }`}
                   />
                   <span>{service.tabLabel}</span>
@@ -1396,7 +1396,7 @@ export default function EcosystemBentoGrid() {
                       initial={{ width: '0%' }}
                       animate={{ width: '100%' }}
                       transition={{ duration: CYCLE_DURATION, ease: 'linear' }}
-                      className="absolute bottom-0 left-0 h-[2px] bg-[#1a7097]"
+                      className="absolute bottom-0 left-0 h-[2px] bg-[#377a9b]"
                     />
                   )}
                 </button>

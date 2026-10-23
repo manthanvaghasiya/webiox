@@ -49,7 +49,7 @@ const NAV_LINKS: readonly NavLink[] = [
   },
 ] as const;
 
-const BRAND_TEAL = '#1a7097';
+const BRAND_TEAL = '#377a9b';
 
 const mobileDrawerVariants: Variants = {
   hidden: {
@@ -187,8 +187,8 @@ export default function Header() {
                       className={[
                         'inline-flex items-center gap-1 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-colors cursor-pointer',
                         active
-                          ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold'
-                          : 'text-slate-700 hover:text-[#1a7097] hover:bg-slate-100/70',
+                          ? 'text-[#377a9b] bg-[#377a9b]/10 font-semibold'
+                          : 'text-slate-700 hover:text-[#377a9b] hover:bg-slate-100/70',
                       ].join(' ')}
                     >
                       <span>{link.name}</span>
@@ -218,21 +218,21 @@ export default function Header() {
                                   className={[
                                     'flex items-center justify-between px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg mx-1 transition-colors',
                                     childActive
-                                      ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold'
-                                      : 'text-slate-700 hover:text-[#1a7097] hover:bg-slate-50',
+                                      ? 'text-[#377a9b] bg-[#377a9b]/10 font-semibold'
+                                      : 'text-slate-700 hover:text-[#377a9b] hover:bg-slate-50',
                                   ].join(' ')}
                                 >
                                   <div className="flex items-center gap-2">
                                     {childActive && (
                                       <span
                                         aria-hidden
-                                        className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
+                                        className="w-1.5 h-1.5 rounded-full bg-[#377a9b]"
                                       />
                                     )}
                                     <span>{child.name}</span>
                                   </div>
                                   {child.badge && (
-                                    <span className="px-1.5 py-0.5 rounded-full bg-[#E7B900]/15 text-[#9a7b00] font-mono text-[9px] font-bold">
+                                    <span className="px-1.5 py-0.5 rounded-full bg-[#ffc312]/15 text-[#e6ad0a] font-mono text-[9px] font-bold">
                                       {child.badge}
                                     </span>
                                   )}
@@ -255,8 +255,8 @@ export default function Header() {
                   className={[
                     'px-2.5 md:px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-colors cursor-pointer',
                     active
-                      ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold'
-                      : 'text-slate-700 hover:text-[#1a7097] hover:bg-slate-100/70',
+                      ? 'text-[#377a9b] bg-[#377a9b]/10 font-semibold'
+                      : 'text-slate-700 hover:text-[#377a9b] hover:bg-slate-100/70',
                   ].join(' ')}
                 >
                   {link.name}
@@ -270,7 +270,7 @@ export default function Header() {
             {/* Action Button: Get Free Consultation */}
             <Link
               href="/contact"
-              className="bg-[#1a7097] hover:bg-[#145b7c] text-white shadow-[0_8px_20px_-6px_rgba(26,112,151,0.55)] hover:shadow-[0_12px_28px_-6px_rgba(26,112,151,0.65)] font-semibold text-xs sm:text-sm px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full transition-all flex items-center gap-1 cursor-pointer group whitespace-nowrap active:scale-95"
+              className="bg-[#377a9b] hover:bg-[#2b6683] text-white shadow-[0_8px_20px_-6px_rgba(55, 122, 155,0.55)] hover:shadow-[0_12px_28px_-6px_rgba(55, 122, 155,0.65)] font-semibold text-xs sm:text-sm px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full transition-all flex items-center gap-1 cursor-pointer group whitespace-nowrap active:scale-95"
             >
               <span><span className="hidden sm:inline">Get </span>Free Consultation</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
@@ -336,7 +336,7 @@ export default function Header() {
                       height={28}
                       className="h-6 w-auto object-contain"
                     />
-                    <span className="px-2 py-0.5 rounded-md bg-[#1a7097]/10 text-[#1a7097] text-[9.5px] font-mono font-bold uppercase tracking-wider">
+                    <span className="px-2 py-0.5 rounded-md bg-[#377a9b]/10 text-[#377a9b] text-[9.5px] font-mono font-bold uppercase tracking-wider">
                       STUDIO
                     </span>
                   </div>
@@ -368,7 +368,7 @@ export default function Header() {
                             className={[
                               'flex items-center justify-between w-full px-3.5 py-2.5 rounded-2xl text-base font-bold transition-colors cursor-pointer',
                               active
-                                ? 'bg-[#1a7097]/10 text-[#1a7097]'
+                                ? 'bg-[#377a9b]/10 text-[#377a9b]'
                                 : 'text-slate-800 hover:bg-slate-50',
                             ].join(' ')}
                           >
@@ -405,8 +405,8 @@ export default function Header() {
                                         className={[
                                           'flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium transition-colors',
                                           childActive
-                                            ? 'text-[#1a7097] bg-[#1a7097]/10 font-semibold'
-                                            : 'text-slate-600 hover:text-[#1a7097] hover:bg-slate-50',
+                                            ? 'text-[#377a9b] bg-[#377a9b]/10 font-semibold'
+                                            : 'text-slate-600 hover:text-[#377a9b] hover:bg-slate-50',
                                         ].join(' ')}
                                       >
                                         <div className="min-w-0">
@@ -414,7 +414,7 @@ export default function Header() {
                                             {childActive && (
                                               <span
                                                 aria-hidden
-                                                className="w-1.5 h-1.5 rounded-full bg-[#1a7097]"
+                                                className="w-1.5 h-1.5 rounded-full bg-[#377a9b]"
                                               />
                                             )}
                                             <span>{child.name}</span>
@@ -427,7 +427,7 @@ export default function Header() {
                                         </div>
 
                                         {child.badge && (
-                                          <span className="px-2 py-0.5 rounded-full bg-[#E7B900]/15 text-[#9a7b00] font-mono text-[9px] font-bold">
+                                          <span className="px-2 py-0.5 rounded-full bg-[#ffc312]/15 text-[#e6ad0a] font-mono text-[9px] font-bold">
                                             {child.badge}
                                           </span>
                                         )}
@@ -450,7 +450,7 @@ export default function Header() {
                           className={[
                             'flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-base font-bold transition-colors cursor-pointer',
                             active
-                              ? 'bg-[#1a7097]/10 text-[#1a7097]'
+                              ? 'bg-[#377a9b]/10 text-[#377a9b]'
                               : 'text-slate-800 hover:bg-slate-50',
                           ].join(' ')}
                         >
@@ -462,7 +462,7 @@ export default function Header() {
                           </div>
 
                           {link.badge && (
-                            <span className="px-2 py-0.5 rounded-full bg-[#1a7097]/10 text-[#1a7097] font-mono text-[10px] font-semibold">
+                            <span className="px-2 py-0.5 rounded-full bg-[#377a9b]/10 text-[#377a9b] font-mono text-[10px] font-semibold">
                               {link.badge}
                             </span>
                           )}
@@ -478,7 +478,7 @@ export default function Header() {
                   className="mt-3.5 p-3 rounded-2xl bg-gradient-to-r from-slate-50 to-emerald-50/50 border border-slate-200/80 flex items-center justify-between gap-3"
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="w-8 h-8 rounded-xl bg-[#1a7097] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
+                    <div className="w-8 h-8 rounded-xl bg-[#377a9b] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
                       MV
                     </div>
                     <div className="min-w-0">
@@ -508,7 +508,7 @@ export default function Header() {
               <motion.div variants={mobileItemVariants} className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
                 <Link
                   href="/contact"
-                  className="group flex items-center justify-center gap-2 w-full rounded-2xl bg-[#1a7097] hover:bg-[#145b7c] text-white px-4 py-3 font-semibold text-sm shadow-[0_10px_25px_-8px_rgba(26,112,151,0.55)] cursor-pointer transition-all active:scale-[0.98]"
+                  className="group flex items-center justify-center gap-2 w-full rounded-2xl bg-[#377a9b] hover:bg-[#2b6683] text-white px-4 py-3 font-semibold text-sm shadow-[0_10px_25px_-8px_rgba(55, 122, 155,0.55)] cursor-pointer transition-all active:scale-[0.98]"
                 >
                   <span>Get Free Consultation</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

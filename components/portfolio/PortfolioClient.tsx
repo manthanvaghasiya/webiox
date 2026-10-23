@@ -27,7 +27,7 @@ export default function PortfolioClient() {
   }, [activeCategory, mergedProjects]);
 
   return (
-    <main className="bg-slate-50 min-h-screen w-full font-sans selection:bg-[#1a7097]/20 selection:text-[#1a7097] relative pb-1">
+    <main className="bg-slate-50 min-h-screen w-full font-sans selection:bg-[#377a9b]/20 selection:text-[#377a9b] relative pb-1">
       {/* Hero Concept Section */}
       <div className="relative z-20">
         <JourneyHero />
@@ -70,7 +70,7 @@ export default function PortfolioClient() {
 
       {/* Elegant Footer Release */}
       <footer className="h-[45vh] w-full flex flex-col items-center justify-center relative bg-slate-50 z-10 overflow-hidden text-center px-6 border-t border-slate-200/50">
-        <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#1a7097] font-bold mb-4">
+        <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#377a9b] font-bold mb-4">
           Engineered by Webiox
         </span>
         <h2 className="text-slate-900 text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-6">
@@ -78,7 +78,7 @@ export default function PortfolioClient() {
         </h2>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#1a7097] text-white font-bold hover:bg-[#145b7c] transition-colors shadow-lg cursor-pointer"
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#377a9b] text-white font-bold hover:bg-[#2b6683] transition-colors shadow-lg cursor-pointer"
         >
           Start a Project
         </Link>

@@ -30,7 +30,7 @@ export default function JourneyHero() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
-  const spotlightBg = useMotionTemplate`radial-gradient(circle 600px at ${mouseX}px ${mouseY}px, rgba(255, 191, 0, 0.08), transparent 80%)`;
+  const spotlightBg = useMotionTemplate`radial-gradient(circle 600px at ${mouseX}px ${mouseY}px, rgba(255, 195, 18, 0.08), transparent 80%)`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -44,7 +44,7 @@ export default function JourneyHero() {
   return (
     <section 
       ref={containerRef} 
-      className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#1a7097] text-white selection:bg-[#FFBF00]/30 selection:text-[#FFBF00]"
+      className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#377a9b] text-white selection:bg-[#ffc312]/30 selection:text-[#ffc312]"
     >
       {/* Dynamic Cursor Light */}
       <motion.div 
@@ -55,7 +55,7 @@ export default function JourneyHero() {
       />
 
       {/* Atmospheric Background */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#145b7c] via-[#1a7097] to-[#0b3345] opacity-80" />
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2b6683] via-[#377a9b] to-[#173747] opacity-80" />
       
       {/* Noise Texture Overlay */}
       <div 
@@ -82,7 +82,7 @@ export default function JourneyHero() {
               transition={{ duration: 1, ease: "easeOut" }}
               className="mb-6 md:mb-10 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md"
             >
-              <div className="w-2 h-2 rounded-full bg-[#FFBF00] animate-pulse" />
+              <div className="w-2 h-2 rounded-full bg-[#ffc312] animate-pulse" />
               <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.3em] text-white/70">
                 Curated Cases
               </span>
@@ -104,7 +104,7 @@ export default function JourneyHero() {
                 transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-4 md:gap-6"
               >
-                <h1 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] xl:text-[8.5rem] font-bold leading-[0.85] tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#FFBF00] to-yellow-600 uppercase font-[Zain]">
+                <h1 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] xl:text-[8.5rem] font-bold leading-[0.85] tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#ffc312] to-yellow-600 uppercase font-[Zain]">
                   Works.
                 </h1>
                 <ArrowDownRight className="w-10 h-10 md:w-16 md:h-16 lg:w-20 lg:h-20 text-white/20 hidden sm:block" strokeWidth={1} />
@@ -115,7 +115,7 @@ export default function JourneyHero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
-              className="mt-6 md:mt-10 text-base md:text-lg lg:text-xl text-white/50 font-light max-w-md leading-relaxed border-l border-[#FFBF00]/30 pl-6"
+              className="mt-6 md:mt-10 text-base md:text-lg lg:text-xl text-white/50 font-light max-w-md leading-relaxed border-l border-[#ffc312]/30 pl-6"
             >
               Witness the intersection of high-end aesthetics and profound engineering. 
               We build scalable digital architecture for industry leaders.
@@ -129,9 +129,9 @@ export default function JourneyHero() {
               initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-[30rem] sm:max-w-[36rem] lg:max-w-[42rem] xl:max-w-[48rem] aspect-[16/10] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm p-2 shadow-[0_0_80px_rgba(255,191,0,0.05)] group relative"
+              className="w-full max-w-[30rem] sm:max-w-[36rem] lg:max-w-[42rem] xl:max-w-[48rem] aspect-[16/10] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm p-2 shadow-[0_0_80px_rgba(255, 195, 18,0.05)] group relative"
             >
-              <div className="w-full h-full rounded-[1rem] md:rounded-[1.5rem] overflow-hidden relative bg-[#0a454a]">
+              <div className="w-full h-full rounded-[1rem] md:rounded-[1.5rem] overflow-hidden relative bg-[#1c4458]">
                 {images && images.length > 0 && (
                   <AnimatePresence mode="wait">
                     <motion.img
@@ -154,7 +154,7 @@ export default function JourneyHero() {
                   {images.map((_, idx) => (
                     <div 
                       key={idx} 
-                      className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentIndex ? 'w-6 bg-[#FFBF00]' : 'w-1.5 bg-white/40'}`}
+                      className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentIndex ? 'w-6 bg-[#ffc312]' : 'w-1.5 bg-white/40'}`}
                     />
                   ))}
                 </div>
@@ -166,7 +166,7 @@ export default function JourneyHero() {
       </motion.div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#1a7097] to-transparent pointer-events-none z-30" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#377a9b] to-transparent pointer-events-none z-30" />
 
       {/* Elegant Scroll Indicator */}
       <motion.div 
@@ -179,7 +179,7 @@ export default function JourneyHero() {
         <motion.div 
           animate={{ y: [0, 8, 0], opacity: [0.3, 1, 0.3] }} 
           transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-[1px] h-12 bg-gradient-to-b from-[#FFBF00]/80 to-transparent"
+          className="w-[1px] h-12 bg-gradient-to-b from-[#ffc312]/80 to-transparent"
         />
       </motion.div>
 

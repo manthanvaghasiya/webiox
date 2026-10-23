@@ -25,7 +25,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[calc(100vh-76px)] bg-[#FCFCFD] text-[#090D15] flex flex-col justify-between overflow-hidden selection:bg-[#1a7097] selection:text-white">
+    <section className="relative w-full min-h-[calc(100vh-76px)] bg-[#FCFCFD] text-[#090D15] flex flex-col justify-between overflow-hidden selection:bg-[#377a9b] selection:text-white">
 
       {/* ═══════════════════════════════════════════════════════════════════════════
           LAYER 1: LIVING BACKGROUND MESH, AURORA ORBS, CONCENTRIC RINGS & GRAIN
@@ -41,7 +41,7 @@ export default function Hero() {
         <div className="w-full max-w-5xl mx-auto mb-4 px-2">
           <h1 className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] leading-[1.18] tracking-[-0.025em] text-[#0F172A] text-center [text-wrap:balance]">
             <span className="inline-block">Developing</span>{' '}
-            <span className="inline-flex justify-center min-w-[175px] xs:min-w-[205px] sm:min-w-[255px] md:min-w-[305px] relative h-[1.22em] overflow-hidden align-top text-[#1a7097]">
+            <span className="inline-flex justify-center min-w-[175px] xs:min-w-[205px] sm:min-w-[255px] md:min-w-[305px] relative h-[1.22em] overflow-hidden align-top text-[#377a9b]">
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span
                   key={currentWordIndex}
@@ -53,7 +53,7 @@ export default function Hero() {
                     opacity: { duration: 0.2 },
                     filter: { duration: 0.16 },
                   }}
-                  className="inline-block whitespace-nowrap bg-gradient-to-r from-[#1a7097] via-[#1f82af] to-[#0ea5e9] bg-clip-text text-transparent px-1"
+                  className="inline-block whitespace-nowrap bg-gradient-to-r from-[#377a9b] via-[#377a9b] to-[#0ea5e9] bg-clip-text text-transparent px-1"
                 >
                   {ROTATING_SERVICES[currentWordIndex]}
                 </motion.span>
@@ -65,7 +65,7 @@ export default function Hero() {
               <span className="text-[#0F172A] relative inline-block">
                 Industry Leaders.
                 <svg
-                  className="absolute -bottom-1 sm:-bottom-1.5 left-0 w-full h-2 text-[#E7B900]"
+                  className="absolute -bottom-1 sm:-bottom-1.5 left-0 w-full h-2 text-[#ffc312]"
                   viewBox="0 0 100 8"
                   preserveAspectRatio="none"
                 >
@@ -104,7 +104,7 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.025, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-[#1a7097] hover:bg-[#145b7c] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-[15px] tracking-wide shadow-[0_10px_30px_-5px_rgba(26,112,151,0.45)] hover:shadow-[0_14px_38px_-4px_rgba(26,112,151,0.55)] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer"
+              className="px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-[#377a9b] hover:bg-[#2b6683] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-[15px] tracking-wide shadow-[0_10px_30px_-5px_rgba(55, 122, 155,0.45)] hover:shadow-[0_14px_38px_-4px_rgba(55, 122, 155,0.55)] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <span>Get a Free Consultation</span>
               <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -118,7 +118,7 @@ export default function Hero() {
               height="24"
               viewBox="0 0 44 24"
               fill="none"
-              className="text-[#1a7097]/50"
+              className="text-[#377a9b]/50"
             >
               <path
                 d="M2 18 C 14 24, 28 20, 38 6"
@@ -153,26 +153,26 @@ export default function Hero() {
           transition={{ duration: 0.45, delay: 0.18 }}
           className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mb-2 sm:mb-3 text-left"
         >
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#1a7097]/50 transition-colors">
-            <Zap className="w-4 h-4 text-[#1a7097]" />
+          <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
+            <Zap className="w-4 h-4 text-[#377a9b]" />
             <div>
               <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#0F172A]">3–6 Weeks</div>
               <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">MVP Delivery</div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#E7B900]/70 transition-colors">
-            <ShieldCheck className="w-4 h-4 text-[#E7B900]" />
+          <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#ffc312]/70 transition-colors">
+            <ShieldCheck className="w-4 h-4 text-[#ffc312]" />
             <div>
-              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#E7B900]">100%</div>
+              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#ffc312]">100%</div>
               <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Milestone Lock</div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#1a7097]/50 transition-colors">
-            <Activity className="w-4 h-4 text-[#1a7097]" />
+          <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
+            <Activity className="w-4 h-4 text-[#377a9b]" />
             <div>
-              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#1a7097]">99+</div>
+              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#377a9b]">99+</div>
               <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Core Web Vitals</div>
             </div>
           </div>

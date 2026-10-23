@@ -393,7 +393,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#1a7097]/20 selection:text-[#1a7097] overflow-x-clip">
+      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#377a9b]/20 selection:text-[#377a9b] overflow-x-clip">
         {/* Facebook Pixel Fallback for non-JS browsers (Valid in body per HTML5 spec) */}
         <noscript>
           <img
@@ -407,7 +407,7 @@ export default function RootLayout({
         {/* Accessibility Skip-to-Content Link */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[9999] px-4 py-2 bg-[#1a7097] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs rounded-xl shadow-2xl transition-all"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[9999] px-4 py-2 bg-[#377a9b] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs rounded-xl shadow-2xl transition-all"
         >
           Skip to main content
         </a>

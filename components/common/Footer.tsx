@@ -119,7 +119,7 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      className="relative overflow-hidden selection:bg-[#1a7097] selection:text-white"
+      className="relative overflow-hidden selection:bg-[#377a9b] selection:text-white"
     >
       {/* ━━━━━━━━━━━━━━━━ TOP LAUNCHPAD CTA (Luminous Light Mode) ━━━━━━━━━━━━━━━━ */}
       {isHomePage && (
@@ -129,11 +129,11 @@ export default function Footer() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl sm:rounded-[2.5rem] bg-white border border-slate-200/90 p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(26,112,151,0.15)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10"
+              className="rounded-3xl sm:rounded-[2.5rem] bg-white border border-slate-200/90 p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(55, 122, 155,0.15)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10"
             >
               {/* Specular Ambient Glow */}
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1a7097]/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#E7B900]/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#377a9b]/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#ffc312]/10 rounded-full blur-3xl pointer-events-none" />
               
               {/* Corner Crosshairs */}
               <div className="absolute top-4 left-4 text-slate-300 font-mono text-xs select-none pointer-events-none">+</div>
@@ -141,8 +141,8 @@ export default function Footer() {
 
               <div className="max-w-2xl relative z-10">
                 {/* Eyebrow */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[11px] font-mono font-bold text-[#1a7097] mb-5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#E7B900]" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/20 text-[11px] font-mono font-bold text-[#377a9b] mb-5">
+                  <Sparkles className="w-3.5 h-3.5 text-[#ffc312]" />
                   <span className="tracking-wider uppercase">READY TO SHIP?</span>
                   <span className="text-slate-300">•</span>
                   <span className="text-slate-600">Q3 SPRINT SLOTS OPEN</span>
@@ -152,7 +152,7 @@ export default function Footer() {
                 <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#0F172A] tracking-tight leading-[1.12] mb-4 [text-wrap:balance]">
                   <span>Ready to Engineer Your </span>
                   <br className="hidden sm:inline" />
-                  <span className="bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#377a9b] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
                     Next Market Flagship?
                   </span>
                 </h2>
@@ -167,7 +167,7 @@ export default function Footer() {
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                     <span>⚡ 12M Avg Dev Response</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[#1a7097] font-bold bg-[#1a7097]/10 px-2.5 py-1 rounded-lg border border-[#1a7097]/20">
+                  <div className="flex items-center gap-1.5 text-[#377a9b] font-bold bg-[#377a9b]/10 px-2.5 py-1 rounded-lg border border-[#377a9b]/20">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>100% Escrow Milestone SLA</span>
                   </div>
@@ -179,7 +179,7 @@ export default function Footer() {
                 <Link
                   href="/contact"
                   aria-label="Start a project with Webiox architects"
-                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-[#1a7097] hover:bg-[#145b7c] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-base shadow-xl shadow-[#1a7097]/25 hover:shadow-2xl hover:shadow-[#1a7097]/35 transition-all cursor-pointer group"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-[#377a9b] hover:bg-[#2b6683] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-base shadow-xl shadow-[#377a9b]/25 hover:shadow-2xl hover:shadow-[#377a9b]/35 transition-all cursor-pointer group"
                 >
                   <span>Start a Project</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -204,8 +204,8 @@ export default function Footer() {
       {/* ━━━━━━━━━━━━━━━━ EXECUTIVE FOOTER CONTENT (Dark Contrast) ━━━━━━━━━━━━━━━━ */}
       <div className="relative bg-[#080E17] text-white">
         {/* Ambient glow blobs */}
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-[#1a7097]/8 blur-[160px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#E7B900]/5 blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-[#377a9b]/8 blur-[160px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#ffc312]/5 blur-[140px] pointer-events-none" />
 
         {/* Subtle dot grid */}
         <div
@@ -234,7 +234,7 @@ export default function Footer() {
                   />
                 </div>
                 <span className="text-2xl font-['Plus_Jakarta_Sans',sans-serif] font-black tracking-tight text-white">
-                  WEB<span className="text-[#E7B900]">IOX</span>
+                  WEB<span className="text-[#ffc312]">IOX</span>
                 </span>
               </Link>
 
@@ -251,7 +251,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer me"
                     aria-label={s.label}
-                    className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-[#E7B900] hover:bg-white/10 transition-all cursor-pointer"
+                    className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-[#ffc312] hover:bg-white/10 transition-all cursor-pointer"
                   >
                     <s.icon className="w-4 h-4" />
                   </a>
@@ -291,18 +291,18 @@ export default function Footer() {
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
                   aria-label="Contact Lead Architect"
                 >
-                  <Mail className="w-4 h-4 text-[#1a7097] shrink-0" />
+                  <Mail className="w-4 h-4 text-[#377a9b] shrink-0" />
                   <span className="truncate">Contact Lead Architect</span>
                 </Link>
                 <a
                   href="tel:+919664736245"
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
                 >
-                  <Phone className="w-4 h-4 text-[#E7B900] shrink-0" />
+                  <Phone className="w-4 h-4 text-[#ffc312] shrink-0" />
                   <span>+91 96647 36245</span>
                 </a>
                 <address className="not-italic flex items-start gap-3 text-slate-400 leading-relaxed">
-                  <MapPin className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                  <MapPin className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                   <span>
                     The Palladium, Yogi Chowk, Surat 395010, Gujarat, India
                   </span>

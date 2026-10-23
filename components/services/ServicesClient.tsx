@@ -42,7 +42,7 @@ export default function ServicesClient() {
   }, []);
 
   return (
-    <div className="bg-[#F9FAFB]/20 min-h-screen font-sans selection:bg-[#1a7097] selection:text-[#F9FAFB]">
+    <div className="bg-[#F9FAFB]/20 min-h-screen font-sans selection:bg-[#377a9b] selection:text-[#F9FAFB]">
       <ServiceHero />
       <ServiceScroll />
       <ServiceCTA />

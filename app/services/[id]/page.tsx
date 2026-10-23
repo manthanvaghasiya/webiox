@@ -137,7 +137,7 @@ export default async function ServiceDetail({
                   <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${service.color} opacity-20 blur-[80px] rounded-full pointer-events-none`} />
                   
                   <h3 className="text-white font-bold text-2xl mb-8 flex items-center gap-3 relative z-10">
-                    <Database className="w-6 h-6 text-[#FFBF00]" />
+                    <Database className="w-6 h-6 text-[#ffc312]" />
                     Technology Stack
                   </h3>
                   
@@ -155,7 +155,7 @@ export default async function ServiceDetail({
                   <p className="text-slate-600 mb-8">
                     Let's discuss how we can implement {service.title} for your business.
                   </p>
-                  <Link href="/contact" className="inline-flex items-center justify-center gap-2 w-full bg-[#1a7097] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#145b7c] hover:shadow-lg transition-all group">
+                  <Link href="/contact" className="inline-flex items-center justify-center gap-2 w-full bg-[#377a9b] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#2b6683] hover:shadow-lg transition-all group">
                     Start a Project
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>

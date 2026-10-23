@@ -25,7 +25,7 @@ export default function BlogNewsletter() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative bg-[#1a7097] overflow-hidden rounded-[2rem] md:rounded-[3rem] shadow-2xl"
+          className="relative bg-[#377a9b] overflow-hidden rounded-[2rem] md:rounded-[3rem] shadow-2xl"
         >
           {/* Subtle Grid Overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(249,250,251,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(249,250,251,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_50%,#000_10%,transparent_80%)] pointer-events-none" />
@@ -36,7 +36,7 @@ export default function BlogNewsletter() {
             <div className="flex-1 p-10 md:p-16 lg:p-24 border-b lg:border-b-0 lg:border-r border-[#F9FAFB]/10">
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-[#F9FAFB] mb-6 leading-[0.9] tracking-tighter font-[Zain] uppercase">
                 Industry <br />
-                <span className="text-[#FFBF00]">Intelligence.</span>
+                <span className="text-[#ffc312]">Intelligence.</span>
               </h2>
               
               <p className="text-[#F9FAFB]/70 text-lg font-light max-w-md leading-relaxed font-[IBM_Plex_Sans]">
@@ -48,8 +48,8 @@ export default function BlogNewsletter() {
                   {['MV', 'AK', 'RS', 'PD'].map((initials, i) => (
                     <div
                       key={initials}
-                      className="w-10 h-10 rounded-full border border-[#1a7097] flex items-center justify-center text-[10px] font-bold text-slate-900 shadow-sm"
-                      style={{ background: ['#FFBF00', '#F9FAFB', '#aed4d7', '#eef6f6'][i], zIndex: 4 - i }}
+                      className="w-10 h-10 rounded-full border border-[#377a9b] flex items-center justify-center text-[10px] font-bold text-slate-900 shadow-sm"
+                      style={{ background: ['#ffc312', '#F9FAFB', '#b7d7e6', '#f0f7fa'][i], zIndex: 4 - i }}
                     >
                       {initials}
                     </div>
@@ -77,13 +77,13 @@ export default function BlogNewsletter() {
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="you@company.com"
                         required
-                        className="w-full bg-transparent border-b-2 border-[#F9FAFB]/20 text-[#F9FAFB] text-xl md:text-2xl py-3 placeholder:text-[#F9FAFB]/20 focus:outline-none focus:border-[#FFBF00] transition-colors rounded-none font-[IBM_Plex_Sans]"
+                        className="w-full bg-transparent border-b-2 border-[#F9FAFB]/20 text-[#F9FAFB] text-xl md:text-2xl py-3 placeholder:text-[#F9FAFB]/20 focus:outline-none focus:border-[#ffc312] transition-colors rounded-none font-[IBM_Plex_Sans]"
                       />
                     </div>
                     
                     <button
                       type="submit"
-                      className="group flex items-center justify-between w-full mt-4 bg-[#F9FAFB] text-[#1a7097] px-8 py-5 rounded-none font-bold uppercase tracking-widest text-xs hover:bg-[#FFBF00] hover:text-slate-900 transition-colors duration-300"
+                      className="group flex items-center justify-between w-full mt-4 bg-[#F9FAFB] text-[#377a9b] px-8 py-5 rounded-none font-bold uppercase tracking-widest text-xs hover:bg-[#ffc312] hover:text-slate-900 transition-colors duration-300"
                     >
                       <span>Subscribe</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -98,8 +98,8 @@ export default function BlogNewsletter() {
                     animate={{ opacity: 1 }}
                     className="flex flex-col items-center justify-center text-center py-8"
                   >
-                    <div className="w-16 h-16 rounded-full border border-[#FFBF00]/30 flex items-center justify-center mb-6">
-                      <CheckCircle2 className="w-8 h-8 text-[#FFBF00]" />
+                    <div className="w-16 h-16 rounded-full border border-[#ffc312]/30 flex items-center justify-center mb-6">
+                      <CheckCircle2 className="w-8 h-8 text-[#ffc312]" />
                     </div>
                     <h3 className="text-2xl font-bold text-[#F9FAFB] mb-3 font-[IBM_Plex_Sans]">Subscription Confirmed</h3>
                     <p className="text-sm text-[#F9FAFB]/50">Check your inbox for the welcome sequence.</p>

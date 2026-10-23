@@ -153,19 +153,19 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="relative bg-[#FCFCFD] text-[#0F172A] pt-12 sm:pt-16 pb-24 sm:pb-32 overflow-hidden selection:bg-[#1a7097] selection:text-white"
+      className="relative bg-[#FCFCFD] text-[#0F172A] pt-12 sm:pt-16 pb-24 sm:pb-32 overflow-hidden selection:bg-[#377a9b] selection:text-white"
     >
       {/* ── Ambient Background Lighting ── */}
       <div className="absolute inset-0 pointer-events-none opacity-40 bg-section-pattern" />
-      <div className="absolute top-1/3 -right-48 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/3 -left-48 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 -right-48 w-96 h-96 rounded-full bg-[#377a9b]/8 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 -left-48 w-96 h-96 rounded-full bg-[#ffc312]/8 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ── Section Header ── */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#1a7097] mb-4 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#E7B900]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#377a9b] mb-4 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#ffc312]" />
             <span className="tracking-wider uppercase">EXECUTION PROTOCOL</span>
             <span className="text-slate-300">•</span>
             <span className="text-slate-600">4-STAGE SPRINT LIFECYCLE</span>
@@ -173,7 +173,7 @@ export default function Process() {
 
           <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl lg:text-5xl text-[#0F172A] tracking-[-0.03em] leading-[1.12] mb-4 [text-wrap:balance]">
             <span>How We Build </span>
-            <span className="bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#377a9b] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
               Great Software.
             </span>
           </h2>
@@ -203,7 +203,7 @@ export default function Process() {
                   onClick={() => setActiveStageIndex(idx)}
                   className={`w-full text-left p-3.5 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer relative group flex items-start gap-3 sm:gap-4 ${
                     isActive
-                      ? 'bg-white border-[#1a7097] shadow-[0_15px_35px_-10px_rgba(26,112,151,0.18)] ring-1 ring-[#1a7097]/40'
+                      ? 'bg-white border-[#377a9b] shadow-[0_15px_35px_-10px_rgba(55, 122, 155,0.18)] ring-1 ring-[#377a9b]/40'
                       : 'bg-white/70 hover:bg-white border-slate-200/80 hover:border-slate-300 shadow-2xs'
                   }`}
                 >
@@ -211,8 +211,8 @@ export default function Process() {
                   <div
                     className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
                       isActive
-                        ? 'bg-[#1a7097] text-white shadow-xs'
-                        : 'bg-slate-100 text-slate-500 group-hover:bg-[#1a7097]/10 group-hover:text-[#1a7097]'
+                        ? 'bg-[#377a9b] text-white shadow-xs'
+                        : 'bg-slate-100 text-slate-500 group-hover:bg-[#377a9b]/10 group-hover:text-[#377a9b]'
                     }`}
                   >
                     <IconComp className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
@@ -221,7 +221,7 @@ export default function Process() {
                   {/* Stage Text */}
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="font-mono text-[10.5px] font-bold text-[#1a7097]">
+                      <span className="font-mono text-[10.5px] font-bold text-[#377a9b]">
                         STAGE_{stage.number}
                       </span>
                       <span className="font-mono text-[10px] text-slate-600 font-medium">
@@ -240,7 +240,7 @@ export default function Process() {
                   {/* Active Indicator Chevron */}
                   <ChevronRight
                     className={`w-4 h-4 shrink-0 transition-transform duration-300 mt-3 ${
-                      isActive ? 'text-[#1a7097] translate-x-1' : 'text-slate-300 group-hover:text-slate-400'
+                      isActive ? 'text-[#377a9b] translate-x-1' : 'text-slate-300 group-hover:text-slate-400'
                     }`}
                   />
                 </button>
@@ -248,8 +248,8 @@ export default function Process() {
             })}
 
             {/* SLA Reassurance Card */}
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-[#E7B900]/30 flex items-center gap-3">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#E7B900]/20 flex items-center justify-center shrink-0 text-[#E7B900]">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-[#ffc312]/30 flex items-center gap-3">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#ffc312]/20 flex items-center justify-center shrink-0 text-[#ffc312]">
                 <Activity className="w-4 h-4" />
               </div>
               <div className="text-xs">
@@ -272,10 +272,10 @@ export default function Process() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}
-                className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-4.5 sm:p-8 relative overflow-hidden shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]"
+                className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-4.5 sm:p-8 relative overflow-hidden shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]"
               >
                 {/* Specular Ambient Glow */}
-                <div className="absolute top-0 right-0 w-80 h-80 bg-[#1a7097]/8 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-80 h-80 bg-[#377a9b]/8 rounded-full blur-3xl pointer-events-none" />
                 
                 {/* Corner Crosshairs */}
                 <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -283,7 +283,7 @@ export default function Process() {
 
                 {/* Stage Header */}
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a7097]/10 border border-[#1a7097]/20 text-[11px] font-mono font-bold text-[#1a7097]">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/20 text-[11px] font-mono font-bold text-[#377a9b]">
                     <Terminal className="w-3.5 h-3.5" />
                     <span>INSPECTING STAGE {activeStage.number}</span>
                   </div>
@@ -353,7 +353,7 @@ export default function Process() {
                     <span className="text-emerald-400">➜</span>
                     <span className="text-slate-300 truncate">{activeStage.artifactCode}</span>
                   </div>
-                  <span className="text-[10px] uppercase font-bold text-[#E7B900] shrink-0">
+                  <span className="text-[10px] uppercase font-bold text-[#ffc312] shrink-0">
                     STAGE QA LOCK
                   </span>
                 </div>

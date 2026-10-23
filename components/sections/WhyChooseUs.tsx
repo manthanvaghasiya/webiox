@@ -214,9 +214,9 @@ export default function WhyChooseUs() {
 
     return (
       <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]'
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-start gap-4 sm:gap-5`}>
-        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#1a7097]/8'} rounded-full blur-3xl pointer-events-none`} />
+        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
@@ -227,9 +227,9 @@ export default function WhyChooseUs() {
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200 text-rose-700' : 'bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097]'
+              isTraditional ? 'bg-rose-50 border border-rose-200 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
             }`}>
-              {isTraditional ? <AlertTriangle className="w-3.5 h-3.5 text-rose-600" /> : <Gauge className="w-3.5 h-3.5 text-[#1a7097]" />}
+              {isTraditional ? <AlertTriangle className="w-3.5 h-3.5 text-rose-600" /> : <Gauge className="w-3.5 h-3.5 text-[#377a9b]" />}
               <span>{isTraditional ? '✕ 01 // MONOLITHIC DEBT & BOTTLENECK' : '01 // VELOCITY & INFRASTRUCTURE'}</span>
             </div>
 
@@ -259,7 +259,7 @@ export default function WhyChooseUs() {
         <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-4 sm:p-5 relative overflow-hidden flex flex-col gap-3">
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
             <div className="flex items-center gap-2">
-              <Radio className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-500' : 'text-[#1a7097] animate-pulse'}`} />
+              <Radio className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-500' : 'text-[#377a9b] animate-pulse'}`} />
               <span className="text-slate-700 font-bold uppercase tracking-wider text-[10.5px]">
                 {isTraditional ? 'Monolith Origin Benchmark' : 'Live Route & Benchmark Profiler'}
               </span>
@@ -272,7 +272,7 @@ export default function WhyChooseUs() {
                   onClick={() => setActiveSpeedStack('webiox')}
                   className={`px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
                     activeSpeedStack === 'webiox'
-                      ? 'bg-[#1a7097] text-white shadow-xs'
+                      ? 'bg-[#377a9b] text-white shadow-xs'
                       : 'text-slate-500 hover:text-[#0F172A]'
                   }`}
                 >
@@ -299,7 +299,7 @@ export default function WhyChooseUs() {
               {/* Hop 1: Client */}
               <div className="flex items-center gap-2 min-w-0">
                 <div className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
-                  <Smartphone className="w-4 h-4 text-[#1a7097]" />
+                  <Smartphone className="w-4 h-4 text-[#377a9b]" />
                 </div>
                 <div className="min-w-0">
                   <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
@@ -318,7 +318,7 @@ export default function WhyChooseUs() {
                 </div>
                 <div className="w-full h-1 rounded-full bg-slate-100 relative overflow-hidden">
                   <div className={`h-full rounded-full ${
-                    effectiveSpeedStack === 'webiox' ? 'w-full bg-gradient-to-r from-[#1a7097] to-emerald-500 animate-pulse' : 'w-1/3 bg-rose-500'
+                    effectiveSpeedStack === 'webiox' ? 'w-full bg-gradient-to-r from-[#377a9b] to-emerald-500 animate-pulse' : 'w-1/3 bg-rose-500'
                   }`} />
                 </div>
               </div>
@@ -416,9 +416,9 @@ export default function WhyChooseUs() {
 
     return (
       <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]'
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
-        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#E7B900]/8'} rounded-full blur-3xl pointer-events-none`} />
+        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#ffc312]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
@@ -473,7 +473,7 @@ export default function WhyChooseUs() {
                   selectedGate === idx
                     ? isTraditional
                       ? 'bg-white border-rose-500 text-[#0F172A] shadow-xs ring-1 ring-rose-500/30'
-                      : 'bg-white border-[#1a7097] text-[#0F172A] shadow-xs ring-1 ring-[#1a7097]/30'
+                      : 'bg-white border-[#377a9b] text-[#0F172A] shadow-xs ring-1 ring-[#377a9b]/30'
                     : isTraditional
                     ? 'bg-rose-50/50 border-rose-200/60 text-rose-700 hover:bg-rose-50'
                     : idx < selectedGate
@@ -504,7 +504,7 @@ export default function WhyChooseUs() {
                 isTraditional
                   ? 'bg-rose-50 text-rose-700 border border-rose-200'
                   : selectedGate === 2
-                  ? 'bg-[#1a7097]/10 text-[#1a7097] border border-[#1a7097]/20'
+                  ? 'bg-[#377a9b]/10 text-[#377a9b] border border-[#377a9b]/20'
                   : selectedGate < 2
                   ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                   : 'bg-amber-50 text-amber-700 border border-amber-200'
@@ -528,7 +528,7 @@ export default function WhyChooseUs() {
 
             <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono">
               <span className="text-slate-600 font-medium">{currentGate.verification}</span>
-              <span className={`font-bold ${isTraditional ? 'text-rose-600' : 'text-[#1a7097]'}`}>
+              <span className={`font-bold ${isTraditional ? 'text-rose-600' : 'text-[#377a9b]'}`}>
                 {isTraditional ? 'Scope Drift Warning ✕' : 'QA Gate Verified ✓'}
               </span>
             </div>
@@ -547,7 +547,7 @@ export default function WhyChooseUs() {
 
     return (
       <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]'
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-emerald-500/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -599,7 +599,7 @@ export default function WhyChooseUs() {
                   ? isTraditional
                     ? 'bg-rose-600 text-white'
                     : 'bg-emerald-600 text-white'
-                  : 'bg-white border border-slate-200 text-[#1a7097] hover:bg-slate-50 shadow-2xs'
+                  : 'bg-white border border-slate-200 text-[#377a9b] hover:bg-slate-50 shadow-2xs'
               }`}
             >
               <ShieldAlert className="w-3 h-3" />
@@ -661,9 +661,9 @@ export default function WhyChooseUs() {
 
     return (
       <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(26,112,151,0.12)]'
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
-        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#1a7097]/8'} rounded-full blur-3xl pointer-events-none`} />
+        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
@@ -673,16 +673,16 @@ export default function WhyChooseUs() {
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097]'
+              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
             }`}>
               <MessageSquare className="w-3.5 h-3.5" />
               <span>{isTraditional ? '✕ 04 // LAYERS OF NON-TECHNICAL MIDDLEMEN' : '04 // AGILITY & DIRECT COLLABORATION'}</span>
             </div>
 
             <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#1a7097]/10 border border-[#1a7097]/20 text-[#1a7097]'
+              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
             }`}>
-              <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-[#1a7097] animate-pulse'}`} />
+              <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-[#377a9b] animate-pulse'}`} />
               <span>{isTraditional ? '48H–72H EMAIL DELAY' : '12M AVG ARCHITECT REPLY'}</span>
             </div>
           </div>
@@ -753,7 +753,7 @@ export default function WhyChooseUs() {
               <div className="flex flex-wrap items-center justify-between gap-3 mb-3 text-xs font-mono">
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
-                    <div className="w-6 h-6 rounded-full bg-[#1a7097] text-white flex items-center justify-center font-bold text-[9px] ring-2 ring-white">
+                    <div className="w-6 h-6 rounded-full bg-[#377a9b] text-white flex items-center justify-center font-bold text-[9px] ring-2 ring-white">
                       MV
                     </div>
                     <div className="w-6 h-6 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-[9px] ring-2 ring-white">
@@ -775,7 +775,7 @@ export default function WhyChooseUs() {
                     onClick={() => setActiveChatTab('slack')}
                     className={`px-2.5 py-1 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
                       activeChatTab === 'slack'
-                        ? 'bg-[#1a7097] text-white shadow-xs'
+                        ? 'bg-[#377a9b] text-white shadow-xs'
                         : 'text-slate-500 hover:text-[#0F172A]'
                     }`}
                   >
@@ -806,7 +806,7 @@ export default function WhyChooseUs() {
                     className="p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-2.5"
                   >
                     <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-[#1a7097] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
+                      <div className="w-8 h-8 rounded-xl bg-[#377a9b] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
                         MV
                       </div>
                       <div className="min-w-0 flex-1">
@@ -815,7 +815,7 @@ export default function WhyChooseUs() {
                             <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
                               Manthan Vaghasiya (Lead Architect)
                             </span>
-                            <span className="px-1.5 py-0.5 rounded bg-[#1a7097]/10 text-[#1a7097] text-[9.5px] font-mono font-bold">
+                            <span className="px-1.5 py-0.5 rounded bg-[#377a9b]/10 text-[#377a9b] text-[9.5px] font-mono font-bold">
                               Slack Direct
                             </span>
                           </div>
@@ -830,7 +830,7 @@ export default function WhyChooseUs() {
 
                     <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[10.5px] font-mono text-slate-500">
                       <div className="flex items-center gap-2 truncate">
-                        <Code2 className="w-3.5 h-3.5 text-[#1a7097] shrink-0" />
+                        <Code2 className="w-3.5 h-3.5 text-[#377a9b] shrink-0" />
                         <span className="text-slate-700 font-bold">commit 9d42f8c:</span>
                         <span className="truncate">feat(cache): Edge ISR warmed across global edge nodes</span>
                       </div>
@@ -844,7 +844,7 @@ export default function WhyChooseUs() {
                       <a
                         href="/contact"
                         aria-label="Request Slack invite from Webiox lead architect"
-                        className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#1a7097] hover:text-[#145b7c] transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#377a9b] hover:text-[#2b6683] transition-colors cursor-pointer"
                       >
                         <span>Request Slack Invite</span>
                         <ArrowRight className="w-3 h-3" />
@@ -920,19 +920,19 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="relative bg-[#FCFCFD] text-[#0F172A] pt-20 sm:pt-28 lg:pt-32 pb-14 sm:pb-20 lg:pb-24 overflow-hidden selection:bg-[#1a7097] selection:text-white"
+      className="relative bg-[#FCFCFD] text-[#0F172A] pt-20 sm:pt-28 lg:pt-32 pb-14 sm:pb-20 lg:pb-24 overflow-hidden selection:bg-[#377a9b] selection:text-white"
     >
       {/* ── Ambient Background Lighting (Curtain Glows & Micro-Grid) ── */}
       <div className="absolute inset-0 pointer-events-none opacity-40 bg-section-pattern" />
-      <div className="absolute top-1/4 -left-48 w-96 h-96 rounded-full bg-[#1a7097]/8 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full bg-[#E7B900]/8 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -left-48 w-96 h-96 rounded-full bg-[#377a9b]/8 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full bg-[#ffc312]/8 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ── Section Header ── */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#1a7097] mb-3 sm:mb-4 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#E7B900]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#377a9b] mb-3 sm:mb-4 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#ffc312]" />
             <span className="tracking-wider uppercase">THE WEBIOX ADVANTAGE</span>
             <span className="text-slate-300">•</span>
             <span className="text-slate-600">PROPRIETARY DELIVERY MODEL</span>
@@ -941,7 +941,7 @@ export default function WhyChooseUs() {
           <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-4xl lg:text-5xl text-[#0F172A] tracking-[-0.03em] leading-[1.15] mb-3 sm:mb-4 [text-wrap:balance]">
             <span>Why Ambitious Enterprises </span>
             <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-[#1a7097] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#377a9b] via-[#0284c7] to-[#38bdf8] bg-clip-text text-transparent">
               Choose Webiox.
             </span>
           </h2>
@@ -958,14 +958,14 @@ export default function WhyChooseUs() {
                 onClick={() => setMode('contrast')}
                 className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 ${
                   mode === 'contrast'
-                    ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-[#1a7097]/20'
+                    ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-[#377a9b]/20'
                     : 'text-slate-500 hover:text-[#0F172A]'
                 }`}
               >
-                <SlidersHorizontal className="w-3.5 h-3.5 text-[#1a7097]" />
+                <SlidersHorizontal className="w-3.5 h-3.5 text-[#377a9b]" />
                 <span>Direct Contrast View</span>
                 {mode === 'contrast' && (
-                  <span className="ml-1 text-[9.5px] font-mono font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-[#1a7097] text-white">
+                  <span className="ml-1 text-[9.5px] font-mono font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-[#377a9b] text-white">
                     Live
                   </span>
                 )}
@@ -1027,7 +1027,7 @@ export default function WhyChooseUs() {
             >
               {mode === 'contrast' && (
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 text-xs font-mono">
-                  <SlidersHorizontal className="w-3.5 h-3.5 text-[#1a7097] shrink-0" />
+                  <SlidersHorizontal className="w-3.5 h-3.5 text-[#377a9b] shrink-0" />
                   <span><strong>Direct Contrast Mode:</strong> Side-by-side interactive technical audit comparing Webiox engineering vs legacy practices.</span>
                 </div>
               )}
@@ -1064,11 +1064,11 @@ export default function WhyChooseUs() {
                   onClick={() => setMobilePillar(idx)}
                   className={`py-2 px-1 rounded-xl text-center transition-all cursor-pointer flex flex-col items-center gap-1 ${
                     isActive
-                      ? 'bg-white text-[#1a7097] shadow-xs border border-slate-200/80 font-bold'
+                      ? 'bg-white text-[#377a9b] shadow-xs border border-slate-200/80 font-bold'
                       : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#1a7097]' : 'text-slate-500'}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#377a9b]' : 'text-slate-500'}`} />
                   <span className="font-mono text-[9px] leading-none">{p.num}</span>
                   <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[9.5px] truncate max-w-full font-bold">
                     {p.title}
@@ -1120,7 +1120,7 @@ export default function WhyChooseUs() {
                 >
                   <span
                     className={`h-2 rounded-full transition-all duration-300 block ${
-                      mobilePillar === idx ? 'w-6 bg-[#1a7097]' : 'w-2 bg-slate-200 hover:bg-slate-300'
+                      mobilePillar === idx ? 'w-6 bg-[#377a9b]' : 'w-2 bg-slate-200 hover:bg-slate-300'
                     }`}
                   />
                 </button>
@@ -1131,7 +1131,7 @@ export default function WhyChooseUs() {
               type="button"
               onClick={() => setMobilePillar((prev) => Math.min(PILLARS.length - 1, prev + 1))}
               disabled={mobilePillar === PILLARS.length - 1}
-              className="px-3 py-1.5 rounded-xl bg-[#1a7097] text-white text-xs font-mono font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#145b7c] transition-all flex items-center gap-1 shadow-xs cursor-pointer"
+              className="px-3 py-1.5 rounded-xl bg-[#377a9b] text-white text-xs font-mono font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#2b6683] transition-all flex items-center gap-1 shadow-xs cursor-pointer"
             >
               <span>Next</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -1161,10 +1161,10 @@ export default function WhyChooseUs() {
         {/* ════════════════════════════════════════════════════════════════════
             BOTTOM TRUST GUARANTEE & ARCHITECTURAL DISCOVERY CTA
            ════════════════════════════════════════════════════════════════════ */}
-        <div className="mt-12 sm:mt-14 rounded-3xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border border-slate-200/90 p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-[0_15px_35px_-10px_rgba(26,112,151,0.1)]">
+        <div className="mt-12 sm:mt-14 rounded-3xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border border-slate-200/90 p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-[0_15px_35px_-10px_rgba(55, 122, 155,0.1)]">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#E7B900]/15 border border-[#E7B900]/30 flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-6 h-6 text-[#E7B900]" />
+            <div className="w-12 h-12 rounded-2xl bg-[#ffc312]/15 border border-[#ffc312]/30 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-6 h-6 text-[#ffc312]" />
             </div>
             <div>
               <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
@@ -1179,7 +1179,7 @@ export default function WhyChooseUs() {
           <a
             href="/contact"
             aria-label="Claim your Webiox advantage - Contact our engineering team"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#1a7097] hover:bg-[#145b7c] text-white text-xs sm:text-sm font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-lg shadow-[#1a7097]/20 hover:shadow-xl hover:shadow-[#1a7097]/30 transition-all shrink-0 cursor-pointer group"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs sm:text-sm font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-lg shadow-[#377a9b]/20 hover:shadow-xl hover:shadow-[#377a9b]/30 transition-all shrink-0 cursor-pointer group"
           >
             <span>Claim Your Webiox Advantage</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -17,21 +17,21 @@ export default function TermsOfServicePage() {
   const lastUpdated = 'October 22, 2026';
 
   return (
-    <div className="min-h-screen bg-[#FAFBFC] text-[#090D16]">
+    <div className="min-h-screen bg-[#F9FAFB] text-[#090D16]">
       {/* Header Banner */}
-      <section className="relative w-full bg-[#1a7097] text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(231,185,0,0.15),transparent_60%)] pointer-events-none" />
+      <section className="relative w-full bg-[#377a9b] text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255, 195, 18,0.15),transparent_60%)] pointer-events-none" />
         
         <div className="max-w-4xl mx-auto relative z-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-white/80 hover:text-[#E7B900] transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-white/80 hover:text-[#ffc312] transition-colors mb-6"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back to Home
           </Link>
           
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#E7B900] font-mono text-xs uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#ffc312] font-mono text-xs uppercase tracking-widest mb-4">
             <Scale className="w-3.5 h-3.5" />
             <span>Engineering Master Services Agreement</span>
           </div>
@@ -57,7 +57,7 @@ export default function TermsOfServicePage() {
           {/* Section 1 */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#1a7097] flex items-center justify-center font-mono font-bold text-sm">
+              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#377a9b] flex items-center justify-center font-mono font-bold text-sm">
                 01
               </div>
               <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xl sm:text-2xl text-slate-900 tracking-tight">
@@ -69,15 +69,15 @@ export default function TermsOfServicePage() {
             </p>
             <ul className="space-y-2.5 text-slate-600 text-sm sm:text-base pl-2">
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                <CheckCircle2 className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                 <span>Explicit architectural specifications, database models, and API surface boundaries.</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                <CheckCircle2 className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                 <span>Guaranteed sprint delivery windows (typically 3 to 6 weeks for production-ready MVPs).</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                <CheckCircle2 className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                 <span>Agreed acceptance criteria and staging gate verifications before code deployment.</span>
               </li>
             </ul>
@@ -86,7 +86,7 @@ export default function TermsOfServicePage() {
           {/* Section 2 */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#1a7097] flex items-center justify-center font-mono font-bold text-sm">
+              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#377a9b] flex items-center justify-center font-mono font-bold text-sm">
                 02
               </div>
               <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xl sm:text-2xl text-slate-900 tracking-tight">
@@ -98,15 +98,15 @@ export default function TermsOfServicePage() {
             </p>
             <ul className="space-y-2.5 text-slate-600 text-sm sm:text-base pl-2">
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                <CheckCircle2 className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                 <span>All custom code, database schemas, Figma design tokens, and digital assets become your exclusive intellectual property.</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                <CheckCircle2 className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                 <span>Git repository administrative access and production deployment credentials are fully transferred to your organization.</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                <CheckCircle2 className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                 <span>There are zero vendor lock-in dependencies, proprietary runtime licensing fees, or hidden recurring royalties.</span>
               </li>
             </ul>
@@ -115,7 +115,7 @@ export default function TermsOfServicePage() {
           {/* Section 3 */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#1a7097] flex items-center justify-center font-mono font-bold text-sm">
+              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#377a9b] flex items-center justify-center font-mono font-bold text-sm">
                 03
               </div>
               <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xl sm:text-2xl text-slate-900 tracking-tight">
@@ -127,15 +127,15 @@ export default function TermsOfServicePage() {
             </p>
             <ul className="space-y-2.5 text-slate-600 text-sm sm:text-base pl-2">
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                <CheckCircle2 className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                 <span><strong>Phase 01 Kickoff:</strong> Initial sprint deposit to allocate dedicated engineering squads.</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                <CheckCircle2 className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                 <span><strong>Intermediate Milestones:</strong> Staged sign-offs following working staging URL demonstrations.</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#1a7097] shrink-0 mt-1" />
+                <CheckCircle2 className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
                 <span><strong>Final Release:</strong> Production deployment sign-off and hypercare commencement.</span>
               </li>
             </ul>
@@ -144,7 +144,7 @@ export default function TermsOfServicePage() {
           {/* Section 4 */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#1a7097] flex items-center justify-center font-mono font-bold text-sm">
+              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#377a9b] flex items-center justify-center font-mono font-bold text-sm">
                 04
               </div>
               <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xl sm:text-2xl text-slate-900 tracking-tight">
@@ -159,7 +159,7 @@ export default function TermsOfServicePage() {
           {/* Section 5 */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#1a7097] flex items-center justify-center font-mono font-bold text-sm">
+              <div className="w-8 h-8 rounded-xl bg-teal-50 text-[#377a9b] flex items-center justify-center font-mono font-bold text-sm">
                 05
               </div>
               <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xl sm:text-2xl text-slate-900 tracking-tight">
@@ -173,7 +173,7 @@ export default function TermsOfServicePage() {
               <div><strong>Entity:</strong> Webiox Digital Solutions</div>
               <div><strong>Website:</strong> https://webiox.tech</div>
               <div><strong>Headquarters:</strong> The Palladium, Yogi Chowk, Surat 395010, India</div>
-              <div><strong>General Inquiries:</strong> <a href="mailto:manthanvaghasiya@webiox.tech" className="text-[#1a7097] hover:underline">manthanvaghasiya@webiox.tech</a></div>
+              <div><strong>General Inquiries:</strong> <a href="mailto:manthanvaghasiya@webiox.tech" className="text-[#377a9b] hover:underline">manthanvaghasiya@webiox.tech</a></div>
             </div>
           </div>
 

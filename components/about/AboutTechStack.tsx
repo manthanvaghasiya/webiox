@@ -12,7 +12,7 @@ const BentoCard = ({ children, className = "" }: { children: React.ReactNode, cl
   <motion.div
     variants={fadeUpVariant}
     whileHover={{ y: -5 }}
-    className={`relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#F9FAFB]/5 to-[#F9FAFB]/[0.02] border border-[#F9FAFB]/10 backdrop-blur-sm p-8 group transition-all duration-500 hover:border-[#FFBF00]/30 hover:shadow-[0_20px_40px_rgba(255,191,0,0.05)] ${className}`}
+    className={`relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#F9FAFB]/5 to-[#F9FAFB]/[0.02] border border-[#F9FAFB]/10 backdrop-blur-sm p-8 group transition-all duration-500 hover:border-[#ffc312]/30 hover:shadow-[0_20px_40px_rgba(255, 195, 18,0.05)] ${className}`}
   >
     {children}
   </motion.div>
@@ -26,7 +26,7 @@ const TechIcon = ({ name, icon: Icon, color, delay }: any) => (
     viewport={{ once: true }}
     className="flex items-center gap-3 group cursor-default"
   >
-    <div className="w-10 h-10 shrink-0 rounded-xl bg-[#1a7097]/80 border border-[#F9FAFB]/10 flex items-center justify-center group-hover:bg-[#F9FAFB]/15 transition-colors duration-300 shadow-[inset_0_0_10px_rgba(0,0,0,0.3)]">
+    <div className="w-10 h-10 shrink-0 rounded-xl bg-[#377a9b]/80 border border-[#F9FAFB]/10 flex items-center justify-center group-hover:bg-[#F9FAFB]/15 transition-colors duration-300 shadow-[inset_0_0_10px_rgba(0,0,0,0.3)]">
       <Icon className={`w-4 h-4 ${color}`} strokeWidth={2} />
     </div>
     <span className="text-xs font-semibold tracking-widest text-[#F9FAFB]/80 uppercase group-hover:text-[#F9FAFB] transition-colors">{name}</span>
@@ -38,7 +38,7 @@ export default function AboutTechStack() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-[#1a7097] relative overflow-hidden" ref={ref}>
+    <section className="py-16 md:py-24 lg:py-32 bg-[#377a9b] relative overflow-hidden" ref={ref}>
       
       {/* Immersive Infinite Marquee Background */}
       <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-[0.03] overflow-hidden z-0 py-20">
@@ -59,7 +59,7 @@ export default function AboutTechStack() {
       </div>
 
       {/* Lighting Effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#FFBF00]/5 rounded-full blur-[150px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#ffc312]/5 rounded-full blur-[150px] pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         
@@ -71,11 +71,11 @@ export default function AboutTechStack() {
           className="text-center md:text-left mb-16 lg:mb-24 max-w-3xl"
         >
           <motion.div variants={fadeUpVariant} className="flex items-center justify-center md:justify-start gap-3 mb-6">
-            <Cpu className="w-5 h-5 text-[#FFBF00]" />
-            <span className="text-[#FFBF00] font-semibold tracking-[0.2em] uppercase text-xs">
+            <Cpu className="w-5 h-5 text-[#ffc312]" />
+            <span className="text-[#ffc312] font-semibold tracking-[0.2em] uppercase text-xs">
               The Architecture
             </span>
-            <div className="w-12 h-[1px] bg-gradient-to-r from-[#FFBF00] to-transparent" />
+            <div className="w-12 h-[1px] bg-gradient-to-r from-[#ffc312] to-transparent" />
           </motion.div>
           <motion.h2 variants={fadeUpVariant} className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-[Zain] text-[#F9FAFB] mb-6 tracking-tight leading-[1.1]">
             Powered by Elite <br/>
@@ -99,7 +99,7 @@ export default function AboutTechStack() {
             {/* Left Side Content & Tech Stack */}
             <div className="flex flex-col lg:w-1/2 z-10">
               <div className="mb-8">
-                <Layers className="w-8 h-8 text-[#FFBF00] mb-4" />
+                <Layers className="w-8 h-8 text-[#ffc312] mb-4" />
                 <h3 className="text-3xl font-[Alice] text-[#F9FAFB] mb-2">The Core Engine</h3>
                 <p className="text-[#F9FAFB]/60 font-[IBM_Plex_Sans]">Server-side rendered, strictly typed, and built for absolute maximum performance and zero layout shifts.</p>
               </div>
@@ -117,23 +117,23 @@ export default function AboutTechStack() {
             <div className="flex-1 flex flex-col items-center justify-center relative min-h-[300px] lg:min-h-full py-8 lg:py-0 border-t lg:border-t-0 lg:border-l border-[#F9FAFB]/10">
               
               {/* Vertical Data Line */}
-              <div className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#1a7097] to-transparent">
+              <div className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#377a9b] to-transparent">
                 <motion.div 
-                  className="w-full h-32 bg-gradient-to-b from-transparent via-[#FFBF00] to-transparent shadow-[0_0_15px_#FFBF00]"
+                  className="w-full h-32 bg-gradient-to-b from-transparent via-[#ffc312] to-transparent shadow-[0_0_15px_#ffc312]"
                   animate={{ y: [-150, 400] }}
                   transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
                 />
               </div>
 
               {/* Lighthouse Score (Centered vertically in the line) */}
-              <div className="relative w-40 h-40 lg:w-48 lg:h-48 flex items-center justify-center my-auto bg-[#1a7097]/30 rounded-full border border-[#F9FAFB]/5 backdrop-blur-sm shadow-[inset_0_0_40px_rgba(26, 112, 151,0.5)] z-10">
+              <div className="relative w-40 h-40 lg:w-48 lg:h-48 flex items-center justify-center my-auto bg-[#377a9b]/30 rounded-full border border-[#F9FAFB]/5 backdrop-blur-sm shadow-[inset_0_0_40px_rgba(55, 122, 155,0.5)] z-10">
                 {/* Background Track */}
                 <svg className="absolute inset-0 w-full h-full -rotate-90">
-                  <circle cx="50%" cy="50%" r="42%" stroke="#1a7097" strokeWidth="4" fill="none" className="opacity-30" />
+                  <circle cx="50%" cy="50%" r="42%" stroke="#377a9b" strokeWidth="4" fill="none" className="opacity-30" />
                   {/* Animated Progress Ring */}
                   <motion.circle 
                     cx="50%" cy="50%" r="42%" 
-                    stroke="#FFBF00" strokeWidth="4" fill="none" 
+                    stroke="#ffc312" strokeWidth="4" fill="none" 
                     strokeLinecap="round"
                     strokeDasharray="1000"
                     initial={{ strokeDashoffset: 1000 }}
@@ -148,27 +148,27 @@ export default function AboutTechStack() {
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 1, delay: 1.5, type: "spring" }}
                   viewport={{ once: true }}
-                  className="absolute inset-2 lg:inset-3 rounded-full bg-gradient-to-br from-[#FFBF00]/20 to-[#1a7097]/20 border border-[#FFBF00]/40 shadow-[0_0_50px_rgba(255,191,0,0.6),inset_0_0_20px_rgba(255,191,0,0.3)] flex flex-col items-center justify-center backdrop-blur-md overflow-hidden"
+                  className="absolute inset-2 lg:inset-3 rounded-full bg-gradient-to-br from-[#ffc312]/20 to-[#377a9b]/20 border border-[#ffc312]/40 shadow-[0_0_50px_rgba(255, 195, 18,0.6),inset_0_0_20px_rgba(255, 195, 18,0.3)] flex flex-col items-center justify-center backdrop-blur-md overflow-hidden"
                 >
                   {/* Internal Spinning Dashed Ring */}
                   <motion.div 
                     animate={{ rotate: -360 }}
                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-2 rounded-full border-[2px] border-dashed border-[#FFBF00]/30"
+                    className="absolute inset-2 rounded-full border-[2px] border-dashed border-[#ffc312]/30"
                   />
                   
                   {/* Pulse Effect Background */}
                   <motion.div 
                     animate={{ scale: [1, 1.5], opacity: [0.4, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                    className="absolute inset-0 rounded-full bg-[#FFBF00]/30"
+                    className="absolute inset-0 rounded-full bg-[#ffc312]/30"
                   />
 
                   {/* Core Value */}
                   <div className="relative z-10 flex flex-col items-center">
-                    <span className="text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-[#FFBF00] font-[Zain] leading-none drop-shadow-[0_0_15px_rgba(255,191,0,0.8)]">99</span>
-                    <div className="flex items-center gap-1.5 mt-1 bg-[#1a7097]/80 px-2 py-0.5 rounded-full border border-[#FFBF00]/50 shadow-[0_0_10px_rgba(255,191,0,0.3)]">
-                      <Zap className="w-2.5 h-2.5 text-[#FFBF00] fill-[#FFBF00]" />
+                    <span className="text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-[#ffc312] font-[Zain] leading-none drop-shadow-[0_0_15px_rgba(255, 195, 18,0.8)]">99</span>
+                    <div className="flex items-center gap-1.5 mt-1 bg-[#377a9b]/80 px-2 py-0.5 rounded-full border border-[#ffc312]/50 shadow-[0_0_10px_rgba(255, 195, 18,0.3)]">
+                      <Zap className="w-2.5 h-2.5 text-[#ffc312] fill-[#ffc312]" />
                       <span className="text-[9px] text-white uppercase tracking-[0.2em] font-bold">Perf</span>
                     </div>
                   </div>

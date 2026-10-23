@@ -14,7 +14,7 @@ const ParticleField = () => {
     const colorsArray = new Float32Array(PARTICLE_COUNT * 3);
     const sizesArray = new Float32Array(PARTICLE_COUNT);
 
-    const color1 = new THREE.Color("#1a7097"); // Webiox Teal
+    const color1 = new THREE.Color("#377a9b"); // Webiox Teal
     const color2 = new THREE.Color("#14b8a6"); // Teal 500
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {

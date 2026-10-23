@@ -84,17 +84,17 @@ export default async function ProjectCaseStudyPage({
   };
 
   return (
-    <div className="min-h-screen bg-[#F9FAFB] text-slate-900 selection:bg-[#1a7097]/20 selection:text-[#1a7097] font-sans">
+    <div className="min-h-screen bg-[#F9FAFB] text-slate-900 selection:bg-[#377a9b]/20 selection:text-[#377a9b] font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
       {/* ── Top Hero Header ── */}
-      <section className="relative w-full bg-[#051F22] text-white pt-28 pb-16 md:pt-36 md:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative w-full bg-[#0F172A] text-white pt-28 pb-16 md:pt-36 md:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Subtle Ambient Glow Blobs */}
-        <div className="absolute top-0 left-1/4 w-[35rem] h-[35rem] bg-[#1a7097]/40 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute -bottom-20 right-1/4 w-[30rem] h-[30rem] bg-[#FFBF00]/15 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[35rem] h-[35rem] bg-[#377a9b]/40 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute -bottom-20 right-1/4 w-[30rem] h-[30rem] bg-[#ffc312]/15 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Back Navigation */}
@@ -108,7 +108,7 @@ export default async function ProjectCaseStudyPage({
 
           {/* Badges */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFBF00]/20 text-[#FFBF00] border border-[#FFBF00]/30 text-xs font-bold uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ffc312]/20 text-[#ffc312] border border-[#ffc312]/30 text-xs font-bold uppercase tracking-wider">
               <Tag size={12} />
               {project.category}
             </span>
@@ -138,7 +138,7 @@ export default async function ProjectCaseStudyPage({
                 href={project.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#FFBF00] text-slate-950 rounded-full font-bold text-sm hover:bg-amber-400 hover:shadow-lg hover:shadow-[#FFBF00]/20 transition-all group"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#ffc312] text-slate-950 rounded-full font-bold text-sm hover:bg-amber-400 hover:shadow-lg hover:shadow-[#ffc312]/20 transition-all group"
               >
                 Visit Live Platform
                 <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -171,7 +171,7 @@ export default async function ProjectCaseStudyPage({
             
             {/* Project Overview */}
             <div>
-              <div className="flex items-center gap-2 text-[#1a7097] font-bold text-xs uppercase tracking-widest mb-3">
+              <div className="flex items-center gap-2 text-[#377a9b] font-bold text-xs uppercase tracking-widest mb-3">
                 <Sparkles size={16} />
                 Executive Summary
               </div>
@@ -187,13 +187,13 @@ export default async function ProjectCaseStudyPage({
             {highlights.length > 0 && (
               <div className="p-8 bg-white rounded-3xl border border-slate-200/80 shadow-sm">
                 <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                  <Code2 className="text-[#1a7097]" size={22} />
+                  <Code2 className="text-[#377a9b]" size={22} />
                   Key Engineering Solutions Delivered
                 </h3>
                 <ul className="space-y-4">
                   {highlights.map((highlight, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-slate-700 leading-relaxed text-sm sm:text-base">
-                      <div className="w-5 h-5 rounded-full bg-[#1a7097]/10 text-[#1a7097] flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-[#377a9b]/10 text-[#377a9b] flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 size={14} />
                       </div>
                       <span>{highlight}</span>
@@ -211,7 +211,7 @@ export default async function ProjectCaseStudyPage({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {project.features.map((feature, i) => (
                   <div key={i} className="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm flex items-start gap-3">
-                    <span className="w-2 h-2 rounded-full bg-[#FFBF00] shrink-0 mt-2"></span>
+                    <span className="w-2 h-2 rounded-full bg-[#ffc312] shrink-0 mt-2"></span>
                     <span className="font-semibold text-slate-800 text-sm">{feature}</span>
                   </div>
                 ))}
@@ -225,9 +225,9 @@ export default async function ProjectCaseStudyPage({
             
             {/* Tech Stack Card */}
             <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a7097] opacity-30 blur-2xl rounded-full pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#377a9b] opacity-30 blur-2xl rounded-full pointer-events-none" />
               
-              <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-[#FFBF00] mb-4 flex items-center gap-2">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-[#ffc312] mb-4 flex items-center gap-2">
                 <Layers size={16} /> Technology Stack
               </h4>
               <p className="text-xs text-white/60 mb-6 leading-relaxed">
@@ -247,14 +247,14 @@ export default async function ProjectCaseStudyPage({
             </div>
 
             {/* CTA Box */}
-            <div className="bg-gradient-to-br from-[#1a7097] to-[#0A4044] text-white p-6 sm:p-8 rounded-3xl shadow-lg text-center">
+            <div className="bg-gradient-to-br from-[#377a9b] to-[#1c4458] text-white p-6 sm:p-8 rounded-3xl shadow-lg text-center">
               <h4 className="text-xl font-bold mb-2">Build Your Next Product</h4>
               <p className="text-sm text-white/80 mb-6 leading-relaxed">
                 Ready to develop a platform with this level of performance and polish?
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-[#FFBF00] text-slate-950 font-extrabold rounded-xl hover:bg-amber-400 hover:shadow-lg transition-all"
+                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-[#ffc312] text-slate-950 font-extrabold rounded-xl hover:bg-amber-400 hover:shadow-lg transition-all"
               >
                 Schedule Discovery Call
                 <ArrowUpRight size={18} />
@@ -271,26 +271,26 @@ export default async function ProjectCaseStudyPage({
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link
             href={`/portfolio/${prevProject.id}`}
-            className="flex items-center gap-3 text-left group hover:text-[#1a7097] transition-colors"
+            className="flex items-center gap-3 text-left group hover:text-[#377a9b] transition-colors"
           >
-            <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#1a7097] group-hover:bg-[#1a7097]/5 transition-all">
+            <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#377a9b] group-hover:bg-[#377a9b]/5 transition-all">
               <ArrowLeft size={16} />
             </div>
             <div>
               <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Previous Project</p>
-              <p className="font-bold text-slate-900 group-hover:text-[#1a7097]">{prevProject.title}</p>
+              <p className="font-bold text-slate-900 group-hover:text-[#377a9b]">{prevProject.title}</p>
             </div>
           </Link>
 
           <Link
             href={`/portfolio/${nextProject.id}`}
-            className="flex items-center gap-3 text-right group hover:text-[#1a7097] transition-colors"
+            className="flex items-center gap-3 text-right group hover:text-[#377a9b] transition-colors"
           >
             <div>
               <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Next Project</p>
-              <p className="font-bold text-slate-900 group-hover:text-[#1a7097]">{nextProject.title}</p>
+              <p className="font-bold text-slate-900 group-hover:text-[#377a9b]">{nextProject.title}</p>
             </div>
-            <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#1a7097] group-hover:bg-[#1a7097]/5 transition-all">
+            <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#377a9b] group-hover:bg-[#377a9b]/5 transition-all">
               <ArrowUpRight size={16} />
             </div>
           </Link>

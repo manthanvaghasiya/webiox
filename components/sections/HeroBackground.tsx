@@ -162,7 +162,7 @@ export default function HeroBackground() {
           amplitude: 46,
           freq: 0.0018,
           speed: -time * 1.3,
-          colorA: 'rgba(26, 112, 151, 0.07)',
+          colorA: 'rgba(55, 122, 155, 0.07)',
           colorB: 'rgba(14, 165, 233, 0.04)',
         },
       ];

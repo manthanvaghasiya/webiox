@@ -29,7 +29,7 @@ export default function AboutHero() {
   const spotlightX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const spotlightY = useSpring(mouseY, { stiffness: 50, damping: 20 });
 
-  const bg1 = useMotionTemplate`radial-gradient(circle 600px at ${spotlightX}px ${spotlightY}px, rgba(255,191,0,0.15), transparent 80%)`;
+  const bg1 = useMotionTemplate`radial-gradient(circle 600px at ${spotlightX}px ${spotlightY}px, rgba(255, 195, 18,0.15), transparent 80%)`;
   const bg2 = useMotionTemplate`radial-gradient(circle 300px at ${spotlightX}px ${spotlightY}px, rgba(255,255,255,0.1), transparent 80%)`;
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function AboutHero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[80vh] md:min-h-[85vh] bg-[#1a7097] flex flex-col justify-between overflow-hidden rounded-b-[3rem] md:rounded-b-[5rem] lg:rounded-b-[8rem]"
+      className="relative w-full min-h-[80vh] md:min-h-[85vh] bg-[#377a9b] flex flex-col justify-between overflow-hidden rounded-b-[3rem] md:rounded-b-[5rem] lg:rounded-b-[8rem]"
     >
       {/* Interactive Spotlight Overlay */}
       <motion.div
@@ -87,7 +87,7 @@ export default function AboutHero() {
 
           {/* Kicker */}
           <motion.div variants={fadeUpVariant} className="overflow-hidden mb-2 lg:mb-0 w-full text-left">
-            <span className="font-[Alice] text-2xl md:text-4xl lg:text-5xl text-[#FFBF00] italic">
+            <span className="font-[Alice] text-2xl md:text-4xl lg:text-5xl text-[#ffc312] italic">
               We are
             </span>
           </motion.div>
@@ -101,7 +101,7 @@ export default function AboutHero() {
             >
               {headline.split('').map((char, index) => (
                 <span key={index} className="overflow-hidden block">
-                  <motion.span variants={letterVariant} className="block inline-block transition-transform duration-500 hover:scale-110 hover:text-[#FFBF00]">
+                  <motion.span variants={letterVariant} className="block inline-block transition-transform duration-500 hover:scale-110 hover:text-[#ffc312]">
                     {char}
                   </motion.span>
                 </span>
@@ -110,7 +110,7 @@ export default function AboutHero() {
 
             {/* Description Moved to Right Side */}
             <motion.div variants={fadeUpVariant} className="mt-8 lg:mt-0 lg:w-1/3 lg:pb-6 lg:pl-12">
-              <p className="text-lg md:text-xl text-[#F9FAFB]/80 font-[IBM_Plex_Sans] font-normal leading-relaxed border-l-2 border-[#FFBF00] pl-6">
+              <p className="text-lg md:text-xl text-[#F9FAFB]/80 font-[IBM_Plex_Sans] font-normal leading-relaxed border-l-2 border-[#ffc312] pl-6">
                 A collective of visionary engineers, designers, and strategists obsessed with building products that defy the ordinary and dominate the digital landscape.
               </p>
             </motion.div>
@@ -120,7 +120,7 @@ export default function AboutHero() {
           <div className="w-full mt-4 lg:mt-6 relative z-20 flex flex-col">
             
             {/* Infinite Marquee - Breaks out of container, sits above Crafting */}
-            <div className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden whitespace-nowrap bg-[#1a7097]/60 backdrop-blur-md border-y border-[#FFBF00]/20 py-2 md:py-4 flex items-center shadow-[0_0_30px_rgba(26, 112, 151,0.5)] mb-4 lg:mb-6">
+            <div className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden whitespace-nowrap bg-[#377a9b]/60 backdrop-blur-md border-y border-[#ffc312]/20 py-2 md:py-4 flex items-center shadow-[0_0_30px_rgba(55, 122, 155,0.5)] mb-4 lg:mb-6">
               <motion.div
                 animate={{ x: [0, -1035] }} // Adjust based on text width
                 transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
@@ -130,13 +130,13 @@ export default function AboutHero() {
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="flex items-center">
                     <span className="mx-8">Digital Agency</span>
-                    <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
+                    <span className="w-1.5 h-1.5 bg-[#ffc312] rounded-full"></span>
                     <span className="mx-8">Established 2026</span>
-                    <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
+                    <span className="w-1.5 h-1.5 bg-[#ffc312] rounded-full"></span>
                     <span className="mx-8">Global Reach</span>
-                    <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
-                    <span className="mx-8 text-[#FFBF00] font-bold">Crafting Elite Experiences</span>
-                    <span className="w-1.5 h-1.5 bg-[#FFBF00] rounded-full"></span>
+                    <span className="w-1.5 h-1.5 bg-[#ffc312] rounded-full"></span>
+                    <span className="mx-8 text-[#ffc312] font-bold">Crafting Elite Experiences</span>
+                    <span className="w-1.5 h-1.5 bg-[#ffc312] rounded-full"></span>
                   </div>
                 ))}
               </motion.div>
@@ -156,7 +156,7 @@ export default function AboutHero() {
                       animate={{ y: "0%", opacity: 1, rotateX: 0 }}
                       exit={{ y: "-100%", opacity: 0, rotateX: 45 }}
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      className="absolute left-0 top-0 text-[#FFBF00] whitespace-nowrap drop-shadow-[0_0_15px_rgba(255,191,0,0.4)]"
+                      className="absolute left-0 top-0 text-[#ffc312] whitespace-nowrap drop-shadow-[0_0_15px_rgba(255, 195, 18,0.4)]"
                     >
                       {rotatingWords[currentWordIndex]}.
                     </motion.span>

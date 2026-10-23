@@ -20,8 +20,8 @@ const storyDots: Dot[] = [
   { x: '52%', y: '94%', size: 2, delay: 2.7, color: 'yellow' },
 ];
 
-const storyMesh = `radial-gradient(at 82% 12%, rgba(255,191,0,0.07) 0px, transparent 50%),
-radial-gradient(at 18% 76%, rgba(26, 112, 151,0.07) 0px, transparent 50%),
+const storyMesh = `radial-gradient(at 82% 12%, rgba(255, 195, 18,0.07) 0px, transparent 50%),
+radial-gradient(at 18% 76%, rgba(55, 122, 155,0.07) 0px, transparent 50%),
 radial-gradient(at 55% 45%, rgba(199,232,155,0.22) 0px, transparent 55%)`;
 
 const pillars = [
@@ -53,7 +53,7 @@ export default function AboutStory() {
           scale: [1, 1.2, 1],
         }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-[30%] -right-1/4 w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(255,191,0,0.07),transparent_60%)] pointer-events-none blur-[110px] z-0"
+        className="absolute -top-[30%] -right-1/4 w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(255, 195, 18,0.07),transparent_60%)] pointer-events-none blur-[110px] z-0"
       />
 
       {/* Animated blob 2 — teal bottom-left */}
@@ -64,7 +64,7 @@ export default function AboutStory() {
           scale: [1, 1.15, 1],
         }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute top-[40%] -left-1/4 w-[900px] h-[900px] bg-[radial-gradient(circle_at_center,rgba(26, 112, 151,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
+        className="absolute top-[40%] -left-1/4 w-[900px] h-[900px] bg-[radial-gradient(circle_at_center,rgba(55, 122, 155,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
       />
 
       {/* Animated blob 3 — mint center */}
@@ -97,7 +97,7 @@ export default function AboutStory() {
         className="absolute inset-0 pointer-events-none z-0 opacity-60"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(135deg, transparent 0, transparent 80px, rgba(26, 112, 151,0.025) 80px, rgba(26, 112, 151,0.025) 81px)',
+            'repeating-linear-gradient(135deg, transparent 0, transparent 80px, rgba(55, 122, 155,0.025) 80px, rgba(55, 122, 155,0.025) 81px)',
         }}
       />
 
@@ -110,14 +110,14 @@ export default function AboutStory() {
       >
         <path
           d="M0,0 C40,80 40,176 0,256"
-          stroke="rgba(26, 112, 151,0.5)"
+          stroke="rgba(55, 122, 155,0.5)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="4 6"
         />
         <path
           d="M16,0 C56,80 56,176 16,256"
-          stroke="rgba(255,191,0,0.4)"
+          stroke="rgba(255, 195, 18,0.4)"
           strokeWidth="1"
           fill="none"
         />
@@ -135,12 +135,12 @@ export default function AboutStory() {
           >
             <div>
               {/* Label */}
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase text-[#1a7097] bg-[#1a7097]/10 border border-[#1a7097]/20 mb-6">
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase text-[#377a9b] bg-[#377a9b]/10 border border-[#377a9b]/20 mb-6">
                 Our Story & Entity Profile
               </span>
 
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-6">
-                Turning business <span className="text-[#1a7097]">complexity into automated</span> simplicity.
+                Turning business <span className="text-[#377a9b]">complexity into automated</span> simplicity.
               </h2>
 
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
@@ -148,22 +148,22 @@ export default function AboutStory() {
               </p>
 
               {/* Semantic Entity Definition & Grounding Block for NLP/Knowledge Graph */}
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-[#1a7097]/15 shadow-sm mb-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a7097]/5 rounded-full blur-2xl pointer-events-none" />
-                <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#1a7097] mb-3">
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-[#377a9b]/15 shadow-sm mb-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#377a9b]/5 rounded-full blur-2xl pointer-events-none" />
+                <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#377a9b] mb-3">
                   <Building2 className="w-4 h-4" />
                   <span>Entity Profile & Technical Grounding</span>
                 </div>
                 <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
-                  <strong className="text-slate-900 font-semibold">Webiox Digital Solutions</strong> (operating as <strong className="text-[#1a7097] font-semibold">Webiox</strong>) is an independent digital engineering and software studio founded by principal software architect <strong className="text-slate-900 font-semibold">Manthan Vaghasiya</strong>. Webiox designs, builds, and scales mission-critical web applications, mobile apps, custom software architectures, and autonomous AI workflows for market-leading enterprises.
+                  <strong className="text-slate-900 font-semibold">Webiox Digital Solutions</strong> (operating as <strong className="text-[#377a9b] font-semibold">Webiox</strong>) is an independent digital engineering and software studio founded by principal software architect <strong className="text-slate-900 font-semibold">Manthan Vaghasiya</strong>. Webiox designs, builds, and scales mission-critical web applications, mobile apps, custom software architectures, and autonomous AI workflows for market-leading enterprises.
                 </p>
                 <div className="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-500 font-mono">
                   <span className="inline-flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#1a7097]" />
+                    <MapPin className="w-3.5 h-3.5 text-[#377a9b]" />
                     The Palladium, Yogi Chowk, Surat, India
                   </span>
                   <span className="inline-flex items-center gap-1.5">
-                    <UserCheck className="w-3.5 h-3.5 text-[#E7B900]" />
+                    <UserCheck className="w-3.5 h-3.5 text-[#ffc312]" />
                     Lead Architect: Manthan Vaghasiya
                   </span>
                 </div>
@@ -178,10 +178,10 @@ export default function AboutStory() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.15 + i * 0.12, duration: 0.55 }}
-                    className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-md border border-[#1a7097]/10 hover:border-[#1a7097]/30 hover:shadow-[0_12px_30px_rgba(26, 112, 151,0.06)] transition-all duration-300 group relative z-10"
+                    className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-md border border-[#377a9b]/10 hover:border-[#377a9b]/30 hover:shadow-[0_12px_30px_rgba(55, 122, 155,0.06)] transition-all duration-300 group relative z-10"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-[#1a7097]/5 border border-[#1a7097]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1a7097] group-hover:shadow-[0_0_15px_rgba(26, 112, 151,0.2)] transition-all duration-500">
-                      <Icon className="w-5 h-5 text-[#1a7097] group-hover:text-white transition-colors duration-500" />
+                    <div className="w-12 h-12 rounded-xl bg-[#377a9b]/5 border border-[#377a9b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#377a9b] group-hover:shadow-[0_0_15px_rgba(55, 122, 155,0.2)] transition-all duration-500">
+                      <Icon className="w-5 h-5 text-[#377a9b] group-hover:text-white transition-colors duration-500" />
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900 mb-0.5">{title}</h4>

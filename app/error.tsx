@@ -30,7 +30,7 @@ export default function ErrorBoundary({
         <div className="flex items-center justify-center mt-10 gap-x-6">
           <button
             onClick={() => reset()}
-            className="flex items-center rounded-md bg-[#1a7097] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#145b7c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a7097]"
+            className="flex items-center rounded-md bg-[#377a9b] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#2b6683] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377a9b]"
           >
             <RefreshCcw className="w-4 h-4 mr-2" />
             Try again

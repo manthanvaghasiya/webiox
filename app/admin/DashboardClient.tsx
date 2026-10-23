@@ -41,7 +41,7 @@ export default function DashboardClient({ inquiries, stats }: { inquiries: any[]
             <motion.div key={i} variants={item} className="bg-white/80 backdrop-blur-xl p-6 rounded-3xl border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 group">
               <div className="flex justify-between items-start">
                 <p className="text-sm font-bold text-slate-400 uppercase tracking-wider">{stat.title}</p>
-                <div className="p-2.5 bg-slate-50 text-[#1a7097] rounded-xl group-hover:scale-110 transition-transform duration-300">
+                <div className="p-2.5 bg-slate-50 text-[#377a9b] rounded-xl group-hover:scale-110 transition-transform duration-300">
                   <Icon size={20} />
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function DashboardClient({ inquiries, stats }: { inquiries: any[]
               <h2 className="text-xl font-bold text-slate-900">Recent Inquiries</h2>
               <p className="text-sm text-slate-500 mt-1">Review your latest potential client submissions</p>
             </div>
-            <Link href="/admin/inquiries" className="text-sm font-bold text-[#1a7097] hover:text-[#145b7c] bg-[#1a7097]/10 px-4 py-2 rounded-xl transition-colors">
+            <Link href="/admin/inquiries" className="text-sm font-bold text-[#377a9b] hover:text-[#2b6683] bg-[#377a9b]/10 px-4 py-2 rounded-xl transition-colors">
               View All
             </Link>
           </div>
@@ -78,7 +78,7 @@ export default function DashboardClient({ inquiries, stats }: { inquiries: any[]
             ) : inquiries.map((inquiry: any, i: number) => (
               <div key={inquiry.id || i} className="flex items-center justify-between p-4 hover:bg-slate-50/80 rounded-2xl transition-colors group">
                 <div className="flex items-center gap-4 min-w-0">
-                  <div className="w-12 h-12 bg-[#1a7097]/10 text-[#1a7097] rounded-xl shrink-0 flex items-center justify-center font-bold text-base">
+                  <div className="w-12 h-12 bg-[#377a9b]/10 text-[#377a9b] rounded-xl shrink-0 flex items-center justify-center font-bold text-base">
                     {inquiry.name ? inquiry.name.charAt(0).toUpperCase() : '?'}
                   </div>
                   <div className="min-w-0">
@@ -94,7 +94,7 @@ export default function DashboardClient({ inquiries, stats }: { inquiries: any[]
                     </p>
                   </div>
                 </div>
-                <Link href="/admin/inquiries" className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 group-hover:text-[#1a7097] group-hover:border-[#1a7097]/30 group-hover:bg-[#1a7097]/10 transition-all shadow-sm shrink-0 ml-2">
+                <Link href="/admin/inquiries" className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 group-hover:text-[#377a9b] group-hover:border-[#377a9b]/30 group-hover:bg-[#377a9b]/10 transition-all shadow-sm shrink-0 ml-2">
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -103,16 +103,16 @@ export default function DashboardClient({ inquiries, stats }: { inquiries: any[]
         </motion.div>
 
         <motion.div variants={item} className="flex flex-col gap-6">
-          <div className="bg-gradient-to-br from-slate-900 via-[#07242d] to-slate-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-[#1a7097] opacity-20 rounded-full blur-3xl group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div className="bg-gradient-to-br from-slate-900 via-[#1c4458] to-slate-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-[#377a9b] opacity-20 rounded-full blur-3xl group-hover:opacity-40 transition-opacity duration-500"></div>
             <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-md border border-white/10">
-              <Activity className="text-[#E7B900]" size={24} />
+              <Activity className="text-[#ffc312]" size={24} />
             </div>
             <h3 className="text-2xl font-bold tracking-tight">Client Leads</h3>
             <p className="text-slate-300 text-sm mt-3 mb-8 relative z-10 leading-relaxed">
               Open your dedicated CRM panel to follow up with hot prospects and manage your pipeline seamlessly.
             </p>
-            <a href="https://leads.webiox.tech" target="_blank" rel="noopener noreferrer" className="relative z-10 inline-flex items-center justify-center gap-2 w-full bg-[#1a7097] hover:bg-[#145b7c] text-white px-6 py-3.5 rounded-xl font-bold hover:shadow-lg hover:shadow-[#1a7097]/25 hover:-translate-y-0.5 transition-all duration-300">
+            <a href="https://leads.webiox.tech" target="_blank" rel="noopener noreferrer" className="relative z-10 inline-flex items-center justify-center gap-2 w-full bg-[#377a9b] hover:bg-[#2b6683] text-white px-6 py-3.5 rounded-xl font-bold hover:shadow-lg hover:shadow-[#377a9b]/25 hover:-translate-y-0.5 transition-all duration-300">
               Open Lead Panel ↗
             </a>
           </div>
@@ -120,11 +120,11 @@ export default function DashboardClient({ inquiries, stats }: { inquiries: any[]
           <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6">
             <h3 className="font-bold text-slate-900 mb-4 px-2">Quick Actions</h3>
             <div className="space-y-2">
-              <Link href="/admin/inquiries" className="block w-full text-left px-5 py-3.5 bg-slate-50 hover:bg-[#1a7097]/5 text-slate-600 hover:text-[#1a7097] rounded-2xl font-semibold text-sm transition-all flex items-center justify-between group">
+              <Link href="/admin/inquiries" className="block w-full text-left px-5 py-3.5 bg-slate-50 hover:bg-[#377a9b]/5 text-slate-600 hover:text-[#377a9b] rounded-2xl font-semibold text-sm transition-all flex items-center justify-between group">
                 Review Client Inquiries
                 <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </Link>
-              <Link href="/admin/settings" className="block w-full text-left px-5 py-3.5 bg-slate-50 hover:bg-[#1a7097]/5 text-slate-600 hover:text-[#1a7097] rounded-2xl font-semibold text-sm transition-all flex items-center justify-between group">
+              <Link href="/admin/settings" className="block w-full text-left px-5 py-3.5 bg-slate-50 hover:bg-[#377a9b]/5 text-slate-600 hover:text-[#377a9b] rounded-2xl font-semibold text-sm transition-all flex items-center justify-between group">
                 Admin Settings
                 <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </Link>

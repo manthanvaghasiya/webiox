@@ -17,8 +17,8 @@ const DeepDiveProjectMobile = ({ project, index }: DeepDiveProjectMobileProps) =
          if (isBullet) {
             return (
                <div key={i} className="flex items-start gap-2 mt-2">
-                  <span className="text-[#1a7097] mt-1 flex-shrink-0">
-                     <svg className="w-3.5 h-3.5 text-[#1a7097]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <span className="text-[#377a9b] mt-1 flex-shrink-0">
+                     <svg className="w-3.5 h-3.5 text-[#377a9b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                      </svg>
                   </span>
@@ -44,7 +44,7 @@ const DeepDiveProjectMobile = ({ project, index }: DeepDiveProjectMobileProps) =
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true, margin: "-10%" }}
                transition={{ duration: 0.8 }}
-               className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-[#1a7097] font-semibold"
+               className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-[#377a9b] font-semibold"
             >
                <span>{String(index + 1).padStart(2, '0')}</span>
                <span className="w-1 h-1 rounded-full bg-slate-300" />
@@ -105,7 +105,7 @@ const DeepDiveProjectMobile = ({ project, index }: DeepDiveProjectMobileProps) =
             >
                <Link
                   href={`/portfolio/${project.id}`}
-                  className="px-6 py-4 w-full bg-[#1a7097] hover:bg-[#145b7c] shadow-lg text-white rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="px-6 py-4 w-full bg-[#377a9b] hover:bg-[#2b6683] shadow-lg text-white rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
                >
                   <span>Explore Case Study</span>
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -118,9 +118,9 @@ const DeepDiveProjectMobile = ({ project, index }: DeepDiveProjectMobileProps) =
                      href={project.liveLink}
                      target="_blank"
                      rel="noopener noreferrer"
-                     className="group relative px-6 py-4 w-full bg-slate-900 shadow-xl text-white rounded-full overflow-hidden hover:shadow-[0_10px_30px_rgba(26,112,151,0.3)] transition-all duration-300 flex items-center justify-center gap-2 border border-slate-700/50"
+                     className="group relative px-6 py-4 w-full bg-slate-900 shadow-xl text-white rounded-full overflow-hidden hover:shadow-[0_10px_30px_rgba(55, 122, 155,0.3)] transition-all duration-300 flex items-center justify-center gap-2 border border-slate-700/50"
                   >
-                     <div className="absolute inset-0 bg-[#1a7097] translate-y-[110%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
+                     <div className="absolute inset-0 bg-[#377a9b] translate-y-[110%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
                      <span className="relative z-10 font-bold tracking-wider text-[10px] uppercase flex items-center gap-2 whitespace-nowrap">
                         Live Demo
                         <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
