@@ -166,9 +166,20 @@ const jsonLdGraph = {
         "name": "Manthan Vaghasiya",
         "jobTitle": "Founder & Principal Software Architect",
         "email": "manthanvaghasiya@webiox.tech",
+        "telephone": "+919664736245",
+        "worksFor": {
+          "@id": "https://webiox.tech/#organization"
+        },
         "sameAs": [
-          "https://linkedin.com/in/manthanvaghasiya",
+          "https://www.linkedin.com/in/manthanvaghasiya",
           "https://github.com/manthanvaghasiya"
+        ],
+        "knowsAbout": [
+          "Software Architecture",
+          "Enterprise Web Engineering",
+          "Next.js App Router Architecture",
+          "Distributed Cloud Systems",
+          "Generative AI Workflow Automation"
         ]
       },
       "hasMap": "https://share.google/QRrJWd4R7VcAIxN9S",
@@ -180,29 +191,111 @@ const jsonLdGraph = {
         "worstRating": "1"
       },
       "sameAs": [
-        "https://www.instagram.com/webiox.ai/",
-        "https://share.google/QRrJWd4R7VcAIxN9S",
         "https://www.linkedin.com/company/webiox/",
         "https://github.com/webiox",
+        "https://www.instagram.com/webiox.ai/",
+        "https://share.google/QRrJWd4R7VcAIxN9S",
         "https://x.com/webiox_tech",
         "https://www.facebook.com/webiox",
         "https://www.youtube.com/@webiox"
       ],
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "India",
+          "identifier": "IN"
+        },
+        {
+          "@type": "Country",
+          "name": "United States",
+          "identifier": "US"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom",
+          "identifier": "GB"
+        },
+        {
+          "@type": "Country",
+          "name": "United Arab Emirates",
+          "identifier": "AE"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada",
+          "identifier": "CA"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia",
+          "identifier": "AU"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Surat, Gujarat, India"
+        }
+      ],
       "knowsAbout": [
-        "https://www.wikidata.org/wiki/Q386275",
-        "https://en.wikipedia.org/wiki/Web_development",
-        "https://www.wikidata.org/wiki/Q110852097",
-        "https://en.wikipedia.org/wiki/Next.js",
-        "https://www.wikidata.org/wiki/Q180711",
-        "https://en.wikipedia.org/wiki/Search_engine_optimization",
-        "https://www.wikidata.org/wiki/Q211158",
-        "https://en.wikipedia.org/wiki/Software_as_a_service",
-        "https://www.wikidata.org/wiki/Q11660",
-        "https://en.wikipedia.org/wiki/Artificial_intelligence",
-        "https://www.wikidata.org/wiki/Q1441865",
-        "https://en.wikipedia.org/wiki/Semantic_search",
-        "https://www.wikidata.org/wiki/Q33002955",
-        "https://en.wikipedia.org/wiki/Google_Knowledge_Graph"
+        {
+          "@type": "DefinedTerm",
+          "name": "Custom Software Development",
+          "sameAs": "https://www.wikidata.org/wiki/Q638608"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Enterprise Web Engineering",
+          "sameAs": "https://en.wikipedia.org/wiki/Web_development"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Next.js",
+          "sameAs": "https://www.wikidata.org/wiki/Q110852097"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "React",
+          "sameAs": "https://www.wikidata.org/wiki/Q25167269"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "TypeScript",
+          "sameAs": "https://www.wikidata.org/wiki/Q978185"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Software as a Service (SaaS)",
+          "sameAs": "https://www.wikidata.org/wiki/Q211158"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Artificial Intelligence",
+          "sameAs": "https://www.wikidata.org/wiki/Q11660"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Mobile App Development",
+          "sameAs": "https://www.wikidata.org/wiki/Q10507204"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Cloud Computing",
+          "sameAs": "https://www.wikidata.org/wiki/Q483160"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Search Engine Optimization",
+          "sameAs": "https://www.wikidata.org/wiki/Q180711"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Semantic Search",
+          "sameAs": "https://www.wikidata.org/wiki/Q1441865"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Google Knowledge Graph",
+          "sameAs": "https://www.wikidata.org/wiki/Q33002955"
+        }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
