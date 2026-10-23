@@ -134,10 +134,10 @@ export default function Header() {
         initial={{ opacity: 0, y: -25, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-        className="fixed top-2.5 sm:top-5 inset-x-0 z-50 flex justify-center pointer-events-none px-3 sm:px-4"
+        className="fixed top-2.5 sm:top-5 inset-x-0 z-50 flex justify-end md:justify-center pointer-events-none pl-3 sm:pl-4 pr-0 md:px-4"
       >
         <div
-          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border rounded-full py-1.5 pl-3.5 pr-2 sm:px-4 sm:py-2 transition-all duration-300 flex items-center justify-between md:justify-start w-full max-w-[calc(100vw-24px)] sm:max-w-xl md:w-auto md:max-w-fit ${
+          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border border-r-0 md:border-r rounded-l-full rounded-r-none md:rounded-full py-1.5 pl-3.5 pr-3.5 sm:pl-4 sm:pr-4 sm:py-2 transition-all duration-300 flex items-center justify-between md:justify-start w-full md:w-auto md:max-w-fit ${
             scrolled
               ? 'border-slate-300/90 shadow-[0_20px_50px_-10px_rgba(15,23,42,0.14),0_1px_3px_rgba(0,0,0,0.04)]'
               : 'border-slate-200/80 shadow-[0_14px_38px_-10px_rgba(15,23,42,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
