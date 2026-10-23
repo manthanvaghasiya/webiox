@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -1061,36 +1061,6 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* Dynamic Perspective Indicator Pill */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`mode-indicator-${mode}`}
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 6 }}
-              transition={{ duration: 0.2 }}
-              className="mt-4 flex items-center justify-center text-center px-4"
-            >
-              {mode === 'contrast' && (
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 text-xs font-mono">
-                  <SlidersHorizontal className="w-3.5 h-3.5 text-[#377a9b] shrink-0" />
-                  <span><strong>Direct Contrast Mode:</strong> Side-by-side interactive technical audit comparing Webiox engineering vs legacy practices.</span>
-                </div>
-              )}
-              {mode === 'webiox' && (
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-mono">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span><strong>The Webiox Standard:</strong> Sub-second edge speed, locked 14-day sprint SLAs, zero middlemen, 99.8% uptime.</span>
-                </div>
-              )}
-              {mode === 'traditional' && (
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 text-rose-800 border border-rose-200 text-xs font-mono">
-                  <XCircle className="w-3.5 h-3.5 text-rose-600 shrink-0" />
-                  <span><strong>Traditional Agency Way:</strong> Sluggish monoliths, open-ended hourly billing, unpatched plugins, 48hr email delays.</span>
-                </div>
-              )}
-            </motion.div>
-          </AnimatePresence>
         </div>
 
         {/* ════════════════════════════════════════════════════════════════════
