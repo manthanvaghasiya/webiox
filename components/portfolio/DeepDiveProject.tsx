@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Project } from '@/data/projects';
 import DeepDiveProjectMobile from './DeepDiveProjectMobile';
 
@@ -28,29 +28,24 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
    });
 
    // Mathematically map the 3-stage unfolding sequence:
-   // 0.0 - 0.2: Image locked in center.
-   // 0.2 - 0.4: Image shrinks and translates to the left.
-   const imageScale = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.8, 1], [1, 1, 0.54, 0.54, 0.48]);
-   const imageX = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.8, 1], ["-50%", "-50%", "-88%", "-88%", "-88%"]);
+   // 0.0 - 0.18: Image locked in center.
+   // 0.18 - 0.38: Image shrinks smoothly and shifts to the left.
+   // 0.38 - 0.85: Image and Text card stay locked side-by-side in view.
+   // 0.85 - 0.98: Section smoothly fades out for release.
+   const imageScale = useTransform(scrollYProgress, [0, 0.18, 0.38, 0.85, 1], [1, 1, 0.54, 0.54, 0.48]);
+   const imageX = useTransform(scrollYProgress, [0, 0.18, 0.38, 0.85, 1], ["-50%", "-50%", "-88%", "-88%", "-88%"]);
 
-   // Reveal text smoothly as soon as the image clears to the left (at 0.38 - 0.4)
-   const [isRevealed, setIsRevealed] = useState(false);
+   // Smooth continuous transforms for text reveal (no React state lag or missed scroll events)
+   const textOpacity = useTransform(scrollYProgress, [0.22, 0.38, 0.85, 0.95], [0, 1, 1, 0]);
+   const textY = useTransform(scrollYProgress, [0.22, 0.38], [35, 0]);
 
-   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-      if (latest > 0.36 && !isRevealed) {
-         setIsRevealed(true);
-      } else if (latest < 0.36 && isRevealed) {
-         setIsRevealed(false);
-      }
-   });
-
-   // 0.88 - 1.0: End sequence, section fades out completely for smooth release to next project
-   const sectionOpacity = useTransform(scrollYProgress, [0, 0.88, 1], [1, 1, 0]);
+   // Section release fade
+   const sectionOpacity = useTransform(scrollYProgress, [0, 0.85, 0.98], [1, 1, 0]);
 
    // Description Parser for dynamic multi-paragraph content and checklists
    const parseDescription = (text: string) => {
       return text.split('\n').filter(p => p.trim() !== '').map((para, i) => {
-         const isBullet = para.trim().startsWith('•') || para.trim().startsWith('') || para.trim().startsWith('-');
+         const isBullet = para.trim().startsWith('•') || para.trim().startsWith('?') || para.trim().startsWith('-');
          if (isBullet) {
             return (
                <div key={i} className="flex items-start gap-2 md:gap-3 mt-1.5 md:mt-2.5">
@@ -71,7 +66,7 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
       return <DeepDiveProjectMobile project={project} index={index} />;
    }
 
-   // Desktop 300vh Scroll Experience (15.9 design perfected)
+   // Desktop 300vh Scroll Experience (15.9 design perfected - zero bottom image cutoff)
    return (
       <section ref={containerRef} className="relative h-[300vh] w-full bg-slate-50">
          <motion.div
@@ -84,22 +79,25 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
                <img src="/logo_without_background.png" alt="Background Logo" className="w-full h-auto object-contain grayscale" />
             </div>
 
-            {/* Dynamic Cinematic Image Container */}
+            {/* Dynamic Cinematic Image Container (max-h-70vh + object-contain prevents ANY bottom cutoff) */}
             <motion.div
                style={{ scale: imageScale, x: imageX, y: "-50%" }}
-               className="absolute top-1/2 left-1/2 w-[90vw] md:w-[80vw] 2xl:w-[70vw] h-[80vh] md:h-[90vh] 2xl:h-[92vh] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.15)] z-20 origin-center will-change-transform bg-slate-200 border border-slate-200/60"
+               className="absolute top-1/2 left-1/2 w-[90vw] md:w-[78vw] lg:w-[68vw] 2xl:w-[60vw] max-h-[66vh] md:max-h-[70vh] aspect-[4/3] sm:aspect-[16/10] z-20 origin-center will-change-transform flex items-center justify-center pointer-events-auto"
                data-cursor-hover="true"
             >
-               <img src={project.image} alt={project.title} className="w-full h-full object-cover object-top" />
+               <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-contain select-none drop-shadow-[0_25px_60px_rgba(0,0,0,0.18)]"
+               />
             </motion.div>
 
-            {/* Emerging Text & Architecture Panel (Cleanly aligned, vertically centered, fits all viewports) */}
+            {/* Emerging Text & Architecture Panel (Smooth useTransform fade, vertically centered) */}
             <motion.div
-               animate={{ opacity: isRevealed ? 1 : 0, y: isRevealed ? 0 : 40 }}
-               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-               className="absolute top-1/2 -translate-y-1/2 right-[4vw] 2xl:right-[6vw] w-[90vw] md:w-[50vw] lg:w-[45vw] 2xl:w-[42vw] max-h-[85vh] flex flex-col z-30 pointer-events-none md:pointer-events-auto"
+               style={{ opacity: textOpacity, y: textY }}
+               className="absolute top-1/2 -translate-y-1/2 right-[4vw] 2xl:right-[6vw] w-[90vw] md:w-[50vw] lg:w-[45vw] 2xl:w-[42vw] max-h-[82vh] flex flex-col z-30 pointer-events-none md:pointer-events-auto"
             >
-               <div className="pointer-events-auto flex flex-col gap-3 md:gap-4 lg:gap-5 max-w-2xl ml-auto bg-slate-50/95 backdrop-blur-xl p-5 md:p-7 lg:p-8 rounded-[1.5rem] md:rounded-[2rem] shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-white/70 overflow-y-auto max-h-[82vh]">
+               <div className="pointer-events-auto flex flex-col gap-3 md:gap-4 lg:gap-5 max-w-2xl ml-auto bg-slate-50/95 backdrop-blur-xl p-5 md:p-7 lg:p-8 rounded-[1.5rem] md:rounded-[2rem] shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-white/70 overflow-y-auto max-h-[80vh]">
 
                   {/* Header Badges */}
                   <div className="flex flex-wrap items-center gap-2 md:gap-4 text-[10px] md:text-xs font-mono uppercase tracking-[0.1em] md:tracking-[0.25em] text-[#1a7097] font-semibold">
