@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -138,7 +138,7 @@ export default function Header() {
         className="fixed top-2.5 sm:top-5 inset-x-0 z-50 flex justify-center pointer-events-none px-3 sm:px-4"
       >
         <div
-          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border rounded-full py-1.5 pl-3.5 pr-2 sm:px-4 sm:py-2 transition-all duration-300 flex items-center justify-between md:justify-start w-[calc(100%-24px)] max-w-md sm:max-w-xl md:w-auto md:max-w-fit ${
+          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border rounded-full py-1.5 pl-3.5 pr-2 sm:px-4 sm:py-2 transition-all duration-300 flex items-center justify-between md:justify-start w-full max-w-[calc(100vw-24px)] sm:max-w-xl md:w-auto md:max-w-fit ${
             scrolled
               ? 'border-slate-300/90 shadow-[0_20px_50px_-10px_rgba(15,23,42,0.14),0_1px_3px_rgba(0,0,0,0.04)]'
               : 'border-slate-200/80 shadow-[0_14px_38px_-10px_rgba(15,23,42,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
@@ -266,7 +266,7 @@ export default function Header() {
           </div>
 
           {/* Right Action Group */}
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             {/* Action Button: Get Free Consultation (Desktop & Tablet >= 640px) */}
             <Link
               href="/contact"
@@ -276,28 +276,19 @@ export default function Header() {
               <ArrowUpRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
             </Link>
 
-            {/* Compact Quick Consult Button on Medium Mobile (screens 400px to 639px) */}
-            <Link
-              href="/contact"
-              className="hidden min-[400px]:inline-flex sm:hidden items-center gap-1 bg-[#377a9b] hover:bg-[#2b6683] text-white shadow-[0_6px_16px_-4px_rgba(55,122,155,0.5)] font-semibold text-xs px-3 py-1.5 rounded-full transition-all cursor-pointer whitespace-nowrap active:scale-95"
-            >
-              <span>Consult</span>
-              <ArrowUpRight className="w-3 h-3 text-white/80" />
-            </Link>
-
-            {/* Mobile menu toggle inside floating pill (High-Precision Animated Toggle) */}
+            {/* Mobile menu toggle inside floating pill (Rock-Solid 44px Touch Target) */}
             <button
               type="button"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
-              className={`md:hidden inline-flex items-center justify-center w-9.5 h-9.5 rounded-full border transition-all cursor-pointer active:scale-90 ${
+              className={`md:hidden inline-flex items-center justify-center w-10 h-10 min-w-[40px] min-h-[40px] rounded-full border transition-all cursor-pointer active:scale-90 ${
                 mobileOpen
                   ? 'bg-[#377a9b] text-white border-[#377a9b] shadow-md'
-                  : 'bg-slate-100/90 hover:bg-slate-200/90 text-slate-800 border-slate-200/80 shadow-2xs'
+                  : 'bg-slate-100/90 hover:bg-slate-200 text-slate-800 border-slate-200/80 shadow-2xs'
               }`}
             >
-              {mobileOpen ? <X className="w-4.5 h-4.5" /> : <Menu className="w-4.5 h-4.5" />}
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>

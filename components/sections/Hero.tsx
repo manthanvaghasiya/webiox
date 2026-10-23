@@ -99,12 +99,16 @@ export default function Hero() {
         </div>
 
         {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context - Painted instantly for LCP) ── */}
-        <div className="max-w-2xl mx-auto mb-7 sm:mb-8 text-center px-2">
-          <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-sm xs:text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2">
+        {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context) ── */}
+        <div className="max-w-2xl mx-auto mb-6 sm:mb-8 text-center px-2">
+          <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-sm xs:text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2 sm:mb-3">
             Engineering high-performance web platforms, mobile apps & enterprise software.
           </h2>
-          <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed">
+          <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed hidden sm:block">
             Whether you&apos;re already an industry leader or striving to become one — connect with us. We build high-impact web platforms, modernize your digital profile, and engineer the technology that turns your business into a market leader.
+          </p>
+          <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs text-[#64748B] leading-relaxed sm:hidden">
+            We partner with visionary founders to engineer custom digital flagships, native mobile apps, and autonomous AI systems designed to scale.
           </p>
         </div>
 
@@ -113,14 +117,14 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.45, delay: 0.14 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-7 sm:mb-9 w-full max-w-sm sm:max-w-none"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 w-full max-w-sm sm:max-w-none"
         >
           {/* Main Action Button (Full width on tiny mobile, 48px min touch target) */}
           <Link href="/contact" className="group w-full xs:w-auto">
             <motion.button
               whileHover={{ scale: 1.025, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full xs:w-auto min-h-[48px] px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-[#377a9b] hover:bg-[#2b6683] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-[15px] tracking-wide shadow-[0_10px_30px_-5px_rgba(55,122,155,0.45)] hover:shadow-[0_14px_38px_-4px_rgba(55,122,155,0.55)] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98]"
+              className="w-full xs:w-auto min-h-[50px] px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-[#377a9b] hover:bg-[#2b6683] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-[15px] tracking-wide shadow-[0_10px_30px_-5px_rgba(55,122,155,0.45)] hover:shadow-[0_14px_38px_-4px_rgba(55,122,155,0.55)] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98]"
             >
               <span>Get a Free Consultation</span>
               <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -162,34 +166,64 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ── 5. Velocity Metrics Strip (Segmented 3-Column Strip on Mobile, Floating Pills on Desktop) ── */}
+        {/* ── 5. Velocity Metrics Strip (Native App Segmented Capsule on Mobile, Floating Pills on Desktop) ── */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.45, delay: 0.18 }}
-          className="w-full max-w-sm sm:max-w-none grid grid-cols-3 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-4 mb-2 sm:mb-3 text-center sm:text-left"
+          className="w-full max-w-sm sm:max-w-none mb-3 sm:mb-4"
         >
-          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2.5 p-2 sm:px-4 sm:py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
-            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#377a9b] shrink-0" />
-            <div>
-              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs sm:text-sm text-[#0F172A] leading-tight">3–6 Wks</div>
-              <div className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase tracking-wider">MVP Launch</div>
+          {/* Mobile: Integrated 3-Segment Capsule (Native iOS / Flutter widget aesthetics) */}
+          <div className="sm:hidden grid grid-cols-3 divide-x divide-slate-200/80 rounded-2xl bg-white/95 border border-slate-200/90 shadow-xs py-2.5 px-1 text-center">
+            <div className="flex flex-col items-center justify-center px-1">
+              <div className="flex items-center gap-1 mb-0.5">
+                <Zap className="w-3 h-3 text-[#377a9b]" />
+                <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs text-[#0F172A] leading-tight">3–6 Wks</span>
+              </div>
+              <span className="text-[8.5px] font-mono text-slate-500 uppercase tracking-wider">MVP Launch</span>
+            </div>
+
+            <div className="flex flex-col items-center justify-center px-1">
+              <div className="flex items-center gap-1 mb-0.5">
+                <ShieldCheck className="w-3 h-3 text-[#ffc312]" />
+                <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs text-[#ffc312] leading-tight">100%</span>
+              </div>
+              <span className="text-[8.5px] font-mono text-slate-500 uppercase tracking-wider">Escrow SLA</span>
+            </div>
+
+            <div className="flex flex-col items-center justify-center px-1">
+              <div className="flex items-center gap-1 mb-0.5">
+                <Activity className="w-3 h-3 text-[#377a9b]" />
+                <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs text-[#377a9b] leading-tight">99+</span>
+              </div>
+              <span className="text-[8.5px] font-mono text-slate-500 uppercase tracking-wider">Core Vitals</span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2.5 p-2 sm:px-4 sm:py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#ffc312]/70 transition-colors">
-            <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ffc312] shrink-0" />
-            <div>
-              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs sm:text-sm text-[#ffc312] leading-tight">100%</div>
-              <div className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase tracking-wider">Milestone Lock</div>
+          {/* Desktop & Tablet (>= 640px): Floating Specular Pills */}
+          <div className="hidden sm:flex flex-wrap items-center justify-center gap-4 text-left">
+            <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
+              <Zap className="w-4 h-4 text-[#377a9b] shrink-0" />
+              <div>
+                <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#0F172A] leading-tight">3–6 Wks</div>
+                <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">MVP Launch</div>
+              </div>
             </div>
-          </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2.5 p-2 sm:px-4 sm:py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
-            <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#377a9b] shrink-0" />
-            <div>
-              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs sm:text-sm text-[#377a9b] leading-tight">99+</div>
-              <div className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase tracking-wider">Core Vitals</div>
+            <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#ffc312]/70 transition-colors">
+              <ShieldCheck className="w-4 h-4 text-[#ffc312] shrink-0" />
+              <div>
+                <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#ffc312] leading-tight">100%</div>
+                <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Milestone Lock</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
+              <Activity className="w-4 h-4 text-[#377a9b] shrink-0" />
+              <div>
+                <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#377a9b] leading-tight">99+</div>
+                <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Core Vitals</div>
+              </div>
             </div>
           </div>
         </motion.div>
