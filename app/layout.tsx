@@ -185,6 +185,9 @@ const jsonLdGraph = {
           "Software Architecture",
           "Enterprise Web Engineering",
           "Next.js App Router Architecture",
+          "React 19 & TypeScript Systems",
+          "Node.js Backend Microservices",
+          "n8n Workflow Automation",
           "Distributed Cloud Systems",
           "Generative AI Workflow Automation"
         ]
@@ -207,6 +210,14 @@ const jsonLdGraph = {
         "https://www.youtube.com/@webiox"
       ],
       "areaServed": [
+        {
+          "@type": "City",
+          "name": "Surat",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Gujarat"
+          }
+        },
         {
           "@type": "Country",
           "name": "India",
