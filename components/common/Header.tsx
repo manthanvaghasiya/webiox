@@ -134,13 +134,13 @@ export default function Header() {
         initial={{ opacity: 0, y: -25, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-        className="fixed top-2 sm:top-3 md:top-5 left-2 sm:left-3 md:left-auto right-0 md:right-auto md:inset-x-0 z-50 md:flex md:justify-center pointer-events-none md:px-4"
+        className="fixed top-2.5 sm:top-4 md:top-5 inset-x-0 z-50 flex justify-center pointer-events-none px-3 sm:px-4"
       >
         <div
-          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border border-r-0 md:border-r rounded-l-full rounded-r-none md:rounded-full py-1 sm:py-1.5 md:py-2 pl-2.5 sm:pl-3.5 pr-2 sm:pr-3 transition-all duration-300 flex items-center justify-between md:justify-start w-full md:w-auto md:max-w-fit ${
+          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border border-slate-200/80 rounded-full py-1.5 pl-3 pr-2 sm:px-4 sm:py-2 transition-all duration-300 flex items-center justify-between md:justify-start w-full max-w-[calc(100vw-24px)] sm:max-w-xl md:w-auto md:max-w-fit ${
             scrolled
-              ? 'border-slate-300/90 shadow-[0_16px_40px_-10px_rgba(15,23,42,0.12),0_1px_3px_rgba(0,0,0,0.04)]'
-              : 'border-slate-200/80 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.06),0_1px_3px_rgba(0,0,0,0.04)]'
+              ? 'border-slate-300/90 shadow-[0_20px_50px_-10px_rgba(15,23,42,0.14),0_1px_3px_rgba(0,0,0,0.04)]'
+              : 'border-slate-200/80 shadow-[0_12px_36px_-10px_rgba(15,23,42,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
           }`}
         >
           {/* Brand Logo (left) */}
@@ -328,7 +328,7 @@ export default function Header() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="md:hidden fixed left-2.5 right-2.5 sm:left-3 sm:right-3 top-[54px] sm:top-[68px] z-50 bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_30px_70px_-15px_rgba(15,23,42,0.3)] p-4 sm:p-5 max-h-[calc(100dvh-70px)] overflow-y-auto overscroll-contain flex flex-col justify-between"
+              className="md:hidden fixed left-3 right-3 top-[60px] sm:top-[72px] z-50 bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_30px_70px_-15px_rgba(15,23,42,0.3)] p-4 sm:p-5 max-h-[calc(100dvh-75px)] overflow-y-auto overscroll-contain flex flex-col justify-between"
             >
               <div>
                 {/* Top Header Strip inside Drawer */}
