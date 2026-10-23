@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import {
-  Menu,
   X,
   ArrowUpRight,
   ChevronDown,
@@ -266,29 +265,34 @@ export default function Header() {
           </div>
 
           {/* Right Action Group */}
-          <div className="flex items-center gap-2 shrink-0">
-            {/* Action Button: Get Free Consultation (Desktop & Tablet >= 640px) */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            {/* "Let's Talk" CTA Button (Visible on mobile between logo & menu, and on desktop) */}
             <Link
               href="/contact"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-[#377a9b] hover:bg-[#2b6683] text-white shadow-[0_8px_20px_-6px_rgba(55,122,155,0.55)] hover:shadow-[0_12px_28px_-6px_rgba(55,122,155,0.65)] font-semibold text-xs sm:text-sm px-4 sm:px-4.5 py-1.5 sm:py-2 rounded-full transition-all cursor-pointer group whitespace-nowrap active:scale-95"
+              className="inline-flex items-center gap-1.5 bg-[#377a9b] hover:bg-[#2b6683] text-white shadow-[0_4px_14px_-2px_rgba(55,122,155,0.45)] hover:shadow-[0_8px_20px_-4px_rgba(55,122,155,0.55)] font-semibold text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all active:scale-95 cursor-pointer whitespace-nowrap group"
             >
-              <span>Get Free Consultation</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ffc312] shrink-0 animate-pulse" />
+              <span>Let&apos;s Talk</span>
+              <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white/90 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
             </Link>
 
-            {/* Mobile menu toggle inside floating pill (Rock-Solid 44px Touch Target) */}
+            {/* Mobile Menu Toggle (Clean 3-line hamburger matching reference image) */}
             <button
               type="button"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
-              className={`md:hidden inline-flex items-center justify-center w-10 h-10 min-w-[40px] min-h-[40px] rounded-full border transition-all cursor-pointer active:scale-90 ${
-                mobileOpen
-                  ? 'bg-[#377a9b] text-white border-[#377a9b] shadow-md'
-                  : 'bg-slate-100/90 hover:bg-slate-200 text-slate-800 border-slate-200/80 shadow-2xs'
-              }`}
+              className="md:hidden inline-flex items-center justify-center w-10 h-10 min-w-[40px] min-h-[40px] rounded-full text-slate-900 hover:bg-slate-100/70 active:scale-90 transition-all cursor-pointer focus-visible:outline-hidden"
             >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileOpen ? (
+                <X className="w-5 h-5 text-slate-900" />
+              ) : (
+                <div className="flex flex-col justify-between w-5 h-3.5" aria-hidden="true">
+                  <span className="w-5 h-[2px] bg-slate-900 rounded-full" />
+                  <span className="w-5 h-[2px] bg-slate-900 rounded-full" />
+                  <span className="w-5 h-[2px] bg-slate-900 rounded-full" />
+                </div>
+              )}
             </button>
           </div>
         </div>
