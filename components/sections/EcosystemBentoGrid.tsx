@@ -139,7 +139,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '+14% MoM Growth',
         iconType: 'activity',
         widgetType: 'gauge',
-        positionClass: '-top-3 sm:-top-1 left-0 sm:left-2 md:left-4 w-40 sm:w-46',
+        positionClass: '-top-3 sm:-top-1 left-0 sm:left-2 md:left-4 w-48 sm:w-56',
         animation: {
           initial: { opacity: 0, x: 180, y: 70, scale: 0.25, rotate: 22 },
           restRotate: -3.5,
@@ -154,7 +154,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'Global 100% Edge CDN',
         iconType: 'zap',
         widgetType: 'bars',
-        positionClass: 'bottom-1 sm:bottom-3 left-0 sm:left-2 md:left-4 w-38 sm:w-44',
+        positionClass: 'bottom-1 sm:bottom-3 left-0 sm:left-2 md:left-4 w-46 sm:w-54',
         animation: {
           initial: { opacity: 0, x: 140, y: -80, scale: 0.25, rotate: -16 },
           restRotate: 2.5,
@@ -169,7 +169,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'Perf • A11y • Best • SEO',
         iconType: 'check',
         widgetType: 'audit',
-        positionClass: 'top-6 sm:top-10 right-0 sm:right-2 md:right-4 w-42 sm:w-48',
+        positionClass: 'top-6 sm:top-10 right-0 sm:right-2 md:right-4 w-50 sm:w-60',
         animation: {
           initial: { opacity: 0, x: -190, y: 40, scale: 0.25, rotate: -20 },
           restRotate: -2,
@@ -239,7 +239,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'This Month',
         iconType: 'activity',
         widgetType: 'budget_donut',
-        positionClass: 'top-20 sm:top-24 left-0 sm:left-2 md:left-4 w-44 sm:w-50',
+        positionClass: 'top-24 sm:top-28 left-0 sm:left-2 md:left-4 w-56 sm:w-64',
         animation: {
           initial: { opacity: 0, x: 140, y: 10, scale: 0.25, rotate: 12 },
           restRotate: 0,
@@ -254,7 +254,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '$950',
         iconType: 'zap',
         widgetType: 'cash_flow',
-        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-40 sm:w-46',
+        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-52 sm:w-60',
         animation: {
           initial: { opacity: 0, x: -130, y: 60, scale: 0.25, rotate: -15 },
           restRotate: 0,
@@ -269,7 +269,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '+4.2%',
         iconType: 'trending',
         widgetType: 'amount_saved',
-        positionClass: 'bottom-8 sm:bottom-12 right-0 sm:right-2 md:right-4 w-38 sm:w-42',
+        positionClass: 'bottom-10 sm:bottom-14 right-0 sm:right-2 md:right-4 w-46 sm:w-52',
         animation: {
           initial: { opacity: 0, x: -140, y: -60, scale: 0.25, rotate: 14 },
           restRotate: 0,
@@ -324,7 +324,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '38 Nodes Healthy',
         iconType: 'activity',
         widgetType: 'sparkline',
-        positionClass: '-top-2 sm:top-0 right-0 sm:right-2 md:right-4 w-40 sm:w-48',
+        positionClass: '-top-2 sm:top-0 right-0 sm:right-2 md:right-4 w-50 sm:w-60',
         animation: {
           initial: { opacity: 0, x: -190, y: 60, scale: 0.25, rotate: 18 },
           restRotate: 3,
@@ -339,7 +339,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'Redis Edge Tier',
         iconType: 'zap',
         widgetType: 'latency',
-        positionClass: 'bottom-2 sm:bottom-4 right-0 sm:right-2 md:right-4 w-38 sm:w-44',
+        positionClass: 'bottom-2 sm:bottom-4 right-0 sm:right-2 md:right-4 w-48 sm:w-56',
         animation: {
           initial: { opacity: 0, x: -160, y: -90, scale: 0.25, rotate: -22 },
           restRotate: -3.5,
@@ -354,7 +354,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '3 Regions • SOC-2 Ready',
         iconType: 'shield',
         widgetType: 'clusters',
-        positionClass: 'top-8 sm:top-12 left-0 sm:left-2 md:left-4 w-42 sm:w-48',
+        positionClass: 'top-10 sm:top-14 left-0 sm:left-2 md:left-4 w-52 sm:w-62',
         animation: {
           initial: { opacity: 0, x: 210, y: -10, scale: 0.25, rotate: -14 },
           restRotate: -2,
@@ -424,7 +424,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'This Month',
         iconType: 'activity',
         widgetType: 'ai_donut',
-        positionClass: 'top-20 sm:top-24 left-0 sm:left-2 md:left-4 w-44 sm:w-50',
+        positionClass: 'top-24 sm:top-28 left-0 sm:left-2 md:left-4 w-56 sm:w-64',
         animation: {
           initial: { opacity: 0, x: 140, y: 10, scale: 0.25, rotate: 12 },
           restRotate: 0,
@@ -439,7 +439,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '85%',
         iconType: 'zap',
         widgetType: 'ai_metrics',
-        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-40 sm:w-46',
+        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-52 sm:w-60',
         animation: {
           initial: { opacity: 0, x: -130, y: 60, scale: 0.25, rotate: -15 },
           restRotate: 0,
@@ -454,7 +454,7 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '+28.4%',
         iconType: 'trending',
         widgetType: 'ai_stat',
-        positionClass: 'bottom-8 sm:bottom-12 right-0 sm:right-2 md:right-4 w-38 sm:w-44',
+        positionClass: 'bottom-10 sm:bottom-14 right-0 sm:right-2 md:right-4 w-46 sm:w-54',
         animation: {
           initial: { opacity: 0, x: -140, y: -60, scale: 0.25, rotate: 14 },
           restRotate: 0,
@@ -713,11 +713,10 @@ export default function EcosystemBentoGrid() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className={`absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[380px] rounded-full blur-3xl pointer-events-none transition-colors duration-700 ${
-            activeService.id === 'ai'
+          className={`absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[380px] rounded-full blur-3xl pointer-events-none transition-colors duration-700 ${activeService.id === 'ai'
               ? 'bg-[radial-gradient(circle,rgba(255,195,18,0.16)_0%,rgba(55,122,155,0.06)_60%,transparent_80%)]'
               : 'bg-[radial-gradient(circle,rgba(55,122,155,0.15)_0%,rgba(56,189,248,0.08)_60%,transparent_80%)]'
-          }`}
+            }`}
         />
 
         {/* Fixed Header: OUR CORE SERVICES // 4 Dedicated Engineering Squads */}
@@ -752,611 +751,611 @@ export default function EcosystemBentoGrid() {
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center"
             >
-            {/* ── LEFT COLUMN: Editorial Service Info, Deliverables & Specs (Below on Mobile, Left on Desktop) ── */}
-            <div className="order-2 lg:order-1 lg:col-span-5 flex flex-col items-start text-left pr-0 lg:pr-3">
+              {/* ── LEFT COLUMN: Editorial Service Info, Deliverables & Specs (Below on Mobile, Left on Desktop) ── */}
+              <div className="order-2 lg:order-1 lg:col-span-5 flex flex-col items-start text-left pr-0 lg:pr-3">
 
-              {/* Dynamic Service Pill (No Dot) */}
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[11px] font-mono font-bold text-[#377a9b] tracking-wider backdrop-blur-md mb-2.5 transition-all">
-                SERVICE {activeService.index} // {activeService.badge}
-              </div>
+                {/* Dynamic Service Pill (No Dot) */}
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[11px] font-mono font-bold text-[#377a9b] tracking-wider backdrop-blur-md mb-2.5 transition-all">
+                  SERVICE {activeService.index} // {activeService.badge}
+                </div>
 
-              {/* Headline */}
-              <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] text-[#0F172A] tracking-[-0.03em] leading-[1.18] mb-2.5 selection:bg-[#377a9b] selection:text-white">
-                <span>{activeService.titlePrimary} </span>
-                <span className={activeService.accentColor === '#ffc312' ? 'text-[#ffc312]' : 'text-[#377a9b]'}>
-                  {activeService.titleAccent}
-                </span>
-              </h2>
-
-              {/* Description */}
-              <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-[13.5px] text-[#475569] font-normal leading-[1.6] mb-3.5 selection:bg-[#377a9b] selection:text-white">
-                {activeService.description}
-              </p>
-
-              {/* Deliverables Checklist (Headings Only) */}
-              <div className="w-full space-y-2 mb-3.5 pt-2 border-t border-slate-200/60">
-                {activeService.deliverables.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-left">
-                    <div className="w-4 h-4 rounded-full bg-[#377a9b]/10 text-[#377a9b] flex items-center justify-center shrink-0 border border-[#377a9b]/20">
-                      <CheckCircle2 className="w-3 h-3 text-[#377a9b]" />
-                    </div>
-                    <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A] leading-tight">
-                      {item.title}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Tech Stack Chips */}
-              <div className="w-full p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/80 flex flex-wrap items-center gap-1.5 mb-4">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 mr-1">Stack:</span>
-                {activeService.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-0.5 rounded-md bg-white border border-slate-200/70 text-[10px] font-mono font-medium text-slate-700 shadow-2xs"
-                  >
-                    {tech}
+                {/* Headline */}
+                <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] text-[#0F172A] tracking-[-0.03em] leading-[1.18] mb-2.5 selection:bg-[#377a9b] selection:text-white">
+                  <span>{activeService.titlePrimary} </span>
+                  <span className={activeService.accentColor === '#ffc312' ? 'text-[#ffc312]' : 'text-[#377a9b]'}>
+                    {activeService.titleAccent}
                   </span>
-                ))}
-              </div>
+                </h2>
 
-              {/* Action Buttons */}
-              <div className="flex items-center gap-3 pt-1 flex-wrap">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
-                >
-                  <span>Start {activeService.badge.toLowerCase()} project</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-1 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-slate-600 hover:text-[#377a9b] transition-colors"
-                >
-                  <span>View capabilities →</span>
-                </Link>
-              </div>
-            </div>
+                {/* Description */}
+                <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-[13.5px] text-[#475569] font-normal leading-[1.6] mb-3.5 selection:bg-[#377a9b] selection:text-white">
+                  {activeService.description}
+                </p>
 
-            {/* ── RIGHT COLUMN: The 3D Stage (First on Mobile, Right on Desktop) ── */}
-            <div className="order-1 lg:order-2 lg:col-span-7 relative w-full min-h-[260px] xs:min-h-[300px] sm:min-h-[490px] md:min-h-[530px] flex flex-col items-center justify-center pt-2 pb-4 overflow-hidden lg:overflow-visible">
+                {/* Deliverables Checklist (Headings Only) */}
+                <div className="w-full space-y-2 mb-3.5 pt-2 border-t border-slate-200/60">
+                  {activeService.deliverables.map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-2.5 text-left">
+                      <div className="w-4 h-4 rounded-full bg-[#377a9b]/10 text-[#377a9b] flex items-center justify-center shrink-0 border border-[#377a9b]/20">
+                        <CheckCircle2 className="w-3 h-3 text-[#377a9b]" />
+                      </div>
+                      <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A] leading-tight">
+                        {item.title}
+                      </span>
+                    </div>
+                  ))}
+                </div>
 
-              {/* ── DYNAMIC SATELLITE CARDS: RENDERED PER-SERVICE (Hidden on mobile to eliminate overlap, Desktop in 3D orbit) ── */}
-              {activeService.cards.map((card) => (
-                <motion.div
-                  key={card.id}
-                  initial={card.animation.initial}
-                  animate={{ opacity: 1, x: 0, y: 0, scale: 1, rotate: card.animation.restRotate }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: card.animation.spring.stiffness,
-                    damping: card.animation.spring.damping,
-                    delay: card.animation.spring.delay,
-                  }}
-                  className={`hidden sm:block absolute z-20 ${card.positionClass} origin-center scale-[0.70] sm:scale-[0.78] lg:scale-[0.82]`}
-                >
-                  <motion.div
-                    animate={{ y: card.animation.float.y }}
-                    transition={{
-                      duration: card.animation.float.duration,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: card.animation.float.delay || 0,
-                    }}
+                {/* Tech Stack Chips */}
+                <div className="w-full p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/80 flex flex-wrap items-center gap-1.5 mb-4">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 mr-1">Stack:</span>
+                  {activeService.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-0.5 rounded-md bg-white border border-slate-200/70 text-[10px] font-mono font-medium text-slate-700 shadow-2xs"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-3 pt-1 flex-wrap">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
                   >
-                    {/* 1. Trend Circle Badge (From Reference Design) */}
-                    {card.widgetType === 'trend_circle' ? (
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-[#377a9b] to-sky-400 p-0.5 shadow-[0_8px_20px_-3px_rgba(55,122,155,0.35)] flex items-center justify-center border-2 border-white">
-                        <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#377a9b] to-sky-400">
-                          <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-white stroke-[2.5]" />
-                        </div>
-                      </div>
-                    ) : card.widgetType === 'budget_donut' ? (
-                      /* 2. Budget Scores Donut Widget (From Reference Design) */
-                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
-                        <div className="flex items-center justify-between mb-1.5">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] sm:text-[11.5px] text-[#0F172A]">
-                            Budget Scores
-                          </span>
-                          <span className="text-[9px] font-medium text-slate-500 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
-                            This Month <span className="text-[7px]">▼</span>
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-2.5">
-                          {/* SVG Donut Chart with 4 precise slices */}
-                          <div className="relative w-11 h-11 shrink-0">
-                            <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
-                              {/* Needs (52.1%) */}
-                              <circle
-                                cx="18"
-                                cy="18"
-                                r="14"
-                                fill="transparent"
-                                stroke="#377a9b"
-                                strokeWidth="5"
-                                strokeDasharray="52.1 47.9"
-                                strokeDashoffset="0"
-                              />
-                              {/* Wants (22.8%) */}
-                              <circle
-                                cx="18"
-                                cy="18"
-                                r="14"
-                                fill="transparent"
-                                stroke="#10b981"
-                                strokeWidth="5"
-                                strokeDasharray="22.8 77.2"
-                                strokeDashoffset="-52.1"
-                              />
-                              {/* Nice to have (13.9%) */}
-                              <circle
-                                cx="18"
-                                cy="18"
-                                r="14"
-                                fill="transparent"
-                                stroke="#38bdf8"
-                                strokeWidth="5"
-                                strokeDasharray="13.9 86.1"
-                                strokeDashoffset="-74.9"
-                              />
-                              {/* Trade Sales (11.2%) */}
-                              <circle
-                                cx="18"
-                                cy="18"
-                                r="14"
-                                fill="transparent"
-                                stroke="#93c5fd"
-                                strokeWidth="5"
-                                strokeDasharray="11.2 88.8"
-                                strokeDashoffset="-88.8"
-                              />
-                            </svg>
-                          </div>
-
-                          {/* Legend */}
-                          <div className="grid grid-cols-1 gap-0.5 text-[8.5px] sm:text-[9px] font-medium text-slate-600 flex-1">
-                            <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
-                                Needs
-                              </span>
-                              <span className="font-bold text-[#0F172A]">52.1%</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
-                                Wants
-                              </span>
-                              <span className="font-bold text-[#0F172A]">22.8%</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8]" />
-                                Nice
-                              </span>
-                              <span className="font-bold text-[#0F172A]">13.9%</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#93c5fd]" />
-                                Trade
-                              </span>
-                              <span className="font-bold text-[#0F172A]">11.2%</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ) : card.widgetType === 'cash_flow' ? (
-                      /* 3. Cash Flow: Amount Received & Amount Spent */
-                      <div className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-2.5 sm:gap-3 hover:border-[#377a9b]/50 transition-all">
-                        <div>
-                          <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Received</span>
-                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-xs sm:text-sm">
-                            <span className="text-emerald-500 font-bold">↑</span>
-                            <span>$965</span>
-                          </div>
-                        </div>
-                        <div className="w-[1px] h-6 bg-slate-200/80" />
-                        <div>
-                          <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Spent</span>
-                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-xs sm:text-sm">
-                            <span className="text-rose-500 font-bold">↓</span>
-                            <span>$950</span>
-                          </div>
-                        </div>
-                      </div>
-                    ) : card.widgetType === 'amount_saved' ? (
-                      /* 4. Amount Saved Widget (Mobile App Service) */
-                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
-                        <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Amount Saved</span>
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
-                            $734.50
-                          </span>
-                          <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[9px] font-bold text-emerald-700 flex items-center gap-0.5">
-                            <span>+4.2%</span>
-                            <TrendingUp className="w-2.5 h-2.5" />
-                          </span>
-                        </div>
-                      </div>
-                    ) : card.widgetType === 'ai_circle' ? (
-                      /* 1. AI Glowing Pulse Circle Badge (Mobile Style) */
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b] p-0.5 shadow-[0_8px_20px_-3px_rgba(255,195,18,0.35)] flex items-center justify-center border-2 border-white">
-                        <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b]">
-                          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white stroke-[2.5]" />
-                        </div>
-                      </div>
-                    ) : card.widgetType === 'ai_donut' ? (
-                      /* 2. AI Workload Donut Widget (Mobile Style) */
-                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
-                        <div className="flex items-center justify-between mb-1.5">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] sm:text-[11.5px] text-[#0F172A]">
-                            AI Workload
-                          </span>
-                          <span className="text-[9px] font-medium text-slate-500 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
-                            This Month <span className="text-[7px]">▼</span>
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-2.5">
-                          {/* SVG Donut Chart with 4 precise slices */}
-                          <div className="relative w-11 h-11 shrink-0">
-                            <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
-                              {/* Reasoning (48.2%) */}
-                              <circle
-                                cx="18"
-                                cy="18"
-                                r="14"
-                                fill="transparent"
-                                stroke="#377a9b"
-                                strokeWidth="5"
-                                strokeDasharray="48.2 51.8"
-                                strokeDashoffset="0"
-                              />
-                              {/* Data Extraction (26.4%) */}
-                              <circle
-                                cx="18"
-                                cy="18"
-                                r="14"
-                                fill="transparent"
-                                stroke="#10b981"
-                                strokeWidth="5"
-                                strokeDasharray="26.4 73.6"
-                                strokeDashoffset="-48.2"
-                              />
-                              {/* Automation (15.8%) */}
-                              <circle
-                                cx="18"
-                                cy="18"
-                                r="14"
-                                fill="transparent"
-                                stroke="#ffc312"
-                                strokeWidth="5"
-                                strokeDasharray="15.8 84.2"
-                                strokeDashoffset="-74.6"
-                              />
-                              {/* Correction (9.6%) */}
-                              <circle
-                                cx="18"
-                                cy="18"
-                                r="14"
-                                fill="transparent"
-                                stroke="#38bdf8"
-                                strokeWidth="5"
-                                strokeDasharray="9.6 90.4"
-                                strokeDashoffset="-90.4"
-                              />
-                            </svg>
-                          </div>
-
-                          {/* Legend */}
-                          <div className="grid grid-cols-1 gap-0.5 text-[8.5px] sm:text-[9px] font-medium text-slate-600 flex-1">
-                            <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
-                                Reasoning
-                              </span>
-                              <span className="font-bold text-[#0F172A]">48.2%</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
-                                Extraction
-                              </span>
-                              <span className="font-bold text-[#0F172A]">26.4%</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#ffc312]" />
-                                Automation
-                              </span>
-                              <span className="font-bold text-[#0F172A]">15.8%</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8]" />
-                                Correction
-                              </span>
-                              <span className="font-bold text-[#0F172A]">9.6%</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ) : card.widgetType === 'ai_metrics' ? (
-                      /* 3. AI Impact Dual Metric Pill (Mobile Style) */
-                      <div className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-2.5 sm:gap-3 hover:border-[#377a9b]/50 transition-all">
-                        <div>
-                          <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Hours Saved</span>
-                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-xs sm:text-sm">
-                            <span className="text-emerald-600 font-bold">↑</span>
-                            <span>1,850h</span>
-                          </div>
-                        </div>
-                        <div className="w-[1px] h-6 bg-slate-200/80" />
-                        <div>
-                          <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Cost Reduced</span>
-                          <div className="flex items-center gap-1 text-[#0F172A] font-black text-xs sm:text-sm">
-                            <span className="text-emerald-600 font-bold">↓</span>
-                            <span>85%</span>
-                          </div>
-                        </div>
-                      </div>
-                    ) : card.widgetType === 'ai_stat' ? (
-                      /* 4. AI Decisions Dispatched Stat Card (Mobile Style) */
-                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
-                        <span className="block text-[9px] text-slate-500 font-medium mb-0.5">Decisions Dispatched</span>
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
-                            840k/mo
-                          </span>
-                          <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[9px] font-bold text-emerald-700 flex items-center gap-0.5">
-                            <span>+28.4%</span>
-                            <TrendingUp className="w-2.5 h-2.5" />
-                          </span>
-                        </div>
-                      </div>
-                    ) : (
-                      /* Standard Satellite Card */
-                      <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all group">
-                        {/* Header: Title + Dedicated Technical Icon */}
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-[9px] font-mono text-slate-500 font-semibold uppercase tracking-wider">
-                            {card.title}
-                          </span>
-                          <span className="p-0.5 rounded-md bg-[#377a9b]/10 text-[#377a9b]">
-                            {card.iconType === 'activity' && <Activity className="w-2.5 h-2.5" />}
-                            {card.iconType === 'zap' && <Zap className="w-2.5 h-2.5 text-emerald-600" />}
-                            {card.iconType === 'star' && <Star className="w-2.5 h-2.5 text-[#ffc312] fill-[#ffc312]" />}
-                            {card.iconType === 'shield' && <ShieldCheck className="w-2.5 h-2.5 text-emerald-600" />}
-                            {card.iconType === 'check' && <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600" />}
-                            {card.iconType === 'terminal' && <Terminal className="w-2.5 h-2.5 text-emerald-600" />}
-                            {card.iconType === 'cpu' && <Cpu className="w-2.5 h-2.5 text-[#377a9b]" />}
-                            {card.iconType === 'trending' && <TrendingUp className="w-2.5 h-2.5 text-[#ffc312]" />}
-                          </span>
-                        </div>
-
-                        {/* Value */}
-                        <div className="flex items-baseline gap-1.5 mb-1">
-                          <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base sm:text-lg text-[#0F172A]">
-                            {card.value}
-                          </span>
-                          {card.widgetType === 'gauge' && (
-                            <span className="text-[9px] font-mono font-bold text-emerald-600 flex items-center">
-                              <TrendingUp className="w-2 h-2 mr-0.5" />
-                              Growth
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Dedicated Live Interactive Widgets */}
-                        {card.widgetType === 'gauge' && (
-                          <div className="space-y-1.5 pt-1.5 border-t border-slate-100">
-                            <div className="flex justify-between text-[9px] font-mono text-slate-500">
-                              <span>Storefront Conversion</span>
-                              <strong className="text-emerald-600 font-bold">Top 5%</strong>
-                            </div>
-                            <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                              <div className="w-[92%] h-full bg-emerald-500 rounded-full" />
-                            </div>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'bars' && (
-                          <div className="pt-1.5 border-t border-slate-100">
-                            <div className="flex justify-between text-[9px] font-mono text-slate-500 mb-1">
-                              <span>Edge CDN Nodes</span>
-                              <strong className="text-[#377a9b]">Global 100%</strong>
-                            </div>
-                            <div className="flex items-end gap-1 h-5">
-                              <div className="w-2 h-2.5 bg-[#377a9b]/40 rounded-xs" />
-                              <div className="w-2 h-4 bg-[#377a9b]/60 rounded-xs" />
-                              <div className="w-2 h-5 bg-[#377a9b] rounded-xs" />
-                              <div className="w-2 h-3.5 bg-[#377a9b]/70 rounded-xs" />
-                              <div className="w-2 h-5 bg-[#ffc312] rounded-xs" />
-                            </div>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'audit' && (
-                          <div className="flex items-center justify-between pt-1.5 border-t border-slate-100">
-                            {['Perf', 'A11y', 'SEO', 'PWA'].map((item) => (
-                              <div key={item} className="flex flex-col items-center">
-                                <span className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-700 text-[8px] font-bold flex items-center justify-center border border-emerald-300">
-                                  100
-                                </span>
-                                <span className="text-[7.5px] font-mono text-slate-600 mt-0.5">{item}</span>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {card.widgetType === 'stars' && (
-                          <div className="flex items-center gap-1 pt-1.5 border-t border-slate-100">
-                            <div className="flex text-[#ffc312]">
-                              {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="w-3 h-3 fill-[#ffc312]" />
-                              ))}
-                            </div>
-                            <span className="text-[9px] font-mono text-slate-600 ml-1">{card.sub}</span>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'circle_ring' && (
-                          <div className="flex items-center gap-2 pt-1.5 border-t border-slate-100">
-                            <div className="w-5 h-5 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
-                            <span className="text-[9.5px] font-mono text-slate-600">{card.sub}</span>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'fps' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-600">
-                            <span>{card.sub}</span>
-                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                          </div>
-                        )}
-
-                        {card.widgetType === 'tech_stack' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1 text-[9px] font-mono text-slate-600">
-                            <ShieldCheck className="w-3 h-3 text-emerald-600" />
-                            <span>{card.sub}</span>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'sparkline' && (
-                          <div className="flex items-center justify-between pt-1.5 border-t border-slate-100 text-[9.5px] font-mono">
-                            <span className="text-slate-600">{card.sub}</span>
-                            <span className="text-emerald-700 font-bold">Active</span>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'latency' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono">
-                            <span className="text-slate-600">{card.sub}</span>
-                            <span className="text-[#377a9b] font-bold">Sub-50ms</span>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'clusters' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-600">
-                            <span>{card.sub}</span>
-                            <span className="flex gap-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                            </span>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'gold_badge' && (
-                          <div className="flex items-center gap-1.5 pt-1.5 border-t border-slate-100 text-[9.5px] font-mono text-amber-700">
-                            <Sparkles className="w-3 h-3 text-[#ffc312]" />
-                            <span>{card.sub}</span>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'router' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1.5 text-[9px] font-mono text-slate-600">
-                            <Cpu className="w-3 h-3 text-[#377a9b]" />
-                            <span>{card.sub}</span>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'radar' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-600">
-                            <span>{card.sub}</span>
-                            <span className="flex h-2 w-2 relative">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                            </span>
-                          </div>
-                        )}
-
-                        {card.widgetType === 'terminal' && (
-                          <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1 font-mono text-[9px] text-emerald-700">
-                            <span className="text-slate-600">$</span>
-                            <span>{card.sub}</span>
-                            <span className="w-1.5 h-3 bg-emerald-500 animate-pulse" />
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </motion.div>
-                </motion.div>
-              ))}
-
-              {/* ══════════════════════════════════════════════════════════════════════
-                  CENTRAL DEVICE WITH HIGH-RES REALISTIC SCREEN
-                 ══════════════════════════════════════════════════════════════════════ */}
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ type: 'spring', stiffness: 280, damping: 24 }}
-                className="relative z-10 w-full max-w-[260px] xs:max-w-[300px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[480px] mx-auto"
-              >
-                {/* 1. Browser Window Mockup */}
-                {activeService.deviceType === 'browser' && (
-                  <div className="rounded-2xl border border-slate-300/85 bg-white shadow-[0_28px_60px_-14px_rgba(15,23,42,0.22)] overflow-hidden transition-transform duration-500 hover:scale-[1.01]">
-                    <div className="flex items-center justify-between px-3.5 py-2.5 bg-slate-100/95 border-b border-slate-200/80">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full bg-rose-400/90" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/90" />
-                      </div>
-                      <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] font-mono text-slate-600 shadow-2xs">
-                        <Lock className="w-2.5 h-2.5 text-emerald-700" />
-                        <span>{activeService.mockupUrl}</span>
-                      </div>
-                      <div className="w-6 flex justify-end text-slate-500" aria-hidden="true">
-                        <Maximize2 className="w-3 h-3 opacity-60" />
-                      </div>
-                    </div>
-
-                    <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
-                      <Image
-                        src={activeService.mockupImage}
-                        alt={activeService.title}
-                        fill
-                        priority
-                        className="object-cover object-top select-none"
-                        sizes="(max-width: 768px) 300px, 430px"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/20 pointer-events-none" />
-                    </div>
-                  </div>
-                )}
-
-                {/* 2. Realistic Mobile Phone Frame with High-Res Production App Interface */}
-                {activeService.deviceType === 'mobile' && (
-                  <div className="relative mx-auto w-56 sm:w-64 md:w-70 rounded-[44px] border-[8px] border-slate-900 bg-slate-900 p-1 shadow-[0_32px_70px_-15px_rgba(15,23,42,0.3)] transition-transform duration-500 hover:scale-[1.01]">
-                    {/* Dynamic Island Capsule */}
-                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-22 h-5 bg-slate-900 rounded-full z-30 flex items-center justify-between px-2.5 pointer-events-none shadow-xs">
-                      <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    </div>
-
-                    {/* Screen Container with Native High-Performance Mobile Application Interface */}
-                    <div className="relative w-full aspect-[9/18.5] rounded-[36px] overflow-hidden bg-[#f8fafc] select-none shadow-inner">
-                      <MobileAppScreen />
-                      {/* Subtle Glass Glare Reflection */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/10 pointer-events-none" />
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-
-              {/* Mobile-Only Production Status Badge */}
-              <div className="sm:hidden flex items-center justify-center gap-2 mt-3 flex-wrap">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-slate-200 shadow-2xs text-[10.5px] font-mono text-slate-700">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Production Verified</span>
+                    <span>Start {activeService.badge.toLowerCase()} project</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center gap-1 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-slate-600 hover:text-[#377a9b] transition-colors"
+                  >
+                    <span>View capabilities →</span>
+                  </Link>
                 </div>
               </div>
 
-            </div>
+              {/* ── RIGHT COLUMN: The 3D Stage (First on Mobile, Right on Desktop) ── */}
+              <div className="order-1 lg:order-2 lg:col-span-7 relative w-full min-h-[260px] xs:min-h-[300px] sm:min-h-[490px] md:min-h-[530px] flex flex-col items-center justify-center pt-2 pb-4 overflow-hidden lg:overflow-visible">
 
-          </motion.div>
-        </AnimatePresence>
+                {/* ── DYNAMIC SATELLITE CARDS: RENDERED PER-SERVICE (Hidden on mobile to eliminate overlap, Desktop in 3D orbit) ── */}
+                {activeService.cards.map((card) => (
+                  <motion.div
+                    key={card.id}
+                    initial={card.animation.initial}
+                    animate={{ opacity: 1, x: 0, y: 0, scale: 1, rotate: card.animation.restRotate }}
+                    transition={{
+                      type: 'spring',
+                      stiffness: card.animation.spring.stiffness,
+                      damping: card.animation.spring.damping,
+                      delay: card.animation.spring.delay,
+                    }}
+                    className={`hidden sm:block absolute z-20 ${card.positionClass} origin-center scale-[0.82] xs:scale-90 sm:scale-100`}
+                  >
+                    <motion.div
+                      animate={{ y: card.animation.float.y }}
+                      transition={{
+                        duration: card.animation.float.duration,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: card.animation.float.delay || 0,
+                      }}
+                    >
+                      {/* 1. Trend Circle Badge (From Reference Design) */}
+                      {card.widgetType === 'trend_circle' ? (
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#377a9b] to-sky-400 p-0.5 shadow-[0_12px_28px_-4px_rgba(55,122,155,0.4)] flex items-center justify-center border-2 border-white">
+                          <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#377a9b] to-sky-400">
+                            <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
+                          </div>
+                        </div>
+                      ) : card.widgetType === 'budget_donut' ? (
+                        /* 2. Budget Scores Donut Widget (From Reference Design) */
+                        <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] sm:text-[13px] text-[#0F172A]">
+                              Budget Scores
+                            </span>
+                            <span className="text-[10px] font-medium text-slate-600 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
+                              This Month <span className="text-[8px]">▼</span>
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-3">
+                            {/* SVG Donut Chart with 4 precise slices */}
+                            <div className="relative w-14 h-14 shrink-0">
+                              <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                                {/* Needs (52.1%) */}
+                                <circle
+                                  cx="18"
+                                  cy="18"
+                                  r="14"
+                                  fill="transparent"
+                                  stroke="#377a9b"
+                                  strokeWidth="5"
+                                  strokeDasharray="52.1 47.9"
+                                  strokeDashoffset="0"
+                                />
+                                {/* Wants (22.8%) */}
+                                <circle
+                                  cx="18"
+                                  cy="18"
+                                  r="14"
+                                  fill="transparent"
+                                  stroke="#10b981"
+                                  strokeWidth="5"
+                                  strokeDasharray="22.8 77.2"
+                                  strokeDashoffset="-52.1"
+                                />
+                                {/* Nice to have (13.9%) */}
+                                <circle
+                                  cx="18"
+                                  cy="18"
+                                  r="14"
+                                  fill="transparent"
+                                  stroke="#38bdf8"
+                                  strokeWidth="5"
+                                  strokeDasharray="13.9 86.1"
+                                  strokeDashoffset="-74.9"
+                                />
+                                {/* Trade Sales (11.2%) */}
+                                <circle
+                                  cx="18"
+                                  cy="18"
+                                  r="14"
+                                  fill="transparent"
+                                  stroke="#93c5fd"
+                                  strokeWidth="5"
+                                  strokeDasharray="11.2 88.8"
+                                  strokeDashoffset="-88.8"
+                                />
+                              </svg>
+                            </div>
+
+                            {/* Legend */}
+                            <div className="grid grid-cols-1 gap-0.5 text-[9px] sm:text-[9.5px] font-medium text-slate-600 flex-1">
+                              <div className="flex items-center justify-between">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
+                                  Needs
+                                </span>
+                                <span className="font-bold text-[#0F172A]">52.1%</span>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
+                                  Wants
+                                </span>
+                                <span className="font-bold text-[#0F172A]">22.8%</span>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8]" />
+                                  Nice to have
+                                </span>
+                                <span className="font-bold text-[#0F172A]">13.9%</span>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#93c5fd]" />
+                                  Trade Sales
+                                </span>
+                                <span className="font-bold text-[#0F172A]">11.2%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ) : card.widgetType === 'cash_flow' ? (
+                        /* 3. Cash Flow: Amount Received & Amount Spent */
+                        <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#377a9b]/50 transition-all">
+                          <div>
+                            <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Amount Received</span>
+                            <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
+                              <span className="text-emerald-500 font-bold">↑</span>
+                              <span>$965</span>
+                            </div>
+                          </div>
+                          <div className="w-[1px] h-8 bg-slate-200/80" />
+                          <div>
+                            <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Amount Spent</span>
+                            <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
+                              <span className="text-rose-500 font-bold">↓</span>
+                              <span>$950</span>
+                            </div>
+                          </div>
+                        </div>
+                      ) : card.widgetType === 'amount_saved' ? (
+                        /* 4. Amount Saved Widget (Mobile App Service) */
+                        <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
+                          <span className="block text-[10px] text-slate-600 font-medium mb-1">Amount Saved</span>
+                          <div className="flex items-center justify-between gap-3">
+                            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg sm:text-xl text-[#0F172A]">
+                              $734.50
+                            </span>
+                            <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-bold text-emerald-700 flex items-center gap-0.5">
+                              <span>+4.2%</span>
+                              <TrendingUp className="w-2.5 h-2.5" />
+                            </span>
+                          </div>
+                        </div>
+                      ) : card.widgetType === 'ai_circle' ? (
+                        /* 1. AI Glowing Pulse Circle Badge (Mobile Style) */
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b] p-0.5 shadow-[0_12px_28px_-4px_rgba(255,195,18,0.4)] flex items-center justify-center border-2 border-white">
+                          <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b]">
+                            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
+                          </div>
+                        </div>
+                      ) : card.widgetType === 'ai_donut' ? (
+                        /* 2. AI Workload Donut Widget (Mobile Style) */
+                        <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] sm:text-[13px] text-[#0F172A]">
+                              AI Workload
+                            </span>
+                            <span className="text-[10px] font-medium text-slate-600 flex items-center gap-0.5 cursor-pointer hover:text-slate-900">
+                              This Month <span className="text-[8px]">▼</span>
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-3">
+                            {/* SVG Donut Chart with 4 precise slices */}
+                            <div className="relative w-14 h-14 shrink-0">
+                              <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                                {/* Reasoning (48.2%) */}
+                                <circle
+                                  cx="18"
+                                  cy="18"
+                                  r="14"
+                                  fill="transparent"
+                                  stroke="#377a9b"
+                                  strokeWidth="5"
+                                  strokeDasharray="48.2 51.8"
+                                  strokeDashoffset="0"
+                                />
+                                {/* Data Extraction (26.4%) */}
+                                <circle
+                                  cx="18"
+                                  cy="18"
+                                  r="14"
+                                  fill="transparent"
+                                  stroke="#10b981"
+                                  strokeWidth="5"
+                                  strokeDasharray="26.4 73.6"
+                                  strokeDashoffset="-48.2"
+                                />
+                                {/* Automation (15.8%) */}
+                                <circle
+                                  cx="18"
+                                  cy="18"
+                                  r="14"
+                                  fill="transparent"
+                                  stroke="#ffc312"
+                                  strokeWidth="5"
+                                  strokeDasharray="15.8 84.2"
+                                  strokeDashoffset="-74.6"
+                                />
+                                {/* Correction (9.6%) */}
+                                <circle
+                                  cx="18"
+                                  cy="18"
+                                  r="14"
+                                  fill="transparent"
+                                  stroke="#38bdf8"
+                                  strokeWidth="5"
+                                  strokeDasharray="9.6 90.4"
+                                  strokeDashoffset="-90.4"
+                                />
+                              </svg>
+                            </div>
+
+                            {/* Legend */}
+                            <div className="grid grid-cols-1 gap-0.5 text-[9px] sm:text-[9.5px] font-medium text-slate-600 flex-1">
+                              <div className="flex items-center justify-between">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
+                                  Reasoning
+                                </span>
+                                <span className="font-bold text-[#0F172A]">48.2%</span>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
+                                  Extraction
+                                </span>
+                                <span className="font-bold text-[#0F172A]">26.4%</span>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#ffc312]" />
+                                  Automation
+                                </span>
+                                <span className="font-bold text-[#0F172A]">15.8%</span>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8]" />
+                                  Correction
+                                </span>
+                                <span className="font-bold text-[#0F172A]">9.6%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ) : card.widgetType === 'ai_metrics' ? (
+                        /* 3. AI Impact Dual Metric Pill (Mobile Style) */
+                        <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left flex items-center justify-between gap-3 sm:gap-4 hover:border-[#377a9b]/50 transition-all">
+                          <div>
+                            <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Hours Saved</span>
+                            <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
+                              <span className="text-emerald-600 font-bold">↑</span>
+                              <span>1,850h</span>
+                            </div>
+                          </div>
+                          <div className="w-[1px] h-8 bg-slate-200/80" />
+                          <div>
+                            <span className="block text-[10px] text-slate-600 font-medium mb-0.5">Cost Reduced</span>
+                            <div className="flex items-center gap-1 text-[#0F172A] font-black text-sm sm:text-base">
+                              <span className="text-emerald-600 font-bold">↓</span>
+                              <span>85%</span>
+                            </div>
+                          </div>
+                        </div>
+                      ) : card.widgetType === 'ai_stat' ? (
+                        /* 4. AI Decisions Dispatched Stat Card (Mobile Style) */
+                        <div className="p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_22px_50px_-10px_rgba(15,23,42,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all">
+                          <span className="block text-[10px] text-slate-600 font-medium mb-1">Decisions Dispatched</span>
+                          <div className="flex items-center justify-between gap-3">
+                            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg sm:text-xl text-[#0F172A]">
+                              840k/mo
+                            </span>
+                            <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-bold text-emerald-700 flex items-center gap-0.5">
+                              <span>+28.4%</span>
+                              <TrendingUp className="w-2.5 h-2.5" />
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        /* Standard Satellite Card */
+                        <div className="p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_20px_45px_-10px_rgba(15,23,42,0.13),inset_0_1px_1px_rgba(255,255,255,0.9)] text-left hover:border-[#377a9b]/50 transition-all group">
+                          {/* Header: Title + Dedicated Technical Icon */}
+                          <div className="flex items-center justify-between mb-1.5">
+                            <span className="text-[10px] font-mono text-slate-600 font-semibold uppercase tracking-wider">
+                              {card.title}
+                            </span>
+                            <span className="p-1 rounded-md bg-[#377a9b]/10 text-[#377a9b]">
+                              {card.iconType === 'activity' && <Activity className="w-3 h-3" />}
+                              {card.iconType === 'zap' && <Zap className="w-3 h-3 text-emerald-600" />}
+                              {card.iconType === 'star' && <Star className="w-3 h-3 text-[#ffc312] fill-[#ffc312]" />}
+                              {card.iconType === 'shield' && <ShieldCheck className="w-3 h-3 text-emerald-600" />}
+                              {card.iconType === 'check' && <CheckCircle2 className="w-3 h-3 text-emerald-600" />}
+                              {card.iconType === 'terminal' && <Terminal className="w-3 h-3 text-emerald-600" />}
+                              {card.iconType === 'cpu' && <Cpu className="w-3 h-3 text-[#377a9b]" />}
+                              {card.iconType === 'trending' && <TrendingUp className="w-3 h-3 text-[#ffc312]" />}
+                            </span>
+                          </div>
+
+                          {/* Value */}
+                          <div className="flex items-baseline gap-2 mb-1.5">
+                            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A]">
+                              {card.value}
+                            </span>
+                            {card.widgetType === 'gauge' && (
+                              <span className="text-[10px] font-mono font-bold text-emerald-600 flex items-center">
+                                <TrendingUp className="w-2.5 h-2.5 mr-0.5" />
+                                Growth
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Dedicated Live Interactive Widgets */}
+                          {card.widgetType === 'gauge' && (
+                            <div className="space-y-1.5 pt-1.5 border-t border-slate-100">
+                              <div className="flex justify-between text-[9px] font-mono text-slate-500">
+                                <span>Storefront Conversion</span>
+                                <strong className="text-emerald-600 font-bold">Top 5%</strong>
+                              </div>
+                              <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div className="w-[92%] h-full bg-emerald-500 rounded-full" />
+                              </div>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'bars' && (
+                            <div className="pt-1.5 border-t border-slate-100">
+                              <div className="flex justify-between text-[9px] font-mono text-slate-500 mb-1">
+                                <span>Edge CDN Nodes</span>
+                                <strong className="text-[#377a9b]">Global 100%</strong>
+                              </div>
+                              <div className="flex items-end gap-1 h-5">
+                                <div className="w-2 h-2.5 bg-[#377a9b]/40 rounded-xs" />
+                                <div className="w-2 h-4 bg-[#377a9b]/60 rounded-xs" />
+                                <div className="w-2 h-5 bg-[#377a9b] rounded-xs" />
+                                <div className="w-2 h-3.5 bg-[#377a9b]/70 rounded-xs" />
+                                <div className="w-2 h-5 bg-[#ffc312] rounded-xs" />
+                              </div>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'audit' && (
+                            <div className="flex items-center justify-between pt-1.5 border-t border-slate-100">
+                              {['Perf', 'A11y', 'SEO', 'PWA'].map((item) => (
+                                <div key={item} className="flex flex-col items-center">
+                                  <span className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-700 text-[8px] font-bold flex items-center justify-center border border-emerald-300">
+                                    100
+                                  </span>
+                                  <span className="text-[7.5px] font-mono text-slate-600 mt-0.5">{item}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {card.widgetType === 'stars' && (
+                            <div className="flex items-center gap-1 pt-1.5 border-t border-slate-100">
+                              <div className="flex text-[#ffc312]">
+                                {[...Array(5)].map((_, i) => (
+                                  <Star key={i} className="w-3 h-3 fill-[#ffc312]" />
+                                ))}
+                              </div>
+                              <span className="text-[9px] font-mono text-slate-600 ml-1">{card.sub}</span>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'circle_ring' && (
+                            <div className="flex items-center gap-2 pt-1.5 border-t border-slate-100">
+                              <div className="w-5 h-5 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+                              <span className="text-[9.5px] font-mono text-slate-600">{card.sub}</span>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'fps' && (
+                            <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-600">
+                              <span>{card.sub}</span>
+                              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                            </div>
+                          )}
+
+                          {card.widgetType === 'tech_stack' && (
+                            <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1 text-[9px] font-mono text-slate-600">
+                              <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                              <span>{card.sub}</span>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'sparkline' && (
+                            <div className="flex items-center justify-between pt-1.5 border-t border-slate-100 text-[9.5px] font-mono">
+                              <span className="text-slate-600">{card.sub}</span>
+                              <span className="text-emerald-700 font-bold">Active</span>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'latency' && (
+                            <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono">
+                              <span className="text-slate-600">{card.sub}</span>
+                              <span className="text-[#377a9b] font-bold">Sub-50ms</span>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'clusters' && (
+                            <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-600">
+                              <span>{card.sub}</span>
+                              <span className="flex gap-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                              </span>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'gold_badge' && (
+                            <div className="flex items-center gap-1.5 pt-1.5 border-t border-slate-100 text-[9.5px] font-mono text-amber-700">
+                              <Sparkles className="w-3 h-3 text-[#ffc312]" />
+                              <span>{card.sub}</span>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'router' && (
+                            <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1.5 text-[9px] font-mono text-slate-600">
+                              <Cpu className="w-3 h-3 text-[#377a9b]" />
+                              <span>{card.sub}</span>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'radar' && (
+                            <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono text-slate-600">
+                              <span>{card.sub}</span>
+                              <span className="flex h-2 w-2 relative">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                              </span>
+                            </div>
+                          )}
+
+                          {card.widgetType === 'terminal' && (
+                            <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1 font-mono text-[9px] text-emerald-700">
+                              <span className="text-slate-600">$</span>
+                              <span>{card.sub}</span>
+                              <span className="w-1.5 h-3 bg-emerald-500 animate-pulse" />
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </motion.div>
+                  </motion.div>
+                ))}
+
+                {/* ══════════════════════════════════════════════════════════════════════
+                  CENTRAL DEVICE WITH HIGH-RES REALISTIC SCREEN
+                 ══════════════════════════════════════════════════════════════════════ */}
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: 'spring', stiffness: 280, damping: 24 }}
+                  className="relative z-10 w-full max-w-[260px] xs:max-w-[300px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[480px] mx-auto"
+                >
+                  {/* 1. Browser Window Mockup */}
+                  {activeService.deviceType === 'browser' && (
+                    <div className="rounded-2xl border border-slate-300/85 bg-white shadow-[0_28px_60px_-14px_rgba(15,23,42,0.22)] overflow-hidden transition-transform duration-500 hover:scale-[1.01]">
+                      <div className="flex items-center justify-between px-3.5 py-2.5 bg-slate-100/95 border-b border-slate-200/80">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-rose-400/90" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/90" />
+                        </div>
+                        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] font-mono text-slate-600 shadow-2xs">
+                          <Lock className="w-2.5 h-2.5 text-emerald-700" />
+                          <span>{activeService.mockupUrl}</span>
+                        </div>
+                        <div className="w-6 flex justify-end text-slate-500" aria-hidden="true">
+                          <Maximize2 className="w-3 h-3 opacity-60" />
+                        </div>
+                      </div>
+
+                      <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                        <Image
+                          src={activeService.mockupImage}
+                          alt={activeService.title}
+                          fill
+                          priority
+                          className="object-cover object-top select-none"
+                          sizes="(max-width: 768px) 300px, 430px"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/20 pointer-events-none" />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 2. Realistic Mobile Phone Frame with High-Res Production App Interface */}
+                  {activeService.deviceType === 'mobile' && (
+                    <div className="relative mx-auto w-56 sm:w-64 md:w-70 rounded-[44px] border-[8px] border-slate-900 bg-slate-900 p-1 shadow-[0_32px_70px_-15px_rgba(15,23,42,0.3)] transition-transform duration-500 hover:scale-[1.01]">
+                      {/* Dynamic Island Capsule */}
+                      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-22 h-5 bg-slate-900 rounded-full z-30 flex items-center justify-between px-2.5 pointer-events-none shadow-xs">
+                        <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      </div>
+
+                      {/* Screen Container with Native High-Performance Mobile Application Interface */}
+                      <div className="relative w-full aspect-[9/18.5] rounded-[36px] overflow-hidden bg-[#f8fafc] select-none shadow-inner">
+                        <MobileAppScreen />
+                        {/* Subtle Glass Glare Reflection */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/10 pointer-events-none" />
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+
+                {/* Mobile-Only Production Status Badge */}
+                <div className="sm:hidden flex items-center justify-center gap-2 mt-3 flex-wrap">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-slate-200 shadow-2xs text-[10.5px] font-mono text-slate-700">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Production Verified</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* ── Minimalist Service Switcher Tabs (Set strictly in ONE line with prominent highlight) ── */}
@@ -1375,36 +1374,33 @@ export default function EcosystemBentoGrid() {
                   service.id === 'web'
                     ? 'WEB Development'
                     : service.id === 'app'
-                    ? 'MOBILE APPS'
-                    : service.id === 'saas'
-                    ? 'Software Development'
-                    : 'AI AUTOMATION';
+                      ? 'MOBILE APPS'
+                      : service.id === 'saas'
+                        ? 'Software Development'
+                        : 'AI AUTOMATION';
 
                 return (
                   <button
                     key={service.id}
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className={`relative min-h-[40px] px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer active:scale-[0.98] shrink-0 whitespace-nowrap overflow-hidden ${
-                      isActive
+                    className={`relative min-h-[40px] px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer active:scale-[0.98] shrink-0 whitespace-nowrap overflow-hidden ${isActive
                         ? 'bg-[#377a9b] text-white shadow-[0_4px_14px_-2px_rgba(55,122,155,0.45)]'
                         : 'bg-transparent text-slate-600 hover:text-[#0F172A] hover:bg-white/80'
-                    }`}
+                      }`}
                   >
                     {/* Glowing active highlight indicator dot */}
                     <span
-                      className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-                        isActive ? 'bg-[#ffc312] animate-pulse' : 'bg-slate-300'
-                      }`}
+                      className={`w-1.5 h-1.5 rounded-full shrink-0 ${isActive ? 'bg-[#ffc312] animate-pulse' : 'bg-slate-300'
+                        }`}
                     />
 
                     {/* Highlighted Index Pill */}
                     <span
-                      className={`font-mono font-black text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded-md transition-colors ${
-                        isActive
+                      className={`font-mono font-black text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded-md transition-colors ${isActive
                           ? 'bg-white/20 text-[#ffc312]'
                           : 'bg-slate-200/80 text-slate-500'
-                      }`}
+                        }`}
                     >
                       {service.index}
                     </span>
