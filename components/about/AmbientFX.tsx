@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 
@@ -79,8 +79,8 @@ export const ConstellationDots = ({ dots }: { dots: Dot[] }) => (
 export type StreakColor = 'teal' | 'yellow' | 'mint';
 
 const streakColors: Record<StreakColor, string> = {
-  teal: 'rgba(55, 122, 155,0.11)',
-  yellow: 'rgba(255, 195, 18,0.11)',
+  teal: 'rgba(55,122,155,0.11)',
+  yellow: 'rgba(255,195,18,0.11)',
   mint: 'rgba(199,232,155,0.3)',
 };
 
@@ -120,3 +120,4 @@ export const AuroraStreak = ({
     </div>
   );
 };
+

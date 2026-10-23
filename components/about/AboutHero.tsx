@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
@@ -29,7 +29,7 @@ export default function AboutHero() {
   const spotlightX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const spotlightY = useSpring(mouseY, { stiffness: 50, damping: 20 });
 
-  const bg1 = useMotionTemplate`radial-gradient(circle 600px at ${spotlightX}px ${spotlightY}px, rgba(255, 195, 18,0.15), transparent 80%)`;
+  const bg1 = useMotionTemplate`radial-gradient(circle 600px at ${spotlightX}px ${spotlightY}px, rgba(255,195,18,0.15), transparent 80%)`;
   const bg2 = useMotionTemplate`radial-gradient(circle 300px at ${spotlightX}px ${spotlightY}px, rgba(255,255,255,0.1), transparent 80%)`;
 
   useEffect(() => {
@@ -119,23 +119,23 @@ export default function AboutHero() {
           {/* Crafting Digital Excellence — with Marquee above */}
           <div className="w-full mt-4 lg:mt-6 relative z-20 flex flex-col">
             
-            {/* Infinite Marquee - Breaks out of container, sits above Crafting */}
-            <div className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden whitespace-nowrap bg-[#377a9b]/60 backdrop-blur-md border-y border-[#ffc312]/20 py-2 md:py-4 flex items-center shadow-[0_0_30px_rgba(55, 122, 155,0.5)] mb-4 lg:mb-6">
+            {/* Infinite Marquee - Clean container without horizontal scrollbar bleed */}
+            <div className="w-full overflow-hidden whitespace-nowrap bg-[#377a9b]/70 backdrop-blur-md border-y border-[#ffc312]/20 py-2.5 md:py-4 flex items-center shadow-[0_0_30px_rgba(55,122,155,0.35)] rounded-2xl mb-4 lg:mb-6">
               <motion.div
                 animate={{ x: [0, -1035] }} // Adjust based on text width
                 transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
-                className="flex whitespace-nowrap text-[#F9FAFB]/60 font-[IBM_Plex_Sans] text-xs tracking-[0.2em] uppercase"
+                className="flex whitespace-nowrap text-[#F9FAFB]/75 font-[IBM_Plex_Sans] text-xs font-semibold tracking-[0.2em] uppercase"
               >
                 {/* Duplicate text 4 times for infinite loop illusion */}
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="flex items-center">
-                    <span className="mx-8">Digital Agency</span>
+                    <span className="mx-6 sm:mx-8">Digital Engineering Studio</span>
                     <span className="w-1.5 h-1.5 bg-[#ffc312] rounded-full"></span>
-                    <span className="mx-8">Established 2026</span>
+                    <span className="mx-6 sm:mx-8">Established 2026</span>
                     <span className="w-1.5 h-1.5 bg-[#ffc312] rounded-full"></span>
-                    <span className="mx-8">Global Reach</span>
+                    <span className="mx-6 sm:mx-8">Global Reach</span>
                     <span className="w-1.5 h-1.5 bg-[#ffc312] rounded-full"></span>
-                    <span className="mx-8 text-[#ffc312] font-bold">Crafting Elite Experiences</span>
+                    <span className="mx-6 sm:mx-8 text-[#ffc312] font-bold">Crafting Elite Flagships</span>
                     <span className="w-1.5 h-1.5 bg-[#ffc312] rounded-full"></span>
                   </div>
                 ))}
@@ -156,7 +156,7 @@ export default function AboutHero() {
                       animate={{ y: "0%", opacity: 1, rotateX: 0 }}
                       exit={{ y: "-100%", opacity: 0, rotateX: 45 }}
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      className="absolute left-0 top-0 text-[#ffc312] whitespace-nowrap drop-shadow-[0_0_15px_rgba(255, 195, 18,0.4)]"
+                      className="absolute left-0 top-0 text-[#ffc312] whitespace-nowrap drop-shadow-[0_0_15px_rgba(255,195,18,0.4)]"
                     >
                       {rotatingWords[currentWordIndex]}.
                     </motion.span>
@@ -171,3 +171,4 @@ export default function AboutHero() {
     </section>
   );
 }
+

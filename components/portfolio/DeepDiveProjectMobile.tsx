@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -118,7 +118,7 @@ const DeepDiveProjectMobile = ({ project, index }: DeepDiveProjectMobileProps) =
                      href={project.liveLink}
                      target="_blank"
                      rel="noopener noreferrer"
-                     className="group relative px-6 py-4 w-full bg-slate-900 shadow-xl text-white rounded-full overflow-hidden hover:shadow-[0_10px_30px_rgba(55, 122, 155,0.3)] transition-all duration-300 flex items-center justify-center gap-2 border border-slate-700/50"
+                     className="group relative px-6 py-4 w-full bg-slate-900 shadow-xl text-white rounded-full overflow-hidden hover:shadow-[0_10px_30px_rgba(55,122,155,0.3)] transition-all duration-300 flex items-center justify-center gap-2 border border-slate-700/50"
                   >
                      <div className="absolute inset-0 bg-[#377a9b] translate-y-[110%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
                      <span className="relative z-10 font-bold tracking-wider text-[10px] uppercase flex items-center gap-2 whitespace-nowrap">
@@ -136,3 +136,4 @@ const DeepDiveProjectMobile = ({ project, index }: DeepDiveProjectMobileProps) =
 };
 
 export default DeepDiveProjectMobile;
+

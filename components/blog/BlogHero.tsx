@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowDown } from 'lucide-react';
@@ -105,7 +105,7 @@ export default function BlogHero() {
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mt-14"
         >
-          <button onClick={() => window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' })} className="group inline-flex items-center justify-center w-14 h-14 rounded-full border border-white/10 bg-white/5 hover:bg-[#ffc312] hover:border-[#ffc312] transition-all duration-500 hover:shadow-[0_0_30px_rgba(255, 195, 18,0.3)]">
+          <button onClick={() => window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' })} className="group inline-flex items-center justify-center w-14 h-14 rounded-full border border-white/10 bg-white/5 hover:bg-[#ffc312] hover:border-[#ffc312] transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,195,18,0.3)]">
             <ArrowDown className="w-5 h-5 text-white group-hover:text-[#0F172A] group-hover:translate-y-1 transition-all duration-300" />
           </button>
         </motion.div>
@@ -113,3 +113,4 @@ export default function BlogHero() {
     </section>
   );
 }
+

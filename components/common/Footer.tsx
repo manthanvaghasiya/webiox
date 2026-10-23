@@ -122,14 +122,14 @@ export default function Footer() {
       className="relative overflow-hidden selection:bg-[#377a9b] selection:text-white"
     >
       {/* ━━━━━━━━━━━━━━━━ TOP LAUNCHPAD CTA (Luminous Light Mode) ━━━━━━━━━━━━━━━━ */}
-      {isHomePage && (
+      {!pathname?.startsWith('/contact') && (
         <div id="contact" className="relative z-20 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-[#FCFCFD]">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl sm:rounded-[2.5rem] bg-white border border-slate-200/90 p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(55, 122, 155,0.15)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10"
+              className="rounded-3xl sm:rounded-[2.5rem] bg-white border border-slate-200/90 p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(55,122,155,0.15)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10"
             >
               {/* Specular Ambient Glow */}
               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#377a9b]/10 rounded-full blur-3xl pointer-events-none" />
@@ -145,7 +145,7 @@ export default function Footer() {
                   <Sparkles className="w-3.5 h-3.5 text-[#ffc312]" />
                   <span className="tracking-wider uppercase">READY TO SHIP?</span>
                   <span className="text-slate-300">•</span>
-                  <span className="text-slate-600">Q3 SPRINT SLOTS OPEN</span>
+                  <span className="text-slate-600">Q4 SPRINT SLOTS OPEN</span>
                 </div>
 
                 {/* Headline */}

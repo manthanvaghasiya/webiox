@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowDown } from 'lucide-react';
@@ -119,7 +119,7 @@ export default function CareerHero() {
           className="mt-14"
         >
           <Link href="#open-roles">
-            <button className="group inline-flex items-center gap-4 px-8 py-4 rounded-full border border-white/20 bg-white/10 hover:bg-[#ffc312] hover:border-[#ffc312] hover:text-[#0F172A] transition-all duration-500 hover:shadow-[0_0_30px_rgba(255, 195, 18,0.3)] backdrop-blur-md">
+            <button className="group inline-flex items-center gap-4 px-8 py-4 rounded-full border border-white/20 bg-white/10 hover:bg-[#ffc312] hover:border-[#ffc312] hover:text-[#0F172A] transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,195,18,0.3)] backdrop-blur-md">
               <span className="font-semibold text-sm sm:text-base tracking-wide text-white group-hover:text-[#0F172A] transition-colors">View Open Roles</span>
               <ArrowDown className="w-5 h-5 text-white group-hover:text-[#0F172A] group-hover:translate-y-1 transition-all duration-300" />
             </button>
@@ -130,3 +130,4 @@ export default function CareerHero() {
     </section>
   );
 }
+

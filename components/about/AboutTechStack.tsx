@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -12,7 +12,7 @@ const BentoCard = ({ children, className = "" }: { children: React.ReactNode, cl
   <motion.div
     variants={fadeUpVariant}
     whileHover={{ y: -5 }}
-    className={`relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#F9FAFB]/5 to-[#F9FAFB]/[0.02] border border-[#F9FAFB]/10 backdrop-blur-sm p-8 group transition-all duration-500 hover:border-[#ffc312]/30 hover:shadow-[0_20px_40px_rgba(255, 195, 18,0.05)] ${className}`}
+    className={`relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#F9FAFB]/5 to-[#F9FAFB]/[0.02] border border-[#F9FAFB]/10 backdrop-blur-sm p-8 group transition-all duration-500 hover:border-[#ffc312]/30 hover:shadow-[0_20px_40px_rgba(255,195,18,0.05)] ${className}`}
   >
     {children}
   </motion.div>
@@ -94,7 +94,7 @@ export default function AboutTechStack() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
         >
           {/* Main Core Engine - Large Square / Wide Rectangle */}
-          <BentoCard className="lg:col-span-2 lg:row-span-2 flex flex-col lg:flex-row gap-8 justify-between p-5 sm:p-6 lg:p-12 border-cyan-500/20 shadow-[0_0_40px_rgba(6,182,212,0.05)]">
+          <BentoCard className="lg:col-span-2 lg:row-span-2 flex flex-col lg:flex-row gap-8 justify-between p-5 sm:p-6 lg:p-12 border-[#377a9b]/30 shadow-[0_0_40px_rgba(55,122,155,0.1)]">
             
             {/* Left Side Content & Tech Stack */}
             <div className="flex flex-col lg:w-1/2 z-10">
@@ -107,9 +107,9 @@ export default function AboutTechStack() {
               {/* 4 Items in a straight vertical line */}
               <div className="flex flex-col gap-4">
                 <TechIcon name="Next.js 16" icon={Globe} color="text-white" delay={0.1} />
-                <TechIcon name="React 19" icon={Code2} color="text-cyan-400" delay={0.2} />
-                <TechIcon name="TypeScript" icon={Code2} color="text-blue-400" delay={0.3} />
-                <TechIcon name="Tailwind v4" icon={Wind} color="text-teal-400" delay={0.4} />
+                <TechIcon name="React 19" icon={Code2} color="text-[#ffc312]" delay={0.2} />
+                <TechIcon name="TypeScript" icon={Code2} color="text-sky-300" delay={0.3} />
+                <TechIcon name="Tailwind v4" icon={Wind} color="text-teal-300" delay={0.4} />
               </div>
             </div>
 
@@ -126,7 +126,7 @@ export default function AboutTechStack() {
               </div>
 
               {/* Lighthouse Score (Centered vertically in the line) */}
-              <div className="relative w-40 h-40 lg:w-48 lg:h-48 flex items-center justify-center my-auto bg-[#377a9b]/30 rounded-full border border-[#F9FAFB]/5 backdrop-blur-sm shadow-[inset_0_0_40px_rgba(55, 122, 155,0.5)] z-10">
+              <div className="relative w-40 h-40 lg:w-48 lg:h-48 flex items-center justify-center my-auto bg-[#377a9b]/30 rounded-full border border-[#F9FAFB]/5 backdrop-blur-sm shadow-[inset_0_0_40px_rgba(55,122,155,0.5)] z-10">
                 {/* Background Track */}
                 <svg className="absolute inset-0 w-full h-full -rotate-90">
                   <circle cx="50%" cy="50%" r="42%" stroke="#377a9b" strokeWidth="4" fill="none" className="opacity-30" />
@@ -148,7 +148,7 @@ export default function AboutTechStack() {
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 1, delay: 1.5, type: "spring" }}
                   viewport={{ once: true }}
-                  className="absolute inset-2 lg:inset-3 rounded-full bg-gradient-to-br from-[#ffc312]/20 to-[#377a9b]/20 border border-[#ffc312]/40 shadow-[0_0_50px_rgba(255, 195, 18,0.6),inset_0_0_20px_rgba(255, 195, 18,0.3)] flex flex-col items-center justify-center backdrop-blur-md overflow-hidden"
+                  className="absolute inset-2 lg:inset-3 rounded-full bg-gradient-to-br from-[#ffc312]/20 to-[#377a9b]/20 border border-[#ffc312]/40 shadow-[0_0_50px_rgba(255,195,18,0.6),inset_0_0_20px_rgba(255,195,18,0.3)] flex flex-col items-center justify-center backdrop-blur-md overflow-hidden"
                 >
                   {/* Internal Spinning Dashed Ring */}
                   <motion.div 
@@ -166,8 +166,8 @@ export default function AboutTechStack() {
 
                   {/* Core Value */}
                   <div className="relative z-10 flex flex-col items-center">
-                    <span className="text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-[#ffc312] font-[Zain] leading-none drop-shadow-[0_0_15px_rgba(255, 195, 18,0.8)]">99</span>
-                    <div className="flex items-center gap-1.5 mt-1 bg-[#377a9b]/80 px-2 py-0.5 rounded-full border border-[#ffc312]/50 shadow-[0_0_10px_rgba(255, 195, 18,0.3)]">
+                    <span className="text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-[#ffc312] font-[Zain] leading-none drop-shadow-[0_0_15px_rgba(255,195,18,0.8)]">99</span>
+                    <div className="flex items-center gap-1.5 mt-1 bg-[#377a9b]/80 px-2 py-0.5 rounded-full border border-[#ffc312]/50 shadow-[0_0_10px_rgba(255,195,18,0.3)]">
                       <Zap className="w-2.5 h-2.5 text-[#ffc312] fill-[#ffc312]" />
                       <span className="text-[9px] text-white uppercase tracking-[0.2em] font-bold">Perf</span>
                     </div>
@@ -185,7 +185,7 @@ export default function AboutTechStack() {
               </div>
             </div>
 
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-400/10 rounded-full blur-[60px] pointer-events-none group-hover:bg-cyan-400/20 transition-colors duration-700 z-0" />
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#377a9b]/25 rounded-full blur-[60px] pointer-events-none group-hover:bg-[#377a9b]/40 transition-colors duration-700 z-0" />
           </BentoCard>
 
           {/* Data & Backend - Wide Rectangle */}
@@ -239,3 +239,4 @@ export default function AboutTechStack() {
     </section>
   );
 }
+

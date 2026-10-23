@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
@@ -22,8 +22,8 @@ const statsDots: Dot[] = [
   { x: '55%', y: '82%', size: 2, delay: 0.4, color: 'yellow' },
 ];
 
-const statsMesh = `radial-gradient(at 15% 18%, rgba(55, 122, 155,0.07) 0px, transparent 50%),
-radial-gradient(at 85% 32%, rgba(255, 195, 18,0.06) 0px, transparent 50%),
+const statsMesh = `radial-gradient(at 15% 18%, rgba(55,122,155,0.07) 0px, transparent 50%),
+radial-gradient(at 85% 32%, rgba(255,195,18,0.06) 0px, transparent 50%),
 radial-gradient(at 50% 95%, rgba(199,232,155,0.32) 0px, transparent 55%)`;
 
 const stats = [
@@ -64,7 +64,7 @@ const StatCard = ({ icon: Icon, value, suffix, label, desc, delay }: any) => {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className="relative group bg-white/60 backdrop-blur-md rounded-[2rem] p-5 sm:p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#377a9b]/10 hover:border-[#377a9b]/30 hover:shadow-[0_20px_40px_rgba(55, 122, 155,0.1)] transition-all duration-500 overflow-hidden cursor-default z-10"
+      className="relative group bg-white/60 backdrop-blur-md rounded-[2rem] p-5 sm:p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#377a9b]/10 hover:border-[#377a9b]/30 hover:shadow-[0_20px_40px_rgba(55,122,155,0.1)] transition-all duration-500 overflow-hidden cursor-default z-10"
     >
       {/* Dynamic Background Glow on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#ffc312]/0 to-[#ffc312]/0 group-hover:from-[#ffc312]/5 group-hover:to-[#377a9b]/5 transition-all duration-700" />
@@ -73,7 +73,7 @@ const StatCard = ({ icon: Icon, value, suffix, label, desc, delay }: any) => {
       <div className="absolute top-0 left-0 h-[3px] w-full bg-[#ffc312] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-out rounded-t-2xl" />
 
       {/* Icon */}
-      <div className="w-14 h-14 rounded-2xl bg-[#377a9b]/5 border border-[#377a9b]/10 flex items-center justify-center mb-4 md:mb-8 group-hover:bg-[#377a9b] group-hover:shadow-[0_0_20px_rgba(55, 122, 155,0.3)] transition-all duration-500 transform group-hover:-rotate-6">
+      <div className="w-14 h-14 rounded-2xl bg-[#377a9b]/5 border border-[#377a9b]/10 flex items-center justify-center mb-4 md:mb-8 group-hover:bg-[#377a9b] group-hover:shadow-[0_0_20px_rgba(55,122,155,0.3)] transition-all duration-500 transform group-hover:-rotate-6">
         <Icon className="w-6 h-6 text-[#377a9b] group-hover:text-white transition-colors duration-500" />
       </div>
 
@@ -155,14 +155,14 @@ export default function AboutStats() {
       <motion.div
         animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-[20%] -left-1/4 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(55, 122, 155,0.08),transparent_60%)] pointer-events-none blur-[90px] z-0"
+        className="absolute -top-[20%] -left-1/4 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(55,122,155,0.08),transparent_60%)] pointer-events-none blur-[90px] z-0"
       />
 
       {/* Animated blob 2 — yellow right */}
       <motion.div
         animate={{ x: [0, -40, 0], y: [0, 50, 0], scale: [1, 1.12, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute top-1/4 -right-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(255, 195, 18,0.07),transparent_60%)] pointer-events-none blur-[100px] z-0"
+        className="absolute top-1/4 -right-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(255,195,18,0.07),transparent_60%)] pointer-events-none blur-[100px] z-0"
       />
 
       {/* Animated blob 3 — mint bottom-center */}
@@ -191,7 +191,7 @@ export default function AboutStats() {
         className="absolute inset-0 pointer-events-none z-0"
         style={{
           backgroundImage:
-            'radial-gradient(rgba(55, 122, 155,0.08) 1px, transparent 1px)',
+            'radial-gradient(rgba(55,122,155,0.08) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
           maskImage:
             'radial-gradient(ellipse at center, black 30%, transparent 80%)',
@@ -209,20 +209,20 @@ export default function AboutStats() {
       >
         <path
           d="M0,40 Q360,10 720,40 T1440,40"
-          stroke="rgba(55, 122, 155,0.3)"
+          stroke="rgba(55,122,155,0.3)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="6 6"
         />
         <path
           d="M0,80 Q360,50 720,80 T1440,80"
-          stroke="rgba(55, 122, 155,0.2)"
+          stroke="rgba(55,122,155,0.2)"
           strokeWidth="1"
           fill="none"
         />
         <path
           d="M0,120 Q360,90 720,120 T1440,120"
-          stroke="rgba(255, 195, 18,0.3)"
+          stroke="rgba(255,195,18,0.3)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="2 8"
@@ -270,3 +270,4 @@ export default function AboutStats() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
@@ -30,7 +30,7 @@ export default function JourneyHero() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
-  const spotlightBg = useMotionTemplate`radial-gradient(circle 600px at ${mouseX}px ${mouseY}px, rgba(255, 195, 18, 0.08), transparent 80%)`;
+  const spotlightBg = useMotionTemplate`radial-gradient(circle 600px at ${mouseX}px ${mouseY}px, rgba(255,195,18, 0.08), transparent 80%)`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -129,7 +129,7 @@ export default function JourneyHero() {
               initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-[30rem] sm:max-w-[36rem] lg:max-w-[42rem] xl:max-w-[48rem] aspect-[16/10] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm p-2 shadow-[0_0_80px_rgba(255, 195, 18,0.05)] group relative"
+              className="w-full max-w-[30rem] sm:max-w-[36rem] lg:max-w-[42rem] xl:max-w-[48rem] aspect-[16/10] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm p-2 shadow-[0_0_80px_rgba(255,195,18,0.05)] group relative"
             >
               <div className="w-full h-full rounded-[1rem] md:rounded-[1.5rem] overflow-hidden relative bg-[#1c4458]">
                 {images && images.length > 0 && (
@@ -186,3 +186,4 @@ export default function JourneyHero() {
     </section>
   );
 }
+

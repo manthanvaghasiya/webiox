@@ -67,22 +67,6 @@ export default function PortfolioClient() {
           </div>
         )}
       </div>
-
-      {/* Elegant Footer Release */}
-      <footer className="h-[45vh] w-full flex flex-col items-center justify-center relative bg-slate-50 z-10 overflow-hidden text-center px-6 border-t border-slate-200/50">
-        <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#377a9b] font-bold mb-4">
-          Engineered by Webiox
-        </span>
-        <h2 className="text-slate-900 text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-6">
-          Ready to Engineer Yours?
-        </h2>
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#377a9b] text-white font-bold hover:bg-[#2b6683] transition-colors shadow-lg cursor-pointer"
-        >
-          Start a Project
-        </Link>
-      </footer>
     </main>
   );
 }

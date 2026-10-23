@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -512,7 +512,7 @@ function MobileAppScreen() {
       </div>
 
       {/* 3. Luxury Credit Card (Salary Card 10,000$, VISA, •••• 3042) */}
-      <div className="relative rounded-2xl bg-gradient-to-tr from-[#377a9b] via-[#0284c7] to-[#38bdf8] p-3 text-white shadow-[0_14px_28px_-8px_rgba(55, 122, 155,0.45)] overflow-hidden mb-1 shrink-0">
+      <div className="relative rounded-2xl bg-gradient-to-tr from-[#377a9b] via-[#0284c7] to-[#38bdf8] p-3 text-white shadow-[0_14px_28px_-8px_rgba(55,122,155,0.45)] overflow-hidden mb-1 shrink-0">
         {/* Holographic Watermark / Ambient Arcs */}
         <div className="absolute -right-8 -bottom-8 w-28 h-28 rounded-full bg-white/10 pointer-events-none" />
         <div className="absolute -right-2 -top-6 w-20 h-20 rounded-full bg-white/10 pointer-events-none" />
@@ -715,8 +715,8 @@ export default function EcosystemBentoGrid() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className={`absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[380px] rounded-full blur-3xl pointer-events-none transition-colors duration-700 ${
             activeService.id === 'ai'
-              ? 'bg-[radial-gradient(circle,rgba(255, 195, 18,0.16)_0%,rgba(55, 122, 155,0.06)_60%,transparent_80%)]'
-              : 'bg-[radial-gradient(circle,rgba(55, 122, 155,0.15)_0%,rgba(56,189,248,0.08)_60%,transparent_80%)]'
+              ? 'bg-[radial-gradient(circle,rgba(255,195,18,0.16)_0%,rgba(55,122,155,0.06)_60%,transparent_80%)]'
+              : 'bg-[radial-gradient(circle,rgba(55,122,155,0.15)_0%,rgba(56,189,248,0.08)_60%,transparent_80%)]'
           }`}
         />
 
@@ -859,7 +859,7 @@ export default function EcosystemBentoGrid() {
                   >
                     {/* 1. Trend Circle Badge (From Reference Design) */}
                     {card.widgetType === 'trend_circle' ? (
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#377a9b] to-sky-400 p-0.5 shadow-[0_12px_28px_-4px_rgba(55, 122, 155,0.4)] flex items-center justify-center border-2 border-white">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#377a9b] to-sky-400 p-0.5 shadow-[0_12px_28px_-4px_rgba(55,122,155,0.4)] flex items-center justify-center border-2 border-white">
                         <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#377a9b] to-sky-400">
                           <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
                         </div>
@@ -995,7 +995,7 @@ export default function EcosystemBentoGrid() {
                       </div>
                     ) : card.widgetType === 'ai_circle' ? (
                       /* 1. AI Glowing Pulse Circle Badge (Mobile Style) */
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b] p-0.5 shadow-[0_12px_28px_-4px_rgba(255, 195, 18,0.4)] flex items-center justify-center border-2 border-white">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b] p-0.5 shadow-[0_12px_28px_-4px_rgba(255,195,18,0.4)] flex items-center justify-center border-2 border-white">
                         <div className="w-full h-full rounded-full flex items-center justify-center bg-gradient-to-tr from-[#ffc312] via-[#f59e0b] to-[#377a9b]">
                           <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
                         </div>
@@ -1422,3 +1422,4 @@ export default function EcosystemBentoGrid() {
     </div>
   );
 }
+

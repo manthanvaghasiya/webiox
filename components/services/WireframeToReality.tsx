@@ -53,14 +53,14 @@ export default function WireframeToReality() {
           className={`absolute inset-0 rounded-2xl transition-colors duration-1000 ${
             phase === 'blueprint' 
               ? 'border-2 border-dashed border-slate-700/50 bg-transparent' 
-              : 'border border-cyan-500/20 bg-slate-950 shadow-[0_0_50px_rgba(6,182,212,0.15)]'
+              : 'border border-[#377a9b]/30 bg-slate-950 shadow-[0_0_50px_rgba(55,122,155,0.2)]'
           }`}
           animate={{ z: phase === 'assembly' || phase === 'interaction' ? -60 : 0 }}
           transition={springConfig}
         >
-          {/* Cyan Grid Dots (Visible mainly in blueprint) */}
+          {/* Brand Grid Dots */}
           <div 
-            className={`absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.3)_1px,transparent_1px)] bg-[length:20px_20px] transition-opacity duration-1000 ${
+            className={`absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_center,rgba(55,122,155,0.35)_1px,transparent_1px)] bg-[length:20px_20px] transition-opacity duration-1000 ${
               phase === 'blueprint' || phase === 'isometric' ? 'opacity-100' : 'opacity-10'
             }`} 
           />
@@ -89,7 +89,7 @@ export default function WireframeToReality() {
             className={`w-full h-32 rounded-xl flex items-center justify-center transition-all duration-1000 overflow-hidden relative ${
               phase === 'blueprint' || phase === 'isometric'
                 ? 'border-2 border-dashed border-slate-700 bg-slate-900/50'
-                : 'border border-white/10 bg-gradient-to-br from-cyan-500 to-blue-600 shadow-xl'
+                : 'border border-white/10 bg-gradient-to-br from-[#377a9b] to-[#1e3a8a] shadow-xl'
             }`}
             animate={{ z: phase === 'assembly' || phase === 'interaction' ? 40 : 0 }}
             transition={widgetSpring}
@@ -192,7 +192,7 @@ export default function WireframeToReality() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: [0, 0.8, 0], scale: [0, 2, 3] }}
                 transition={{ delay: 1.5, duration: 0.8 }} // Matches the click timing (60% of 2.5s)
-                className="absolute -top-2 -left-2 w-10 h-10 rounded-full border-2 border-cyan-400"
+                className="absolute -top-2 -left-2 w-10 h-10 rounded-full border-2 border-[#ffc312]"
               />
             </motion.div>
           )}

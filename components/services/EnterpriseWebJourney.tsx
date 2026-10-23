@@ -105,7 +105,7 @@ export default function EnterpriseWebJourney() {
             
             {/* Sweeping Data Wave (0.4 - 0.55) */}
             <motion.div 
-              className="absolute inset-y-0 w-full md:w-64 bg-gradient-to-b md:bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent blur-2xl z-20 pointer-events-none"
+              className="absolute inset-y-0 w-full md:w-64 bg-gradient-to-b md:bg-gradient-to-r from-transparent via-[#377a9b]/50 to-transparent blur-2xl z-20 pointer-events-none"
               style={{ y: waveX, x: waveX }}
             />
 
@@ -188,7 +188,7 @@ export default function EnterpriseWebJourney() {
                   <div className="bg-emerald-500/10 backdrop-blur-md border border-emerald-500/20 text-emerald-400 px-2 py-1 md:px-3 md:py-1.5 rounded-full text-[8px] sm:text-[10px] md:text-xs font-bold flex items-center gap-1 sm:gap-2 shadow-lg">
                     <Zap className="w-2 h-2 sm:w-3 sm:h-3" /> Performance: 100
                   </div>
-                  <div className="bg-cyan-500/10 backdrop-blur-md border border-cyan-500/20 text-cyan-400 px-2 py-1 md:px-3 md:py-1.5 rounded-full text-[8px] sm:text-[10px] md:text-xs font-bold flex items-center gap-1 sm:gap-2 shadow-lg">
+                  <div className="bg-[#377a9b]/20 backdrop-blur-md border border-[#377a9b]/35 text-[#ffc312] px-2 py-1 md:px-3 md:py-1.5 rounded-full text-[8px] sm:text-[10px] md:text-xs font-bold flex items-center gap-1 sm:gap-2 shadow-lg">
                     <Layout className="w-2 h-2 sm:w-3 sm:h-3" /> 60 FPS Scroll
                   </div>
                 </div>
@@ -201,8 +201,8 @@ export default function EnterpriseWebJourney() {
                   {/* Mock Header */}
                   <div className="w-full h-16 border-b border-white/5 flex items-center justify-between px-6 md:px-8 bg-white/5 backdrop-blur-md z-20 sticky top-0">
                     <div className="font-bold text-white tracking-wider flex items-center gap-2 text-sm md:text-base">
-                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-md bg-gradient-to-tr from-cyan-500 to-blue-500" />
-                      ACME CORP
+                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-md bg-gradient-to-tr from-[#ffc312] to-[#377a9b]" />
+                      WEBIOX FLAGSHIP
                     </div>
                     <div className="flex gap-4">
                       <div className="w-12 md:w-16 h-2 rounded bg-white/10" />
@@ -212,8 +212,8 @@ export default function EnterpriseWebJourney() {
 
                   {/* Hero Section */}
                   <div className="w-full px-6 md:px-8 py-16 md:py-24 flex flex-col items-center text-center relative overflow-hidden">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-cyan-500/20 blur-[80px] md:blur-[100px] rounded-full pointer-events-none" />
-                    <span className="text-cyan-400 font-bold uppercase tracking-widest text-[10px] md:text-xs mb-4 z-10">Next-Gen Enterprise Web</span>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-[#377a9b]/25 blur-[80px] md:blur-[100px] rounded-full pointer-events-none" />
+                    <span className="text-[#ffc312] font-bold uppercase tracking-widest text-[10px] md:text-xs mb-4 z-10">Next-Gen Enterprise Web</span>
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight z-10 mb-4 md:mb-6">
                       Architecting the<br/>Future of Commerce
                     </h1>

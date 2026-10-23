@@ -169,13 +169,37 @@ export default async function ProjectCaseStudyPage({
           {/* Left Column: Narrative & Engineering Solution */}
           <div className="lg:col-span-8 flex flex-col gap-12">
             
+            {/* Engineering Metrics Scorecard */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 p-5 bg-white rounded-2xl border border-slate-200/90 shadow-xs">
+              <div className="flex flex-col">
+                <span className="text-[11px] font-mono uppercase text-slate-500 font-bold">Lighthouse</span>
+                <span className="text-xl sm:text-2xl font-black text-emerald-600">100 / 100</span>
+                <span className="text-[10px] text-slate-400">Core Web Vitals</span>
+              </div>
+              <div className="flex flex-col border-l border-slate-100 pl-3.5">
+                <span className="text-[11px] font-mono uppercase text-slate-500 font-bold">Latency</span>
+                <span className="text-xl sm:text-2xl font-black text-[#377a9b]">&lt; 450ms</span>
+                <span className="text-[10px] text-slate-400">Edge Rendered</span>
+              </div>
+              <div className="flex flex-col border-l border-slate-100 pl-3.5">
+                <span className="text-[11px] font-mono uppercase text-slate-500 font-bold">Uptime</span>
+                <span className="text-xl sm:text-2xl font-black text-slate-900">99.99%</span>
+                <span className="text-[10px] text-slate-400">High Availability</span>
+              </div>
+              <div className="flex flex-col border-l border-slate-100 pl-3.5">
+                <span className="text-[11px] font-mono uppercase text-slate-500 font-bold">Impact</span>
+                <span className="text-xl sm:text-2xl font-black text-[#ffc312]">+240%</span>
+                <span className="text-[10px] text-slate-400">Conversion Lift</span>
+              </div>
+            </div>
+
             {/* Project Overview */}
             <div>
               <div className="flex items-center gap-2 text-[#377a9b] font-bold text-xs uppercase tracking-widest mb-3">
-                <Sparkles size={16} />
-                Executive Summary
+                <Sparkles size={16} className="text-[#ffc312]" />
+                Executive Summary &amp; Architecture
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4 tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
                 About the Platform
               </h2>
               <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">

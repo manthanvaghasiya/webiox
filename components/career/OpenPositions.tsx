@@ -52,7 +52,7 @@ export default function OpenPositions() {
   };
 
   return (
-    <section className="w-full bg-white py-24 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="open-roles" className="w-full bg-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 scroll-mt-20">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16 md:mb-24">
           <h2 className="text-[#377a9b] font-bold tracking-widest uppercase text-sm mb-4">

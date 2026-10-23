@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ const premiumEase = "easeOut";
 export default function ServiceCTA() {
   return (
     <section className="py-32 relative overflow-hidden bg-[#F9FAFB] border-t border-slate-100">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_center,rgba(55, 122, 155,0.05)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_center,rgba(55,122,155,0.05)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <motion.div
@@ -46,3 +46,4 @@ export default function ServiceCTA() {
     </section>
   );
 }
+

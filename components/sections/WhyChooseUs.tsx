@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -260,7 +260,7 @@ export default function WhyChooseUs() {
 
     return (
       <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]'
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-start gap-4 sm:gap-5`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -462,7 +462,7 @@ export default function WhyChooseUs() {
 
     return (
       <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]'
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#ffc312]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -593,7 +593,7 @@ export default function WhyChooseUs() {
 
     return (
       <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]'
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-emerald-500/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -707,7 +707,7 @@ export default function WhyChooseUs() {
 
     return (
       <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]'
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
       } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -1333,7 +1333,7 @@ export default function WhyChooseUs() {
         {/* ════════════════════════════════════════════════════════════════════
             BOTTOM TRUST GUARANTEE & ARCHITECTURAL DISCOVERY CTA
            ════════════════════════════════════════════════════════════════════ */}
-        <div className="mt-12 sm:mt-14 rounded-3xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border border-slate-200/90 p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-[0_15px_35px_-10px_rgba(55, 122, 155,0.1)]">
+        <div className="mt-12 sm:mt-14 rounded-3xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border border-slate-200/90 p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-[0_15px_35px_-10px_rgba(55,122,155,0.1)]">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-[#ffc312]/15 border border-[#ffc312]/30 flex items-center justify-center shrink-0">
               <ShieldCheck className="w-6 h-6 text-[#ffc312]" />
@@ -1362,3 +1362,4 @@ export default function WhyChooseUs() {
     </section>
   );
 }
+

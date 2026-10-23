@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import {
   motion,
@@ -36,8 +36,8 @@ const valuesDots: Dot[] = [
   { x: '93%', y: '82%', size: 3, delay: 1.9, color: 'yellow' },
 ];
 
-const valuesMesh = `radial-gradient(at 5% 32%, rgba(55, 122, 155,0.08) 0px, transparent 55%),
-radial-gradient(at 95% 68%, rgba(255, 195, 18,0.06) 0px, transparent 55%),
+const valuesMesh = `radial-gradient(at 5% 32%, rgba(55,122,155,0.08) 0px, transparent 55%),
+radial-gradient(at 95% 68%, rgba(255,195,18,0.06) 0px, transparent 55%),
 radial-gradient(at 50% 4%, rgba(199,232,155,0.32) 0px, transparent 50%)`;
 
 interface ValueItem {
@@ -334,7 +334,7 @@ const ValueCard = ({ value, position }: CardProps) => {
         transformPerspective: 1200,
         transformStyle: 'preserve-3d',
       }}
-      className="group relative flex overflow-hidden rounded-[28px] bg-[#E9F4EA] text-gray-900 shadow-[0_22px_50px_-26px_rgba(55, 122, 155,0.3)] transition-shadow duration-500 will-change-transform hover:shadow-[0_32px_60px_-22px_rgba(55, 122, 155,0.4)]"
+      className="group relative flex overflow-hidden rounded-[28px] bg-[#E9F4EA] text-gray-900 shadow-[0_22px_50px_-26px_rgba(55,122,155,0.3)] transition-shadow duration-500 will-change-transform hover:shadow-[0_32px_60px_-22px_rgba(55,122,155,0.4)]"
     >
       {/* Left rotated tag strip */}
       <div className="relative flex w-10 sm:w-14 shrink-0 items-center justify-center overflow-hidden bg-[#377a9b] py-6">
@@ -364,7 +364,7 @@ const ValueCard = ({ value, position }: CardProps) => {
         {/* Hover bloom */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(55, 122, 155,0.09),transparent_55%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(55,122,155,0.09),transparent_55%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         />
 
         {/* Icon with parallax */}
@@ -405,7 +405,7 @@ const MobileValueCard = ({ value, position, isLast }: { value: ValueItem; positi
   const Icon = value.icon;
 
   return (
-    <div className="relative z-10 flex w-full min-h-[6.5rem] items-stretch rounded-[20px] bg-white shadow-[0_8px_30px_-12px_rgba(55, 122, 155,0.2)]">
+    <div className="relative z-10 flex w-full min-h-[6.5rem] items-stretch rounded-[20px] bg-white shadow-[0_8px_30px_-12px_rgba(55,122,155,0.2)]">
       {/* Left blue part */}
       <div 
         className="relative w-[35%] sm:w-[25%] shrink-0 overflow-hidden rounded-l-[20px] bg-[#377a9b]"
@@ -468,7 +468,7 @@ export default function AboutValues() {
         aria-hidden="true"
         animate={{ x: [0, 40, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        className="pointer-events-none absolute -left-40 top-1/3 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(55, 122, 155,0.09),transparent_60%)] blur-[110px]"
+        className="pointer-events-none absolute -left-40 top-1/3 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(55,122,155,0.09),transparent_60%)] blur-[110px]"
       />
 
       {/* Animated blob 2 — yellow bottom-right */}
@@ -476,7 +476,7 @@ export default function AboutValues() {
         aria-hidden="true"
         animate={{ x: [0, -50, 0], y: [0, -40, 0], scale: [1, 1.12, 1] }}
         transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="pointer-events-none absolute -right-32 bottom-0 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255, 195, 18,0.07),transparent_60%)] blur-[110px]"
+        className="pointer-events-none absolute -right-32 bottom-0 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,195,18,0.07),transparent_60%)] blur-[110px]"
       />
 
       {/* Animated blob 3 — mint top-right */}
@@ -506,7 +506,7 @@ export default function AboutValues() {
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           backgroundImage:
-            'radial-gradient(rgba(55, 122, 155,0.06) 1px, transparent 1px)',
+            'radial-gradient(rgba(55,122,155,0.06) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
           maskImage:
             'radial-gradient(ellipse at center, black 30%, transparent 75%)',
@@ -524,20 +524,20 @@ export default function AboutValues() {
       >
         <path
           d="M0,80 Q360,40 720,80 T1440,80"
-          stroke="rgba(55, 122, 155,0.4)"
+          stroke="rgba(55,122,155,0.4)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="4 6"
         />
         <path
           d="M0,100 Q360,70 720,100 T1440,100"
-          stroke="rgba(55, 122, 155,0.25)"
+          stroke="rgba(55,122,155,0.25)"
           strokeWidth="1"
           fill="none"
         />
         <path
           d="M0,118 Q360,90 720,118 T1440,118"
-          stroke="rgba(255, 195, 18,0.35)"
+          stroke="rgba(255,195,18,0.35)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="2 8"
@@ -660,3 +660,4 @@ export default function AboutValues() {
     </section>
   );
 }
+

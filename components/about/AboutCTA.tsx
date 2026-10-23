@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import {
   motion,
@@ -33,8 +33,8 @@ const ctaDots: Dot[] = [
   { x: '95%', y: '82%', size: 2, delay: 2.6, color: 'yellow' },
 ];
 
-const ctaMesh = `radial-gradient(at 18% 92%, rgba(55, 122, 155,0.07) 0px, transparent 50%),
-radial-gradient(at 82% 8%, rgba(255, 195, 18,0.06) 0px, transparent 50%),
+const ctaMesh = `radial-gradient(at 18% 92%, rgba(55,122,155,0.07) 0px, transparent 50%),
+radial-gradient(at 82% 8%, rgba(255,195,18,0.06) 0px, transparent 50%),
 radial-gradient(at 50% 50%, rgba(199,232,155,0.18) 0px, transparent 55%)`;
 
 interface FloatingIconProps {
@@ -94,7 +94,7 @@ export default function AboutCTA() {
 
   const spotlight = useMotionTemplate`radial-gradient(
     700px circle at ${mouseX}px ${mouseY}px,
-    rgba(55, 122, 155, 0.16),
+    rgba(55,122,155, 0.16),
     transparent 75%
   )`;
 
@@ -105,7 +105,7 @@ export default function AboutCTA() {
         aria-hidden="true"
         animate={{ x: [0, 60, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-1/4 -left-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(55, 122, 155,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
+        className="absolute -top-1/4 -left-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(55,122,155,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
       />
 
       {/* Section-level animated blob — yellow bottom-right */}
@@ -113,7 +113,7 @@ export default function AboutCTA() {
         aria-hidden="true"
         animate={{ x: [0, -50, 0], y: [0, -40, 0], scale: [1, 1.12, 1] }}
         transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(255, 195, 18,0.07),transparent_60%)] pointer-events-none blur-[110px] z-0"
+        className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(255,195,18,0.07),transparent_60%)] pointer-events-none blur-[110px] z-0"
       />
 
       {/* Section-level dot grid */}
@@ -122,7 +122,7 @@ export default function AboutCTA() {
         className="absolute inset-0 pointer-events-none z-0 opacity-60"
         style={{
           backgroundImage:
-            'radial-gradient(rgba(55, 122, 155,0.05) 1px, transparent 1px)',
+            'radial-gradient(rgba(55,122,155,0.05) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
           maskImage:
             'radial-gradient(ellipse at center, black 30%, transparent 80%)',
@@ -161,11 +161,11 @@ export default function AboutCTA() {
           />
 
           {/* Main light container */}
-          <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] border border-[#377a9b]/12 bg-white p-5 sm:p-8 text-center shadow-[0_30px_80px_-30px_rgba(55, 122, 155,0.25)] md:p-12 lg:py-16">
+          <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] border border-[#377a9b]/12 bg-white p-5 sm:p-8 text-center shadow-[0_30px_80px_-30px_rgba(55,122,155,0.25)] md:p-12 lg:py-16">
             {/* Subtle teal grid */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(55, 122, 155,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(55, 122, 155,0.04)_1px,transparent_1px)] bg-[size:32px_32px]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(55,122,155,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(55,122,155,0.04)_1px,transparent_1px)] bg-[size:32px_32px]"
             />
 
             {/* Soft top/bottom vignette to fade the grid */}
@@ -227,7 +227,7 @@ export default function AboutCTA() {
               {/* Top badge */}
               <motion.div
                 variants={itemVariants}
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#377a9b]/20 bg-[#377a9b]/[0.06] px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest text-[#377a9b] shadow-[0_0_20px_rgba(55, 122, 155,0.08)]"
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#377a9b]/20 bg-[#377a9b]/[0.06] px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest text-[#377a9b] shadow-[0_0_20px_rgba(55,122,155,0.08)]"
               >
                 <span className="h-2 w-2 animate-pulse rounded-full bg-[#ffc312]" />
                 System Ready. Awaiting Command.
@@ -272,7 +272,7 @@ export default function AboutCTA() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group/btn relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-[#ffc312] px-8 py-4 text-lg font-bold text-[#0F172A] shadow-[0_12px_32px_-10px_rgba(255, 195, 18,0.55)] transition-all hover:bg-amber-400 hover:shadow-[0_18px_42px_-10px_rgba(255, 195, 18,0.7)] sm:w-auto md:px-10"
+                    className="group/btn relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-[#ffc312] px-8 py-4 text-lg font-bold text-[#0F172A] shadow-[0_12px_32px_-10px_rgba(255,195,18,0.55)] transition-all hover:bg-amber-400 hover:shadow-[0_18px_42px_-10px_rgba(255,195,18,0.7)] sm:w-auto md:px-10"
                   >
                     {/* Sweep */}
                     <div className="absolute inset-0 h-full w-full -translate-x-[150%] bg-gradient-to-r from-transparent via-white/55 to-transparent transition-transform duration-1000 ease-in-out group-hover/btn:translate-x-[150%]" />
@@ -299,3 +299,4 @@ export default function AboutCTA() {
     </section>
   );
 }
+

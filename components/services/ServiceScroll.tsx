@@ -35,24 +35,42 @@ export default function ServiceScroll() {
                     </div>
                   </div>
 
-                  <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-3 tracking-tight">
+                  {/* Agency Delivery Badge */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/20 text-[11px] font-mono font-bold text-[#377a9b] mb-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>SPRINT VELOCITY: 2-4 WEEKS</span>
+                    <span className="text-slate-300">•</span>
+                    <span className="text-[#0F172A]">100% ESCROW SLA</span>
+                  </div>
+
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-3 tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
                     {service.title}
                   </h2>
-                  <p className="text-lg font-medium text-[#377a9b]/80 mb-8">
+                  <p className="text-base sm:text-lg font-semibold text-[#377a9b] mb-6">
                     {service.subtitle}
                   </p>
-                  <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8">
                     {service.description}
                   </p>
 
-                  <Link href={`/services/${service.id}`} className="inline-block">
-                    <motion.div className="group flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#377a9b] hover:text-[#ffc312] transition-colors cursor-pointer">
-                      Explore specs
-                      <div className="w-8 h-8 rounded-full bg-[#377a9b]/10 flex items-center justify-center group-hover:bg-[#377a9b] group-hover:text-[#F9FAFB] transition-colors duration-300">
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </motion.div>
-                  </Link>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <Link href={`/services/${service.id}`}>
+                      <motion.div className="group inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-white border border-slate-200 hover:border-[#377a9b]/40 text-xs font-bold uppercase tracking-wider text-[#0F172A] hover:text-[#377a9b] shadow-xs hover:shadow-md transition-all cursor-pointer">
+                        <span>Explore Specs</span>
+                        <div className="w-6 h-6 rounded-full bg-[#377a9b]/10 flex items-center justify-center group-hover:bg-[#377a9b] group-hover:text-white transition-colors duration-300">
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </div>
+                      </motion.div>
+                    </Link>
+
+                    <Link
+                      href={`/contact?service=${encodeURIComponent(service.title)}`}
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
+                    >
+                      <span>Scope This Sprint</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
                 </motion.div>
               </div>
             </div>

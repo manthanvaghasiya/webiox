@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 import AiInnovationFoundry from './AiInnovationFoundry';
@@ -20,8 +20,8 @@ const storyDots: Dot[] = [
   { x: '52%', y: '94%', size: 2, delay: 2.7, color: 'yellow' },
 ];
 
-const storyMesh = `radial-gradient(at 82% 12%, rgba(255, 195, 18,0.07) 0px, transparent 50%),
-radial-gradient(at 18% 76%, rgba(55, 122, 155,0.07) 0px, transparent 50%),
+const storyMesh = `radial-gradient(at 82% 12%, rgba(255,195,18,0.07) 0px, transparent 50%),
+radial-gradient(at 18% 76%, rgba(55,122,155,0.07) 0px, transparent 50%),
 radial-gradient(at 55% 45%, rgba(199,232,155,0.22) 0px, transparent 55%)`;
 
 const pillars = [
@@ -53,7 +53,7 @@ export default function AboutStory() {
           scale: [1, 1.2, 1],
         }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-[30%] -right-1/4 w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(255, 195, 18,0.07),transparent_60%)] pointer-events-none blur-[110px] z-0"
+        className="absolute -top-[30%] -right-1/4 w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(255,195,18,0.07),transparent_60%)] pointer-events-none blur-[110px] z-0"
       />
 
       {/* Animated blob 2 — teal bottom-left */}
@@ -64,7 +64,7 @@ export default function AboutStory() {
           scale: [1, 1.15, 1],
         }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute top-[40%] -left-1/4 w-[900px] h-[900px] bg-[radial-gradient(circle_at_center,rgba(55, 122, 155,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
+        className="absolute top-[40%] -left-1/4 w-[900px] h-[900px] bg-[radial-gradient(circle_at_center,rgba(55,122,155,0.08),transparent_60%)] pointer-events-none blur-[110px] z-0"
       />
 
       {/* Animated blob 3 — mint center */}
@@ -97,7 +97,7 @@ export default function AboutStory() {
         className="absolute inset-0 pointer-events-none z-0 opacity-60"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(135deg, transparent 0, transparent 80px, rgba(55, 122, 155,0.025) 80px, rgba(55, 122, 155,0.025) 81px)',
+            'repeating-linear-gradient(135deg, transparent 0, transparent 80px, rgba(55,122,155,0.025) 80px, rgba(55,122,155,0.025) 81px)',
         }}
       />
 
@@ -110,14 +110,14 @@ export default function AboutStory() {
       >
         <path
           d="M0,0 C40,80 40,176 0,256"
-          stroke="rgba(55, 122, 155,0.5)"
+          stroke="rgba(55,122,155,0.5)"
           strokeWidth="1"
           fill="none"
           strokeDasharray="4 6"
         />
         <path
           d="M16,0 C56,80 56,176 16,256"
-          stroke="rgba(255, 195, 18,0.4)"
+          stroke="rgba(255,195,18,0.4)"
           strokeWidth="1"
           fill="none"
         />
@@ -166,6 +166,9 @@ export default function AboutStory() {
                     <UserCheck className="w-3.5 h-3.5 text-[#ffc312]" />
                     Lead Architect: Manthan Vaghasiya
                   </span>
+                  <span className="inline-flex items-center gap-1.5 text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/80">
+                    ✓ OWASP Audited &amp; Escrow SLA
+                  </span>
                 </div>
               </div>
 
@@ -178,9 +181,9 @@ export default function AboutStory() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.15 + i * 0.12, duration: 0.55 }}
-                    className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-md border border-[#377a9b]/10 hover:border-[#377a9b]/30 hover:shadow-[0_12px_30px_rgba(55, 122, 155,0.06)] transition-all duration-300 group relative z-10"
+                    className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-md border border-[#377a9b]/10 hover:border-[#377a9b]/30 hover:shadow-[0_12px_30px_rgba(55,122,155,0.06)] transition-all duration-300 group relative z-10"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-[#377a9b]/5 border border-[#377a9b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#377a9b] group-hover:shadow-[0_0_15px_rgba(55, 122, 155,0.2)] transition-all duration-500">
+                    <div className="w-12 h-12 rounded-xl bg-[#377a9b]/5 border border-[#377a9b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#377a9b] group-hover:shadow-[0_0_15px_rgba(55,122,155,0.2)] transition-all duration-500">
                       <Icon className="w-5 h-5 text-[#377a9b] group-hover:text-white transition-colors duration-500" />
                     </div>
                     <div>
@@ -208,3 +211,4 @@ export default function AboutStory() {
     </section>
   );
 }
+

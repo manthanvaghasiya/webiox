@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -514,7 +514,7 @@ export default function Header() {
               <motion.div variants={mobileItemVariants} className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
                 <Link
                   href="/contact"
-                  className="group flex items-center justify-center gap-2 w-full rounded-2xl bg-[#377a9b] hover:bg-[#2b6683] text-white px-4 py-3 font-semibold text-sm shadow-[0_10px_25px_-8px_rgba(55, 122, 155,0.55)] cursor-pointer transition-all active:scale-[0.98]"
+                  className="group flex items-center justify-center gap-2 w-full rounded-2xl bg-[#377a9b] hover:bg-[#2b6683] text-white px-4 py-3 font-semibold text-sm shadow-[0_10px_25px_-8px_rgba(55,122,155,0.55)] cursor-pointer transition-all active:scale-[0.98]"
                 >
                   <span>Get Free Consultation</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -532,3 +532,4 @@ export default function Header() {
     </>
   );
 }
+

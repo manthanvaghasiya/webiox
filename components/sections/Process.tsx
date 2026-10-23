@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -368,7 +368,7 @@ export default function Process() {
                   onClick={() => setActiveStageIndex(idx)}
                   className={`w-full text-left p-3.5 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer relative group flex items-start gap-3 sm:gap-4 ${
                     isActive
-                      ? 'bg-white border-[#377a9b] shadow-[0_15px_35px_-10px_rgba(55, 122, 155,0.18)] ring-1 ring-[#377a9b]/40'
+                      ? 'bg-white border-[#377a9b] shadow-[0_15px_35px_-10px_rgba(55,122,155,0.18)] ring-1 ring-[#377a9b]/40'
                       : 'bg-white/70 hover:bg-white border-slate-200/80 hover:border-slate-300 shadow-2xs'
                   }`}
                 >
@@ -437,7 +437,7 @@ export default function Process() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}
-                className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-4.5 sm:p-8 relative overflow-hidden shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.12)]"
+                className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-4.5 sm:p-8 relative overflow-hidden shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]"
               >
                 {/* Specular Ambient Glow */}
                 <div className="absolute top-0 right-0 w-80 h-80 bg-[#377a9b]/8 rounded-full blur-3xl pointer-events-none" />
@@ -533,3 +533,4 @@ export default function Process() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -134,7 +134,7 @@ export default function Testimonials() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35, delay: index * 0.08 }}
-                className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden transition-all duration-500 shadow-[0_20px_50px_-15px_rgba(55, 122, 155,0.1)] hover:shadow-[0_30px_70px_-12px_rgba(55, 122, 155,0.22)] hover:border-[#377a9b]/50 flex flex-col justify-between group"
+                className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 relative overflow-hidden transition-all duration-500 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.1)] hover:shadow-[0_30px_70px_-12px_rgba(55,122,155,0.22)] hover:border-[#377a9b]/50 flex flex-col justify-between group"
               >
                 {/* Specular Ambient Glow */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#377a9b]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#377a9b]/10 transition-colors duration-500" />
@@ -254,3 +254,4 @@ export default function Testimonials() {
     </section>
   );
 }
+

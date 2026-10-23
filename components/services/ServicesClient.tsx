@@ -45,7 +45,6 @@ export default function ServicesClient() {
     <div className="bg-[#F9FAFB]/20 min-h-screen font-sans selection:bg-[#377a9b] selection:text-[#F9FAFB]">
       <ServiceHero />
       <ServiceScroll />
-      <ServiceCTA />
     </div>
   );
 }

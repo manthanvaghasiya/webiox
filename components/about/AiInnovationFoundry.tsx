@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useRef, useState } from 'react';
 import { motion, useSpring, useTransform } from 'framer-motion';
@@ -75,7 +75,7 @@ const AiInnovationFoundry = () => {
                {/* Track 1: From +x (bottom right) to center */}
                <div className="absolute top-1/2 left-1/2 w-48 h-[6px] bg-[#377a9b]/10 rounded-full -mt-0.5 ml-16 overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] border border-white/40">
                   <motion.div 
-                     className="h-full w-20 bg-gradient-to-r from-transparent via-[#377a9b] to-white rounded-full shadow-[0_0_20px_rgba(55, 122, 155,1)]"
+                     className="h-full w-20 bg-gradient-to-r from-transparent via-[#377a9b] to-white rounded-full shadow-[0_0_20px_rgba(55,122,155,1)]"
                      animate={{ x: [192, -80] }}
                      transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
                   />
@@ -84,17 +84,17 @@ const AiInnovationFoundry = () => {
                {/* Track 2: From +y (bottom left) to center */}
                <div className="absolute top-1/2 left-1/2 w-[6px] h-48 bg-[#ffc312]/10 rounded-full mt-16 -ml-[3px] overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] border border-white/40">
                   <motion.div 
-                     className="w-full h-20 bg-gradient-to-b from-transparent via-[#ffc312] to-white rounded-full shadow-[0_0_20px_rgba(255, 195, 18,1)]"
+                     className="w-full h-20 bg-gradient-to-b from-transparent via-[#ffc312] to-white rounded-full shadow-[0_0_20px_rgba(255,195,18,1)]"
                      animate={{ y: [192, -80] }}
                      transition={{ duration: 1.8, repeat: Infinity, ease: "linear", delay: 0.5 }}
                   />
                </div>
 
                {/* Track 3: Data pulses matching the track routing */}
-               <div className="absolute top-1/2 left-1/2 w-[4px] h-[4px] rounded-full bg-white shadow-[0_0_20px_4px_rgba(55, 122, 155,1)] ml-16" style={{ transform: "translateZ(8px)" }}>
+               <div className="absolute top-1/2 left-1/2 w-[4px] h-[4px] rounded-full bg-white shadow-[0_0_20px_4px_rgba(55,122,155,1)] ml-16" style={{ transform: "translateZ(8px)" }}>
                  <motion.div animate={{ x: [192, -30] }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} className="w-full h-full bg-white rounded-full" />
                </div>
-               <div className="absolute top-1/2 left-1/2 w-[4px] h-[4px] rounded-full bg-white shadow-[0_0_20px_4px_rgba(255, 195, 18,1)] mt-16" style={{ transform: "translateZ(8px)" }}>
+               <div className="absolute top-1/2 left-1/2 w-[4px] h-[4px] rounded-full bg-white shadow-[0_0_20px_4px_rgba(255,195,18,1)] mt-16" style={{ transform: "translateZ(8px)" }}>
                  <motion.div animate={{ y: [192, -30] }} transition={{ duration: 1.8, repeat: Infinity, ease: "linear", delay: 0.5 }} className="w-full h-full bg-white rounded-full" />
                </div>
 
@@ -136,7 +136,7 @@ const AiInnovationFoundry = () => {
                      >
                         {/* Bobbing Box Animation (Standing Up) */}
                         <motion.div 
-                           className="bg-white/90 backdrop-blur-xl shadow-[0_30px_50px_rgba(55, 122, 155,0.2)] rounded-[1.2rem] border-2 border-white/80 flex items-center justify-center p-3 relative"
+                           className="bg-white/90 backdrop-blur-xl shadow-[0_30px_50px_rgba(55,122,155,0.2)] rounded-[1.2rem] border-2 border-white/80 flex items-center justify-center p-3 relative"
                            style={{ transform: "rotateZ(45deg) rotateX(-60deg) translateZ(10px)", transformStyle: "preserve-3d" }}
                            animate={{ translateZ: [10, 20, 10] }}
                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: i * 1.5 }}
@@ -155,7 +155,7 @@ const AiInnovationFoundry = () => {
                    ========================================================= */}
                
                {/* Glowing Base Platform */}
-               <div className="absolute top-1/2 left-1/2 w-40 h-40 -mt-20 -ml-20 bg-gradient-to-br from-[#377a9b]/5 to-[#ffc312]/5 rounded-[3rem] border-4 border-white/40 shadow-[0_0_50px_rgba(255, 195, 18,0.15)] flex items-center justify-center" style={{ transform: "translateZ(0px)" }}>
+               <div className="absolute top-1/2 left-1/2 w-40 h-40 -mt-20 -ml-20 bg-gradient-to-br from-[#377a9b]/5 to-[#ffc312]/5 rounded-[3rem] border-4 border-white/40 shadow-[0_0_50px_rgba(255,195,18,0.15)] flex items-center justify-center" style={{ transform: "translateZ(0px)" }}>
                   {/* Concentric expanding ripples */}
                   <motion.div animate={{ scale: [1, 1.5], opacity: [0.5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} className="w-full h-full border border-[#ffc312]/40 rounded-[3rem] absolute" />
                   <motion.div animate={{ scale: [1, 1.5], opacity: [0.5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 1 }} className="w-full h-full border border-[#ffc312]/40 rounded-[3rem] absolute" />
@@ -179,7 +179,7 @@ const AiInnovationFoundry = () => {
                </div>
                
                {/* Top Frosted Glass Accelerator Layer */}
-               <div className="absolute top-1/2 left-1/2 w-28 h-28 -mt-14 -ml-14 bg-white/40 border border-white/80 backdrop-blur-2xl rounded-[2rem] flex items-center justify-center shadow-[0_10px_40px_rgba(255, 195, 18,0.2),inset_0_10px_20px_rgba(255,255,255,0.8)] overflow-hidden" style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}>
+               <div className="absolute top-1/2 left-1/2 w-28 h-28 -mt-14 -ml-14 bg-white/40 border border-white/80 backdrop-blur-2xl rounded-[2rem] flex items-center justify-center shadow-[0_10px_40px_rgba(255,195,18,0.2),inset_0_10px_20px_rgba(255,255,255,0.8)] overflow-hidden" style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}>
                    {/* Glass Reflection Highlight */}
                    <div className="absolute top-0 right-0 w-[150%] h-[150%] bg-gradient-to-bl from-white/60 via-transparent to-transparent -translate-y-1/2 translate-x-1/2 rotate-45" />
                </div>
@@ -191,11 +191,11 @@ const AiInnovationFoundry = () => {
                         translateZ: [60, 75, 60],
                         rotateZ: 45,
                         rotateX: -60,
-                        filter: ["drop-shadow(0 0 10px rgba(255, 195, 18,0))", "drop-shadow(0 30px 40px rgba(255, 195, 18,0.5))", "drop-shadow(0 0 10px rgba(255, 195, 18,0))"] 
+                        filter: ["drop-shadow(0 0 10px rgba(255,195,18,0))", "drop-shadow(0 30px 40px rgba(255,195,18,0.5))", "drop-shadow(0 0 10px rgba(255,195,18,0))"] 
                      }}
                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                      style={{ transform: "rotateZ(45deg) rotateX(-60deg) translateZ(60px)", transformStyle: "preserve-3d" }}
-                     className="absolute top-1/2 left-1/2 -mt-6 -ml-6 w-12 h-12 bg-gradient-to-br from-white to-slate-50 rounded-2xl shadow-[0_10px_30px_rgba(55, 122, 155,0.2)] border-2 border-[#ffc312]/30 flex items-center justify-center isolate"
+                     className="absolute top-1/2 left-1/2 -mt-6 -ml-6 w-12 h-12 bg-gradient-to-br from-white to-slate-50 rounded-2xl shadow-[0_10px_30px_rgba(55,122,155,0.2)] border-2 border-[#ffc312]/30 flex items-center justify-center isolate"
                   >
                      {/* Inner glowing CPU icon */}
                      <Cpu className="w-6 h-6 text-[#ffc312] relative z-10" strokeWidth={2.5} />
@@ -210,7 +210,7 @@ const AiInnovationFoundry = () => {
                   transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                >
                   <div className="absolute top-[-90px] w-3 h-3 bg-brand-yellow rounded-full shadow-[0_0_15px_rgba(255,184,0,1)] border border-white" />
-                  <div className="absolute bottom-[-90px] w-3 h-3 bg-[#377a9b] rounded-full shadow-[0_0_15px_rgba(55, 122, 155,1)] border border-white" />
+                  <div className="absolute bottom-[-90px] w-3 h-3 bg-[#377a9b] rounded-full shadow-[0_0_15px_rgba(55,122,155,1)] border border-white" />
                </motion.div>
 
             </motion.div>
@@ -224,11 +224,11 @@ const AiInnovationFoundry = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="absolute bottom-6 md:bottom-8 right-6 md:right-8 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-slate-200/60 shadow-[0_10px_40px_rgba(0,0,0,0.08)] flex items-center gap-3 z-20 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(255, 195, 18,0.2)]"
+            className="absolute bottom-6 md:bottom-8 right-6 md:right-8 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-slate-200/60 shadow-[0_10px_40px_rgba(0,0,0,0.08)] flex items-center gap-3 z-20 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(255,195,18,0.2)]"
          >
             <div className="relative flex h-2.5 w-2.5">
                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffc312] opacity-75"></span>
-               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ffc312] shadow-[0_0_10px_rgba(255, 195, 18,0.8)]"></span>
+               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ffc312] shadow-[0_0_10px_rgba(255,195,18,0.8)]"></span>
             </div>
             <span className="text-[11px] font-bold text-slate-800 uppercase tracking-widest whitespace-nowrap">Innovation Engine Live</span>
          </motion.div>
@@ -253,3 +253,4 @@ const AiInnovationFoundry = () => {
 };
 
 export default AiInnovationFoundry;
+
