@@ -8,11 +8,10 @@ import HeroBackground from './HeroBackground';
 import EcosystemBentoGrid from './EcosystemBentoGrid';
 
 const ROTATING_SERVICES = [
-  'Scalable Software',
-  'High-Velocity Web',
-  'Native Mobile Apps',
-  'Enterprise SaaS',
-  'Autonomous AI',
+  'Web Platforms',
+  'Mobile Apps',
+  'Custom Software',
+  'AI Workflows',
 ];
 
 export default function Hero() {
@@ -93,13 +92,17 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* ── 3. High-Authority Subheadline & Value Proposition (Zero Keyword Repetition) ── */}
-          <div className="max-w-2xl mx-auto mb-5 sm:mb-7 text-center px-2">
-            <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-sm xs:text-base sm:text-lg md:text-[18.5px] text-[#1E293B] leading-snug mb-2 sm:mb-2.5 [text-wrap:balance]">
-              We architect sub-second web applications, native mobile apps, and enterprise SaaS using modern Next.js and React ecosystems.
+          {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context - Painted instantly for LCP) ── */}
+          {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context) ── */}
+          <div className="max-w-2xl mx-auto mb-6 sm:mb-8 text-center px-2">
+            <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-sm xs:text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2 sm:mb-3">
+              Engineering high-performance web platforms, mobile apps & enterprise software.
             </h2>
-            <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14px] text-slate-600 leading-relaxed [text-wrap:balance]">
-              Turn your technical bottlenecks into a competitive advantage. We build high-impact platforms and automate workflows to scale your digital presence.
+            <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed hidden sm:block">
+              Whether you&apos;re already an industry leader or striving to become one — connect with us. We build high-impact web platforms, modernize your digital profile, and engineer the technology that turns your business into a market leader.
+            </p>
+            <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs text-[#64748B] leading-relaxed sm:hidden">
+              We partner with visionary founders to engineer custom digital flagships, native mobile apps, and autonomous AI systems designed to scale.
             </p>
           </div>
 
@@ -175,7 +178,7 @@ export default function Hero() {
                 <ShieldCheck className="w-3 h-3 text-[#ffc312]" />
                 <span className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs text-[#ffc312] leading-tight">100%</span>
               </div>
-              <span className="text-[8.5px] font-mono text-slate-500 uppercase tracking-wider">Milestone Lock</span>
+              <span className="text-[8.5px] font-mono text-slate-500 uppercase tracking-wider">Escrow SLA</span>
             </div>
 
             <div className="flex flex-col items-center justify-center px-1">
