@@ -5,14 +5,13 @@ import {
   Code2,
   Cpu,
   Layers,
-  ShieldCheck,
   Zap,
   Globe,
   Database,
   Terminal,
-  Activity,
   Server,
-  Lock,
+  Smartphone,
+  Sparkles,
   GitBranch,
 } from 'lucide-react';
 
@@ -24,18 +23,18 @@ interface TechItem {
 }
 
 const TECH_ECOSYSTEM: TechItem[] = [
-  { name: 'Next.js 16', category: 'Frontend Engine', icon: Zap, spec: 'App Router • Turbopack' },
-  { name: 'React 19', category: 'UI Runtime', icon: Layers, spec: 'Server Components & Actions' },
-  { name: 'TypeScript', category: 'Language', icon: Code2, spec: 'Strict Type Soundness' },
-  { name: 'PostgreSQL', category: 'Primary Database', icon: Database, spec: 'ACID Relational Partitioning' },
-  { name: 'Cloudflare WAF', category: 'Edge Security', icon: ShieldCheck, spec: '300+ Edge Nodes • DDoS L7' },
-  { name: 'Redis Edge', category: 'Distributed Cache', icon: Activity, spec: 'Sub-30ms TTFB Invalidation' },
-  { name: 'Prisma ORM', category: 'Data Layer', icon: Database, spec: 'Type-Safe Migrations' },
-  { name: 'Docker', category: 'Containerization', icon: Server, spec: 'Stateless Microservices' },
-  { name: 'AWS Cloud', category: 'Infrastructure', icon: Globe, spec: 'ECS, RDS, S3 Multi-AZ' },
-  { name: 'Python LangChain', category: 'AI Orchestration', icon: Cpu, spec: 'Autonomous Agent Pipelines' },
-  { name: 'OWASP Verified', category: 'Security Standard', icon: Lock, spec: 'Zero Known CVE Surface' },
-  { name: 'CI/CD Pipelines', category: 'Automated Release', icon: GitBranch, spec: 'Automated PR Staging & QA' },
+  { name: 'React.js', category: 'Frontend Engine', icon: Layers, spec: 'Component Architecture • UI' },
+  { name: 'Next.js 16', category: 'Fullstack Framework', icon: Zap, spec: 'App Router • Turbopack • SSR' },
+  { name: 'Node.js', category: 'Backend Runtime', icon: Server, spec: 'High-Concurrency Event Loop' },
+  { name: 'Express.js', category: 'API Architecture', icon: Terminal, spec: 'RESTful Microservices' },
+  { name: 'Flutter', category: 'Mobile Framework', icon: Smartphone, spec: 'Fluid 60 FPS iOS & Android' },
+  { name: 'React Native', category: 'Mobile Ecosystem', icon: Smartphone, spec: 'Cross-Platform Native Apps' },
+  { name: 'TypeScript', category: 'Type System', icon: Code2, spec: 'Strict Type Soundness' },
+  { name: 'MongoDB', category: 'Document Database', icon: Database, spec: 'NoSQL Aggregation Pipelines' },
+  { name: 'PostgreSQL', category: 'Relational Database', icon: Database, spec: 'ACID Relational Partitioning' },
+  { name: 'Tailwind CSS', category: 'Modern Styling', icon: Sparkles, spec: 'Design Tokens & Fluid UI' },
+  { name: 'Python & AI', category: 'AI Automation', icon: Cpu, spec: 'Autonomous Agent Pipelines' },
+  { name: 'Docker & AWS', category: 'Cloud Infrastructure', icon: Globe, spec: 'Containerized Edge Deployment' },
 ];
 
 export default function TechMarquee() {
@@ -63,13 +62,13 @@ export default function TechMarquee() {
             return (
               <div
                 key={`${tech.name}-${idx}`}
-                className="group inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs hover:border-[#377a9b]/50 hover:shadow-sm transition-all duration-300"
+                className="group inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-[#377a9b]/50 hover:shadow-sm transition-all duration-300"
               >
-                <div className="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-[#377a9b]/10 text-slate-600 group-hover:text-[#377a9b] flex items-center justify-center shrink-0 transition-colors">
+                <div className="w-8 h-8 rounded-xl bg-slate-100 group-hover:bg-[#377a9b]/10 text-slate-700 group-hover:text-[#377a9b] flex items-center justify-center shrink-0 transition-colors">
                   <Icon className="w-4 h-4" />
                 </div>
                 <div className="text-left">
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] leading-tight">
+                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A] leading-tight">
                     {tech.name}
                   </div>
                   <div className="font-mono text-[9px] sm:text-[9.5px] text-slate-500 font-medium">
