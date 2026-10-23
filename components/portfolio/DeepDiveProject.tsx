@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { ArrowRight, ExternalLink, CheckCircle2, Sparkles, ShieldCheck } from 'lucide-react';
 import { Project } from '@/data/projects';
 import DeepDiveProjectMobile from './DeepDiveProjectMobile';
@@ -15,6 +15,7 @@ interface DeepDiveProjectProps {
 const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
    const containerRef = useRef<HTMLElement>(null);
    const [isMobile, setIsMobile] = useState(false);
+   const [isRevealed, setIsRevealed] = useState(false);
 
    useEffect(() => {
       const handleResize = () => setIsMobile(window.innerWidth < 1024);
@@ -28,20 +29,26 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
       offset: ["start start", "end end"]
    });
 
-   // Mathematically map the 3-stage unfolding sequence:
-   // 0.0 - 0.08: Grand, cinematic hero image centered on screen (scale: 1, x: -50%).
-   // 0.08 - 0.28: Image smoothly glides left to an impressive workstation size (scale: 0.68, x: -78%) clearing the right half.
-   // 0.28 - 0.88: Domineering project image and frosted glass card stay locked side-by-side with zero overlap.
-   // 0.88 - 0.98: Smooth release fade out to next project.
-   const imageScale = useTransform(scrollYProgress, [0, 0.08, 0.28, 0.88, 1], [1, 1, 0.68, 0.68, 0.62]);
-   const imageX = useTransform(scrollYProgress, [0, 0.08, 0.28, 0.88, 1], ["-50%", "-50%", "-84%", "-84%", "-84%"]);
+   // Mathematically map the unfolding sequence (Top-Level Agency Choreography):
+   // Chapter 1 (0.00 - 0.14): First project image shows full in center stage (scale: 1, x: -50%). Card is hidden.
+   // Chapter 2 (0.14 - 0.32): User scrolls -> image smoothly glides to its settled spot on the left (x: -79%, scale: 0.70).
+   // Chapter 3 (0.32 - 0.86): Card animates in from bottom to up side and locks in solid view (tight gap, no overlap, zero bottom cutoff).
+   // Chapter 4 (0.86 - 0.98): Smooth release fade out to next project.
+   const imageScale = useTransform(scrollYProgress, [0, 0.14, 0.32, 0.86, 1], [1, 1, 0.70, 0.70, 0.64]);
+   const imageX = useTransform(scrollYProgress, [0, 0.14, 0.32, 0.86, 1], ["-50%", "-50%", "-79%", "-79%", "-79%"]);
 
-   // Smooth continuous transforms for text reveal (responsive and early so text is always ready)
-   const textOpacity = useTransform(scrollYProgress, [0.10, 0.26, 0.88, 0.98], [0, 1, 1, 0]);
-   const textY = useTransform(scrollYProgress, [0.10, 0.26], [35, 0]);
+   // Sequential card reveal: triggers strictly AFTER image has set on its place (at 0.24)
+   // Guaranteed 100% solid, crisp opacity - Hariram Motors and all cards render identically!
+   useMotionValueEvent(scrollYProgress, "change", (latest) => {
+      if (latest >= 0.22 && !isRevealed) {
+         setIsRevealed(true);
+      } else if (latest < 0.18 && isRevealed) {
+         setIsRevealed(false);
+      }
+   });
 
    // Section release fade
-   const sectionOpacity = useTransform(scrollYProgress, [0, 0.88, 0.98], [1, 1, 0]);
+   const sectionOpacity = useTransform(scrollYProgress, [0, 0.86, 0.98], [1, 1, 0]);
 
    // Description Parser for dynamic multi-paragraph content and checklists
    const parseDescription = (text: string) => {
@@ -74,7 +81,7 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
       return <DeepDiveProjectMobile project={project} index={index} />;
    }
 
-   // Desktop 300vh Scroll Experience (Grand, Impressive, Zero Bottom Cutoff, Zero Overlap)
+   // Desktop 300vh Scroll Experience (Grand, Impressive, Zero Bottom Cutoff, Decreased Gap)
    return (
       <section ref={containerRef} className="relative h-[300vh] w-full bg-slate-50">
          <motion.div
@@ -83,7 +90,7 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
          >
 
             {/* Massive Background Logo Anchor */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] md:w-[42vw] opacity-[0.14] md:opacity-20 pointer-events-none select-none flex items-center justify-center">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] md:w-[42vw] opacity-[0.12] md:opacity-18 pointer-events-none select-none flex items-center justify-center">
                <img src="/logo_without_background.png" alt="Background Logo" className="w-full h-auto object-contain grayscale" />
             </div>
 
@@ -102,10 +109,17 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
                </div>
             </motion.div>
 
-            {/* Emerging Text & Architecture Panel (Smooth useTransform, elevated luxury glass card) */}
+            {/* Emerging Text & Architecture Panel (Smooth agency bottom-to-up reveal, decreased gap) */}
             <motion.div
-               style={{ opacity: textOpacity, y: textY }}
-               className="absolute top-1/2 -translate-y-1/2 right-[2.5vw] 2xl:right-[4vw] w-[88vw] md:w-[41vw] lg:w-[36vw] 2xl:w-[33vw] flex flex-col z-30 pointer-events-none md:pointer-events-auto"
+               animate={{
+                  opacity: isRevealed ? 1 : 0,
+                  y: isRevealed ? 0 : 80,
+               }}
+               transition={{
+                  duration: 0.65,
+                  ease: [0.16, 1, 0.3, 1]
+               }}
+               className="absolute top-1/2 -translate-y-1/2 right-[3.5vw] lg:right-[4vw] 2xl:right-[5.5vw] w-[88vw] md:w-[43vw] lg:w-[39vw] 2xl:w-[36vw] flex flex-col z-30 pointer-events-none md:pointer-events-auto"
             >
                <div className="pointer-events-auto flex flex-col gap-2.5 sm:gap-3 bg-white/98 backdrop-blur-2xl p-5 sm:p-6 lg:p-7 rounded-[1.75rem] md:rounded-[2rem] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.12)] border border-slate-200/90">
 
@@ -188,6 +202,15 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
 
             {/* Persistent Bottom Action Bar */}
             <motion.div
+               animate={{
+                  opacity: isRevealed ? 1 : 0,
+                  y: isRevealed ? 0 : 30,
+               }}
+               transition={{
+                  duration: 0.65,
+                  delay: 0.08,
+                  ease: [0.16, 1, 0.3, 1]
+               }}
                className="absolute bottom-6 md:bottom-10 left-[5vw] 2xl:left-[8vw] z-40 pointer-events-auto flex items-center gap-3"
             >
                {project.liveLink && project.liveLink !== '#' && (
