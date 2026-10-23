@@ -1377,44 +1377,73 @@ export default function EcosystemBentoGrid() {
         </AnimatePresence>
         </div>
 
-        {/* ── Minimalist Service Switcher Tabs (Seamless Continuous Auto-Cycle) ── */}
-        <div className="relative z-10 mt-5 sm:mt-6 pt-3.5 border-t border-slate-200/60 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-[10.5px] font-mono text-slate-500 uppercase tracking-wider font-semibold">
+        {/* ── Minimalist Service Switcher Tabs (Set strictly in ONE line with prominent highlight) ── */}
+        <div className="relative z-10 mt-5 sm:mt-6 pt-3.5 border-t border-slate-200/60 flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-[10.5px] font-mono text-slate-500 uppercase tracking-wider font-semibold shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b] animate-ping" />
-            <span>Select Service to Explore:</span>
+            <span>Explore Engineering Disciplines:</span>
           </div>
-          <div className="grid grid-cols-2 xs:flex xs:flex-wrap items-center gap-1.5 sm:gap-2 justify-center w-full sm:w-auto">
-            {SERVICES_DATA.map((service, index) => {
-              const isActive = activeIndex === index;
-              return (
-                <button
-                  key={service.id}
-                  type="button"
-                  onClick={() => setActiveIndex(index)}
-                  className={`relative min-h-[44px] px-2.5 sm:px-3.5 py-2 sm:py-1.5 rounded-xl font-mono text-[10.5px] sm:text-[11px] font-semibold transition-all duration-300 flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 cursor-pointer active:scale-[0.98] overflow-hidden ${isActive
-                      ? 'bg-white border border-slate-300/90 text-[#0F172A] shadow-2xs font-bold'
-                      : 'bg-slate-100/70 sm:bg-transparent text-slate-600 sm:text-slate-500 hover:text-slate-900 hover:bg-white/60'
-                    }`}
-                >
-                  <span
-                    className={`w-1.5 h-1.5 rounded-full shrink-0 ${isActive ? 'bg-[#377a9b]' : 'bg-slate-300'
-                      }`}
-                  />
-                  <span className="truncate">{service.tabLabel}</span>
 
-                  {/* Smooth auto-cycle progress indicator on active tab */}
-                  {isActive && (
-                    <motion.div
-                      key={`tab-progress-${index}-${activeIndex}`}
-                      initial={{ width: '0%' }}
-                      animate={{ width: '100%' }}
-                      transition={{ duration: CYCLE_DURATION, ease: 'linear' }}
-                      className="absolute bottom-0 left-0 h-[2.5px] bg-[#377a9b]"
+          {/* All 4 tabs strictly in ONE horizontal single-line track */}
+          <div className="w-full md:w-auto max-w-full overflow-x-auto no-scrollbar py-1">
+            <div className="flex items-center gap-1.5 sm:gap-2 flex-nowrap shrink-0 min-w-max mx-auto md:mx-0 p-1 rounded-2xl bg-slate-100/80 border border-slate-200/70">
+              {SERVICES_DATA.map((service, index) => {
+                const isActive = activeIndex === index;
+                const displayLabel =
+                  service.id === 'web'
+                    ? 'WEB Development'
+                    : service.id === 'app'
+                    ? 'MOBILE APPS'
+                    : service.id === 'saas'
+                    ? 'Software Development'
+                    : 'AI AUTOMATION';
+
+                return (
+                  <button
+                    key={service.id}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    className={`relative min-h-[40px] px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer active:scale-[0.98] shrink-0 whitespace-nowrap overflow-hidden ${
+                      isActive
+                        ? 'bg-[#377a9b] text-white shadow-[0_4px_14px_-2px_rgba(55,122,155,0.45)]'
+                        : 'bg-transparent text-slate-600 hover:text-[#0F172A] hover:bg-white/80'
+                    }`}
+                  >
+                    {/* Glowing active highlight indicator dot */}
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                        isActive ? 'bg-[#ffc312] animate-pulse' : 'bg-slate-300'
+                      }`}
                     />
-                  )}
-                </button>
-              );
-            })}
+
+                    {/* Highlighted Index Pill */}
+                    <span
+                      className={`font-mono font-black text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded-md transition-colors ${
+                        isActive
+                          ? 'bg-white/20 text-[#ffc312]'
+                          : 'bg-slate-200/80 text-slate-500'
+                      }`}
+                    >
+                      {service.index}
+                    </span>
+
+                    {/* Service Label */}
+                    <span className="tracking-tight">{displayLabel}</span>
+
+                    {/* Smooth auto-cycle gold progress indicator on active highlighted tab */}
+                    {isActive && (
+                      <motion.div
+                        key={`tab-progress-${index}-${activeIndex}`}
+                        initial={{ width: '0%' }}
+                        animate={{ width: '100%' }}
+                        transition={{ duration: CYCLE_DURATION, ease: 'linear' }}
+                        className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#ffc312]"
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
