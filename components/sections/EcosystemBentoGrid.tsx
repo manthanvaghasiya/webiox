@@ -787,30 +787,17 @@ export default function EcosystemBentoGrid() {
                 ))}
               </div>
 
-              {/* Highlight Metric Card + Tech Stack Strip */}
-              <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-                {/* Highlight Metric Pill */}
-                <div className="p-2.5 rounded-xl bg-white/90 border border-slate-200/80 shadow-2xs flex items-center gap-2.5">
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-lg text-[#377a9b] leading-none shrink-0">
-                    {activeService.metricHighlight.value}
-                  </div>
-                  <div className="text-left leading-tight">
-                    <div className="text-[11px] font-bold text-[#0F172A]">{activeService.metricHighlight.label}</div>
-                    <div className="text-[9.5px] text-slate-600 font-mono font-medium">{activeService.metricHighlight.sub}</div>
-                  </div>
-                </div>
-
-                {/* Tech Stack Chips */}
-                <div className="p-2 rounded-xl bg-slate-50/80 border border-slate-200/80 flex flex-wrap items-center gap-1">
-                  {activeService.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-1.5 py-0.5 rounded-md bg-white border border-slate-200/70 text-[9.5px] font-mono font-medium text-slate-600"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+              {/* Tech Stack Chips */}
+              <div className="w-full p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/80 flex flex-wrap items-center gap-1.5 mb-4">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 mr-1">Stack:</span>
+                {activeService.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2 py-0.5 rounded-md bg-white border border-slate-200/70 text-[10px] font-mono font-medium text-slate-700 shadow-2xs"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
 
               {/* Action Buttons */}
@@ -1358,14 +1345,9 @@ export default function EcosystemBentoGrid() {
                 )}
               </motion.div>
 
-              {/* Mobile-Only Live Telemetry Strip (Sleek scannable data badges beneath the device frame) */}
-              <div className="sm:hidden flex items-center justify-center gap-2 mt-3.5 flex-wrap">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 border border-slate-200 shadow-2xs text-[11px] font-mono font-bold text-[#0F172A]">
-                  <Zap className="w-3.5 h-3.5 text-[#377a9b]" />
-                  <span>{activeService.metricHighlight.value}</span>
-                  <span className="text-slate-500 font-normal">{activeService.metricHighlight.label}</span>
-                </div>
-                <div className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 border border-slate-200 shadow-2xs text-[10.5px] font-mono text-slate-700">
+              {/* Mobile-Only Production Status Badge */}
+              <div className="sm:hidden flex items-center justify-center gap-2 mt-3 flex-wrap">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-slate-200 shadow-2xs text-[10.5px] font-mono text-slate-700">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Production Verified</span>
                 </div>
