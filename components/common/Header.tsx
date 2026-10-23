@@ -138,7 +138,7 @@ export default function Header() {
         className="fixed top-2.5 sm:top-5 inset-x-0 z-50 flex justify-center pointer-events-none px-3 sm:px-4"
       >
         <div
-          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border rounded-full p-1.5 sm:p-2 pl-3 sm:pl-4 pr-1.5 sm:pr-2 transition-all duration-300 flex items-center justify-between md:justify-start w-[calc(100vw-24px)] max-w-sm sm:max-w-md md:w-auto md:max-w-fit ${
+          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border rounded-full py-1.5 pl-3.5 pr-2 sm:px-4 sm:py-2 transition-all duration-300 flex items-center justify-between md:justify-start w-[calc(100%-24px)] max-w-md sm:max-w-xl md:w-auto md:max-w-fit ${
             scrolled
               ? 'border-slate-300/90 shadow-[0_20px_50px_-10px_rgba(15,23,42,0.14),0_1px_3px_rgba(0,0,0,0.04)]'
               : 'border-slate-200/80 shadow-[0_14px_38px_-10px_rgba(15,23,42,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
@@ -148,7 +148,7 @@ export default function Header() {
           <Link
             href="/"
             aria-label="Webiox Home"
-            className="relative flex items-center hover:opacity-85 active:scale-95 transition-transform shrink-0 cursor-pointer py-1 mr-2 sm:mr-3"
+            className="relative flex items-center hover:opacity-85 active:scale-95 transition-transform shrink-0 cursor-pointer py-1 pl-0.5 mr-2 sm:mr-3"
           >
             <Image
               src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
@@ -156,7 +156,7 @@ export default function Header() {
               width={116}
               height={26}
               priority
-              className="h-5.5 sm:h-7 w-auto object-contain select-none pointer-events-none"
+              className="h-6 sm:h-7 w-auto object-contain select-none pointer-events-none"
             />
           </Link>
 
@@ -267,13 +267,22 @@ export default function Header() {
 
           {/* Right Action Group */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-            {/* Action Button: Get Free Consultation */}
+            {/* Action Button: Get Free Consultation (Desktop & Tablet >= 640px) */}
             <Link
               href="/contact"
-              className="bg-[#377a9b] hover:bg-[#2b6683] text-white shadow-[0_8px_20px_-6px_rgba(55, 122, 155,0.55)] hover:shadow-[0_12px_28px_-6px_rgba(55, 122, 155,0.65)] font-semibold text-xs sm:text-sm px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full transition-all flex items-center gap-1 cursor-pointer group whitespace-nowrap active:scale-95"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-[#377a9b] hover:bg-[#2b6683] text-white shadow-[0_8px_20px_-6px_rgba(55,122,155,0.55)] hover:shadow-[0_12px_28px_-6px_rgba(55,122,155,0.65)] font-semibold text-xs sm:text-sm px-4 sm:px-4.5 py-1.5 sm:py-2 rounded-full transition-all cursor-pointer group whitespace-nowrap active:scale-95"
             >
-              <span><span className="hidden sm:inline">Get </span>Free Consultation</span>
+              <span>Get Free Consultation</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </Link>
+
+            {/* Compact Quick Consult Button on Medium Mobile (screens 400px to 639px) */}
+            <Link
+              href="/contact"
+              className="hidden min-[400px]:inline-flex sm:hidden items-center gap-1 bg-[#377a9b] hover:bg-[#2b6683] text-white shadow-[0_6px_16px_-4px_rgba(55,122,155,0.5)] font-semibold text-xs px-3 py-1.5 rounded-full transition-all cursor-pointer whitespace-nowrap active:scale-95"
+            >
+              <span>Consult</span>
+              <ArrowUpRight className="w-3 h-3 text-white/80" />
             </Link>
 
             {/* Mobile menu toggle inside floating pill (High-Precision Animated Toggle) */}
@@ -281,13 +290,14 @@ export default function Header() {
               type="button"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              className={`md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border transition-all cursor-pointer active:scale-90 ${
+              aria-expanded={mobileOpen}
+              className={`md:hidden inline-flex items-center justify-center w-9.5 h-9.5 rounded-full border transition-all cursor-pointer active:scale-90 ${
                 mobileOpen
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                  : 'bg-slate-100/90 hover:bg-slate-200/90 text-slate-800 border-slate-200/80'
+                  ? 'bg-[#377a9b] text-white border-[#377a9b] shadow-md'
+                  : 'bg-slate-100/90 hover:bg-slate-200/90 text-slate-800 border-slate-200/80 shadow-2xs'
               }`}
             >
-              {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4.5 h-4.5" />}
+              {mobileOpen ? <X className="w-4.5 h-4.5" /> : <Menu className="w-4.5 h-4.5" />}
             </button>
           </div>
         </div>
@@ -306,9 +316,9 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.24 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setMobileOpen(false)}
-              className="md:hidden fixed inset-0 bg-slate-950/60 backdrop-blur-md z-50"
+              className="md:hidden fixed inset-0 bg-slate-950/50 backdrop-blur-sm z-40"
               aria-hidden
             />
 
@@ -323,20 +333,16 @@ export default function Header() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="md:hidden fixed left-3 right-3 top-14 sm:top-18 z-50 bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_30px_70px_-15px_rgba(15,23,42,0.3)] p-4 sm:p-5 max-h-[calc(100vh-76px)] overflow-y-auto overscroll-contain flex flex-col justify-between"
+              className="md:hidden fixed left-3 right-3 top-[64px] sm:top-[76px] z-50 bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_30px_70px_-15px_rgba(15,23,42,0.3)] p-4 sm:p-5 max-h-[calc(100dvh-80px)] overflow-y-auto overscroll-contain flex flex-col justify-between"
             >
               <div>
                 {/* Top Header Strip inside Drawer */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-3">
                   <div className="flex items-center gap-2">
-                    <Image
-                      src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
-                      alt="Webiox"
-                      width={116}
-                      height={28}
-                      className="h-6 w-auto object-contain"
-                    />
-                    <span className="px-2 py-0.5 rounded-md bg-[#377a9b]/10 text-[#377a9b] text-[9.5px] font-mono font-bold uppercase tracking-wider">
+                    <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[#377a9b]">
+                      Menu Navigation
+                    </span>
+                    <span className="px-2 py-0.5 rounded-md bg-[#ffc312]/15 text-[#e6ad0a] text-[9.5px] font-mono font-bold uppercase tracking-wider">
                       STUDIO
                     </span>
                   </div>
@@ -344,7 +350,7 @@ export default function Header() {
                     type="button"
                     onClick={() => setMobileOpen(false)}
                     aria-label="Close menu"
-                    className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+                    className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer active:scale-90"
                   >
                     <X className="w-4 h-4" />
                   </button>
