@@ -139,12 +139,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '+14% MoM Growth',
         iconType: 'activity',
         widgetType: 'gauge',
-        positionClass: '-top-3 sm:-top-1 left-0 sm:left-2 md:left-4 w-48 sm:w-56',
+        positionClass: 'top-0 left-0 sm:left-1 md:left-2 w-36 sm:w-40',
         animation: {
           initial: { opacity: 0, x: 180, y: 70, scale: 0.25, rotate: 22 },
           restRotate: -3.5,
           spring: { stiffness: 260, damping: 18, delay: 0.1 },
-          float: { y: [0, -7, 0], duration: 4.4 },
+          float: { y: [0, -5, 0], duration: 4.4 },
         },
       },
       {
@@ -154,12 +154,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'Global 100% Edge CDN',
         iconType: 'zap',
         widgetType: 'bars',
-        positionClass: 'bottom-1 sm:bottom-3 left-0 sm:left-2 md:left-4 w-46 sm:w-54',
+        positionClass: 'bottom-0 left-0 sm:left-1 md:left-2 w-34 sm:w-38',
         animation: {
           initial: { opacity: 0, x: 140, y: -80, scale: 0.25, rotate: -16 },
           restRotate: 2.5,
           spring: { stiffness: 240, damping: 19, delay: 0.18 },
-          float: { y: [0, 6, 0], duration: 5.0, delay: 0.3 },
+          float: { y: [0, 5, 0], duration: 5.0, delay: 0.3 },
         },
       },
       {
@@ -169,12 +169,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'Perf • A11y • Best • SEO',
         iconType: 'check',
         widgetType: 'audit',
-        positionClass: 'top-6 sm:top-10 right-0 sm:right-2 md:right-4 w-50 sm:w-60',
+        positionClass: 'top-2 sm:top-4 right-0 sm:right-1 md:right-2 w-38 sm:w-44',
         animation: {
           initial: { opacity: 0, x: -190, y: 40, scale: 0.25, rotate: -20 },
           restRotate: -2,
           spring: { stiffness: 250, damping: 19, delay: 0.26 },
-          float: { y: [0, -6, 0], duration: 4.0, delay: 0.5 },
+          float: { y: [0, -5, 0], duration: 4.0, delay: 0.5 },
         },
       },
     ],
@@ -224,12 +224,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '',
         iconType: 'trending',
         widgetType: 'trend_circle',
-        positionClass: 'top-4 sm:top-6 left-3 sm:left-6 md:left-8',
+        positionClass: 'top-1 sm:top-2 left-4 sm:left-6 md:left-8',
         animation: {
           initial: { opacity: 0, x: 100, y: 80, scale: 0.2, rotate: -20 },
           restRotate: 0,
           spring: { stiffness: 270, damping: 17, delay: 0.1 },
-          float: { y: [0, -6, 0], duration: 3.8 },
+          float: { y: [0, -5, 0], duration: 3.8 },
         },
       },
       {
@@ -239,12 +239,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'This Month',
         iconType: 'activity',
         widgetType: 'budget_donut',
-        positionClass: 'top-24 sm:top-28 left-0 sm:left-2 md:left-4 w-56 sm:w-64',
+        positionClass: 'top-10 sm:top-12 left-0 sm:left-1 md:left-2 w-38 sm:w-44',
         animation: {
           initial: { opacity: 0, x: 140, y: 10, scale: 0.25, rotate: 12 },
           restRotate: 0,
           spring: { stiffness: 240, damping: 18, delay: 0.18 },
-          float: { y: [0, 7, 0], duration: 4.6, delay: 0.2 },
+          float: { y: [0, 5, 0], duration: 4.6, delay: 0.2 },
         },
       },
       {
@@ -254,12 +254,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '$950',
         iconType: 'zap',
         widgetType: 'cash_flow',
-        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-52 sm:w-60',
+        positionClass: 'top-1 sm:top-2 right-0 sm:right-1 md:right-2 w-36 sm:w-40',
         animation: {
           initial: { opacity: 0, x: -130, y: 60, scale: 0.25, rotate: -15 },
           restRotate: 0,
           spring: { stiffness: 260, damping: 18, delay: 0.24 },
-          float: { y: [0, -7, 0], duration: 3.6, delay: 0.4 },
+          float: { y: [0, -5, 0], duration: 3.6, delay: 0.4 },
         },
       },
       {
@@ -269,12 +269,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '+4.2%',
         iconType: 'trending',
         widgetType: 'amount_saved',
-        positionClass: 'bottom-10 sm:bottom-14 right-0 sm:right-2 md:right-4 w-46 sm:w-52',
+        positionClass: 'bottom-2 sm:bottom-4 right-0 sm:right-1 md:right-2 w-32 sm:w-36',
         animation: {
           initial: { opacity: 0, x: -140, y: -60, scale: 0.25, rotate: 14 },
           restRotate: 0,
           spring: { stiffness: 240, damping: 19, delay: 0.32 },
-          float: { y: [0, 6, 0], duration: 5.2, delay: 0.6 },
+          float: { y: [0, 5, 0], duration: 5.2, delay: 0.6 },
         },
       },
     ],
@@ -324,12 +324,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '38 Nodes Healthy',
         iconType: 'activity',
         widgetType: 'sparkline',
-        positionClass: '-top-2 sm:top-0 right-0 sm:right-2 md:right-4 w-50 sm:w-60',
+        positionClass: 'top-0 right-0 sm:right-1 md:right-2 w-38 sm:w-44',
         animation: {
           initial: { opacity: 0, x: -190, y: 60, scale: 0.25, rotate: 18 },
           restRotate: 3,
           spring: { stiffness: 250, damping: 18, delay: 0.12 },
-          float: { y: [0, -6, 0], duration: 4.2 },
+          float: { y: [0, -5, 0], duration: 4.2 },
         },
       },
       {
@@ -339,12 +339,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'Redis Edge Tier',
         iconType: 'zap',
         widgetType: 'latency',
-        positionClass: 'bottom-2 sm:bottom-4 right-0 sm:right-2 md:right-4 w-48 sm:w-56',
+        positionClass: 'bottom-0 right-0 sm:right-1 md:right-2 w-34 sm:w-38',
         animation: {
           initial: { opacity: 0, x: -160, y: -90, scale: 0.25, rotate: -22 },
           restRotate: -3.5,
           spring: { stiffness: 230, damping: 19, delay: 0.22 },
-          float: { y: [0, 8, 0], duration: 5.0, delay: 0.3 },
+          float: { y: [0, 5, 0], duration: 5.0, delay: 0.3 },
         },
       },
       {
@@ -354,12 +354,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '3 Regions • SOC-2 Ready',
         iconType: 'shield',
         widgetType: 'clusters',
-        positionClass: 'top-10 sm:top-14 left-0 sm:left-2 md:left-4 w-52 sm:w-62',
+        positionClass: 'top-2 sm:top-6 left-0 sm:left-1 md:left-2 w-38 sm:w-44',
         animation: {
           initial: { opacity: 0, x: 210, y: -10, scale: 0.25, rotate: -14 },
           restRotate: -2,
           spring: { stiffness: 260, damping: 18, delay: 0.3 },
-          float: { y: [0, -7, 0], duration: 4.5, delay: 0.5 },
+          float: { y: [0, -5, 0], duration: 4.5, delay: 0.5 },
         },
       },
     ],
@@ -409,12 +409,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '',
         iconType: 'trending',
         widgetType: 'ai_circle',
-        positionClass: 'top-4 sm:top-6 left-3 sm:left-6 md:left-8',
+        positionClass: 'top-1 sm:top-2 left-4 sm:left-6 md:left-8',
         animation: {
           initial: { opacity: 0, x: 100, y: 80, scale: 0.2, rotate: -20 },
           restRotate: 0,
           spring: { stiffness: 270, damping: 17, delay: 0.1 },
-          float: { y: [0, -6, 0], duration: 3.8 },
+          float: { y: [0, -5, 0], duration: 3.8 },
         },
       },
       {
@@ -424,12 +424,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: 'This Month',
         iconType: 'activity',
         widgetType: 'ai_donut',
-        positionClass: 'top-24 sm:top-28 left-0 sm:left-2 md:left-4 w-56 sm:w-64',
+        positionClass: 'top-10 sm:top-12 left-0 sm:left-1 md:left-2 w-38 sm:w-44',
         animation: {
           initial: { opacity: 0, x: 140, y: 10, scale: 0.25, rotate: 12 },
           restRotate: 0,
           spring: { stiffness: 240, damping: 18, delay: 0.18 },
-          float: { y: [0, 7, 0], duration: 4.6, delay: 0.2 },
+          float: { y: [0, 5, 0], duration: 4.6, delay: 0.2 },
         },
       },
       {
@@ -439,12 +439,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '85%',
         iconType: 'zap',
         widgetType: 'ai_metrics',
-        positionClass: 'top-6 sm:top-8 right-0 sm:right-2 md:right-4 w-52 sm:w-60',
+        positionClass: 'top-1 sm:top-2 right-0 sm:right-1 md:right-2 w-36 sm:w-40',
         animation: {
           initial: { opacity: 0, x: -130, y: 60, scale: 0.25, rotate: -15 },
           restRotate: 0,
           spring: { stiffness: 260, damping: 18, delay: 0.24 },
-          float: { y: [0, -7, 0], duration: 3.6, delay: 0.4 },
+          float: { y: [0, -5, 0], duration: 3.6, delay: 0.4 },
         },
       },
       {
@@ -454,12 +454,12 @@ const SERVICES_DATA: ServiceSlide[] = [
         sub: '+28.4%',
         iconType: 'trending',
         widgetType: 'ai_stat',
-        positionClass: 'bottom-10 sm:bottom-14 right-0 sm:right-2 md:right-4 w-46 sm:w-54',
+        positionClass: 'bottom-2 sm:bottom-4 right-0 sm:right-1 md:right-2 w-32 sm:w-36',
         animation: {
           initial: { opacity: 0, x: -140, y: -60, scale: 0.25, rotate: 14 },
           restRotate: 0,
           spring: { stiffness: 240, damping: 19, delay: 0.32 },
-          float: { y: [0, 6, 0], duration: 5.2, delay: 0.6 },
+          float: { y: [0, 5, 0], duration: 5.2, delay: 0.6 },
         },
       },
     ],
@@ -702,7 +702,7 @@ export default function EcosystemBentoGrid() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* ── Cinematic Visual Stage ── */}
-      <div className="relative rounded-3xl bg-gradient-to-b from-white via-slate-50/70 to-sky-50/40 border border-slate-200/90 p-5 sm:p-7 md:p-8 lg:p-10 shadow-[0_25px_65px_-15px_rgba(15,23,42,0.07),inset_0_1px_2px_rgba(255,255,255,0.95)] overflow-hidden">
+      <div className="relative rounded-3xl bg-gradient-to-b from-white via-slate-50/70 to-sky-50/40 border border-slate-200/90 p-4 sm:p-5 md:p-6 lg:p-7 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.06),inset_0_1px_2px_rgba(255,255,255,0.95)] overflow-hidden">
 
         {/* Soft Fluted Vertical Curtain Light Background (CSS Utility) */}
         <div className="absolute inset-0 pointer-events-none opacity-40 bg-fluted-grid" />
@@ -720,7 +720,7 @@ export default function EcosystemBentoGrid() {
         />
 
         {/* Fixed Header: OUR CORE SERVICES // 4 Dedicated Engineering Squads */}
-        <div className="relative z-20 mb-3 sm:mb-4 pb-2.5 border-b border-slate-200/60 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+        <div className="relative z-20 mb-2 sm:mb-2.5 pb-2 border-b border-slate-200/60 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2.5">
             <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#377a9b] opacity-75" />
@@ -741,7 +741,7 @@ export default function EcosystemBentoGrid() {
         </div>
 
         {/* ── Dynamic Content Showcase: Height-locked container to prevent CLS collapse during slide transitions ── */}
-        <div className="relative z-10 min-h-0 sm:min-h-[580px] lg:min-h-[540px] flex flex-col justify-center">
+        <div className="relative z-10 min-h-0 sm:min-h-[380px] lg:min-h-[360px] flex flex-col justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeService.id}
@@ -749,18 +749,18 @@ export default function EcosystemBentoGrid() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -24 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center"
+              className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 xl:gap-8 items-center"
             >
               {/* ── LEFT COLUMN: Editorial Service Info, Deliverables & Specs (Below on Mobile, Left on Desktop) ── */}
               <div className="order-2 lg:order-1 lg:col-span-5 flex flex-col items-start text-left pr-0 lg:pr-3">
 
                 {/* Dynamic Service Pill (No Dot) */}
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[11px] font-mono font-bold text-[#377a9b] tracking-wider backdrop-blur-md mb-2.5 transition-all">
+                <div className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[10.5px] font-mono font-bold text-[#377a9b] tracking-wider backdrop-blur-md mb-1.5 transition-all">
                   SERVICE {activeService.index} // {activeService.badge}
                 </div>
 
                 {/* Headline */}
-                <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] text-[#0F172A] tracking-[-0.03em] leading-[1.18] mb-2.5 selection:bg-[#377a9b] selection:text-white">
+                <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-[23px] xl:text-[26px] text-[#0F172A] tracking-[-0.03em] leading-[1.2] mb-2 selection:bg-[#377a9b] selection:text-white">
                   <span>{activeService.titlePrimary} </span>
                   <span className={activeService.accentColor === '#ffc312' ? 'text-[#ffc312]' : 'text-[#377a9b]'}>
                     {activeService.titleAccent}
@@ -768,18 +768,18 @@ export default function EcosystemBentoGrid() {
                 </h2>
 
                 {/* Description */}
-                <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-[13.5px] text-[#475569] font-normal leading-[1.6] mb-3.5 selection:bg-[#377a9b] selection:text-white">
+                <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-[13px] text-[#475569] font-normal leading-[1.5] mb-2.5 selection:bg-[#377a9b] selection:text-white">
                   {activeService.description}
                 </p>
 
                 {/* Deliverables Checklist (Headings Only) */}
-                <div className="w-full space-y-2 mb-3.5 pt-2 border-t border-slate-200/60">
+                <div className="w-full space-y-1.5 mb-2.5 pt-1.5 border-t border-slate-200/60">
                   {activeService.deliverables.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 text-left">
-                      <div className="w-4 h-4 rounded-full bg-[#377a9b]/10 text-[#377a9b] flex items-center justify-center shrink-0 border border-[#377a9b]/20">
-                        <CheckCircle2 className="w-3 h-3 text-[#377a9b]" />
+                    <div key={idx} className="flex items-center gap-2 text-left">
+                      <div className="w-3.5 h-3.5 rounded-full bg-[#377a9b]/10 text-[#377a9b] flex items-center justify-center shrink-0 border border-[#377a9b]/20">
+                        <CheckCircle2 className="w-2.5 h-2.5 text-[#377a9b]" />
                       </div>
-                      <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A] leading-tight">
+                      <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[12.5px] text-[#0F172A] leading-tight">
                         {item.title}
                       </span>
                     </div>
@@ -787,12 +787,12 @@ export default function EcosystemBentoGrid() {
                 </div>
 
                 {/* Tech Stack Chips */}
-                <div className="w-full p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/80 flex flex-wrap items-center gap-1.5 mb-4">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 mr-1">Stack:</span>
+                <div className="w-full p-2 rounded-xl bg-slate-50/80 border border-slate-200/80 flex flex-wrap items-center gap-1.5 mb-3">
+                  <span className="text-[9.5px] font-mono font-bold uppercase tracking-wider text-slate-400 mr-1">Stack:</span>
                   {activeService.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 rounded-md bg-white border border-slate-200/70 text-[10px] font-mono font-medium text-slate-700 shadow-2xs"
+                      className="px-2 py-0.5 rounded-md bg-white border border-slate-200/70 text-[9.5px] font-mono font-medium text-slate-700 shadow-2xs"
                     >
                       {tech}
                     </span>
@@ -800,10 +800,10 @@ export default function EcosystemBentoGrid() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex items-center gap-3 pt-1 flex-wrap">
+                <div className="flex items-center gap-2.5 pt-0.5 flex-wrap">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group"
                   >
                     <span>Start {activeService.badge.toLowerCase()} project</span>
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -818,7 +818,7 @@ export default function EcosystemBentoGrid() {
               </div>
 
               {/* ── RIGHT COLUMN: The 3D Stage (First on Mobile, Right on Desktop) ── */}
-              <div className="order-1 lg:order-2 lg:col-span-7 relative w-full min-h-[260px] xs:min-h-[300px] sm:min-h-[490px] md:min-h-[530px] flex flex-col items-center justify-center pt-2 pb-4 overflow-hidden lg:overflow-visible">
+              <div className="order-1 lg:order-2 lg:col-span-7 relative w-full min-h-[200px] xs:min-h-[230px] sm:min-h-[330px] md:min-h-[350px] flex flex-col items-center justify-center pt-1 pb-2 overflow-hidden lg:overflow-visible">
 
                 {/* ── DYNAMIC SATELLITE CARDS: RENDERED PER-SERVICE (Hidden on mobile to eliminate overlap, Desktop in 3D orbit) ── */}
                 {activeService.cards.map((card) => (
@@ -832,7 +832,7 @@ export default function EcosystemBentoGrid() {
                       damping: card.animation.spring.damping,
                       delay: card.animation.spring.delay,
                     }}
-                    className={`hidden sm:block absolute z-20 ${card.positionClass} origin-center scale-[0.82] xs:scale-90 sm:scale-100`}
+                    className={`hidden sm:block absolute z-20 ${card.positionClass} origin-center scale-[0.66] sm:scale-[0.74] lg:scale-[0.78]`}
                   >
                     <motion.div
                       animate={{ y: card.animation.float.y }}
@@ -1291,23 +1291,23 @@ export default function EcosystemBentoGrid() {
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: 'spring', stiffness: 280, damping: 24 }}
-                  className="relative z-10 w-full max-w-[260px] xs:max-w-[300px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[480px] mx-auto"
+                  className="relative z-10 w-full max-w-[240px] xs:max-w-[270px] sm:max-w-[330px] md:max-w-[360px] lg:max-w-[380px] mx-auto"
                 >
                   {/* 1. Browser Window Mockup */}
                   {activeService.deviceType === 'browser' && (
-                    <div className="rounded-2xl border border-slate-300/85 bg-white shadow-[0_28px_60px_-14px_rgba(15,23,42,0.22)] overflow-hidden transition-transform duration-500 hover:scale-[1.01]">
-                      <div className="flex items-center justify-between px-3.5 py-2.5 bg-slate-100/95 border-b border-slate-200/80">
+                    <div className="rounded-2xl border border-slate-300/85 bg-white shadow-[0_20px_45px_-12px_rgba(15,23,42,0.18)] overflow-hidden transition-transform duration-500 hover:scale-[1.01]">
+                      <div className="flex items-center justify-between px-3 py-2 bg-slate-100/95 border-b border-slate-200/80">
                         <div className="flex items-center gap-1.5">
-                          <span className="w-2.5 h-2.5 rounded-full bg-rose-400/90" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/90" />
+                          <span className="w-2 h-2 rounded-full bg-rose-400/90" />
+                          <span className="w-2 h-2 rounded-full bg-amber-400/90" />
+                          <span className="w-2 h-2 rounded-full bg-emerald-400/90" />
                         </div>
-                        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] font-mono text-slate-600 shadow-2xs">
-                          <Lock className="w-2.5 h-2.5 text-emerald-700" />
+                        <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-[9.5px] font-mono text-slate-600 shadow-2xs">
+                          <Lock className="w-2 h-2 text-emerald-700" />
                           <span>{activeService.mockupUrl}</span>
                         </div>
-                        <div className="w-6 flex justify-end text-slate-500" aria-hidden="true">
-                          <Maximize2 className="w-3 h-3 opacity-60" />
+                        <div className="w-5 flex justify-end text-slate-500" aria-hidden="true">
+                          <Maximize2 className="w-2.5 h-2.5 opacity-60" />
                         </div>
                       </div>
 
@@ -1318,7 +1318,7 @@ export default function EcosystemBentoGrid() {
                           fill
                           priority
                           className="object-cover object-top select-none"
-                          sizes="(max-width: 768px) 300px, 430px"
+                          sizes="(max-width: 768px) 270px, 380px"
                         />
                         <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/20 pointer-events-none" />
                       </div>
@@ -1327,15 +1327,15 @@ export default function EcosystemBentoGrid() {
 
                   {/* 2. Realistic Mobile Phone Frame with High-Res Production App Interface */}
                   {activeService.deviceType === 'mobile' && (
-                    <div className="relative mx-auto w-56 sm:w-64 md:w-70 rounded-[44px] border-[8px] border-slate-900 bg-slate-900 p-1 shadow-[0_32px_70px_-15px_rgba(15,23,42,0.3)] transition-transform duration-500 hover:scale-[1.01]">
+                    <div className="relative mx-auto w-40 sm:w-44 md:w-48 rounded-[38px] border-[6px] border-slate-900 bg-slate-900 p-1 shadow-[0_24px_50px_-12px_rgba(15,23,42,0.28)] transition-transform duration-500 hover:scale-[1.01]">
                       {/* Dynamic Island Capsule */}
-                      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-22 h-5 bg-slate-900 rounded-full z-30 flex items-center justify-between px-2.5 pointer-events-none shadow-xs">
-                        <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-4 bg-slate-900 rounded-full z-30 flex items-center justify-between px-2 pointer-events-none shadow-xs">
+                        <div className="w-2 h-2 rounded-full bg-slate-800" />
+                        <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
                       </div>
 
                       {/* Screen Container with Native High-Performance Mobile Application Interface */}
-                      <div className="relative w-full aspect-[9/18.5] rounded-[36px] overflow-hidden bg-[#f8fafc] select-none shadow-inner">
+                      <div className="relative w-full aspect-[9/18.5] rounded-[30px] overflow-hidden bg-[#f8fafc] select-none shadow-inner">
                         <MobileAppScreen />
                         {/* Subtle Glass Glare Reflection */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/10 pointer-events-none" />
@@ -1345,9 +1345,9 @@ export default function EcosystemBentoGrid() {
                 </motion.div>
 
                 {/* Mobile-Only Production Status Badge */}
-                <div className="sm:hidden flex items-center justify-center gap-2 mt-3 flex-wrap">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-slate-200 shadow-2xs text-[10.5px] font-mono text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <div className="sm:hidden flex items-center justify-center gap-2 mt-2 flex-wrap">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/95 border border-slate-200 shadow-2xs text-[10px] font-mono text-slate-700">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                     <span>Production Verified</span>
                   </div>
                 </div>
@@ -1359,7 +1359,7 @@ export default function EcosystemBentoGrid() {
         </div>
 
         {/* ── Minimalist Service Switcher Tabs (Set strictly in ONE line with prominent highlight) ── */}
-        <div className="relative z-10 mt-5 sm:mt-6 pt-3.5 border-t border-slate-200/60 flex flex-col md:flex-row items-center justify-between gap-3">
+        <div className="relative z-10 mt-3 sm:mt-4 pt-2.5 border-t border-slate-200/60 flex flex-col md:flex-row items-center justify-between gap-2.5">
           <div className="flex items-center gap-2 text-[10.5px] font-mono text-slate-500 uppercase tracking-wider font-semibold shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b] animate-ping" />
             <span>Explore Engineering Disciplines:</span>
