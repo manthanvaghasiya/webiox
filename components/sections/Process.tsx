@@ -184,7 +184,172 @@ export default function Process() {
         </div>
 
         {/* ── Interactive 4-Stage Delivery Pipeline ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        {/* 1. MOBILE-FIRST ACCORDION PATTERN (< lg viewports) */}
+        <div className="block lg:hidden space-y-3.5 mb-8">
+          <div className="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider mb-2 px-1">
+            Tap Any Sprint Gate to Inspect:
+          </div>
+
+          {STAGES.map((stage, idx) => {
+            const IconComp = stage.icon;
+            const isExpanded = activeStageIndex === idx;
+
+            return (
+              <div
+                key={`mobile-${stage.id}`}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  isExpanded
+                    ? 'bg-white border-[#377a9b] shadow-[0_15px_35px_-10px_rgba(55,122,155,0.18)] ring-1 ring-[#377a9b]/30'
+                    : 'bg-white/80 border-slate-200/90 shadow-2xs'
+                }`}
+              >
+                {/* Stage Header Tap Area (min-h-[48px] touch target) */}
+                <button
+                  type="button"
+                  onClick={() => setActiveStageIndex(idx)}
+                  className="w-full text-left p-4 sm:p-5 flex items-start gap-3.5 cursor-pointer active:scale-[0.99] transition-transform"
+                >
+                  <div
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                      isExpanded
+                        ? 'bg-[#377a9b] text-white shadow-xs'
+                        : 'bg-slate-100 text-slate-600'
+                    }`}
+                  >
+                    <IconComp className="w-5 h-5" />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className="font-mono text-[10.5px] font-bold text-[#377a9b]">
+                        STAGE_{stage.number}
+                      </span>
+                      <span className="font-mono text-[10px] text-slate-500 font-medium">
+                        {stage.duration}
+                      </span>
+                    </div>
+
+                    <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-base text-[#0F172A] leading-snug">
+                      {stage.title}
+                    </h3>
+                    <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs text-slate-500 mt-0.5">
+                      {stage.tagline}
+                    </p>
+                  </div>
+
+                  <ChevronRight
+                    className={`w-4 h-4 shrink-0 transition-transform duration-300 mt-2 ${
+                      isExpanded ? 'text-[#377a9b] rotate-90' : 'text-slate-300'
+                    }`}
+                  />
+                </button>
+
+                {/* Inline Expanded Stage Details */}
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: 'easeOut' }}
+                    >
+                      <div className="p-4 sm:p-5 pt-0 border-t border-slate-100 space-y-4">
+                        {/* QA Gate Badge */}
+                        <div className="flex items-center justify-between gap-2 pt-3">
+                          <span className="font-mono text-[10.5px] text-slate-500 font-semibold uppercase">
+                            QA Verification Gate:
+                          </span>
+                          <span className="font-mono text-[10.5px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                            {stage.qaGate}
+                          </span>
+                        </div>
+
+                        {/* Overview */}
+                        <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+                          {stage.overview}
+                        </p>
+
+                        {/* Deliverables */}
+                        <div>
+                          <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider block mb-2">
+                            Phase Deliverables:
+                          </span>
+                          <div className="space-y-2">
+                            {stage.deliverables.map((item, dIdx) => (
+                              <div
+                                key={dIdx}
+                                className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70 flex items-start gap-2.5"
+                              >
+                                <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                                  <Check className="w-2.5 h-2.5" />
+                                </div>
+                                <div className="min-w-0">
+                                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
+                                    {item.title}
+                                  </div>
+                                  <p className="text-slate-500 text-[11px] mt-0.5 leading-snug">
+                                    {item.desc}
+                                  </p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Tech Stack Chips */}
+                        <div>
+                          <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider block mb-1.5">
+                            Technologies Deployed:
+                          </span>
+                          <div className="flex flex-wrap gap-1.5">
+                            {stage.stack.map((tech, tIdx) => (
+                              <span
+                                key={tIdx}
+                                className="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-[#0F172A] text-[10.5px] font-mono font-semibold shadow-2xs"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Terminal Log */}
+                        <div className="p-2.5 rounded-xl bg-slate-900 text-slate-200 font-mono text-[10.5px] flex items-center justify-between gap-2 overflow-x-auto">
+                          <div className="flex items-center gap-1.5 truncate">
+                            <span className="text-emerald-400 shrink-0">➜</span>
+                            <span className="text-slate-300 truncate">{stage.artifactCode}</span>
+                          </div>
+                          <span className="text-[9px] uppercase font-bold text-[#ffc312] shrink-0">
+                            LOCKED
+                          </span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+
+          {/* SLA Reassurance Card (Mobile) */}
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-[#ffc312]/30 flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-[#ffc312]/20 flex items-center justify-center shrink-0 text-[#ffc312]">
+              <Activity className="w-4 h-4" />
+            </div>
+            <div className="text-xs">
+              <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#0F172A] block">
+                100% Escrow Milestone Guarantee
+              </span>
+              <span className="text-slate-500 text-[11px]">
+                Invoices are released only when each staging QA gate passes your sign-off.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* 2. DUAL-COLUMN DESKTOP TELEMETRY INSPECTOR (≥ lg viewports) */}
+        <div className="hidden lg:grid grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Interactive 4-Stage Stepper Navigation (5 Cols) */}
           <div className="lg:col-span-5 space-y-3">

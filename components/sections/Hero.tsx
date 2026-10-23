@@ -39,9 +39,9 @@ export default function Hero() {
 
         {/* ── Dynamic Kinetic Heading (Smooth Vertical Word Rotator - Painted instantly for LCP) ── */}
         <div className="w-full max-w-5xl mx-auto mb-4 px-2">
-          <h1 className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] leading-[1.18] tracking-[-0.025em] text-[#0F172A] text-center [text-wrap:balance]">
+          <h1 className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-[28px] xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] leading-[1.18] tracking-[-0.025em] text-[#0F172A] text-center [text-wrap:balance]">
             <span className="inline-block">Developing</span>{' '}
-            <span className="inline-flex justify-center min-w-[175px] xs:min-w-[205px] sm:min-w-[255px] md:min-w-[305px] relative h-[1.22em] overflow-hidden align-top text-[#377a9b]">
+            <span className="inline-flex justify-center min-w-[142px] xs:min-w-[170px] sm:min-w-[240px] md:min-w-[305px] relative h-[1.22em] overflow-hidden align-top text-[#377a9b]">
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span
                   key={currentWordIndex}
@@ -84,7 +84,7 @@ export default function Hero() {
 
         {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context - Painted instantly for LCP) ── */}
         <div className="max-w-2xl mx-auto mb-7 sm:mb-8 text-center px-2">
-          <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2">
+          <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-sm xs:text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2">
             Engineering high-performance web platforms, mobile apps & enterprise software.
           </h2>
           <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed">
@@ -92,26 +92,26 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* ── 4. High-Converting CTA Area: Get a Free Consultation + Doodle Arrow + Badge (Exact Image 1 & 2 Match) ── */}
+        {/* ── 4. High-Converting CTA Area: Get a Free Consultation + Doodle Arrow + Badge ── */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.45, delay: 0.14 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-9 w-full"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-7 sm:mb-9 w-full max-w-sm sm:max-w-none"
         >
-          {/* Main Action Button */}
-          <Link href="/contact" className="group">
+          {/* Main Action Button (Full width on tiny mobile, 48px min touch target) */}
+          <Link href="/contact" className="group w-full xs:w-auto">
             <motion.button
               whileHover={{ scale: 1.025, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-[#377a9b] hover:bg-[#2b6683] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-[15px] tracking-wide shadow-[0_10px_30px_-5px_rgba(55, 122, 155,0.45)] hover:shadow-[0_14px_38px_-4px_rgba(55, 122, 155,0.55)] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer"
+              className="w-full xs:w-auto min-h-[48px] px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-[#377a9b] hover:bg-[#2b6683] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-[15px] tracking-wide shadow-[0_10px_30px_-5px_rgba(55,122,155,0.45)] hover:shadow-[0_14px_38px_-4px_rgba(55,122,155,0.55)] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98]"
             >
               <span>Get a Free Consultation</span>
               <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </motion.button>
           </Link>
 
-          {/* Curved Doodle Arrow (from Reference Image 1) */}
+          {/* Curved Doodle Arrow (Hidden on mobile) */}
           <div aria-hidden="true" className="hidden sm:flex items-center text-slate-400 select-none pointer-events-none">
             <svg
               width="44"
@@ -137,8 +137,8 @@ export default function Hero() {
             </svg>
           </div>
 
-          {/* Trust Reassurance Pill Badge (from Reference Image 1 & 2) */}
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-emerald-50/90 border border-emerald-300/80 text-emerald-800 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-semibold shadow-2xs">
+          {/* Trust Reassurance Pill Badge */}
+          <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-full bg-emerald-50/90 border border-emerald-300/80 text-emerald-800 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-semibold shadow-2xs">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span>Takes just 2-3 minutes</span>
             <span className="text-emerald-400">•</span>
@@ -146,34 +146,34 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ── 5. Velocity Metrics Strip ── */}
+        {/* ── 5. Velocity Metrics Strip (Segmented 3-Column Strip on Mobile, Floating Pills on Desktop) ── */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.45, delay: 0.18 }}
-          className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mb-2 sm:mb-3 text-left"
+          className="w-full max-w-sm sm:max-w-none grid grid-cols-3 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-4 mb-2 sm:mb-3 text-center sm:text-left"
         >
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
-            <Zap className="w-4 h-4 text-[#377a9b]" />
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2.5 p-2 sm:px-4 sm:py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
+            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#377a9b] shrink-0" />
             <div>
-              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#0F172A]">3–6 Weeks</div>
-              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">MVP Delivery</div>
+              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs sm:text-sm text-[#0F172A] leading-tight">3–6 Wks</div>
+              <div className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase tracking-wider">MVP Launch</div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#ffc312]/70 transition-colors">
-            <ShieldCheck className="w-4 h-4 text-[#ffc312]" />
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2.5 p-2 sm:px-4 sm:py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#ffc312]/70 transition-colors">
+            <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ffc312] shrink-0" />
             <div>
-              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#ffc312]">100%</div>
-              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Milestone Lock</div>
+              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs sm:text-sm text-[#ffc312] leading-tight">100%</div>
+              <div className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase tracking-wider">Milestone Lock</div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
-            <Activity className="w-4 h-4 text-[#377a9b]" />
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2.5 p-2 sm:px-4 sm:py-2 rounded-xl bg-white/95 border border-slate-200/90 shadow-2xs backdrop-blur-xs hover:border-[#377a9b]/50 transition-colors">
+            <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#377a9b] shrink-0" />
             <div>
-              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm text-[#377a9b]">99+</div>
-              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Core Web Vitals</div>
+              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs sm:text-sm text-[#377a9b] leading-tight">99+</div>
+              <div className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase tracking-wider">Core Vitals</div>
             </div>
           </div>
         </motion.div>
