@@ -259,9 +259,8 @@ export default function WhyChooseUs() {
     const effectiveSpeedStack = isTraditional ? 'traditional' : (mode === 'webiox' ? 'webiox' : activeSpeedStack);
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-start gap-4 sm:gap-5`}>
+      <div className={`w-full h-full rounded-3xl bg-white border ${isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
+        } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-start gap-4 sm:gap-5`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -272,18 +271,16 @@ export default function WhyChooseUs() {
         {/* Header Block */}
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
-            }`}>
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
+              }`}>
               {isTraditional ? <AlertTriangle className="w-3.5 h-3.5 text-rose-600" /> : <Gauge className="w-3.5 h-3.5 text-[#377a9b]" />}
               <span>{isTraditional ? '✕ 01 // MONOLITHIC DEBT & BOTTLENECK' : '01 // VELOCITY & INFRASTRUCTURE'}</span>
             </div>
 
-            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional
+            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
                 ? 'bg-rose-50 border border-rose-200/80 text-rose-700'
                 : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
-            }`}>
+              }`}>
               <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500 animate-ping'}`} />
               <span>{isTraditional ? '850MS ORIGIN BOTTLENECK' : 'SUB-SECOND EDGE ACTIVE'}</span>
             </div>
@@ -316,22 +313,20 @@ export default function WhyChooseUs() {
                 <button
                   type="button"
                   onClick={() => setActiveSpeedStack('webiox')}
-                  className={`px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
-                    activeSpeedStack === 'webiox'
+                  className={`px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${activeSpeedStack === 'webiox'
                       ? 'bg-[#377a9b] text-white shadow-xs'
                       : 'text-slate-500 hover:text-[#0F172A]'
-                  }`}
+                    }`}
                 >
                   ⚡ Webiox Edge
                 </button>
                 <button
                   type="button"
                   onClick={() => setActiveSpeedStack('traditional')}
-                  className={`px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
-                    activeSpeedStack === 'traditional'
+                  className={`px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${activeSpeedStack === 'traditional'
                       ? 'bg-rose-500 text-white shadow-xs'
                       : 'text-slate-500 hover:text-[#0F172A]'
-                  }`}
+                    }`}
                 >
                   ✕ Monolith
                 </button>
@@ -363,9 +358,8 @@ export default function WhyChooseUs() {
                   </span>
                 </div>
                 <div className="w-full h-1 rounded-full bg-slate-100 relative overflow-hidden">
-                  <div className={`h-full rounded-full ${
-                    effectiveSpeedStack === 'webiox' ? 'w-full bg-gradient-to-r from-[#377a9b] to-emerald-500 animate-pulse' : 'w-1/3 bg-rose-500'
-                  }`} />
+                  <div className={`h-full rounded-full ${effectiveSpeedStack === 'webiox' ? 'w-full bg-gradient-to-r from-[#377a9b] to-emerald-500 animate-pulse' : 'w-1/3 bg-rose-500'
+                    }`} />
                 </div>
               </div>
 
@@ -375,17 +369,15 @@ export default function WhyChooseUs() {
                   <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
                     {effectiveSpeedStack === 'webiox' ? 'Mumbai Edge PoP' : 'Uncached Apache'}
                   </div>
-                  <div className={`font-mono text-[9px] font-bold ${
-                    effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                  }`}>
+                  <div className={`font-mono text-[9px] font-bold ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
+                    }`}>
                     {effectiveSpeedStack === 'webiox' ? 'Hit (Redis ISR)' : 'Cold Origin Parse'}
                   </div>
                 </div>
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                  effectiveSpeedStack === 'webiox'
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${effectiveSpeedStack === 'webiox'
                     ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
                     : 'bg-rose-50 text-rose-700 border border-rose-200/80'
-                }`}>
+                  }`}>
                   <Server className="w-4 h-4" />
                 </div>
               </div>
@@ -401,9 +393,8 @@ export default function WhyChooseUs() {
                   {effectiveSpeedStack === 'webiox' ? '/api/v1/catalog-index • 200 OK' : '/wp-admin/admin-ajax.php • 200 OK'}
                 </span>
               </div>
-              <span className={`font-bold shrink-0 text-[10px] ${
-                effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-              }`}>
+              <span className={`font-bold shrink-0 text-[10px] ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
+                }`}>
                 {effectiveSpeedStack === 'webiox' ? 'CACHE: HIT (4ms)' : 'CACHE: MISS (Cold)'}
               </span>
             </div>
@@ -412,36 +403,32 @@ export default function WhyChooseUs() {
             <div className="pt-2 border-t border-slate-100 grid grid-cols-4 gap-1.5 sm:gap-2 text-center">
               <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
                 <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">TTFB Latency</span>
-                <span className={`font-mono font-black text-xs sm:text-base ${
-                  effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                }`}>
+                <span className={`font-mono font-black text-xs sm:text-base ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
+                  }`}>
                   {effectiveSpeedStack === 'webiox' ? '38ms' : '850ms'}
                 </span>
               </div>
 
               <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
                 <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">LCP Paint</span>
-                <span className={`font-mono font-black text-xs sm:text-base ${
-                  effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                }`}>
+                <span className={`font-mono font-black text-xs sm:text-base ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
+                  }`}>
                   {effectiveSpeedStack === 'webiox' ? '0.38s' : '3.8s'}
                 </span>
               </div>
 
               <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
                 <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">Bundle Size</span>
-                <span className={`font-mono font-black text-xs sm:text-base ${
-                  effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                }`}>
+                <span className={`font-mono font-black text-xs sm:text-base ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
+                  }`}>
                   {effectiveSpeedStack === 'webiox' ? '78 KB' : '2.4 MB'}
                 </span>
               </div>
 
               <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
                 <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">Core Vitals</span>
-                <span className={`font-mono font-black text-xs sm:text-base ${
-                  effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                }`}>
+                <span className={`font-mono font-black text-xs sm:text-base ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
+                  }`}>
                   {effectiveSpeedStack === 'webiox' ? '99 / 100' : '48 / 100'}
                 </span>
               </div>
@@ -461,9 +448,8 @@ export default function WhyChooseUs() {
     const currentGate = activeGates[selectedGate] || activeGates[0];
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-      } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
+      <div className={`w-full h-full rounded-3xl bg-white border ${isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
+        } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#ffc312]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -473,16 +459,14 @@ export default function WhyChooseUs() {
 
         <div>
           <div className="flex items-center justify-between gap-2 mb-4">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-amber-50 border border-amber-200/80 text-amber-700'
-            }`}>
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-amber-50 border border-amber-200/80 text-amber-700'
+              }`}>
               <Clock className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-600' : 'text-amber-600'}`} />
               <span>{isTraditional ? '✕ 02 // SCOPE DRIFT & HOURLY TRAPS' : '02 // MILESTONE LOCK PROTOCOL'}</span>
             </div>
 
-            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${
-              isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-amber-700 bg-amber-50 border-amber-200/60'
-            }`}>
+            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-amber-700 bg-amber-50 border-amber-200/60'
+              }`}>
               {isTraditional ? '0% SLA LOCK' : '100% SLA LOCK'}
             </span>
           </div>
@@ -515,17 +499,16 @@ export default function WhyChooseUs() {
                 key={gate.id}
                 type="button"
                 onClick={() => setSelectedGate(idx)}
-                className={`py-2 px-1 rounded-xl text-center transition-all cursor-pointer border ${
-                  selectedGate === idx
+                className={`py-2 px-1 rounded-xl text-center transition-all cursor-pointer border ${selectedGate === idx
                     ? isTraditional
                       ? 'bg-white border-rose-500 text-[#0F172A] shadow-xs ring-1 ring-rose-500/30'
                       : 'bg-white border-[#377a9b] text-[#0F172A] shadow-xs ring-1 ring-[#377a9b]/30'
                     : isTraditional
-                    ? 'bg-rose-50/50 border-rose-200/60 text-rose-700 hover:bg-rose-50'
-                    : idx < selectedGate
-                    ? 'bg-emerald-50/70 border-emerald-200/60 text-emerald-800'
-                    : 'bg-white/60 border-slate-200/70 text-slate-500 hover:bg-white'
-                }`}
+                      ? 'bg-rose-50/50 border-rose-200/60 text-rose-700 hover:bg-rose-50'
+                      : idx < selectedGate
+                        ? 'bg-emerald-50/70 border-emerald-200/60 text-emerald-800'
+                        : 'bg-white/60 border-slate-200/70 text-slate-500 hover:bg-white'
+                  }`}
               >
                 <span className="block font-mono text-[10px] font-black">{gate.num}</span>
                 <span className="block font-['Plus_Jakarta_Sans',sans-serif] text-[10px] font-bold truncate">
@@ -546,15 +529,14 @@ export default function WhyChooseUs() {
                 </span>
               </div>
 
-              <span className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${
-                isTraditional
+              <span className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${isTraditional
                   ? 'bg-rose-50 text-rose-700 border border-rose-200'
                   : selectedGate === 2
-                  ? 'bg-[#377a9b]/10 text-[#377a9b] border border-[#377a9b]/20'
-                  : selectedGate < 2
-                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                  : 'bg-amber-50 text-amber-700 border border-amber-200'
-              }`}>
+                    ? 'bg-[#377a9b]/10 text-[#377a9b] border border-[#377a9b]/20'
+                    : selectedGate < 2
+                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                      : 'bg-amber-50 text-amber-700 border border-amber-200'
+                }`}>
                 {currentGate.status}
               </span>
             </div>
@@ -562,9 +544,8 @@ export default function WhyChooseUs() {
             <div className="space-y-1.5 my-2.5">
               {currentGate.deliverables.map((item, dIdx) => (
                 <div key={dIdx} className="flex items-center gap-2 text-xs text-slate-600">
-                  <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${
-                    isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-700'
-                  }`}>
+                  <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-700'
+                    }`}>
                     {isTraditional ? <XCircle className="w-2.5 h-2.5" /> : <Check className="w-2.5 h-2.5" />}
                   </div>
                   <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[11.5px]">{item}</span>
@@ -592,9 +573,8 @@ export default function WhyChooseUs() {
     const activeDefenseItems = isTraditional ? TRADITIONAL_VULNERABILITIES : WEBIOX_DEFENSE_ITEMS;
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-      } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
+      <div className={`w-full h-full rounded-3xl bg-white border ${isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
+        } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-emerald-500/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -604,16 +584,14 @@ export default function WhyChooseUs() {
 
         <div>
           <div className="flex items-center justify-between gap-2 mb-4">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-emerald-50 border border-emerald-200/80 text-emerald-700'
-            }`}>
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-emerald-50 border border-emerald-200/80 text-emerald-700'
+              }`}>
               <Lock className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-600' : 'text-emerald-600'}`} />
               <span>{isTraditional ? '✕ 03 // VULNERABLE SHARED HOSTING' : '03 // DEFENSIVE SECURITY CORE'}</span>
             </div>
 
-            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${
-              isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-emerald-700 bg-emerald-50 border-emerald-200/60'
-            }`}>
+            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-emerald-700 bg-emerald-50 border-emerald-200/60'
+              }`}>
               {isTraditional ? '12 CVE VULNERABILITIES' : '0 CVE VULNERABILITIES'}
             </span>
           </div>
@@ -638,23 +616,22 @@ export default function WhyChooseUs() {
             <button
               type="button"
               onClick={triggerThreatSimulation}
-              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
-                threatSimulating
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${threatSimulating
                   ? 'bg-amber-500 text-white animate-pulse'
                   : threatMitigated
-                  ? isTraditional
-                    ? 'bg-rose-600 text-white'
-                    : 'bg-emerald-600 text-white'
-                  : 'bg-white border border-slate-200 text-[#377a9b] hover:bg-slate-50 shadow-2xs'
-              }`}
+                    ? isTraditional
+                      ? 'bg-rose-600 text-white'
+                      : 'bg-emerald-600 text-white'
+                    : 'bg-white border border-slate-200 text-[#377a9b] hover:bg-slate-50 shadow-2xs'
+                }`}
             >
               <ShieldAlert className="w-3 h-3" />
               <span>
                 {threatSimulating
                   ? isTraditional ? 'Simulating Exploit...' : 'Simulating Attack...'
                   : threatMitigated
-                  ? isTraditional ? '12 Exploits Succeeded ✕' : 'Threat Mitigated in 3.4ms ✓'
-                  : isTraditional ? 'Simulate Attack on Monolith' : 'Simulate Threat Scan'}
+                    ? isTraditional ? '12 Exploits Succeeded ✕' : 'Threat Mitigated in 3.4ms ✓'
+                    : isTraditional ? 'Simulate Attack on Monolith' : 'Simulate Threat Scan'}
               </span>
             </button>
           </div>
@@ -663,17 +640,15 @@ export default function WhyChooseUs() {
             {activeDefenseItems.map((item, idx) => (
               <div
                 key={idx}
-                className={`p-2.5 rounded-xl border transition-all duration-300 flex items-start gap-2.5 ${
-                  threatSimulating
+                className={`p-2.5 rounded-xl border transition-all duration-300 flex items-start gap-2.5 ${threatSimulating
                     ? 'bg-amber-50/70 border-amber-200'
                     : threatMitigated
-                    ? isTraditional ? 'bg-rose-50/70 border-rose-200' : 'bg-emerald-50/70 border-emerald-200'
-                    : 'bg-white border-slate-200/80 shadow-2xs'
-                }`}
+                      ? isTraditional ? 'bg-rose-50/70 border-rose-200' : 'bg-emerald-50/70 border-emerald-200'
+                      : 'bg-white border-slate-200/80 shadow-2xs'
+                  }`}
               >
-                <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${
-                  isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-700'
-                }`}>
+                <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-700'
+                  }`}>
                   {isTraditional ? <XCircle className="w-3.5 h-3.5" /> : <CheckCircle2 className="w-3.5 h-3.5" />}
                 </div>
                 <div className="min-w-0 flex-1">
@@ -681,9 +656,8 @@ export default function WhyChooseUs() {
                     <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
                       {item.title}
                     </span>
-                    <span className={`font-mono text-[9.5px] font-bold ${
-                      isTraditional ? 'text-rose-700' : 'text-emerald-700'
-                    }`}>
+                    <span className={`font-mono text-[9.5px] font-bold ${isTraditional ? 'text-rose-700' : 'text-emerald-700'
+                      }`}>
                       {item.status}
                     </span>
                   </div>
@@ -706,9 +680,8 @@ export default function WhyChooseUs() {
     const isTraditional = mode === 'traditional';
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-      } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
+      <div className={`w-full h-full rounded-3xl bg-white border ${isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
+        } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -718,16 +691,14 @@ export default function WhyChooseUs() {
 
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
-            }`}>
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
+              }`}>
               <MessageSquare className="w-3.5 h-3.5" />
               <span>{isTraditional ? '✕ 04 // LAYERS OF NON-TECHNICAL MIDDLEMEN' : '04 // AGILITY & DIRECT COLLABORATION'}</span>
             </div>
 
-            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
-            }`}>
+            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
+              }`}>
               <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-[#377a9b] animate-pulse'}`} />
               <span>{isTraditional ? '48H–72H EMAIL DELAY' : '12M AVG ARCHITECT REPLY'}</span>
             </div>
@@ -819,22 +790,20 @@ export default function WhyChooseUs() {
                   <button
                     type="button"
                     onClick={() => setActiveChatTab('slack')}
-                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
-                      activeChatTab === 'slack'
+                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${activeChatTab === 'slack'
                         ? 'bg-[#377a9b] text-white shadow-xs'
                         : 'text-slate-500 hover:text-[#0F172A]'
-                    }`}
+                      }`}
                   >
                     Slack War-Room
                   </button>
                   <button
                     type="button"
                     onClick={() => setActiveChatTab('whatsapp')}
-                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${
-                      activeChatTab === 'whatsapp'
+                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${activeChatTab === 'whatsapp'
                         ? 'bg-[#25D366] text-white shadow-xs'
                         : 'text-slate-500 hover:text-[#0F172A]'
-                    }`}
+                      }`}
                   >
                     WhatsApp VIP
                   </button>
@@ -974,7 +943,7 @@ export default function WhyChooseUs() {
       <div className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full bg-[#ffc312]/8 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* ── Section Header ── */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#377a9b] mb-3 sm:mb-4 shadow-2xs">
@@ -1002,11 +971,10 @@ export default function WhyChooseUs() {
               <button
                 type="button"
                 onClick={() => setMode('contrast')}
-                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 ${
-                  mode === 'contrast'
+                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 ${mode === 'contrast'
                     ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-[#377a9b]/20'
                     : 'text-slate-500 hover:text-[#0F172A]'
-                }`}
+                  }`}
               >
                 <SlidersHorizontal className="w-3.5 h-3.5 text-[#377a9b]" />
                 <span>Direct Contrast View</span>
@@ -1023,11 +991,10 @@ export default function WhyChooseUs() {
                   setMode('webiox');
                   setActiveSpeedStack('webiox');
                 }}
-                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
-                  mode === 'webiox'
+                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${mode === 'webiox'
                     ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-emerald-500/20'
                     : 'text-slate-500 hover:text-[#0F172A]'
-                }`}
+                  }`}
               >
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 <span>The Webiox Standard</span>
@@ -1044,11 +1011,10 @@ export default function WhyChooseUs() {
                   setMode('traditional');
                   setActiveSpeedStack('traditional');
                 }}
-                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
-                  mode === 'traditional'
+                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${mode === 'traditional'
                     ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-rose-500/20'
                     : 'text-slate-500 hover:text-[#0F172A]'
-                }`}
+                  }`}
               >
                 <XCircle className="w-3.5 h-3.5 text-rose-500" />
                 <span>Traditional Agency Way</span>
@@ -1078,11 +1044,10 @@ export default function WhyChooseUs() {
                   key={p.id}
                   type="button"
                   onClick={() => setMobilePillar(idx)}
-                  className={`min-h-[50px] py-2 px-1 rounded-xl text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-1 active:scale-[0.98] ${
-                    isActive
+                  className={`min-h-[50px] py-2 px-1 rounded-xl text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-1 active:scale-[0.98] ${isActive
                       ? 'bg-white text-[#377a9b] shadow-xs border border-slate-200/80 font-bold'
                       : 'text-slate-500 hover:text-slate-900'
-                  }`}
+                    }`}
                 >
                   <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#377a9b]' : 'text-slate-500'}`} />
                   <span className="font-mono text-[9px] leading-none">{p.num}</span>
@@ -1135,9 +1100,8 @@ export default function WhyChooseUs() {
                   aria-label={`Go to pillar 0${idx + 1}`}
                 >
                   <span
-                    className={`h-2 rounded-full transition-all duration-300 block ${
-                      mobilePillar === idx ? 'w-6 bg-[#377a9b]' : 'w-2 bg-slate-200 hover:bg-slate-300'
-                    }`}
+                    className={`h-2 rounded-full transition-all duration-300 block ${mobilePillar === idx ? 'w-6 bg-[#377a9b]' : 'w-2 bg-slate-200 hover:bg-slate-300'
+                      }`}
                   />
                 </button>
               ))}
@@ -1240,11 +1204,10 @@ export default function WhyChooseUs() {
               <button
                 type="button"
                 onClick={() => setMobileCompareTab('webiox')}
-                className={`min-h-[44px] py-2 px-3 rounded-lg text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                  mobileCompareTab === 'webiox'
+                className={`min-h-[44px] py-2 px-3 rounded-lg text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${mobileCompareTab === 'webiox'
                     ? 'bg-white text-[#377a9b] shadow-xs'
                     : 'text-slate-600'
-                }`}
+                  }`}
               >
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Webiox Custom</span>
@@ -1252,11 +1215,10 @@ export default function WhyChooseUs() {
               <button
                 type="button"
                 onClick={() => setMobileCompareTab('traditional')}
-                className={`min-h-[44px] py-2 px-3 rounded-lg text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                  mobileCompareTab === 'traditional'
+                className={`min-h-[44px] py-2 px-3 rounded-lg text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${mobileCompareTab === 'traditional'
                     ? 'bg-white text-rose-700 shadow-xs'
                     : 'text-slate-600'
-                }`}
+                  }`}
               >
                 <XCircle className="w-3.5 h-3.5 text-rose-500" />
                 <span>Bloated CMS</span>
@@ -1267,11 +1229,10 @@ export default function WhyChooseUs() {
               {COMPARISON_METRICS.map((row, idx) => (
                 <div
                   key={idx}
-                  className={`p-3.5 rounded-xl border transition-all ${
-                    mobileCompareTab === 'webiox'
+                  className={`p-3.5 rounded-xl border transition-all ${mobileCompareTab === 'webiox'
                       ? 'bg-emerald-50/40 border-emerald-200/70'
                       : 'bg-rose-50/40 border-rose-200/70'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center justify-between text-xs mb-1.5">
                     <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#0F172A]">
