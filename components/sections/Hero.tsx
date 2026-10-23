@@ -102,25 +102,25 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.45, delay: 0.14 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 w-full max-w-sm sm:max-w-none"
+          className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3.5 mb-5 sm:mb-7 w-full max-w-none"
         >
-          {/* Main Action Button (Full width on tiny mobile, 48px min touch target) */}
-          <Link href="/contact" className="group w-full xs:w-auto">
+          {/* Main Action Button (Sleek proportional pill, auto width) */}
+          <Link href="/contact" className="group inline-flex shrink-0">
             <motion.button
               whileHover={{ scale: 1.025, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full xs:w-auto min-h-[50px] px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-[#377a9b] hover:bg-[#2b6683] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-[15px] tracking-wide shadow-[0_10px_30px_-5px_rgba(55,122,155,0.45)] hover:shadow-[0_14px_38px_-4px_rgba(55,122,155,0.55)] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 min-h-[44px] px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#377a9b] hover:bg-[#2b6683] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-sm tracking-wide shadow-[0_4px_16px_-2px_rgba(55,122,155,0.4)] hover:shadow-[0_8px_24px_-3px_rgba(55,122,155,0.5)] transition-all duration-200 cursor-pointer active:scale-[0.98]"
             >
               <span>Get a Free Consultation</span>
-              <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </motion.button>
           </Link>
 
           {/* Curved Doodle Arrow (Hidden on mobile) */}
           <div aria-hidden="true" className="hidden sm:flex items-center text-slate-400 select-none pointer-events-none">
             <svg
-              width="44"
-              height="24"
+              width="38"
+              height="20"
               viewBox="0 0 44 24"
               fill="none"
               className="text-[#377a9b]/50"
@@ -143,9 +143,9 @@ export default function Hero() {
           </div>
 
           {/* Trust Reassurance Pill Badge */}
-          <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-full bg-emerald-50/90 border border-emerald-300/80 text-emerald-800 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-semibold shadow-2xs">
+          <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50/90 border border-emerald-300/80 text-emerald-800 text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-semibold shadow-2xs">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Takes just 2-3 minutes</span>
+            <span>Takes just 2–3 minutes</span>
             <span className="text-emerald-400">•</span>
             <span className="text-emerald-700 font-bold">100% Free</span>
           </div>
