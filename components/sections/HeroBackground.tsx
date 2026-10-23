@@ -131,7 +131,7 @@ export default function HeroBackground() {
 
           if (dist < 145) {
             const alpha = (1 - dist / 145) * 0.22;
-            ctx.strokeStyle = `rgba(14, 116, 144, ${alpha})`;
+            ctx.strokeStyle = `rgba(55, 122, 155, ${alpha})`;
             ctx.lineWidth = 0.85;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
@@ -141,7 +141,7 @@ export default function HeroBackground() {
         }
 
         // Draw individual constellation node
-        ctx.fillStyle = p1.isGold ? 'rgba(0, 102, 255, 0.65)' : 'rgba(14, 116, 144, 0.65)';
+        ctx.fillStyle = p1.isGold ? 'rgba(255, 195, 18, 0.75)' : 'rgba(55, 122, 155, 0.75)';
         ctx.beginPath();
         ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
         ctx.fill();
@@ -154,16 +154,16 @@ export default function HeroBackground() {
           amplitude: 38,
           freq: 0.0022,
           speed: time * 1.6,
-          colorA: 'rgba(14, 165, 233, 0.08)',
-          colorB: 'rgba(0, 102, 255, 0.03)',
+          colorA: 'rgba(55, 122, 155, 0.08)',
+          colorB: 'rgba(255, 195, 18, 0.03)',
         },
         {
           yBase: height * 0.74,
           amplitude: 46,
           freq: 0.0018,
           speed: -time * 1.3,
-          colorA: 'rgba(55, 122, 155, 0.07)',
-          colorB: 'rgba(14, 165, 233, 0.04)',
+          colorA: 'rgba(55, 122, 155, 0.06)',
+          colorB: 'rgba(56, 189, 248, 0.04)',
         },
       ];
 

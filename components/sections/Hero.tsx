@@ -37,6 +37,22 @@ export default function Hero() {
          ═══════════════════════════════════════════════════════════════════════════ */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-[110px] sm:pt-[126px] md:pt-[134px] pb-2 sm:pb-3 flex-1 flex flex-col items-center justify-start text-center">
 
+        {/* ── 0. Authority Status Eyebrow Badge ── */}
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[11px] font-mono font-bold text-[#377a9b] mb-4 backdrop-blur-md hover:border-[#377a9b]/50 transition-colors"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+          </span>
+          <span className="uppercase tracking-wider">TOP-TIER DIGITAL ENGINEERING STUDIO</span>
+          <span className="text-slate-300">•</span>
+          <span className="text-slate-600 font-medium">Q4 SPRINT SLOTS OPEN</span>
+        </motion.div>
+
         {/* ── Dynamic Kinetic Heading (Smooth Vertical Word Rotator - Painted instantly for LCP) ── */}
         <div className="w-full max-w-5xl mx-auto mb-4 px-2">
           <h1 className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-[28px] xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] leading-[1.18] tracking-[-0.025em] text-[#0F172A] text-center [text-wrap:balance]">

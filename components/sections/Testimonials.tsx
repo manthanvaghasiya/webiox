@@ -110,7 +110,7 @@ export default function Testimonials() {
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveSector(tab.id as any)}
-                  className={`px-3 sm:px-3.5 py-1.5 rounded-xl text-xs sm:text-[12.5px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer ${
+                  className={`min-h-[44px] px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-[12.5px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer active:scale-[0.98] ${
                     activeSector === tab.id
                       ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80'
                       : 'text-slate-500 hover:text-[#0F172A]'
@@ -143,7 +143,10 @@ export default function Testimonials() {
                 <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
                 <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
 
-                <div>
+                {/* Subtle Watermark Quote Mark */}
+                <Quote aria-hidden="true" className="absolute right-5 top-16 w-16 h-16 text-slate-100/90 -rotate-6 pointer-events-none select-none" />
+
+                <div className="relative z-10">
                   {/* Top Bar: Sector Tag & Verified Badge */}
                   <div className="flex items-center justify-between gap-2 mb-4">
                     <span className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#377a9b] bg-[#377a9b]/10 px-2.5 py-0.5 rounded-full border border-[#377a9b]/20">
@@ -157,7 +160,7 @@ export default function Testimonials() {
                   </div>
 
                   {/* Measurable ROI Metric Highlight Pill */}
-                  <div className="p-3 rounded-2xl bg-gradient-to-r from-slate-50 to-slate-100/70 border border-slate-200/80 mb-5 flex items-center justify-between">
+                  <div className="p-3.5 rounded-2xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border border-slate-200/90 mb-5 flex items-center justify-between shadow-2xs">
                     <div>
                       <span className="font-mono text-2xl font-black text-[#0F172A] tracking-tight block">
                         {testimonial.metric}
@@ -179,8 +182,8 @@ export default function Testimonials() {
                   </div>
 
                   {/* Quote Body */}
-                  <p className="font-['Plus_Jakarta_Sans',sans-serif] text-slate-600 text-sm leading-relaxed mb-6">
-                    "{testimonial.quote}"
+                  <p className="font-['Plus_Jakarta_Sans',sans-serif] text-slate-600 text-sm leading-[1.65] mb-6">
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
                 </div>
 
