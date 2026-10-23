@@ -134,20 +134,20 @@ export default function Header() {
         initial={{ opacity: 0, y: -25, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-        className="fixed top-2.5 sm:top-5 inset-x-0 z-50 flex justify-end md:justify-center pointer-events-none pl-3 sm:pl-4 pr-0 md:px-4"
+        className="fixed top-2 sm:top-3 md:top-5 left-2 sm:left-3 md:left-auto right-0 md:right-auto md:inset-x-0 z-50 md:flex md:justify-center pointer-events-none md:px-4"
       >
         <div
-          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border border-r-0 md:border-r rounded-l-full rounded-r-none md:rounded-full py-1.5 pl-3.5 pr-3.5 sm:pl-4 sm:pr-4 sm:py-2 transition-all duration-300 flex items-center justify-between md:justify-start w-full md:w-auto md:max-w-fit ${
+          className={`pointer-events-auto bg-white/95 backdrop-blur-xl border border-r-0 md:border-r rounded-l-full rounded-r-none md:rounded-full py-1 sm:py-1.5 md:py-2 pl-2.5 sm:pl-3.5 pr-2 sm:pr-3 transition-all duration-300 flex items-center justify-between md:justify-start w-full md:w-auto md:max-w-fit ${
             scrolled
-              ? 'border-slate-300/90 shadow-[0_20px_50px_-10px_rgba(15,23,42,0.14),0_1px_3px_rgba(0,0,0,0.04)]'
-              : 'border-slate-200/80 shadow-[0_14px_38px_-10px_rgba(15,23,42,0.08),0_1px_3px_rgba(0,0,0,0.04)]'
+              ? 'border-slate-300/90 shadow-[0_16px_40px_-10px_rgba(15,23,42,0.12),0_1px_3px_rgba(0,0,0,0.04)]'
+              : 'border-slate-200/80 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.06),0_1px_3px_rgba(0,0,0,0.04)]'
           }`}
         >
           {/* Brand Logo (left) */}
           <Link
             href="/"
             aria-label="Webiox Home"
-            className="relative flex items-center hover:opacity-85 active:scale-95 transition-transform shrink-0 cursor-pointer py-1 pl-0.5 mr-2 sm:mr-3"
+            className="relative flex items-center hover:opacity-85 active:scale-95 transition-transform shrink-0 cursor-pointer py-0.5 pl-0.5 mr-1.5 sm:mr-3"
           >
             <Image
               src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
@@ -155,7 +155,7 @@ export default function Header() {
               width={116}
               height={26}
               priority
-              className="h-6 sm:h-7 w-auto object-contain select-none pointer-events-none"
+              className="h-5 sm:h-6 md:h-7 w-auto object-contain select-none pointer-events-none"
             />
           </Link>
 
@@ -265,15 +265,15 @@ export default function Header() {
           </div>
 
           {/* Right Action Group */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             {/* "Let's Talk" CTA Button (Visible on mobile between logo & menu, and on desktop) */}
             <Link
               href="/contact"
-              className="inline-flex items-center gap-1.5 bg-[#377a9b] hover:bg-[#2b6683] text-white shadow-[0_4px_14px_-2px_rgba(55,122,155,0.45)] hover:shadow-[0_8px_20px_-4px_rgba(55,122,155,0.55)] font-semibold text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all active:scale-95 cursor-pointer whitespace-nowrap group"
+              className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#377a9b] hover:bg-[#2b6683] text-white shadow-[0_3px_10px_-2px_rgba(55,122,155,0.4)] hover:shadow-[0_6px_16px_-4px_rgba(55,122,155,0.5)] font-semibold text-[11px] sm:text-xs md:text-sm px-2.5 sm:px-3.5 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full transition-all active:scale-95 cursor-pointer whitespace-nowrap group shrink-0"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffc312] shrink-0 animate-pulse" />
               <span>Let&apos;s Talk</span>
-              <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white/90 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+              <ArrowUpRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 text-white/90 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
             </Link>
 
             {/* Mobile Menu Toggle (Clean 3-line hamburger matching reference image) */}
@@ -282,15 +282,15 @@ export default function Header() {
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 min-w-[40px] min-h-[40px] rounded-full text-slate-900 hover:bg-slate-100/70 active:scale-90 transition-all cursor-pointer focus-visible:outline-hidden"
+              className="md:hidden inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 min-w-[32px] sm:min-w-[36px] rounded-full text-slate-900 hover:bg-slate-100/70 active:scale-90 transition-all cursor-pointer focus-visible:outline-hidden shrink-0"
             >
               {mobileOpen ? (
-                <X className="w-5 h-5 text-slate-900" />
+                <X className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-slate-900" />
               ) : (
-                <div className="flex flex-col justify-between w-5 h-3.5" aria-hidden="true">
-                  <span className="w-5 h-[2px] bg-slate-900 rounded-full" />
-                  <span className="w-5 h-[2px] bg-slate-900 rounded-full" />
-                  <span className="w-5 h-[2px] bg-slate-900 rounded-full" />
+                <div className="flex flex-col justify-between w-4.5 sm:w-5 h-3 sm:h-3.5" aria-hidden="true">
+                  <span className="w-full h-[1.75px] sm:h-[2px] bg-slate-900 rounded-full" />
+                  <span className="w-full h-[1.75px] sm:h-[2px] bg-slate-900 rounded-full" />
+                  <span className="w-full h-[1.75px] sm:h-[2px] bg-slate-900 rounded-full" />
                 </div>
               )}
             </button>
@@ -328,7 +328,7 @@ export default function Header() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="md:hidden fixed left-3 right-3 top-[64px] sm:top-[76px] z-50 bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_30px_70px_-15px_rgba(15,23,42,0.3)] p-4 sm:p-5 max-h-[calc(100dvh-80px)] overflow-y-auto overscroll-contain flex flex-col justify-between"
+              className="md:hidden fixed left-2.5 right-2.5 sm:left-3 sm:right-3 top-[54px] sm:top-[68px] z-50 bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_30px_70px_-15px_rgba(15,23,42,0.3)] p-4 sm:p-5 max-h-[calc(100dvh-70px)] overflow-y-auto overscroll-contain flex flex-col justify-between"
             >
               <div>
                 {/* Top Header Strip inside Drawer */}
