@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, ExternalLink, CheckCircle2, Sparkles, ShieldCheck } from 'lucide-react';
 import { Project } from '@/data/projects';
 import DeepDiveProjectMobile from './DeepDiveProjectMobile';
 
@@ -28,45 +29,52 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
    });
 
    // Mathematically map the 3-stage unfolding sequence:
-   // 0.0 - 0.18: Image locked in center.
-   // 0.18 - 0.38: Image shrinks smoothly and shifts to the left.
-   // 0.38 - 0.85: Image and Text card stay locked side-by-side in view.
-   // 0.85 - 0.98: Section smoothly fades out for release.
-   const imageScale = useTransform(scrollYProgress, [0, 0.18, 0.38, 0.85, 1], [1, 1, 0.54, 0.54, 0.48]);
-   const imageX = useTransform(scrollYProgress, [0, 0.18, 0.38, 0.85, 1], ["-50%", "-50%", "-88%", "-88%", "-88%"]);
+   // 0.0 - 0.08: Grand, cinematic hero image centered on screen (scale: 1, x: -50%).
+   // 0.08 - 0.28: Image smoothly glides left to an impressive workstation size (scale: 0.68, x: -78%) clearing the right half.
+   // 0.28 - 0.88: Domineering project image and frosted glass card stay locked side-by-side with zero overlap.
+   // 0.88 - 0.98: Smooth release fade out to next project.
+   const imageScale = useTransform(scrollYProgress, [0, 0.08, 0.28, 0.88, 1], [1, 1, 0.68, 0.68, 0.62]);
+   const imageX = useTransform(scrollYProgress, [0, 0.08, 0.28, 0.88, 1], ["-50%", "-50%", "-84%", "-84%", "-84%"]);
 
-   // Smooth continuous transforms for text reveal (no React state lag or missed scroll events)
-   const textOpacity = useTransform(scrollYProgress, [0.22, 0.38, 0.85, 0.95], [0, 1, 1, 0]);
-   const textY = useTransform(scrollYProgress, [0.22, 0.38], [35, 0]);
+   // Smooth continuous transforms for text reveal (responsive and early so text is always ready)
+   const textOpacity = useTransform(scrollYProgress, [0.10, 0.26, 0.88, 0.98], [0, 1, 1, 0]);
+   const textY = useTransform(scrollYProgress, [0.10, 0.26], [35, 0]);
 
    // Section release fade
-   const sectionOpacity = useTransform(scrollYProgress, [0, 0.85, 0.98], [1, 1, 0]);
+   const sectionOpacity = useTransform(scrollYProgress, [0, 0.88, 0.98], [1, 1, 0]);
 
    // Description Parser for dynamic multi-paragraph content and checklists
    const parseDescription = (text: string) => {
-      return text.split('\n').filter(p => p.trim() !== '').map((para, i) => {
-         const isBullet = para.trim().startsWith('•') || para.trim().startsWith('?') || para.trim().startsWith('-');
-         if (isBullet) {
-            return (
-               <div key={i} className="flex items-start gap-2 md:gap-3 mt-1.5 md:mt-2.5">
+      const items = text.split('\n').filter(p => p.trim() !== '');
+      const intro = items.find(p => !p.trim().startsWith('•') && !p.trim().startsWith('?') && !p.trim().startsWith('-'));
+      const bullets = items.filter(p => p.trim().startsWith('•') || p.trim().startsWith('?') || p.trim().startsWith('-'));
+
+      return (
+         <div className="flex flex-col gap-2">
+            {intro && (
+               <p className="text-slate-700 text-xs sm:text-[13.5px] lg:text-[14px] leading-relaxed font-normal">
+                  {intro}
+               </p>
+            )}
+            {bullets.slice(0, 3).map((para, i) => (
+               <div key={i} className="flex items-start gap-2 mt-0.5">
                   <span className="text-[#1a7097] mt-0.5 flex-shrink-0">
-                     <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#1a7097]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                     </svg>
+                     <CheckCircle2 size={15} className="text-[#1a7097]" />
                   </span>
-                  <p className="text-slate-600 text-xs md:text-sm lg:text-base leading-relaxed">{para.replace(/^[•\?\-\*]\s*/, '').trim()}</p>
+                  <p className="text-slate-600 text-xs sm:text-[12.5px] lg:text-[13px] leading-snug">
+                     {para.replace(/^[•\?\-\*]\s*/, '').trim()}
+                  </p>
                </div>
-            );
-         }
-         return <p key={i} className="text-slate-600 text-xs md:text-sm lg:text-base leading-relaxed mt-2 md:mt-3 first:mt-0">{para}</p>;
-      });
+            ))}
+         </div>
+      );
    };
 
    if (isMobile) {
       return <DeepDiveProjectMobile project={project} index={index} />;
    }
 
-   // Desktop 300vh Scroll Experience (15.9 design perfected - zero bottom image cutoff)
+   // Desktop 300vh Scroll Experience (Grand, Impressive, Zero Bottom Cutoff, Zero Overlap)
    return (
       <section ref={containerRef} className="relative h-[300vh] w-full bg-slate-50">
          <motion.div
@@ -75,60 +83,110 @@ const DeepDiveProject = ({ project, index }: DeepDiveProjectProps) => {
          >
 
             {/* Massive Background Logo Anchor */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] md:w-[40vw] opacity-[0.15] md:opacity-25 pointer-events-none select-none flex items-center justify-center">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] md:w-[42vw] opacity-[0.14] md:opacity-20 pointer-events-none select-none flex items-center justify-center">
                <img src="/logo_without_background.png" alt="Background Logo" className="w-full h-auto object-contain grayscale" />
             </div>
 
-            {/* Dynamic Cinematic Image Container (max-h-70vh + object-contain prevents ANY bottom cutoff) */}
+            {/* Dynamic Large Cinematic Image Container */}
             <motion.div
                style={{ scale: imageScale, x: imageX, y: "-50%" }}
-               className="absolute top-1/2 left-1/2 w-[90vw] md:w-[78vw] lg:w-[68vw] 2xl:w-[60vw] max-h-[66vh] md:max-h-[70vh] aspect-[4/3] sm:aspect-[16/10] z-20 origin-center will-change-transform flex items-center justify-center pointer-events-auto"
+               className="absolute top-1/2 left-1/2 w-[92vw] md:w-[84vw] lg:w-[80vw] 2xl:w-[74vw] h-[80vh] md:h-[84vh] 2xl:h-[88vh] z-20 origin-center will-change-transform flex items-center justify-center pointer-events-auto"
                data-cursor-hover="true"
             >
-               <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-contain select-none drop-shadow-[0_25px_60px_rgba(0,0,0,0.18)]"
-               />
+               <div className="relative w-full h-full flex items-center justify-center">
+                  <img
+                     src={project.image}
+                     alt={project.title}
+                     className="w-auto h-auto max-w-full max-h-full object-contain select-none rounded-[1.5rem] md:rounded-[2.2rem] shadow-[0_25px_70px_rgba(15,23,42,0.22)]"
+                  />
+               </div>
             </motion.div>
 
-            {/* Emerging Text & Architecture Panel (Smooth useTransform fade, vertically centered) */}
+            {/* Emerging Text & Architecture Panel (Smooth useTransform, elevated luxury glass card) */}
             <motion.div
                style={{ opacity: textOpacity, y: textY }}
-               className="absolute top-1/2 -translate-y-1/2 right-[4vw] 2xl:right-[6vw] w-[90vw] md:w-[50vw] lg:w-[45vw] 2xl:w-[42vw] max-h-[82vh] flex flex-col z-30 pointer-events-none md:pointer-events-auto"
+               className="absolute top-1/2 -translate-y-1/2 right-[2.5vw] 2xl:right-[4vw] w-[88vw] md:w-[41vw] lg:w-[36vw] 2xl:w-[33vw] flex flex-col z-30 pointer-events-none md:pointer-events-auto"
             >
-               <div className="pointer-events-auto flex flex-col gap-3 md:gap-4 lg:gap-5 max-w-2xl ml-auto bg-slate-50/95 backdrop-blur-xl p-5 md:p-7 lg:p-8 rounded-[1.5rem] md:rounded-[2rem] shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-white/70 overflow-y-auto max-h-[80vh]">
+               <div className="pointer-events-auto flex flex-col gap-2.5 sm:gap-3 bg-white/98 backdrop-blur-2xl p-5 sm:p-6 lg:p-7 rounded-[1.75rem] md:rounded-[2rem] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.12)] border border-slate-200/90">
 
                   {/* Header Badges */}
-                  <div className="flex flex-wrap items-center gap-2 md:gap-4 text-[10px] md:text-xs font-mono uppercase tracking-[0.1em] md:tracking-[0.25em] text-[#1a7097] font-semibold">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-[0.15em] text-[#1a7097] font-semibold">
+                     <span className="px-2.5 py-0.5 rounded-md bg-[#1a7097]/10 text-[#1a7097] font-bold">
+                        {String(index + 1).padStart(2, '0')} / 06
+                     </span>
                      <span>{project.year}</span>
                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
                      <span>{project.category}</span>
+                     {project.liveLink && project.liveLink !== '#' && (
+                        <span className="ml-auto inline-flex items-center gap-1.5 text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                           LIVE
+                        </span>
+                     )}
                   </div>
 
                   {/* Project Title */}
-                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.05]">
+                  <h2 className="text-2xl sm:text-3xl lg:text-[32px] 2xl:text-4xl font-black text-slate-900 tracking-tight leading-[1.1]">
                      {project.title}
                   </h2>
 
                   {/* Description & Deliverables */}
-                  <div className="flex flex-col">
-                     {parseDescription(project.fullDescription)}
-                  </div>
+                  {parseDescription(project.fullDescription)}
+
+                  {/* Core Feature Badges (if available) */}
+                  {project.features && project.features.length > 0 && (
+                     <div className="flex flex-wrap gap-1.5 pt-0.5">
+                        {project.features.slice(0, 3).map((feat, i) => (
+                           <span
+                              key={i}
+                              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-900 border border-amber-500/20 text-[10.5px] font-medium"
+                           >
+                              <Sparkles size={10} className="text-[#E7B900]" />
+                              {feat}
+                           </span>
+                        ))}
+                     </div>
+                  )}
 
                   {/* Tech Stack Pills */}
-                  <div className="flex flex-wrap gap-2 md:gap-2.5 mt-2 md:mt-3">
+                  <div className="flex flex-wrap gap-1.5 pt-1">
                      {project.tech.map((tech, i) => (
-                        <span key={i} className="px-3 py-1.5 md:px-4 md:py-1.5 bg-slate-100 text-slate-700 rounded-lg text-[10px] md:text-xs font-mono font-medium border border-slate-200/70">
+                        <span
+                           key={i}
+                           className="px-2.5 py-0.5 bg-slate-100 hover:bg-[#1a7097]/10 hover:text-[#1a7097] text-slate-700 rounded-md text-[11px] font-mono font-medium border border-slate-200/70 transition-colors"
+                        >
                            {tech}
                         </span>
                      ))}
                   </div>
 
+                  {/* In-Card Action Buttons */}
+                  <div className="flex flex-wrap items-center gap-2 pt-2 mt-0.5 border-t border-slate-100">
+                     <Link
+                        href={`/portfolio/${project.id}`}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#1a7097] hover:bg-[#145b7c] text-white font-bold text-[11px] uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer group"
+                     >
+                        <span>Explore Case Study</span>
+                        <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                     </Link>
+
+                     {project.liveLink && project.liveLink !== '#' && (
+                        <a
+                           href={project.liveLink}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-[11px] uppercase tracking-wider border border-slate-700/60 transition-all group"
+                        >
+                           <span>Live Demo</span>
+                           <ExternalLink size={12} className="text-[#E7B900] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </a>
+                     )}
+                  </div>
+
                </div>
             </motion.div>
 
-            {/* Persistent Action Bar */}
+            {/* Persistent Bottom Action Bar */}
             <motion.div
                className="absolute bottom-6 md:bottom-10 left-[5vw] 2xl:left-[8vw] z-40 pointer-events-auto flex items-center gap-3"
             >
