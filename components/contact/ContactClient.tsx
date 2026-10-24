@@ -105,35 +105,118 @@ export default function ContactClient() {
   return (
     <div className="relative min-h-screen bg-[#F9FAFB] selection:bg-[#377a9b]/20 selection:text-[#377a9b] font-sans">
       
-      {/* ── Hero Section ── */}
-      <section className="relative w-full bg-[#0F172A] pt-28 pb-32 sm:pt-32 sm:pb-40 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
-        {/* Animated Ambient Background Blobs */}
-        <div className="absolute top-0 left-1/4 w-[35rem] h-[35rem] bg-[#377a9b]/40 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-10 right-1/4 w-[30rem] h-[30rem] bg-[#ffc312]/15 rounded-full blur-[130px] pointer-events-none" />
+      {/* ── Hero Section (Ultra-Luxury Engineering Architecture) ── */}
+      <section className="relative w-full bg-[#070B16] pt-32 pb-36 sm:pt-40 sm:pb-44 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+        {/* Subtle Cyber Blueprint Grid with Smooth Radial Fade */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none opacity-[0.18]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px)
+            `,
+            backgroundSize: '48px 48px',
+            maskImage: 'radial-gradient(ellipse 80% 65% at 50% 35%, black 20%, transparent 75%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 80% 65% at 50% 35%, black 20%, transparent 75%)',
+          }}
+        />
+
+        {/* Cinematic Multi-Layered Atmosphere Lighting */}
+        {/* 1. Deep Top Stage Spotlight */}
+        <div
+          aria-hidden="true"
+          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[70rem] h-[36rem] pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 60% 50% at 50% 20%, rgba(55, 122, 155, 0.42), transparent 70%)',
+          }}
+        />
+        {/* 2. Warm Gold/Amber Ambient Horizon Flare (Right) */}
+        <div
+          aria-hidden="true"
+          className="absolute top-12 -right-24 w-[34rem] h-[34rem] rounded-full bg-[#ffc312]/[0.14] blur-[140px] pointer-events-none"
+        />
+        {/* 3. Cyan/Azure Edge Aura (Left) */}
+        <div
+          aria-hidden="true"
+          className="absolute top-24 -left-28 w-[32rem] h-[32rem] rounded-full bg-[#0284c7]/[0.18] blur-[130px] pointer-events-none"
+        />
+
+        {/* Luminous Precision Laser Horizon Rule */}
+        <div
+          aria-hidden="true"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-[#377a9b]/80 to-transparent shadow-[0_0_25px_rgba(55,122,155,0.8)] pointer-events-none"
+        />
+
+        {/* Floating Architectural Coordinate Marks */}
+        <div aria-hidden="true" className="absolute top-8 left-8 hidden lg:block text-slate-500/40 font-mono text-[11px] select-none pointer-events-none tracking-widest">
+          + LAT: 21.1702° N // 72.8311° E
+        </div>
+        <div aria-hidden="true" className="absolute top-8 right-8 hidden lg:block text-slate-500/40 font-mono text-[11px] select-none pointer-events-none tracking-widest">
+          SYS_STATUS: READY // 24H_GATE +
+        </div>
+        <div aria-hidden="true" className="absolute bottom-20 left-12 hidden lg:block text-slate-600/30 font-mono text-[10px] select-none pointer-events-none">
+          + SEC_ENCRYPT: TLS_1.3 // ZERO_TRUST
+        </div>
+        <div aria-hidden="true" className="absolute bottom-20 right-12 hidden lg:block text-slate-600/30 font-mono text-[10px] select-none pointer-events-none">
+          ARCHITECT_DISPATCH // STAGING_SLA +
+        </div>
 
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#ffc312] font-bold text-xs uppercase tracking-widest mb-5">
-            <Sparkles className="w-3.5 h-3.5" />
-            Direct Access to Founders &amp; Engineers
+          {/* Executive Eyebrow Capsule */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-xl border border-white/[0.14] shadow-[0_8px_30px_rgba(0,0,0,0.35),0_0_20px_rgba(55,122,155,0.2)] mb-6 sm:mb-8 transition-transform hover:scale-[1.02]">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+            </span>
+            <span className="font-mono text-[10.5px] sm:text-[11.5px] font-bold uppercase tracking-[0.16em] text-slate-200">
+              Direct Access to Founders &amp; Engineers
+            </span>
+            <span className="text-white/30 hidden xs:inline">•</span>
+            <span className="font-mono text-[10px] sm:text-[10.5px] font-bold text-[#ffc312] uppercase tracking-wider hidden xs:inline">
+              100% Confidential
+            </span>
           </div>
 
-          <h1 className="text-3xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.12] mb-5 text-[clamp(1.85rem,6vw,4.5rem)]">
-            Let&apos;s Engineer Your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffc312] via-yellow-200 to-[#ffc312]">
+          {/* Majestic Hero Headline */}
+          <h1 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-6xl md:text-7xl text-white tracking-[-0.035em] leading-[1.08] mb-6 [text-wrap:balance] drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
+            <span>Let&apos;s Engineer Your</span>
+            <br />
+            <span className="bg-gradient-to-r from-[#ffc312] via-[#ffeaa7] to-[#f59e0b] bg-clip-text text-transparent drop-shadow-[0_8px_32px_rgba(255,195,18,0.28)]">
               Next Flagship Product.
             </span>
           </h1>
 
-          <p className="text-sm sm:text-lg text-white/80 max-w-2xl mx-auto font-light leading-relaxed mb-6">
+          {/* Subtitle with High-End Editorial Clarity */}
+          <p className="font-['Plus_Jakarta_Sans',sans-serif] text-sm sm:text-base md:text-lg text-slate-300/90 max-w-2xl mx-auto font-normal leading-relaxed mb-8 sm:mb-10 [text-wrap:balance]">
             We partner with visionary founders and enterprises to engineer ultra-fast platforms and autonomous workflows. Get a detailed technical proposal within 24 hours.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-medium text-white/70">
-            <span className="flex items-center gap-1.5"><Clock size={14} className="text-[#ffc312]" /> 24h Response SLA</span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-emerald-400" /> NDA Protected</span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5"><MapPin size={14} className="text-[#ffc312]" /> Surat Headquarters</span>
+          {/* 3 Luxury Glass Trust Capsules */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5">
+            <div className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/[0.09] shadow-sm hover:border-white/[0.2] transition-colors">
+              <Clock className="w-3.5 h-3.5 text-[#ffc312]" />
+              <span className="font-mono text-xs font-bold text-slate-200">24h Response SLA</span>
+              <span className="text-[9.5px] font-mono font-bold text-[#ffc312] uppercase px-1.5 py-0.5 rounded-md bg-[#ffc312]/10 border border-[#ffc312]/20">
+                Guaranteed
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/[0.09] shadow-sm hover:border-white/[0.2] transition-colors">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="font-mono text-xs font-bold text-slate-200">NDA Protected</span>
+              <span className="text-[9.5px] font-mono font-bold text-emerald-400 uppercase px-1.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20">
+                Mutual
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/[0.09] shadow-sm hover:border-white/[0.2] transition-colors">
+              <MapPin className="w-3.5 h-3.5 text-[#38bdf8]" />
+              <span className="font-mono text-xs font-bold text-slate-200">Surat Headquarters</span>
+              <span className="text-[9.5px] font-mono font-bold text-[#38bdf8] uppercase px-1.5 py-0.5 rounded-md bg-[#38bdf8]/10 border border-[#38bdf8]/20">
+                Direct Team
+              </span>
+            </div>
           </div>
         </div>
       </section>
