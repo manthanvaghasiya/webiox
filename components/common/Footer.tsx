@@ -123,13 +123,21 @@ export default function Footer() {
     >
       {/* ━━━━━━━━━━━━━━━━ TOP LAUNCHPAD CTA (Luminous Light Mode) ━━━━━━━━━━━━━━━━ */}
       {!pathname?.startsWith('/contact') && (
-        <div id="contact" className="relative z-20 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 bg-[#FCFCFD]">
-          <div className="max-w-7xl mx-auto">
+        <section
+          id="contact"
+          className="relative z-20 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 bg-[#FCFCFD] text-[#0F172A] border-t border-slate-200/80 overflow-hidden selection:bg-[#377a9b] selection:text-white"
+        >
+          {/* ── Ambient Background Lighting (Matching all homepage sections) ── */}
+          <div className="absolute inset-0 pointer-events-none opacity-40 bg-section-pattern" />
+          <div className="absolute top-1/4 -right-48 w-96 h-96 rounded-full bg-[#377a9b]/8 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-1/4 -left-48 w-96 h-96 rounded-full bg-[#ffc312]/8 blur-3xl pointer-events-none" />
+
+          <div className="relative max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl sm:rounded-[2.5rem] bg-white border border-slate-200/90 p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(55,122,155,0.15)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10"
+              className="rounded-3xl sm:rounded-[2.5rem] bg-white/95 backdrop-blur-md border border-slate-200/90 p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10"
             >
               {/* Specular Ambient Glow */}
               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#377a9b]/10 rounded-full blur-3xl pointer-events-none" />
@@ -198,7 +206,7 @@ export default function Footer() {
               </div>
             </motion.div>
           </div>
-        </div>
+        </section>
       )}
 
       {/* ━━━━━━━━━━━━━━━━ EXECUTIVE FOOTER CONTENT (Dark Contrast) ━━━━━━━━━━━━━━━━ */}
