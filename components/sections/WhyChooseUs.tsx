@@ -357,76 +357,47 @@ export default function WhyChooseUs() {
             } rounded-full blur-3xl pointer-events-none`}
           />
 
-          {/* Studio Header Telemetry Banner */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-5 sm:pb-6 border-b border-slate-200/80 mb-6 lg:mb-8">
-            <div className="flex items-center gap-3">
-              <span className={`w-2.5 h-2.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500 animate-pulse'}`} />
-              <div className="flex items-center gap-2 font-mono text-[11px] font-bold text-slate-700">
-                <span className="uppercase tracking-wider">
-                  {isTraditional ? 'LEGACY MONOLITH AUDIT' : 'COMMAND COCKPIT // WEBIOX ACTIVE'}
-                </span>
-                <span className="text-slate-300">|</span>
-                <span className="text-slate-500 font-semibold">
-                  {isTraditional ? 'UNOPTIMIZED ORIGIN' : 'SURAT_HQ • 21.17°N 72.83°E'}
-                </span>
-              </div>
-            </div>
+          {/* ── TOP ARCHITECTURAL CONTROLLER DOCK (4 BAYS) ABOVE HORIZONTAL DIVIDER ── */}
+          <div className="pb-4 sm:pb-5 border-b border-slate-200/80 mb-5 sm:mb-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 p-1 sm:p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/80 shadow-2xs">
+              {COMMAND_BAYS.map((bay) => {
+                const Icon = bay.icon;
+                const isActive = activeBay === bay.index;
 
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] text-slate-400 uppercase hidden sm:inline">
-                TELEMETRY STATUS:
-              </span>
-              <span
-                className={`px-2.5 py-1 rounded-full font-mono text-[10.5px] font-bold border ${
-                  isTraditional
-                    ? 'bg-rose-50 border-rose-200 text-rose-700'
-                    : 'bg-emerald-50 border-emerald-200/90 text-emerald-800'
-                }`}
-              >
-                {isTraditional ? '3 CRITICAL BOTTLENECKS' : 'ALL SYSTEMS VERIFIED SLA ✓'}
-              </span>
-            </div>
-          </div>
-
-          {/* ── TOP ARCHITECTURAL CONTROLLER DOCK (4 BAYS) ── */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 p-1 sm:p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/80 mb-5 lg:mb-6 shadow-2xs">
-            {COMMAND_BAYS.map((bay) => {
-              const Icon = bay.icon;
-              const isActive = activeBay === bay.index;
-
-              return (
-                <button
-                  key={bay.id}
-                  type="button"
-                  onClick={() => setActiveBay(bay.index)}
-                  className={`relative py-2 px-3 sm:py-2.5 sm:px-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer flex items-center gap-2 sm:gap-2.5 active:scale-[0.99] ${
-                    isActive
-                      ? isTraditional
-                        ? 'bg-white text-rose-900 shadow-sm border border-rose-200 ring-2 ring-rose-400/20'
-                        : 'bg-white text-[#0F172A] shadow-sm border border-slate-200/90 ring-2 ring-[#377a9b]/20'
-                      : 'text-slate-600 hover:text-[#0F172A] hover:bg-white/60'
-                  }`}
-                >
-                  <div
-                    className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${
+                return (
+                  <button
+                    key={bay.id}
+                    type="button"
+                    onClick={() => setActiveBay(bay.index)}
+                    className={`relative py-2 px-3 sm:py-2.5 sm:px-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer flex items-center gap-2 sm:gap-2.5 active:scale-[0.99] ${
                       isActive
                         ? isTraditional
-                          ? 'bg-rose-600 text-white'
-                          : 'bg-[#377a9b] text-white shadow-2xs'
-                        : 'bg-slate-200/70 text-slate-600'
+                          ? 'bg-white text-rose-900 shadow-sm border border-rose-200 ring-2 ring-rose-400/20'
+                          : 'bg-white text-[#0F172A] shadow-sm border border-slate-200/90 ring-2 ring-[#377a9b]/20'
+                        : 'text-slate-600 hover:text-[#0F172A] hover:bg-white/60'
                     }`}
                   >
-                    <Icon className="w-3 h-3" />
-                  </div>
-                  <span className="font-mono text-[10.5px] font-black text-slate-400 shrink-0">
-                    {bay.num}
-                  </span>
-                  <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] truncate text-[#0F172A]">
-                    {bay.title}
-                  </span>
-                </button>
-              );
-            })}
+                    <div
+                      className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${
+                        isActive
+                          ? isTraditional
+                            ? 'bg-rose-600 text-white'
+                            : 'bg-[#377a9b] text-white shadow-2xs'
+                          : 'bg-slate-200/70 text-slate-600'
+                      }`}
+                    >
+                      <Icon className="w-3 h-3" />
+                    </div>
+                    <span className="font-mono text-[10.5px] font-black text-slate-400 shrink-0">
+                      {bay.num}
+                    </span>
+                    <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] truncate text-[#0F172A]">
+                      {bay.title}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* ── WIDESCREEN LIVE SIMULATION STAGE (2-COLUMN ARCHITECTURAL CONSOLE) ── */}
