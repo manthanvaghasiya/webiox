@@ -3,32 +3,21 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Zap,
-  ShieldCheck,
-  Sparkles,
-  ArrowRight,
-  Clock,
-  MessageSquare,
-  Lock,
-  CheckCircle2,
-  XCircle,
   Gauge,
-  SlidersHorizontal,
-  Activity,
-  Terminal,
-  Cpu,
-  Server,
-  Radio,
-  Check,
-  ChevronRight,
-  ChevronLeft,
-  Code2,
-  Layers,
-  ShieldAlert,
-  Smartphone,
-  ExternalLink,
-  MessageCircle,
+  Clock,
+  Lock,
+  MessageSquare,
   AlertTriangle,
+  XCircle,
+  Check,
+  CheckCircle2,
+  MessageCircle,
+  ArrowRight,
+  Sparkles,
+  SlidersHorizontal,
+  ChevronLeft,
+  ChevronRight,
+  ShieldCheck,
 } from 'lucide-react';
 
 type PerspectiveMode = 'contrast' | 'webiox' | 'traditional';
@@ -183,84 +172,48 @@ const PILLARS = [
   { id: 'squad', num: '04', title: 'Direct Squad', subtitle: 'Zero Middlemen', icon: MessageSquare },
 ];
 
-const COMPARISON_METRICS = [
-  {
-    metric: 'Initial Page Load (LCP)',
-    webiox: '0.38s (Sub-second Edge CDN)',
-    traditional: '3.2s – 4.5s (Sluggish server render)',
-    impact: '8.4x Faster',
-  },
-  {
-    metric: 'Core Web Vitals Score',
-    webiox: '98–100 / 100 (Passes all audits)',
-    traditional: '38–62 / 100 (Fails mobile CWV)',
-    impact: '+52% SEO Rank Boost',
-  },
-  {
-    metric: 'Production Bundle Weight',
-    webiox: '~78 KB gzipped (Tree-shaken Next.js)',
-    traditional: '2.5 MB – 4.8 MB (Unminified plugins)',
-    impact: '96% Less Data Drain',
-  },
-  {
-    metric: 'Security & CVE Surface',
-    webiox: '0 Known CVEs (Stateless JWT, Cloudflare WAF)',
-    traditional: 'High Risk (10–30 unpatched plugin exploits)',
-    impact: 'Zero CVE Exploit Risk',
-  },
-  {
-    metric: 'Maintenance Overhead',
-    webiox: '< 1 hr / quarter (Automated CI/CD)',
-    traditional: '15–20 hrs / month (Plugin breakages)',
-    impact: '90% Cost Reduction',
-  },
-  {
-    metric: 'Concurrent Concurrency',
-    webiox: '100,000+ req/sec (Edge autoscaling)',
-    traditional: 'Crashes above 1,500 users',
-    impact: 'Enterprise Ready',
-  },
-  {
-    metric: 'Source Code Ownership',
-    webiox: '100% Client IP (Clean GitHub Repo Handover)',
-    traditional: 'Proprietary theme & vendor lock-in',
-    impact: 'Zero Platform Lock-in',
-  },
-];
-
 export default function WhyChooseUs() {
   const [mode, setMode] = useState<PerspectiveMode>('contrast');
-  const [activeSpeedStack, setActiveSpeedStack] = useState<'webiox' | 'traditional'>('webiox');
-  const [selectedGate, setSelectedGate] = useState<number>(2); // Default to active Phase 03
-  const [threatSimulating, setThreatSimulating] = useState<boolean>(false);
-  const [threatMitigated, setThreatMitigated] = useState<boolean>(false);
-  const [activeChatTab, setActiveChatTab] = useState<'slack' | 'whatsapp'>('slack');
   const [mobilePillar, setMobilePillar] = useState<number>(0);
-  const [mobileCompareTab, setMobileCompareTab] = useState<'webiox' | 'traditional'>('webiox');
-
-  const triggerThreatSimulation = () => {
-    if (threatSimulating) return;
-    setThreatSimulating(true);
-    setThreatMitigated(false);
-    setTimeout(() => {
-      setThreatSimulating(false);
-      setThreatMitigated(true);
-      setTimeout(() => {
-        setThreatMitigated(false);
-      }, 5000);
-    }, 1400);
-  };
 
   /* ──────────────────────────────────────────────────────────────────
       MODULE 01: VELOCITY & INFRASTRUCTURE
      ────────────────────────────────────────────────────────────────── */
   const renderModule01 = (isMobile?: boolean) => {
     const isTraditional = mode === 'traditional';
-    const effectiveSpeedStack = isTraditional ? 'traditional' : (mode === 'webiox' ? 'webiox' : activeSpeedStack);
+
+    const metrics = isTraditional
+      ? [
+          { label: 'TTFB Latency', value: '850ms', sub: 'Cold origin parse', warn: true },
+          { label: 'LCP Paint', value: '3.8s', sub: 'Sluggish render & bounce', warn: true },
+          { label: 'Bundle Size', value: '2.4 MB', sub: 'Unminified plugins', warn: true },
+          { label: 'Core Vitals', value: '48 / 100', sub: 'Fails mobile audits', warn: true },
+        ]
+      : [
+          { label: 'TTFB Latency', value: '38ms', sub: 'Sub-50ms global edge', warn: false },
+          { label: 'LCP Paint', value: '0.38s', sub: 'Instant content paint', warn: false },
+          { label: 'Bundle Size', value: '~78 KB', sub: 'Tree-shaken Next.js', warn: false },
+          { label: 'Core Vitals', value: '99 / 100', sub: 'All audits green', warn: false },
+        ];
+
+    const specs = isTraditional
+      ? [
+          'Uncached Apache / PHP Monolith with zero autoscaling',
+          'Sluggish database roundtrips on every page hit',
+          '30+ unpatched plugins blocking main browser thread',
+          'No global CDN caching for users outside origin region',
+        ]
+      : [
+          'Next.js 16 App Router with Partial Prerendering (PPR)',
+          'Edge Redis Caching Tier with instant cache invalidation',
+          'Multi-Region Cloudflare CDN routed to nearest edge PoP',
+          'Zero bloated plugins — 100% tree-shaken TypeScript',
+        ];
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-        } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-start gap-4 sm:gap-5`}>
+      <div className={`w-full h-full rounded-3xl bg-white border ${
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
+      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -271,168 +224,81 @@ export default function WhyChooseUs() {
         {/* Header Block */}
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
-              }`}>
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
+              isTraditional ? 'bg-rose-50 border border-rose-200 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
+            }`}>
               {isTraditional ? <AlertTriangle className="w-3.5 h-3.5 text-rose-600" /> : <Gauge className="w-3.5 h-3.5 text-[#377a9b]" />}
               <span>{isTraditional ? '✕ 01 // MONOLITHIC DEBT & BOTTLENECK' : '01 // VELOCITY & INFRASTRUCTURE'}</span>
             </div>
 
-            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
+            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
+              isTraditional
                 ? 'bg-rose-50 border border-rose-200/80 text-rose-700'
                 : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
-              }`}>
+            }`}>
               <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500 animate-ping'}`} />
               <span>{isTraditional ? '850MS ORIGIN BOTTLENECK' : 'SUB-SECOND EDGE ACTIVE'}</span>
             </div>
           </div>
 
-          <div>
-            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
-              {isTraditional ? 'Monolithic Infrastructure Lag.' : 'Sub-Second Edge Infrastructure.'}
-            </h3>
-            <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-2xl">
-              {isTraditional
-                ? 'Legacy WordPress/PHP monoliths with 30+ unpatched plugins, uncached origin bottlenecks, and sluggish database queries. 850ms TTFB, 3.8s LCP paint, and failed Core Web Vitals.'
-                : 'Next.js 16 App Router with Incremental Static Regeneration (ISR) and Edge Redis caching. Zero cold starts, sub-400ms LCP, and instant page transitions with sub-second edge delivery.'}
-            </p>
-          </div>
+          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
+            {isTraditional ? 'Monolithic Infrastructure Lag.' : 'Sub-Second Edge Infrastructure.'}
+          </h3>
+          <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-2xl">
+            {isTraditional
+              ? 'Legacy WordPress/PHP monoliths with 30+ unpatched plugins, uncached origin bottlenecks, and sluggish database queries. 850ms TTFB, 3.8s LCP paint, and failed Core Web Vitals.'
+              : 'Next.js 16 App Router with Incremental Static Regeneration (ISR) and Edge Redis caching. Zero cold starts, sub-400ms LCP, and instant page transitions with sub-second edge delivery.'}
+          </p>
         </div>
 
-        {/* Live Route & Benchmark Profiler Console */}
-        <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-4 sm:p-5 relative overflow-hidden flex flex-col gap-3">
-          <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-            <div className="flex items-center gap-2">
-              <Radio className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-500' : 'text-[#377a9b] animate-pulse'}`} />
-              <span className="text-slate-700 font-bold uppercase tracking-wider text-[10.5px]">
-                {isTraditional ? 'Monolith Origin Benchmark' : 'Live Route & Benchmark Profiler'}
-              </span>
-            </div>
-
-            {mode === 'contrast' && (
-              <div className="inline-flex items-center p-1 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                <button
-                  type="button"
-                  onClick={() => setActiveSpeedStack('webiox')}
-                  className={`px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${activeSpeedStack === 'webiox'
-                      ? 'bg-[#377a9b] text-white shadow-xs'
-                      : 'text-slate-500 hover:text-[#0F172A]'
-                    }`}
-                >
-                  ⚡ Webiox Edge
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveSpeedStack('traditional')}
-                  className={`px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${activeSpeedStack === 'traditional'
-                      ? 'bg-rose-500 text-white shadow-xs'
-                      : 'text-slate-500 hover:text-[#0F172A]'
-                    }`}
-                >
-                  ✕ Monolith
-                </button>
+        {/* Production Telemetry Metrics Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          {metrics.map((m, idx) => (
+            <div
+              key={idx}
+              className={`p-3 rounded-2xl border transition-all ${
+                m.warn
+                  ? 'bg-rose-50/50 border-rose-200/80 text-rose-950'
+                  : 'bg-slate-50/80 border-slate-200/90 text-slate-900'
+              }`}
+            >
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1 font-semibold truncate">
+                {m.label}
               </div>
-            )}
+              <div className={`font-mono font-black text-xl sm:text-2xl tracking-tight ${
+                m.warn ? 'text-rose-600' : 'text-[#377a9b]'
+              }`}>
+                {m.value}
+              </div>
+              <div className="text-[10px] font-mono text-slate-500 mt-0.5 truncate">
+                {m.sub}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Architectural Highlights Checklist */}
+        <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90">
+          <div className="text-[10.5px] font-mono font-bold text-slate-500 uppercase tracking-wider mb-2.5 flex items-center justify-between">
+            <span>{isTraditional ? 'Monolith Bottleneck Architecture' : 'Production Edge Architecture'}</span>
+            <span className={isTraditional ? 'text-rose-600' : 'text-emerald-700 font-bold'}>
+              {isTraditional ? 'Legacy Debt' : 'Verified Production SLA'}
+            </span>
           </div>
 
-          {/* Interactive Hop Network Pipeline */}
-          <div className="p-3 sm:p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
-            <div className="flex items-center justify-between gap-3 mb-2.5">
-              {/* Hop 1: Client */}
-              <div className="flex items-center gap-2 min-w-0">
-                <div className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
-                  <Smartphone className="w-4 h-4 text-[#377a9b]" />
-                </div>
-                <div className="min-w-0">
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
-                    Client Browser
-                  </div>
-                  <div className="font-mono text-[9px] text-slate-500 font-medium">SURAT_REQ</div>
-                </div>
-              </div>
-
-              {/* Hop 2: Middle Pipe Arrow */}
-              <div className="flex-1 flex flex-col items-center px-2">
-                <div className="flex items-center gap-1 text-[9.5px] font-mono font-bold text-slate-500 mb-0.5">
-                  <span className={effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'}>
-                    {effectiveSpeedStack === 'webiox' ? '⚡ 38ms Edge Route' : '✕ 850ms Origin Delay'}
-                  </span>
-                </div>
-                <div className="w-full h-1 rounded-full bg-slate-100 relative overflow-hidden">
-                  <div className={`h-full rounded-full ${effectiveSpeedStack === 'webiox' ? 'w-full bg-gradient-to-r from-[#377a9b] to-emerald-500 animate-pulse' : 'w-1/3 bg-rose-500'
-                    }`} />
-                </div>
-              </div>
-
-              {/* Hop 3: Edge Destination */}
-              <div className="flex items-center gap-2 text-right shrink-0">
-                <div className="min-w-0">
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
-                    {effectiveSpeedStack === 'webiox' ? 'Mumbai Edge PoP' : 'Uncached Apache'}
-                  </div>
-                  <div className={`font-mono text-[9px] font-bold ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                    }`}>
-                    {effectiveSpeedStack === 'webiox' ? 'Hit (Redis ISR)' : 'Cold Origin Parse'}
-                  </div>
-                </div>
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${effectiveSpeedStack === 'webiox'
-                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
-                    : 'bg-rose-50 text-rose-700 border border-rose-200/80'
-                  }`}>
-                  <Server className="w-4 h-4" />
-                </div>
-              </div>
-            </div>
-
-            {/* Live HTTP Edge Request Ticker */}
-            <div className="py-2 px-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[10.5px] font-mono mb-2.5">
-              <div className="flex items-center gap-2 truncate">
-                <span className="px-1.5 py-0.5 rounded bg-slate-200/70 text-slate-700 font-bold text-[9px]">
-                  GET
-                </span>
-                <span className="text-slate-600 truncate">
-                  {effectiveSpeedStack === 'webiox' ? '/api/v1/catalog-index • 200 OK' : '/wp-admin/admin-ajax.php • 200 OK'}
-                </span>
-              </div>
-              <span className={`font-bold shrink-0 text-[10px] ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            {specs.map((spec, sIdx) => (
+              <div key={sIdx} className="flex items-start gap-2">
+                <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
+                  isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-800'
                 }`}>
-                {effectiveSpeedStack === 'webiox' ? 'CACHE: HIT (4ms)' : 'CACHE: MISS (Cold)'}
-              </span>
-            </div>
-
-            {/* 4 Technical Metric Indicators */}
-            <div className="pt-2 border-t border-slate-100 grid grid-cols-4 gap-1.5 sm:gap-2 text-center">
-              <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">TTFB Latency</span>
-                <span className={`font-mono font-black text-xs sm:text-base ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                  }`}>
-                  {effectiveSpeedStack === 'webiox' ? '38ms' : '850ms'}
+                  {isTraditional ? <XCircle className="w-2.5 h-2.5 text-rose-600" /> : <Check className="w-2.5 h-2.5 stroke-[3] text-emerald-700" />}
+                </div>
+                <span className="font-['Plus_Jakarta_Sans',sans-serif] text-slate-600 text-[11.5px] leading-tight">
+                  {spec}
                 </span>
               </div>
-
-              <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">LCP Paint</span>
-                <span className={`font-mono font-black text-xs sm:text-base ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                  }`}>
-                  {effectiveSpeedStack === 'webiox' ? '0.38s' : '3.8s'}
-                </span>
-              </div>
-
-              <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">Bundle Size</span>
-                <span className={`font-mono font-black text-xs sm:text-base ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                  }`}>
-                  {effectiveSpeedStack === 'webiox' ? '78 KB' : '2.4 MB'}
-                </span>
-              </div>
-
-              <div className="p-1.5 sm:p-2 rounded-lg bg-slate-50/70 border border-slate-100">
-                <span className="text-[9px] font-mono text-slate-600 font-medium block mb-0.5 truncate">Core Vitals</span>
-                <span className={`font-mono font-black text-xs sm:text-base ${effectiveSpeedStack === 'webiox' ? 'text-emerald-700' : 'text-rose-700'
-                  }`}>
-                  {effectiveSpeedStack === 'webiox' ? '99 / 100' : '48 / 100'}
-                </span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -445,11 +311,11 @@ export default function WhyChooseUs() {
   const renderModule02 = (isMobile?: boolean) => {
     const isTraditional = mode === 'traditional';
     const activeGates = isTraditional ? TRADITIONAL_GATES : SPRINT_GATES;
-    const currentGate = activeGates[selectedGate] || activeGates[0];
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-        } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
+      <div className={`w-full h-full rounded-3xl bg-white border ${
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
+      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#ffc312]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -457,109 +323,79 @@ export default function WhyChooseUs() {
           {isTraditional ? 'DRIFT_RISK // HOURLY_DRAIN' : 'SLA_PROTOCOL // ZERO_DRIFT'}
         </div>
 
+        {/* Header Block */}
         <div>
-          <div className="flex items-center justify-between gap-2 mb-4">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-amber-50 border border-amber-200/80 text-amber-700'
-              }`}>
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
+              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-amber-50 border border-amber-200/80 text-amber-700'
+            }`}>
               <Clock className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-600' : 'text-amber-600'}`} />
               <span>{isTraditional ? '✕ 02 // SCOPE DRIFT & HOURLY TRAPS' : '02 // MILESTONE LOCK PROTOCOL'}</span>
             </div>
 
-            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-amber-700 bg-amber-50 border-amber-200/60'
-              }`}>
+            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${
+              isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-amber-700 bg-amber-50 border-amber-200/60'
+            }`}>
               {isTraditional ? '0% SLA LOCK' : '100% SLA LOCK'}
             </span>
           </div>
 
-          <div className="mb-5">
-            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
-              {isTraditional ? 'The Hourly Billing Trap.' : 'Sprint Milestone Vault.'}
-            </h3>
-            <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
-              {isTraditional
-                ? 'Traditional agencies drag projects out for months with vague specs and open-ended hourly billing. Scope creep and surprise invoices pile up while deadlines slide.'
-                : 'Traditional agencies drag projects for months with hourly billing. Webiox locks delivery into verified 14-day sprint gates: payments unlock strictly after staging QA sign-off.'}
-            </p>
-          </div>
+          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
+            {isTraditional ? 'The Hourly Billing Trap.' : 'Sprint Milestone Vault.'}
+          </h3>
+          <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+            {isTraditional
+              ? 'Traditional agencies drag projects out for months with vague specs and open-ended hourly billing. Scope creep and surprise invoices pile up while deadlines slide.'
+              : 'Traditional agencies drag projects for months with hourly billing. Webiox locks delivery into verified 14-day sprint gates: payments unlock strictly after staging QA sign-off.'}
+          </p>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-4 sm:p-5">
-          <div className="flex items-center justify-between mb-3 text-xs font-mono">
-            <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">
-              {isTraditional ? 'Legacy Agency Timeline' : 'Interactive Sprint Gates'}
-            </span>
-            <span className={`font-bold text-[10.5px] ${isTraditional ? 'text-rose-700' : 'text-amber-700'}`}>
-              {isTraditional ? '+35% Scope Overages' : '0% Scope Drift'}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-4 gap-1.5 mb-3">
-            {activeGates.map((gate, idx) => (
-              <button
-                key={gate.id}
-                type="button"
-                onClick={() => setSelectedGate(idx)}
-                className={`py-2 px-1 rounded-xl text-center transition-all cursor-pointer border ${selectedGate === idx
-                    ? isTraditional
-                      ? 'bg-white border-rose-500 text-[#0F172A] shadow-xs ring-1 ring-rose-500/30'
-                      : 'bg-white border-[#377a9b] text-[#0F172A] shadow-xs ring-1 ring-[#377a9b]/30'
-                    : isTraditional
-                      ? 'bg-rose-50/50 border-rose-200/60 text-rose-700 hover:bg-rose-50'
-                      : idx < selectedGate
-                        ? 'bg-emerald-50/70 border-emerald-200/60 text-emerald-800'
-                        : 'bg-white/60 border-slate-200/70 text-slate-500 hover:bg-white'
-                  }`}
-              >
-                <span className="block font-mono text-[10px] font-black">{gate.num}</span>
-                <span className="block font-['Plus_Jakarta_Sans',sans-serif] text-[10px] font-bold truncate">
-                  Phase {idx + 1}
+        {/* 4-Stage Delivery Pipeline */}
+        <div className="space-y-2">
+          {activeGates.map((gate) => (
+            <div
+              key={gate.id}
+              className={`p-2.5 sm:p-3 rounded-2xl border transition-all flex items-center justify-between gap-3 ${
+                isTraditional
+                  ? 'bg-rose-50/40 border-rose-200/80'
+                  : 'bg-slate-50/80 border-slate-200/80 hover:bg-slate-50'
+              }`}
+            >
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span className={`w-7 h-7 rounded-xl font-mono text-[11px] font-black flex items-center justify-center shrink-0 ${
+                  isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-white text-[#377a9b] border border-slate-200 shadow-2xs'
+                }`}>
+                  {gate.num}
                 </span>
-              </button>
-            ))}
-          </div>
-
-          <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
-            <div className="flex items-center justify-between mb-2">
-              <div>
-                <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] block">
-                  {currentGate.name}
-                </span>
-                <span className="font-mono text-[10px] text-slate-600 font-medium">
-                  {currentGate.duration}
-                </span>
+                <div className="min-w-0">
+                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
+                    {gate.name}
+                  </div>
+                  <div className="font-mono text-[10px] text-slate-500 truncate">
+                    {gate.duration} • {gate.deliverables[0]}
+                  </div>
+                </div>
               </div>
 
-              <span className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${isTraditional
-                  ? 'bg-rose-50 text-rose-700 border border-rose-200'
-                  : selectedGate === 2
-                    ? 'bg-[#377a9b]/10 text-[#377a9b] border border-[#377a9b]/20'
-                    : selectedGate < 2
-                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                      : 'bg-amber-50 text-amber-700 border border-amber-200'
-                }`}>
-                {currentGate.status}
+              <span className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${
+                isTraditional
+                  ? 'bg-rose-100/80 text-rose-700'
+                  : 'bg-emerald-50 text-emerald-800 border border-emerald-200/60'
+              }`}>
+                {isTraditional ? gate.status : 'Verified Gate'}
               </span>
             </div>
+          ))}
+        </div>
 
-            <div className="space-y-1.5 my-2.5">
-              {currentGate.deliverables.map((item, dIdx) => (
-                <div key={dIdx} className="flex items-center gap-2 text-xs text-slate-600">
-                  <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-700'
-                    }`}>
-                    {isTraditional ? <XCircle className="w-2.5 h-2.5" /> : <Check className="w-2.5 h-2.5" />}
-                  </div>
-                  <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[11.5px]">{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono">
-              <span className="text-slate-600 font-medium">{currentGate.verification}</span>
-              <span className={`font-bold ${isTraditional ? 'text-rose-600' : 'text-[#377a9b]'}`}>
-                {isTraditional ? 'Scope Drift Warning ✕' : 'QA Gate Verified ✓'}
-              </span>
-            </div>
-          </div>
+        {/* SLA Commitment Footer */}
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
+          <span className="text-slate-500 text-[10.5px]">
+            {isTraditional ? 'Uncapped Scope Creep' : '0% Scope Drift Guarantee'}
+          </span>
+          <span className={`font-bold text-[10.5px] ${isTraditional ? 'text-rose-600' : 'text-[#377a9b]'}`}>
+            {isTraditional ? 'Hourly Billing Overages ✕' : 'QA Staging Sign-Off Required ✓'}
+          </span>
         </div>
       </div>
     );
@@ -573,8 +409,9 @@ export default function WhyChooseUs() {
     const activeDefenseItems = isTraditional ? TRADITIONAL_VULNERABILITIES : WEBIOX_DEFENSE_ITEMS;
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-        } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
+      <div className={`w-full h-full rounded-3xl bg-white border ${
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
+      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-emerald-500/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -582,92 +419,76 @@ export default function WhyChooseUs() {
           {isTraditional ? 'EXPLOIT_SURFACE // ZERO_WAF' : 'DEFENSE_CORE // SOC_2_READY'}
         </div>
 
+        {/* Header Block */}
         <div>
-          <div className="flex items-center justify-between gap-2 mb-4">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-emerald-50 border border-emerald-200/80 text-emerald-700'
-              }`}>
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
+              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-emerald-50 border border-emerald-200/80 text-emerald-700'
+            }`}>
               <Lock className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-600' : 'text-emerald-600'}`} />
               <span>{isTraditional ? '✕ 03 // VULNERABLE SHARED HOSTING' : '03 // DEFENSIVE SECURITY CORE'}</span>
             </div>
 
-            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-emerald-700 bg-emerald-50 border-emerald-200/60'
-              }`}>
+            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${
+              isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-emerald-700 bg-emerald-50 border-emerald-200/60'
+            }`}>
               {isTraditional ? '12 CVE VULNERABILITIES' : '0 CVE VULNERABILITIES'}
             </span>
           </div>
 
-          <div className="mb-5">
-            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
-              {isTraditional ? 'Zero-Trust Neglected.' : 'Hardened Zero-Trust.'}
-            </h3>
-            <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
-              {isTraditional
-                ? 'Generic agencies deploy on cheap shared hosting with dozens of unpatched third-party plugins, plain-text credentials in repositories, and zero DDoS protection.'
-                : 'Generic agencies install dozens of vulnerable plugins that invite exploits. We build custom hardened TypeScript architectures with cryptographic authentication and automated CI/CD audits.'}
-            </p>
-          </div>
+          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
+            {isTraditional ? 'Zero-Trust Neglected.' : 'Hardened Zero-Trust.'}
+          </h3>
+          <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+            {isTraditional
+              ? 'Generic agencies deploy on cheap shared hosting with dozens of unpatched third-party plugins, plain-text credentials in repositories, and zero DDoS protection.'
+              : 'Generic agencies install dozens of vulnerable plugins that invite exploits. We build custom hardened TypeScript architectures with cryptographic authentication and automated CI/CD audits.'}
+          </p>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-4 sm:p-5">
-          <div className="flex items-center justify-between mb-3 text-xs font-mono">
-            <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">
-              {isTraditional ? 'Vulnerability Threat Profile' : '4-Layer Defense Perimeter'}
-            </span>
-            <button
-              type="button"
-              onClick={triggerThreatSimulation}
-              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-bold transition-all cursor-pointer ${threatSimulating
-                  ? 'bg-amber-500 text-white animate-pulse'
-                  : threatMitigated
-                    ? isTraditional
-                      ? 'bg-rose-600 text-white'
-                      : 'bg-emerald-600 text-white'
-                    : 'bg-white border border-slate-200 text-[#377a9b] hover:bg-slate-50 shadow-2xs'
-                }`}
+        {/* 4-Layer Defense Stack */}
+        <div className="space-y-2">
+          {activeDefenseItems.map((item, idx) => (
+            <div
+              key={idx}
+              className={`p-2.5 sm:p-3 rounded-2xl border transition-all flex items-start gap-3 ${
+                isTraditional
+                  ? 'bg-rose-50/40 border-rose-200/80'
+                  : 'bg-slate-50/80 border-slate-200/80 hover:bg-slate-50'
+              }`}
             >
-              <ShieldAlert className="w-3 h-3" />
-              <span>
-                {threatSimulating
-                  ? isTraditional ? 'Simulating Exploit...' : 'Simulating Attack...'
-                  : threatMitigated
-                    ? isTraditional ? '12 Exploits Succeeded ✕' : 'Threat Mitigated in 3.4ms ✓'
-                    : isTraditional ? 'Simulate Attack on Monolith' : 'Simulate Threat Scan'}
-              </span>
-            </button>
-          </div>
-
-          <div className="space-y-2">
-            {activeDefenseItems.map((item, idx) => (
-              <div
-                key={idx}
-                className={`p-2.5 rounded-xl border transition-all duration-300 flex items-start gap-2.5 ${threatSimulating
-                    ? 'bg-amber-50/70 border-amber-200'
-                    : threatMitigated
-                      ? isTraditional ? 'bg-rose-50/70 border-rose-200' : 'bg-emerald-50/70 border-emerald-200'
-                      : 'bg-white border-slate-200/80 shadow-2xs'
-                  }`}
-              >
-                <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-700'
-                  }`}>
-                  {isTraditional ? <XCircle className="w-3.5 h-3.5" /> : <CheckCircle2 className="w-3.5 h-3.5" />}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center justify-between">
-                    <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
-                      {item.title}
-                    </span>
-                    <span className={`font-mono text-[9.5px] font-bold ${isTraditional ? 'text-rose-700' : 'text-emerald-700'
-                      }`}>
-                      {item.status}
-                    </span>
-                  </div>
-                  <p className="font-mono text-[10px] text-slate-500 truncate">
-                    {item.desc}
-                  </p>
-                </div>
+              <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${
+                isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-800'
+              }`}>
+                {isTraditional ? <XCircle className="w-3 h-3 text-rose-600" /> : <CheckCircle2 className="w-3 h-3 text-emerald-700" />}
               </div>
-            ))}
-          </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
+                    {item.title}
+                  </span>
+                  <span className={`font-mono text-[9.5px] font-bold shrink-0 ${
+                    isTraditional ? 'text-rose-700' : 'text-emerald-700'
+                  }`}>
+                    {item.status}
+                  </span>
+                </div>
+                <p className="font-mono text-[10px] text-slate-500 truncate mt-0.5">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Security Standard Footer */}
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
+          <span className="text-slate-500 text-[10.5px]">
+            {isTraditional ? 'Exploit Surface: Unmonitored' : 'SOC-2 Ready Architecture'}
+          </span>
+          <span className={`font-bold text-[10.5px] ${isTraditional ? 'text-rose-600' : 'text-emerald-700'}`}>
+            {isTraditional ? 'High Risk Surface ✕' : 'Zero 3rd-Party Vulnerabilities ✓'}
+          </span>
         </div>
       </div>
     );
@@ -679,9 +500,46 @@ export default function WhyChooseUs() {
   const renderModule04 = (isMobile?: boolean) => {
     const isTraditional = mode === 'traditional';
 
+    const pillars = isTraditional
+      ? [
+          {
+            title: 'Multiple Middleman Layers',
+            desc: 'Non-technical account managers sit between you and developers.',
+            metric: '3 Buffer Layers',
+          },
+          {
+            title: '48h–72h Email Response Delay',
+            desc: 'Simple bug reports take days to translate into offshore tickets.',
+            metric: '3 Days Lag',
+          },
+          {
+            title: 'Surprise Change-Order Invoices',
+            desc: 'Every minor tweak is billed as an expensive out-of-scope addition.',
+            metric: '+$1,600 / Change',
+          },
+        ]
+      : [
+          {
+            title: 'Direct Senior Architect Access',
+            desc: 'Collaborate directly with Lead Architect Manthan Vaghasiya & senior fullstack engineers.',
+            metric: 'Zero Middlemen',
+          },
+          {
+            title: 'Dedicated Engineering War-Room',
+            desc: 'Private Slack channel or WhatsApp VIP squad with real-time PR & deployment updates.',
+            metric: 'Direct Squad',
+          },
+          {
+            title: '< 12-Minute Average Reply Time',
+            desc: 'Instant architectural guidance, rapid staging deployments, and proactive async walkthroughs.',
+            metric: '< 12m Turnaround',
+          },
+        ];
+
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-        } ${isMobile ? 'p-5' : 'p-6 sm:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between`}>
+      <div className={`w-full h-full rounded-3xl bg-white border ${
+        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
+      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5`}>
         <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
@@ -689,243 +547,105 @@ export default function WhyChooseUs() {
           {isTraditional ? 'MIDDLEMEN_CHAIN // 48H_LAG' : 'SQUAD_UPLINK // SURAT_DIRECT'}
         </div>
 
+        {/* Header Block */}
         <div>
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
-              }`}>
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
+              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
+            }`}>
               <MessageSquare className="w-3.5 h-3.5" />
               <span>{isTraditional ? '✕ 04 // LAYERS OF NON-TECHNICAL MIDDLEMEN' : '04 // AGILITY & DIRECT COLLABORATION'}</span>
             </div>
 
-            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
-              }`}>
+            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
+              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
+            }`}>
               <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-[#377a9b] animate-pulse'}`} />
               <span>{isTraditional ? '48H–72H EMAIL DELAY' : '12M AVG ARCHITECT REPLY'}</span>
             </div>
           </div>
 
-          <div className="mb-5">
-            <div className="flex items-baseline gap-3 mb-1.5">
-              <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight">
-                {isTraditional ? 'The Middleman Telephone Game.' : 'Direct Senior Engineers.'}
-              </h3>
-              <span className={`font-mono text-xs font-bold ${isTraditional ? 'text-rose-600' : 'text-slate-600 font-semibold'}`}>
-                {isTraditional ? '3 Layers of Middlemen' : 'Zero Middlemen'}
-              </span>
-            </div>
-            <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-xl">
-              {isTraditional
-                ? 'Non-technical account managers who do not write code sit between you and developers. Simple bug reports take 3 days to translate, and surprise change orders are billed for every tweak.'
-                : 'No non-technical account managers playing telephone. You get a direct, dedicated engineering war-room on Slack or WhatsApp with the senior architects writing and shipping your code.'}
-            </p>
+          <div className="flex items-baseline gap-3 mb-1.5">
+            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight">
+              {isTraditional ? 'The Middleman Telephone Game.' : 'Direct Senior Engineers.'}
+            </h3>
+            <span className={`font-mono text-xs font-bold ${isTraditional ? 'text-rose-600' : 'text-slate-600 font-semibold'}`}>
+              {isTraditional ? '3 Layers of Middlemen' : 'Zero Middlemen'}
+            </span>
           </div>
+          <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-xl">
+            {isTraditional
+              ? 'Non-technical account managers who do not write code sit between you and developers. Simple bug reports take 3 days to translate, and surprise change orders are billed for every tweak.'
+              : 'No non-technical account managers playing telephone. You get a direct, dedicated engineering war-room on Slack or WhatsApp with the senior architects writing and shipping your code.'}
+          </p>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90 p-4 sm:p-5">
+        {/* 3 Collaboration Protocol Rows */}
+        <div className="space-y-2.5">
+          {pillars.map((item, idx) => (
+            <div
+              key={idx}
+              className={`p-3 rounded-2xl border transition-all flex items-start justify-between gap-3 ${
+                isTraditional
+                  ? 'bg-rose-50/40 border-rose-200/80'
+                  : 'bg-slate-50/80 border-slate-200/80 hover:bg-slate-50'
+              }`}
+            >
+              <div className="flex items-start gap-2.5 min-w-0">
+                <div className={`w-5 h-5 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${
+                  isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-[#377a9b]/10 text-[#377a9b]'
+                }`}>
+                  {isTraditional ? <XCircle className="w-3 h-3 text-rose-600" /> : <CheckCircle2 className="w-3 h-3 text-[#377a9b]" />}
+                </div>
+                <div className="min-w-0">
+                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
+                    {item.title}
+                  </div>
+                  <p className="font-['Plus_Jakarta_Sans',sans-serif] text-[11px] text-slate-500 leading-relaxed mt-0.5">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+
+              <span className={`px-2 py-0.5 rounded-md font-mono text-[9.5px] font-bold shrink-0 ${
+                isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-[#377a9b]/10 text-[#377a9b]'
+              }`}>
+                {item.metric}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Action Connectors Strip */}
+        <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
           {isTraditional ? (
-            <div className="space-y-2.5">
-              <div className="flex items-center justify-between text-xs font-mono text-slate-600 pb-2 border-b border-slate-200">
-                <span className="font-bold text-rose-700 flex items-center gap-1.5">
-                  <XCircle className="w-3.5 h-3.5 text-rose-600" />
-                  <span>Traditional Agency Inbox Runaround</span>
-                </span>
-                <span className="text-[10px] text-slate-600 font-medium">Response Delay: 3 Days</span>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-rose-50/40 border border-rose-200/80 shadow-2xs space-y-2">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-slate-300 text-slate-700 flex items-center justify-center font-mono font-bold text-xs shrink-0">
-                    AM
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
-                        Sarah (Junior Account Coordinator)
-                      </span>
-                      <span className="font-mono text-[10px] text-slate-600 font-medium">3 days ago</span>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-[12px] leading-relaxed">
-                      "Hi! I forwarded your urgent styling ticket to our offshore contractor. They said this is out of scope and requires an extra $1,600 change order and 2 weeks. I've scheduled a catch-up call for next Thursday."
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-2 rounded-lg bg-white border border-rose-200 flex items-center justify-between text-[10.5px] font-mono text-rose-700">
-                  <span className="font-bold">TICKET #4819: PENDING PM REVIEW</span>
-                  <span className="bg-rose-100 text-rose-800 px-1.5 py-0.5 rounded font-bold">+2 WEEKS DELAY</span>
-                </div>
-              </div>
-
-              <div className="pt-1 flex flex-wrap items-center justify-between gap-2 text-xs">
-                <span className="font-mono text-[10px] text-slate-600 font-medium">
-                  Multiple account managers • 0 direct developer access
-                </span>
-                <span className="font-mono text-[10.5px] font-bold text-rose-600">
-                  High Overhead Cost
-                </span>
-              </div>
-            </div>
+            <span className="font-mono text-[10.5px] text-rose-600 font-bold">
+              Account Manager Queue: +3 Days Delay ✕
+            </span>
           ) : (
-            <div>
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-3 text-xs font-mono">
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-2">
-                    <div className="w-6 h-6 rounded-full bg-[#377a9b] text-white flex items-center justify-center font-bold text-[9px] ring-2 ring-white">
-                      MV
-                    </div>
-                    <div className="w-6 h-6 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-[9px] ring-2 ring-white">
-                      FE
-                    </div>
-                    <div className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-[9px] ring-2 ring-white">
-                      DO
-                    </div>
-                  </div>
-                  <span className="font-bold text-[#0F172A] text-[11px]">
-                    #squad-client-war-room
-                  </span>
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                </div>
-
-                <div className="inline-flex items-center p-0.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
-                  <button
-                    type="button"
-                    onClick={() => setActiveChatTab('slack')}
-                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${activeChatTab === 'slack'
-                        ? 'bg-[#377a9b] text-white shadow-xs'
-                        : 'text-slate-500 hover:text-[#0F172A]'
-                      }`}
-                  >
-                    Slack War-Room
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setActiveChatTab('whatsapp')}
-                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-mono font-bold transition-all cursor-pointer ${activeChatTab === 'whatsapp'
-                        ? 'bg-[#25D366] text-white shadow-xs'
-                        : 'text-slate-500 hover:text-[#0F172A]'
-                      }`}
-                  >
-                    WhatsApp VIP
-                  </button>
-                </div>
+            <>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://wa.me/919664736245?text=Hi%20Manthan%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Webiox."
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 font-mono text-[11px] font-bold transition-all cursor-pointer"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>WhatsApp VIP Direct</span>
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/80 text-slate-700 font-mono text-[11px] font-bold transition-all cursor-pointer"
+                >
+                  <span>Slack War-Room</span>
+                  <ArrowRight className="w-3 h-3 text-[#377a9b]" />
+                </a>
               </div>
-
-              <AnimatePresence mode="wait">
-                {activeChatTab === 'slack' ? (
-                  <motion.div
-                    key="slack-view"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.2 }}
-                    className="p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-2.5"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-[#377a9b] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
-                        MV
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <div className="flex items-center gap-2">
-                            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
-                              Manthan Vaghasiya (Lead Architect)
-                            </span>
-                            <span className="px-1.5 py-0.5 rounded bg-[#377a9b]/10 text-[#377a9b] text-[9.5px] font-mono font-bold">
-                              Slack Direct
-                            </span>
-                          </div>
-                          <span className="font-mono text-[10px] text-slate-600 font-medium">10:42 AM</span>
-                        </div>
-
-                        <p className="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed">
-                          "Sprint 03 staging build is live. Redis edge cache index is verified at 38ms TTFB with zero dropped frames. Check your staging preview link—ready for your review!"
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[10.5px] font-mono text-slate-500">
-                      <div className="flex items-center gap-2 truncate">
-                        <Code2 className="w-3.5 h-3.5 text-[#377a9b] shrink-0" />
-                        <span className="text-slate-700 font-bold">commit 9d42f8c:</span>
-                        <span className="truncate">feat(cache): Edge ISR warmed across global edge nodes</span>
-                      </div>
-                      <span className="text-emerald-700 font-bold shrink-0 ml-2">PASS 100%</span>
-                    </div>
-
-                    <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
-                      <span className="font-mono text-[10px] text-slate-600 font-medium">
-                        Average response: &lt; 12 mins • Direct Private Slack
-                      </span>
-                      <a
-                        href="/contact"
-                        aria-label="Request Slack invite from Webiox lead architect"
-                        className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#377a9b] hover:text-[#2b6683] transition-colors cursor-pointer"
-                      >
-                        <span>Request Slack Invite</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </a>
-                    </div>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="whatsapp-view"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.2 }}
-                    className="p-3.5 sm:p-4 rounded-xl bg-emerald-50/40 border border-emerald-200/90 shadow-2xs space-y-2.5"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-[#25D366] text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-2xs">
-                        <MessageCircle className="w-4 h-4" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <div className="flex items-center gap-2">
-                            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
-                              Manthan Vaghasiya (Lead Architect)
-                            </span>
-                            <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[9.5px] font-mono font-bold">
-                              WhatsApp VIP Online
-                            </span>
-                          </div>
-                          <span className="font-mono text-[10px] text-emerald-700 font-bold">Active Now</span>
-                        </div>
-
-                        <div className="p-3 rounded-xl bg-white border border-emerald-100 text-slate-700 text-xs sm:text-[12.5px] leading-relaxed shadow-2xs">
-                          "Hey! Staging preview for your project is ready for your team. You have direct 24/7 access to our senior engineering squad right here on WhatsApp."
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="p-2.5 rounded-lg bg-white border border-emerald-200/80 flex items-center justify-between text-[10.5px] font-mono text-emerald-800">
-                      <div className="flex items-center gap-2 truncate">
-                        <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-                        <span className="font-bold">WhatsApp Hotline:</span>
-                        <span className="truncate">+91 96647 36245 (Direct to Lead Architect)</span>
-                      </div>
-                      <span className="text-emerald-700 font-bold shrink-0 ml-2">INSTANT</span>
-                    </div>
-
-                    <div className="pt-2 border-t border-emerald-200/60 flex flex-wrap items-center justify-between gap-2 text-xs">
-                      <span className="font-mono text-[10px] text-slate-500">
-                        Zero middleman delay • Direct to Manthan Vaghasiya
-                      </span>
-                      <a
-                        href="https://wa.me/919664736245?text=Hi%20Manthan%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Webiox."
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-[11px] font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
-                      >
-                        <MessageCircle className="w-3.5 h-3.5" />
-                        <span>Chat on WhatsApp VIP</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </a>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              <span className="font-mono text-[10px] text-slate-500">
+                Direct to Lead Architect
+              </span>
+            </>
           )}
         </div>
       </div>
@@ -987,10 +707,7 @@ export default function WhyChooseUs() {
 
               <button
                 type="button"
-                onClick={() => {
-                  setMode('webiox');
-                  setActiveSpeedStack('webiox');
-                }}
+                onClick={() => setMode('webiox')}
                 className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${mode === 'webiox'
                     ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-emerald-500/20'
                     : 'text-slate-500 hover:text-[#0F172A]'
@@ -1007,10 +724,7 @@ export default function WhyChooseUs() {
 
               <button
                 type="button"
-                onClick={() => {
-                  setMode('traditional');
-                  setActiveSpeedStack('traditional');
-                }}
+                onClick={() => setMode('traditional')}
                 className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${mode === 'traditional'
                     ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-rose-500/20'
                     : 'text-slate-500 hover:text-[#0F172A]'
@@ -1138,128 +852,7 @@ export default function WhyChooseUs() {
           </motion.div>
         </AnimatePresence>
 
-        {/* ════════════════════════════════════════════════════════════════════
-            AEO OBJECTIVE BENCHMARK COMPARISON MATRIX
-            Direct Answer Table optimized for Conversational & Answer Engines
-           ════════════════════════════════════════════════════════════════════ */}
-        <div className="mt-12 sm:mt-16 rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-7 md:p-8 shadow-[0_15px_40px_-10px_rgba(15,23,42,0.06)] overflow-hidden">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#377a9b]/10 text-[#377a9b] text-[11px] font-mono font-bold mb-2">
-                <Terminal className="w-3.5 h-3.5" />
-                <span>ARCHITECTURAL BENCHMARK MATRIX</span>
-              </div>
-              <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight">
-                Webiox Custom Framework vs Generic CMS &amp; Bloated Templates
-              </h3>
-            </div>
-            <div className="text-[11px] font-mono text-slate-500 shrink-0">
-              Objective Metric Audit • 2026 Standards
-            </div>
-          </div>
 
-          {/* Desktop Matrix (Semantic Table for AI crawlers & Large screens) */}
-          <div className="hidden md:block overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="border-b border-slate-200 text-slate-500 font-mono uppercase text-[10.5px]">
-                  <th className="py-3 px-4 font-bold">Engineering Dimension</th>
-                  <th className="py-3 px-4 font-bold text-[#377a9b] bg-[#377a9b]/5 rounded-t-xl">
-                    Webiox Custom Code (Next.js 16)
-                  </th>
-                  <th className="py-3 px-4 font-bold text-rose-700">Generic Templates / WordPress</th>
-                  <th className="py-3 px-4 font-bold text-slate-700">Measured Impact</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {COMPARISON_METRICS.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
-                    <td className="py-3.5 px-4 font-bold text-[#0F172A] font-['Plus_Jakarta_Sans',sans-serif]">
-                      {row.metric}
-                    </td>
-                    <td className="py-3.5 px-4 font-semibold text-emerald-800 bg-[#377a9b]/5 font-mono">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                        <span>{row.webiox}</span>
-                      </div>
-                    </td>
-                    <td className="py-3.5 px-4 text-slate-600 font-mono">
-                      <div className="flex items-center gap-2">
-                        <XCircle className="w-4 h-4 text-rose-500 shrink-0" />
-                        <span>{row.traditional}</span>
-                      </div>
-                    </td>
-                    <td className="py-3.5 px-4 font-bold font-mono text-[#377a9b]">
-                      {row.impact}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile Alternative (Segmented Card Controller, >= 48px touch targets) */}
-          <div className="block md:hidden">
-            <div className="grid grid-cols-2 gap-1.5 p-1 rounded-xl bg-slate-100 mb-4">
-              <button
-                type="button"
-                onClick={() => setMobileCompareTab('webiox')}
-                className={`min-h-[44px] py-2 px-3 rounded-lg text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${mobileCompareTab === 'webiox'
-                    ? 'bg-white text-[#377a9b] shadow-xs'
-                    : 'text-slate-600'
-                  }`}
-              >
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Webiox Custom</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setMobileCompareTab('traditional')}
-                className={`min-h-[44px] py-2 px-3 rounded-lg text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${mobileCompareTab === 'traditional'
-                    ? 'bg-white text-rose-700 shadow-xs'
-                    : 'text-slate-600'
-                  }`}
-              >
-                <XCircle className="w-3.5 h-3.5 text-rose-500" />
-                <span>Bloated CMS</span>
-              </button>
-            </div>
-
-            <div className="space-y-2.5">
-              {COMPARISON_METRICS.map((row, idx) => (
-                <div
-                  key={idx}
-                  className={`p-3.5 rounded-xl border transition-all ${mobileCompareTab === 'webiox'
-                      ? 'bg-emerald-50/40 border-emerald-200/70'
-                      : 'bg-rose-50/40 border-rose-200/70'
-                    }`}
-                >
-                  <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#0F172A]">
-                      {row.metric}
-                    </span>
-                    <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-white border border-slate-200 text-[#377a9b]">
-                      {row.impact}
-                    </span>
-                  </div>
-                  <div className="font-mono text-xs font-semibold">
-                    {mobileCompareTab === 'webiox' ? (
-                      <span className="text-emerald-800 flex items-start gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>{row.webiox}</span>
-                      </span>
-                    ) : (
-                      <span className="text-slate-700 flex items-start gap-1.5">
-                        <XCircle className="w-3.5 h-3.5 text-rose-500 shrink-0 mt-0.5" />
-                        <span>{row.traditional}</span>
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* ════════════════════════════════════════════════════════════════════
             BOTTOM TRUST GUARANTEE & ARCHITECTURAL DISCOVERY CTA
