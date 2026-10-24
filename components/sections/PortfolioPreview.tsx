@@ -178,9 +178,6 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
             <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider truncate">
               {project.category}
             </span>
-            <span className="text-[10px] sm:text-xs font-mono text-slate-500 font-medium shrink-0">
-              // {project.year}
-            </span>
           </div>
 
           <div className="flex items-center gap-1.5 shrink-0">
@@ -429,9 +426,6 @@ export default function PortfolioPreview() {
                   <span className="px-2.5 py-0.5 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b] text-[10px] font-mono font-bold uppercase tracking-wider truncate">
                     {activeMobileProj.category}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-600 font-medium shrink-0">
-                    // {activeMobileProj.year}
-                  </span>
                 </div>
 
                 {mobileMetrics?.pill1 && (
@@ -660,9 +654,6 @@ export default function PortfolioPreview() {
                             <span className="w-1.5 h-1.5 rounded-full bg-[#377a9b]" />
                             <span>{editorial.sector}</span>
                           </div>
-                          <span className="font-mono text-[10px] text-slate-600 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/80">
-                            // {activeProject.year}
-                          </span>
                         </div>
 
                         {/* Project Title */}
