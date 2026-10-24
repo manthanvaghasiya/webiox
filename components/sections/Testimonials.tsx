@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -68,7 +68,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative py-24 sm:py-32 bg-[#FCFCFD] text-[#0F172A] overflow-hidden selection:bg-[#377a9b] selection:text-white"
+      className="relative py-16 sm:py-20 lg:py-24 bg-[#FCFCFD] text-[#0F172A] overflow-hidden selection:bg-[#377a9b] selection:text-white"
     >
       {/* ── Ambient Background Lighting ── */}
       <div className="absolute inset-0 pointer-events-none opacity-40 bg-section-pattern" />
@@ -78,7 +78,7 @@ export default function Testimonials() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ── Section Header ── */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#377a9b] mb-4 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-[#ffc312]" />
             <span className="tracking-wider uppercase">CLIENT SUCCESS & ROI</span>

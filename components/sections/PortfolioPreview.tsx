@@ -377,7 +377,7 @@ export default function PortfolioPreview() {
           MOBILE SHOWCASE: ZERO-SCROLL-TRAP TOUCH DECK (block lg:hidden)
           Clean, high-end agency presentation with landscape rectangle card
          ════════════════════════════════════════════════════════════════════ */}
-      <div className="block lg:hidden relative w-full py-8 px-3.5 xs:px-4 sm:px-6">
+      <div className="block lg:hidden relative w-full py-16 sm:py-20 lg:py-24 px-3.5 xs:px-4 sm:px-6">
         {/* Mobile Header: Eyebrow & Headline */}
         <div className="mb-3.5">
           <div className="flex items-center justify-between gap-2 mb-2">

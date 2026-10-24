@@ -88,7 +88,7 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative py-20 sm:py-28 bg-[#FCFCFD] text-[#0F172A] selection:bg-[#377a9b] selection:text-white border-t border-slate-200/80"
+      className="relative py-16 sm:py-20 lg:py-24 bg-[#FCFCFD] text-[#0F172A] selection:bg-[#377a9b] selection:text-white border-t border-slate-200/80"
     >
       {/* Schema.org FAQPage JSON-LD Graph */}
       <script
@@ -103,7 +103,7 @@ export default function FAQSection() {
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-[11px] font-mono font-bold text-[#377a9b] mb-4 shadow-2xs">
             <HelpCircle className="w-3.5 h-3.5 text-[#377a9b]" />
             <span className="tracking-wider uppercase">COMMON INQUIRIES</span>

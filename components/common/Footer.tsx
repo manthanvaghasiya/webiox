@@ -123,7 +123,7 @@ export default function Footer() {
     >
       {/* ━━━━━━━━━━━━━━━━ TOP LAUNCHPAD CTA (Luminous Light Mode) ━━━━━━━━━━━━━━━━ */}
       {!pathname?.startsWith('/contact') && (
-        <div id="contact" className="relative z-20 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-[#FCFCFD]">
+        <div id="contact" className="relative z-20 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 bg-[#FCFCFD]">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -214,7 +214,7 @@ export default function Footer() {
         />
 
         {/* ── Main Footer Grid ── */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-12">
           <motion.div
             variants={containerAnim}
             initial="hidden"
