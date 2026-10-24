@@ -268,39 +268,20 @@ function StackCard({ project, index, totalCards, progress }: CardProps) {
           )}
         </div>
 
-        {/* Card Footer: Info, Tech Stack & Action Buttons */}
-        <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-2 sm:gap-3 shrink-0">
-          <div className="min-w-0 flex-1">
-            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm xs:text-base sm:text-xl lg:text-2xl text-[#0F172A] tracking-tight leading-snug truncate">
-              {project.title}
-            </h3>
-            <p className="font-['Plus_Jakarta_Sans',sans-serif] text-[10px] xs:text-[11px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-relaxed line-clamp-1 max-w-xl">
-              {project.shortDescription}
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2 shrink-0">
-            {/* Tech Stack Chips (Desktop only) */}
-            <div className="hidden xl:flex items-center gap-1">
-              {project.tech.slice(0, 2).map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200/70 text-[9.5px] font-mono text-slate-600"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Action Button */}
+        {/* Card Footer: Info */}
+        <div className="pt-2 border-t border-slate-100 shrink-0">
+          <div className="min-w-0">
             <Link
               href={`/portfolio/${project.id}`}
-              aria-label={`Explore ${project.title} case study`}
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer group/link shrink-0"
+              className="inline-block max-w-full group/title cursor-pointer"
             >
-              <span><span className="hidden xs:inline">Explore </span>Case Study</span>
-              <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+              <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-sm xs:text-base sm:text-xl lg:text-2xl text-[#0F172A] group-hover/title:text-[#377a9b] tracking-tight leading-snug truncate transition-colors">
+                {project.title}
+              </h3>
             </Link>
+            <p className="font-['Plus_Jakarta_Sans',sans-serif] text-[10px] xs:text-[11px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-relaxed line-clamp-1 max-w-2xl">
+              {project.shortDescription}
+            </p>
           </div>
         </div>
 
@@ -498,11 +479,16 @@ export default function PortfolioPreview() {
               </div>
 
               {/* Content Block */}
-              <div className="mb-3">
+              <div className="mb-1">
                 <div className="flex items-start justify-between gap-2 mb-1">
-                  <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base xs:text-lg text-[#0F172A] tracking-tight leading-snug">
-                    {activeMobileProj.title}
-                  </h3>
+                  <Link
+                    href={`/portfolio/${activeMobileProj.id}`}
+                    className="hover:text-[#377a9b] transition-colors cursor-pointer"
+                  >
+                    <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-base xs:text-lg text-[#0F172A] hover:text-[#377a9b] tracking-tight leading-snug transition-colors">
+                      {activeMobileProj.title}
+                    </h3>
+                  </Link>
                   <span className="font-mono text-[11px] font-extrabold text-[#377a9b] shrink-0">
                     0{mobileIndex + 1}
                   </span>
@@ -529,29 +515,6 @@ export default function PortfolioPreview() {
                     </div>
                   </div>
                 )}
-              </div>
-
-              {/* Card Action Buttons */}
-              <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
-                <div className="flex items-center gap-1 overflow-hidden">
-                  {activeMobileProj.tech.slice(0, 2).map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200/70 text-[9.5px] font-mono text-slate-600 truncate"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <Link
-                  href={`/portfolio/${activeMobileProj.id}`}
-                  aria-label={`Explore ${activeMobileProj.title} case study`}
-                  className="inline-flex items-center gap-1.5 min-h-[44px] px-4 py-2 rounded-xl bg-[#377a9b] hover:bg-[#2b6683] text-white text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-[0.98] group"
-                >
-                  <span>Explore Case Study</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
               </div>
             </motion.div>
           </AnimatePresence>
