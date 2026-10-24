@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,7 +13,6 @@ import {
   Layers,
   Cpu,
   GitBranch,
-  Terminal,
   Activity,
   Check,
   ChevronRight,
@@ -32,7 +31,6 @@ interface Stage {
   deliverables: { title: string; desc: string }[];
   stack: string[];
   qaGate: string;
-  artifactCode: string;
 }
 
 const STAGES: Stage[] = [
@@ -61,7 +59,6 @@ const STAGES: Stage[] = [
     ],
     stack: ['Figma', 'TypeScript', 'Prisma', 'PostgreSQL', 'Next.js 16'],
     qaGate: 'Architecture & UX Sign-off ✓',
-    artifactCode: 'schema.prisma // 14 models verified • 0 circular dependencies',
   },
   {
     id: 'stage-2',
@@ -88,7 +85,6 @@ const STAGES: Stage[] = [
     ],
     stack: ['Next.js 16', 'React 19', 'Tailwind CSS', 'Docker', 'GitHub Actions'],
     qaGate: 'Core Engine CI/CD Passed ✓',
-    artifactCode: 'git commit -m "feat(core): sub-second streaming engine active" [PASS]',
   },
   {
     id: 'stage-3',
@@ -115,7 +111,6 @@ const STAGES: Stage[] = [
     ],
     stack: ['Cloudflare WAF', 'OWASP ZAP', 'Playwright', 'Redis Edge', 'Lighthouse'],
     qaGate: 'Zero CVE & 98+ Speed Verified ✓',
-    artifactCode: 'audit_report.json // 0 vulnerabilities detected • 99/100 Mobile Score',
   },
   {
     id: 'stage-4',
@@ -142,7 +137,6 @@ const STAGES: Stage[] = [
     ],
     stack: ['Edge CDN', 'Datadog', 'Sentry', 'Slack VIP', 'WhatsApp VIP'],
     qaGate: 'Production Handover & 100% Escrow Release ✓',
-    artifactCode: 'deployment: live at https://production.domain.com [UPTIME 100%]',
   },
 ];
 
@@ -313,17 +307,6 @@ export default function Process() {
                             ))}
                           </div>
                         </div>
-
-                        {/* Terminal Log */}
-                        <div className="p-2.5 rounded-xl bg-slate-900 text-slate-200 font-mono text-[10.5px] flex items-center justify-between gap-2 overflow-x-auto">
-                          <div className="flex items-center gap-1.5 truncate">
-                            <span className="text-emerald-400 shrink-0">➜</span>
-                            <span className="text-slate-300 truncate">{stage.artifactCode}</span>
-                          </div>
-                          <span className="text-[9px] uppercase font-bold text-[#ffc312] shrink-0">
-                            LOCKED
-                          </span>
-                        </div>
                       </div>
                     </motion.div>
                   )}
@@ -449,8 +432,8 @@ export default function Process() {
                 {/* Stage Header */}
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/20 text-[11px] font-mono font-bold text-[#377a9b]">
-                    <Terminal className="w-3.5 h-3.5" />
-                    <span>INSPECTING STAGE {activeStage.number}</span>
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>STAGE {activeStage.number} SPECIFICATION</span>
                   </div>
 
                   <span className="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200/80">
@@ -510,17 +493,6 @@ export default function Process() {
                       </span>
                     ))}
                   </div>
-                </div>
-
-                {/* Live Simulated Console Terminal Output */}
-                <div className="p-3.5 rounded-xl bg-slate-900 text-slate-200 font-mono text-[11px] flex items-center justify-between gap-3 shadow-inner">
-                  <div className="flex items-center gap-2 truncate">
-                    <span className="text-emerald-400">➜</span>
-                    <span className="text-slate-300 truncate">{activeStage.artifactCode}</span>
-                  </div>
-                  <span className="text-[10px] uppercase font-bold text-[#ffc312] shrink-0">
-                    STAGE QA LOCK
-                  </span>
                 </div>
 
               </motion.div>
