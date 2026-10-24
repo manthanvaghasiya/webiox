@@ -319,24 +319,8 @@ export default function Footer() {
             </motion.div>
           </motion.div>
 
-          {/* ── E-E-A-T Professional Disclaimer & Trust Verification Strip ── */}
-          <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] font-mono text-slate-400">
-            <div className="max-w-2xl leading-relaxed">
-              <span className="text-slate-300 font-bold">Engineering Quality & SLA Disclaimer:</span>{' '}
-              Webiox Digital Solutions delivers custom enterprise software architectures, web applications, and digital engineering services. All milestone deliverables include verified CI/CD test gates, OWASP compliance audits, and a 30-day post-launch warranty.
-            </div>
-            <div className="flex items-center gap-3 shrink-0">
-              <span className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-emerald-400 font-bold">
-                ✓ OWASP Audited
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300">
-                Updated: Oct 2026
-              </span>
-            </div>
-          </div>
-
           {/* ── Bottom Bar ── */}
-          <div className="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs font-mono text-slate-400">
               &copy; {new Date().getFullYear()} Webiox Digital Solutions. Founded & Architected by Manthan Vaghasiya.
             </p>
