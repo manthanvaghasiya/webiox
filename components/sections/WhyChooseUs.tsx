@@ -18,104 +18,69 @@ import {
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
+  Zap,
 } from 'lucide-react';
 
 type PerspectiveMode = 'contrast' | 'webiox' | 'traditional';
 
 interface SprintGate {
-  id: string;
   num: string;
   name: string;
-  phase: string;
-  status: string;
   duration: string;
-  deliverables: string[];
-  verification: string;
+  status: string;
 }
 
 const SPRINT_GATES: SprintGate[] = [
   {
-    id: 's1',
     num: '01',
     name: 'Architecture & UX Spec',
-    phase: 'System Foundation',
-    status: 'Verified & Signed Off',
     duration: 'Sprint 01 (Day 1–14)',
-    deliverables: ['Figma Design System & Tokens', 'PostgreSQL / Prisma Schema', 'API Route Contracts & Wireframes'],
-    verification: 'SIGN_HASH: 0x8F4A...92C1',
+    status: 'Verified Gate ✓',
   },
   {
-    id: 's2',
     num: '02',
-    name: 'Fullstack Core Engine',
-    phase: 'Core Development',
-    status: 'Verified & Signed Off',
+    name: 'Fullstack Next.js Engine',
     duration: 'Sprint 02 (Day 15–28)',
-    deliverables: ['Next.js 16 Server Components', 'Zero-Trust JWT Auth & RBAC', 'Edge Redis Cache Invalidation'],
-    verification: 'SIGN_HASH: 0x3E1B...78A0',
+    status: 'Verified Gate ✓',
   },
   {
-    id: 's3',
     num: '03',
     name: 'Security & Edge Staging',
-    phase: 'Hardening & QA',
-    status: 'Active Staging Gate',
     duration: 'Sprint 03 (Day 29–42)',
-    deliverables: ['Cloudflare Enterprise WAF Rules', 'OWASP Top 10 Penetration Audit', 'Client Staging URL with Live Data'],
-    verification: 'STATUS: ACTIVE_REVIEW',
+    status: 'Active Review ⚡',
   },
   {
-    id: 's4',
     num: '04',
     name: 'Zero-Downtime Launch',
-    phase: 'Production & Care',
-    status: 'Guaranteed Handover',
     duration: 'Sprint 04 (Day 43–56)',
-    deliverables: ['DNS Cutover & SSL TLS 1.3', 'Core Web Vitals 98+ Guarantee', '30-Day Hypercare & Direct SLA'],
-    verification: 'SLA: 100% ESCROW_RELEASE',
+    status: 'SLA Release ✓',
   },
 ];
 
 const TRADITIONAL_GATES: SprintGate[] = [
   {
-    id: 'tg1',
     num: '01',
-    name: 'Vague Scope & Discovery',
-    phase: 'Endless Planning',
-    status: 'Scope Drift Risk',
+    name: 'Vague Scope & PDF Slides',
     duration: 'Month 01–02 (Delayed)',
-    deliverables: ['Generic 60-page PDF slide decks', 'No clickable prototypes or UI tokens', 'Vague contract with hidden change fees'],
-    verification: 'RISK: UNLOCKED SCOPE DRIFT',
+    status: 'Scope Drift ✕',
   },
   {
-    id: 'tg2',
     num: '02',
     name: 'Hourly Billing Drain',
-    phase: 'Unmonitored Dev',
-    status: 'Surprise Invoices',
     duration: 'Month 03–04 (+35% Cost)',
-    deliverables: ['Junior devs learning on your dime', 'Spaghetti PHP & jQuery plugins', 'Unoptimized shared server hosting'],
-    verification: 'INVOICE: +$3,800 OVERAGE BILL',
+    status: 'Surprise Fees ✕',
   },
   {
-    id: 'tg3',
     num: '03',
     name: 'Broken Staging & Ghosting',
-    phase: 'Stalled Testing',
-    status: 'QA Abandoned',
     duration: 'Month 05 (+60 Days)',
-    deliverables: ['Staging site broken on mobile Safari', 'Account manager takes 4 days to reply', 'Zero automated test coverage'],
-    verification: 'STATUS: 18 UNRESOLVED BUGS',
+    status: 'QA Abandoned ✕',
   },
   {
-    id: 'tg4',
     num: '04',
-    name: 'Hostage Handover',
-    phase: 'Buggy Handover',
-    status: 'Zero Warranty',
-    duration: 'Month 06 (Delayed)',
-    deliverables: ['No architectural docs or setup guide', 'Hostage code release handover fees', 'Zero post-launch bug warranty'],
-    verification: 'SLA: NONE // CLIENT RISK',
+    name: 'Hostage Handover Fees',
+    duration: 'Month 06+ (No Warranty)',
+    status: 'No SLA / Risk ✕',
   },
 ];
 
@@ -123,7 +88,7 @@ const WEBIOX_DEFENSE_ITEMS = [
   {
     title: 'Layer 7 Cloudflare Edge WAF',
     desc: 'DDoS mitigation & bot screening (< 100k req/s)',
-    status: 'Active',
+    status: 'Active Shield',
   },
   {
     title: 'Zero-Knowledge JWT & RBAC',
@@ -131,14 +96,9 @@ const WEBIOX_DEFENSE_ITEMS = [
     status: 'Hardened',
   },
   {
-    title: 'OWASP Automated CI/CD Audit',
+    title: 'OWASP Automated CI/CD Audits',
     desc: 'Zero 3rd-party unpatched dependencies',
     status: '0 CVE',
-  },
-  {
-    title: 'TLS 1.3 & KMS Secret Vault',
-    desc: 'AES-256 encrypted env variables & key rotation',
-    status: 'Encrypted',
   },
 ];
 
@@ -149,19 +109,56 @@ const TRADITIONAL_VULNERABILITIES = [
     status: 'Vulnerable',
   },
   {
-    title: 'Plaintext Cookies & Hardcoded Passwords',
-    desc: 'API keys & database secrets stored in repo root',
+    title: 'Plaintext Cookies & Secrets',
+    desc: 'Hardcoded keys & database passwords in repo',
     status: 'Exposed',
   },
   {
-    title: '38 Unpatched Third-Party Plugins',
+    title: '38 Unpatched 3rd-Party Plugins',
     desc: '12 known high-severity CVE exploits in outdated code',
     status: '12 CVEs',
   },
+];
+
+const SQUAD_PILLARS = [
   {
-    title: 'Manual Unencrypted FTP Deploys',
-    desc: 'No git deployment pipeline; no rollback or backups',
-    status: 'No Backup',
+    category: 'Engineering Access',
+    title: 'Lead Architect Direct',
+    desc: 'Direct line to Lead Architect Manthan Vaghasiya & senior fullstack engineers.',
+    metric: 'Zero Middlemen',
+  },
+  {
+    category: 'War-Room Channel',
+    title: 'Slack & WhatsApp VIP',
+    desc: 'Private dedicated squad channel with real-time PR & deployment updates.',
+    metric: 'Instant Sync',
+  },
+  {
+    category: 'Turnaround SLA',
+    title: '< 12-Minute Average Reply',
+    desc: 'Rapid architectural decisions, staging deployments, and proactive async walkthroughs.',
+    metric: '< 12m Turnaround',
+  },
+];
+
+const TRADITIONAL_SQUAD = [
+  {
+    category: 'Engineering Access',
+    title: 'Non-Technical Middlemen',
+    desc: 'Account managers sit between you and offshore development teams.',
+    metric: '3 Buffer Layers',
+  },
+  {
+    category: 'Support Channel',
+    title: 'Slow Email Ticket Queue',
+    desc: 'Every question is funneled through generic ticket queues with long delays.',
+    metric: 'Days of Delay',
+  },
+  {
+    category: 'Response SLA',
+    title: '48h–72h Turnaround',
+    desc: 'Simple bug fixes take days to translate into overseas Jira tickets.',
+    metric: '48h–72h Lag',
   },
 ];
 
@@ -182,39 +179,19 @@ export default function WhyChooseUs() {
   const renderModule01 = (isMobile?: boolean) => {
     const isTraditional = mode === 'traditional';
 
-    const metrics = isTraditional
-      ? [
-          { label: 'TTFB Latency', value: '850ms', sub: 'Cold origin parse', warn: true },
-          { label: 'LCP Paint', value: '3.8s', sub: 'Sluggish render & bounce', warn: true },
-          { label: 'Bundle Size', value: '2.4 MB', sub: 'Unminified plugins', warn: true },
-          { label: 'Core Vitals', value: '48 / 100', sub: 'Fails mobile audits', warn: true },
-        ]
-      : [
-          { label: 'TTFB Latency', value: '38ms', sub: 'Sub-50ms global edge', warn: false },
-          { label: 'LCP Paint', value: '0.38s', sub: 'Instant content paint', warn: false },
-          { label: 'Bundle Size', value: '~78 KB', sub: 'Tree-shaken Next.js', warn: false },
-          { label: 'Core Vitals', value: '99 / 100', sub: 'All audits green', warn: false },
-        ];
-
-    const specs = isTraditional
-      ? [
-          'Uncached Apache / PHP Monolith with zero autoscaling',
-          'Sluggish database roundtrips on every page hit',
-          '30+ unpatched plugins blocking main browser thread',
-          'No global CDN caching for users outside origin region',
-        ]
-      : [
-          'Next.js 16 App Router with Partial Prerendering (PPR)',
-          'Edge Redis Caching Tier with instant cache invalidation',
-          'Multi-Region Cloudflare CDN routed to nearest edge PoP',
-          'Zero bloated plugins — 100% tree-shaken TypeScript',
-        ];
-
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5`}>
-        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
+      <div
+        className={`w-full h-full rounded-3xl bg-gradient-to-b from-white via-slate-50/30 to-slate-50/70 border ${
+          isTraditional
+            ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]'
+            : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.1)]'
+        } ${isMobile ? 'p-5' : 'p-6 sm:p-7 lg:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5 sm:gap-6`}
+      >
+        <div
+          className={`absolute top-0 right-0 w-80 h-80 ${
+            isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'
+          } rounded-full blur-3xl pointer-events-none`}
+        />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
@@ -224,82 +201,121 @@ export default function WhyChooseUs() {
         {/* Header Block */}
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
-            }`}>
-              {isTraditional ? <AlertTriangle className="w-3.5 h-3.5 text-rose-600" /> : <Gauge className="w-3.5 h-3.5 text-[#377a9b]" />}
-              <span>{isTraditional ? '✕ 01 // MONOLITHIC DEBT & BOTTLENECK' : '01 // VELOCITY & INFRASTRUCTURE'}</span>
+            <div
+              className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold ${
+                isTraditional
+                  ? 'bg-rose-50 border border-rose-200 text-rose-700'
+                  : 'bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b]'
+              }`}
+            >
+              {isTraditional ? <AlertTriangle className="w-3.5 h-3.5 text-rose-600" /> : <Zap className="w-3.5 h-3.5 text-[#377a9b]" />}
+              <span>{isTraditional ? '01 // MONOLITHIC BOTTLENECK' : '01 // VELOCITY & INFRASTRUCTURE'}</span>
             </div>
 
-            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional
-                ? 'bg-rose-50 border border-rose-200/80 text-rose-700'
-                : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
-            }`}>
-              <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500 animate-ping'}`} />
-              <span>{isTraditional ? '850MS ORIGIN BOTTLENECK' : 'SUB-SECOND EDGE ACTIVE'}</span>
+            <div
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold ${
+                isTraditional
+                  ? 'bg-rose-50 border border-rose-200 text-rose-700'
+                  : 'bg-emerald-50 border border-emerald-200/90 text-emerald-800'
+              }`}
+            >
+              <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500 animate-pulse'}`} />
+              <span>{isTraditional ? '850MS ORIGIN DELAY' : 'SUB-SECOND EDGE ACTIVE'}</span>
             </div>
           </div>
 
-          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
+          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight mb-2">
             {isTraditional ? 'Monolithic Infrastructure Lag.' : 'Sub-Second Edge Infrastructure.'}
           </h3>
-          <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-2xl">
+          <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
             {isTraditional
-              ? 'Legacy WordPress/PHP monoliths with 30+ unpatched plugins, uncached origin bottlenecks, and sluggish database queries. 850ms TTFB, 3.8s LCP paint, and failed Core Web Vitals.'
-              : 'Next.js 16 App Router with Incremental Static Regeneration (ISR) and Edge Redis caching. Zero cold starts, sub-400ms LCP, and instant page transitions with sub-second edge delivery.'}
+              ? 'Legacy WordPress/PHP stacks with 30+ unpatched plugins. Uncached database queries create 850ms TTFB bottlenecks and sluggish page renders.'
+              : 'Next.js 16 App Router paired with multi-region Edge Redis caching. Zero cold starts, instant client transitions, and verified sub-400ms LCP.'}
           </p>
         </div>
 
-        {/* Production Telemetry Metrics Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-          {metrics.map((m, idx) => (
-            <div
-              key={idx}
-              className={`p-3 rounded-2xl border transition-all ${
-                m.warn
-                  ? 'bg-rose-50/50 border-rose-200/80 text-rose-950'
-                  : 'bg-slate-50/80 border-slate-200/90 text-slate-900'
-              }`}
-            >
-              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1 font-semibold truncate">
-                {m.label}
+        {/* Hero Speed Benchmark Box */}
+        <div
+          className={`p-4 sm:p-5 rounded-2xl border transition-all ${
+            isTraditional
+              ? 'bg-rose-50/50 border-rose-200/90'
+              : 'bg-gradient-to-br from-slate-50 via-white to-sky-50/40 border-slate-200/90 shadow-2xs'
+          }`}
+        >
+          <div className="flex items-center justify-between gap-3 pb-3 mb-3 border-b border-slate-200/70">
+            <div>
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold">
+                {isTraditional ? 'Largest Contentful Paint (LCP)' : 'Verified Production LCP Paint'}
               </div>
-              <div className={`font-mono font-black text-xl sm:text-2xl tracking-tight ${
-                m.warn ? 'text-rose-600' : 'text-[#377a9b]'
-              }`}>
-                {m.value}
-              </div>
-              <div className="text-[10px] font-mono text-slate-500 mt-0.5 truncate">
-                {m.sub}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Architectural Highlights Checklist */}
-        <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/90">
-          <div className="text-[10.5px] font-mono font-bold text-slate-500 uppercase tracking-wider mb-2.5 flex items-center justify-between">
-            <span>{isTraditional ? 'Monolith Bottleneck Architecture' : 'Production Edge Architecture'}</span>
-            <span className={isTraditional ? 'text-rose-600' : 'text-emerald-700 font-bold'}>
-              {isTraditional ? 'Legacy Debt' : 'Verified Production SLA'}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-            {specs.map((spec, sIdx) => (
-              <div key={sIdx} className="flex items-start gap-2">
-                <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                  isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-800'
-                }`}>
-                  {isTraditional ? <XCircle className="w-2.5 h-2.5 text-rose-600" /> : <Check className="w-2.5 h-2.5 stroke-[3] text-emerald-700" />}
-                </div>
-                <span className="font-['Plus_Jakarta_Sans',sans-serif] text-slate-600 text-[11.5px] leading-tight">
-                  {spec}
+              <div className="flex items-baseline gap-2.5 mt-0.5">
+                <span
+                  className={`font-mono font-black text-3xl sm:text-4xl tracking-tight ${
+                    isTraditional ? 'text-rose-600' : 'text-[#377a9b]'
+                  }`}
+                >
+                  {isTraditional ? '3.8s' : '0.38s'}
+                </span>
+                <span
+                  className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded-md ${
+                    isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-800'
+                  }`}
+                >
+                  {isTraditional ? 'High Bounce Risk' : 'Instant Render (<400ms)'}
                 </span>
               </div>
-            ))}
+            </div>
+            <div className="text-right hidden sm:block">
+              <div className="text-[10px] font-mono text-slate-400 uppercase">Architecture SLA</div>
+              <div className={`text-xs font-mono font-bold ${isTraditional ? 'text-rose-600' : 'text-slate-700'}`}>
+                {isTraditional ? 'Origin Uncached' : 'Multi-Region Edge PoP'}
+              </div>
+            </div>
           </div>
+
+          {/* 3 Companion Telemetry Metrics */}
+          <div className="grid grid-cols-3 gap-2 text-center">
+            <div className="p-2 sm:p-2.5 rounded-xl bg-white/90 border border-slate-200/70 shadow-2xs">
+              <div className="text-[9.5px] font-mono text-slate-500 uppercase truncate">TTFB Latency</div>
+              <div className={`font-mono font-bold text-sm sm:text-base ${isTraditional ? 'text-rose-600' : 'text-slate-900'}`}>
+                {isTraditional ? '850ms' : '38ms'}
+              </div>
+              <div className="text-[9px] font-mono text-slate-400 truncate">{isTraditional ? 'Origin delay' : 'Global edge'}</div>
+            </div>
+            <div className="p-2 sm:p-2.5 rounded-xl bg-white/90 border border-slate-200/70 shadow-2xs">
+              <div className="text-[9.5px] font-mono text-slate-500 uppercase truncate">Bundle Size</div>
+              <div className={`font-mono font-bold text-sm sm:text-base ${isTraditional ? 'text-rose-600' : 'text-slate-900'}`}>
+                {isTraditional ? '2.4 MB' : '~78 KB'}
+              </div>
+              <div className="text-[9px] font-mono text-slate-400 truncate">{isTraditional ? 'Unminified' : 'Tree-shaken'}</div>
+            </div>
+            <div className="p-2 sm:p-2.5 rounded-xl bg-white/90 border border-slate-200/70 shadow-2xs">
+              <div className="text-[9.5px] font-mono text-slate-500 uppercase truncate">Core Vitals</div>
+              <div className={`font-mono font-bold text-sm sm:text-base ${isTraditional ? 'text-rose-600' : 'text-emerald-700'}`}>
+                {isTraditional ? '48 / 100' : '99 / 100'}
+              </div>
+              <div className="text-[9px] font-mono text-slate-400 truncate">{isTraditional ? 'Fails CWV' : 'Green audits'}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom 3-Pill Tech Specs */}
+        <div className="flex flex-wrap items-center gap-1.5 pt-1">
+          {(isTraditional
+            ? ['Uncached Apache / PHP', 'Blocking 3rd-Party Scripts', 'Single Origin Host']
+            : ['Next.js 16 Partial Prerendering', 'Edge Redis Invalidation', 'Cloudflare Enterprise CDN']
+          ).map((item, idx) => (
+            <span
+              key={idx}
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-semibold border ${
+                isTraditional
+                  ? 'bg-rose-50/80 border-rose-200/80 text-rose-800'
+                  : 'bg-slate-100/90 border-slate-200/80 text-slate-700'
+              }`}
+            >
+              <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-[#377a9b]'}`} />
+              <span>{item}</span>
+            </span>
+          ))}
         </div>
       </div>
     );
@@ -313,10 +329,18 @@ export default function WhyChooseUs() {
     const activeGates = isTraditional ? TRADITIONAL_GATES : SPRINT_GATES;
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5`}>
-        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#ffc312]/8'} rounded-full blur-3xl pointer-events-none`} />
+      <div
+        className={`w-full h-full rounded-3xl bg-gradient-to-b from-white via-slate-50/30 to-slate-50/70 border ${
+          isTraditional
+            ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]'
+            : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.1)]'
+        } ${isMobile ? 'p-5' : 'p-6 sm:p-7 lg:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5 sm:gap-6`}
+      >
+        <div
+          className={`absolute top-0 right-0 w-80 h-80 ${
+            isTraditional ? 'bg-rose-500/8' : 'bg-amber-500/8'
+          } rounded-full blur-3xl pointer-events-none`}
+        />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
@@ -325,64 +349,77 @@ export default function WhyChooseUs() {
 
         {/* Header Block */}
         <div>
-          <div className="flex items-center justify-between gap-2 mb-3">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-amber-50 border border-amber-200/80 text-amber-700'
-            }`}>
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div
+              className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold ${
+                isTraditional
+                  ? 'bg-rose-50 border border-rose-200/80 text-rose-700'
+                  : 'bg-amber-50 border border-amber-200/80 text-amber-800'
+              }`}
+            >
               <Clock className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-600' : 'text-amber-600'}`} />
-              <span>{isTraditional ? '✕ 02 // SCOPE DRIFT & HOURLY TRAPS' : '02 // MILESTONE LOCK PROTOCOL'}</span>
+              <span>{isTraditional ? '02 // SCOPE DRIFT & BILLING TRAPS' : '02 // MILESTONE LOCK PROTOCOL'}</span>
             </div>
 
-            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${
-              isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-amber-700 bg-amber-50 border-amber-200/60'
-            }`}>
-              {isTraditional ? '0% SLA LOCK' : '100% SLA LOCK'}
-            </span>
+            <div
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold ${
+                isTraditional
+                  ? 'bg-rose-50 border border-rose-200 text-rose-700'
+                  : 'bg-amber-50 border border-amber-200/80 text-amber-800'
+              }`}
+            >
+              <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-amber-500'}`} />
+              <span>{isTraditional ? 'UNCAPPED HOURLY DRIFT' : '100% SLA ESCROW LOCK'}</span>
+            </div>
           </div>
 
-          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
+          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight mb-2">
             {isTraditional ? 'The Hourly Billing Trap.' : 'Sprint Milestone Vault.'}
           </h3>
           <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
             {isTraditional
-              ? 'Traditional agencies drag projects out for months with vague specs and open-ended hourly billing. Scope creep and surprise invoices pile up while deadlines slide.'
-              : 'Traditional agencies drag projects for months with hourly billing. Webiox locks delivery into verified 14-day sprint gates: payments unlock strictly after staging QA sign-off.'}
+              ? 'Agencies drag projects for months with open-ended hourly billing. Scope creeps continuously, deadlines slip, and unexpected invoices pile up.'
+              : 'Delivery locked into verified 14-day sprint cycles. Milestones unlock strictly after staging QA sign-off — 0% scope creep guaranteed.'}
           </p>
         </div>
 
-        {/* 4-Stage Delivery Pipeline */}
+        {/* 4 Connected Sprint Gates */}
         <div className="space-y-2">
-          {activeGates.map((gate) => (
+          {activeGates.map((gate, gIdx) => (
             <div
-              key={gate.id}
-              className={`p-2.5 sm:p-3 rounded-2xl border transition-all flex items-center justify-between gap-3 ${
+              key={gIdx}
+              className={`p-2.5 sm:p-3 rounded-xl border transition-all flex items-center justify-between gap-3 ${
                 isTraditional
-                  ? 'bg-rose-50/40 border-rose-200/80'
-                  : 'bg-slate-50/80 border-slate-200/80 hover:bg-slate-50'
+                  ? 'bg-rose-50/40 border-rose-200/70 hover:bg-rose-50/70'
+                  : 'bg-slate-50/80 border-slate-200/70 hover:bg-slate-50 hover:border-slate-300'
               }`}
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <span className={`w-7 h-7 rounded-xl font-mono text-[11px] font-black flex items-center justify-center shrink-0 ${
-                  isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-white text-[#377a9b] border border-slate-200 shadow-2xs'
-                }`}>
+                <span
+                  className={`w-6 h-6 rounded-lg font-mono text-[11px] font-black flex items-center justify-center shrink-0 ${
+                    isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-white text-[#377a9b] border border-slate-200 shadow-2xs'
+                  }`}
+                >
                   {gate.num}
                 </span>
                 <div className="min-w-0">
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A] truncate">
+                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A] truncate">
                     {gate.name}
                   </div>
                   <div className="font-mono text-[10px] text-slate-500 truncate">
-                    {gate.duration} • {gate.deliverables[0]}
+                    {gate.duration}
                   </div>
                 </div>
               </div>
 
-              <span className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${
-                isTraditional
-                  ? 'bg-rose-100/80 text-rose-700'
-                  : 'bg-emerald-50 text-emerald-800 border border-emerald-200/60'
-              }`}>
-                {isTraditional ? gate.status : 'Verified Gate'}
+              <span
+                className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${
+                  isTraditional
+                    ? 'bg-rose-100/90 text-rose-700 border border-rose-200/60'
+                    : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
+                }`}
+              >
+                {gate.status}
               </span>
             </div>
           ))}
@@ -391,10 +428,10 @@ export default function WhyChooseUs() {
         {/* SLA Commitment Footer */}
         <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
           <span className="text-slate-500 text-[10.5px]">
-            {isTraditional ? 'Uncapped Scope Creep' : '0% Scope Drift Guarantee'}
+            {isTraditional ? 'Uncapped Scope Overruns' : '0% Scope Drift Guarantee'}
           </span>
           <span className={`font-bold text-[10.5px] ${isTraditional ? 'text-rose-600' : 'text-[#377a9b]'}`}>
-            {isTraditional ? 'Hourly Billing Overages ✕' : 'QA Staging Sign-Off Required ✓'}
+            {isTraditional ? 'Surprise Change-Orders ✕' : 'QA Staging Sign-Off Required ✓'}
           </span>
         </div>
       </div>
@@ -409,10 +446,18 @@ export default function WhyChooseUs() {
     const activeDefenseItems = isTraditional ? TRADITIONAL_VULNERABILITIES : WEBIOX_DEFENSE_ITEMS;
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5`}>
-        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-emerald-500/8'} rounded-full blur-3xl pointer-events-none`} />
+      <div
+        className={`w-full h-full rounded-3xl bg-gradient-to-b from-white via-slate-50/30 to-slate-50/70 border ${
+          isTraditional
+            ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]'
+            : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.1)]'
+        } ${isMobile ? 'p-5' : 'p-6 sm:p-7 lg:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5 sm:gap-6`}
+      >
+        <div
+          className={`absolute top-0 right-0 w-80 h-80 ${
+            isTraditional ? 'bg-rose-500/8' : 'bg-emerald-500/8'
+          } rounded-full blur-3xl pointer-events-none`}
+        />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
@@ -421,62 +466,77 @@ export default function WhyChooseUs() {
 
         {/* Header Block */}
         <div>
-          <div className="flex items-center justify-between gap-2 mb-3">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-emerald-50 border border-emerald-200/80 text-emerald-700'
-            }`}>
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div
+              className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold ${
+                isTraditional
+                  ? 'bg-rose-50 border border-rose-200/80 text-rose-700'
+                  : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
+              }`}
+            >
               <Lock className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-600' : 'text-emerald-600'}`} />
-              <span>{isTraditional ? '✕ 03 // VULNERABLE SHARED HOSTING' : '03 // DEFENSIVE SECURITY CORE'}</span>
+              <span>{isTraditional ? '03 // VULNERABLE SHARED HOSTING' : '03 // DEFENSIVE SECURITY CORE'}</span>
             </div>
 
-            <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md border ${
-              isTraditional ? 'text-rose-700 bg-rose-50 border-rose-200/60' : 'text-emerald-700 bg-emerald-50 border-emerald-200/60'
-            }`}>
-              {isTraditional ? '12 CVE VULNERABILITIES' : '0 CVE VULNERABILITIES'}
-            </span>
+            <div
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold ${
+                isTraditional
+                  ? 'bg-rose-50 border border-rose-200 text-rose-700'
+                  : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
+              }`}
+            >
+              <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500'}`} />
+              <span>{isTraditional ? '12 KNOWN EXPLOITS' : '0 CVE VULNERABILITIES'}</span>
+            </div>
           </div>
 
-          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight mb-1.5">
-            {isTraditional ? 'Zero-Trust Neglected.' : 'Hardened Zero-Trust.'}
+          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight mb-2">
+            {isTraditional ? 'Zero-Trust Neglected.' : 'Hardened Zero-Trust Core.'}
           </h3>
           <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
             {isTraditional
-              ? 'Generic agencies deploy on cheap shared hosting with dozens of unpatched third-party plugins, plain-text credentials in repositories, and zero DDoS protection.'
-              : 'Generic agencies install dozens of vulnerable plugins that invite exploits. We build custom hardened TypeScript architectures with cryptographic authentication and automated CI/CD audits.'}
+              ? 'Outdated CMS setups running unpatched third-party plugins on shared hosting. Secrets stored in plaintext and zero DDoS edge protection.'
+              : 'Hardened TypeScript architectures with automated CI/CD audits, cryptographic session encryption, and enterprise Layer 7 edge firewalls.'}
           </p>
         </div>
 
-        {/* 4-Layer Defense Stack */}
-        <div className="space-y-2">
+        {/* 3 Streamlined Security Pillars */}
+        <div className="space-y-2.5">
           {activeDefenseItems.map((item, idx) => (
             <div
               key={idx}
-              className={`p-2.5 sm:p-3 rounded-2xl border transition-all flex items-start gap-3 ${
+              className={`p-3 rounded-xl border transition-all flex items-center justify-between gap-3 ${
                 isTraditional
-                  ? 'bg-rose-50/40 border-rose-200/80'
-                  : 'bg-slate-50/80 border-slate-200/80 hover:bg-slate-50'
+                  ? 'bg-rose-50/40 border-rose-200/70 hover:bg-rose-50/70'
+                  : 'bg-slate-50/80 border-slate-200/70 hover:bg-slate-50 hover:border-slate-300'
               }`}
             >
-              <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${
-                isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-800'
-              }`}>
-                {isTraditional ? <XCircle className="w-3 h-3 text-rose-600" /> : <CheckCircle2 className="w-3 h-3 text-emerald-700" />}
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
-                    {item.title}
-                  </span>
-                  <span className={`font-mono text-[9.5px] font-bold shrink-0 ${
-                    isTraditional ? 'text-rose-700' : 'text-emerald-700'
-                  }`}>
-                    {item.status}
-                  </span>
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div
+                  className={`w-5 h-5 rounded-lg flex items-center justify-center shrink-0 ${
+                    isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-800'
+                  }`}
+                >
+                  {isTraditional ? <XCircle className="w-3.5 h-3.5 text-rose-600" /> : <Check className="w-3.5 h-3.5 stroke-[3] text-emerald-700" />}
                 </div>
-                <p className="font-mono text-[10px] text-slate-500 truncate mt-0.5">
-                  {item.desc}
-                </p>
+                <div className="min-w-0">
+                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A] truncate">
+                    {item.title}
+                  </div>
+                  <div className="font-mono text-[10px] text-slate-500 truncate mt-0.5">
+                    {item.desc}
+                  </div>
+                </div>
               </div>
+              <span
+                className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${
+                  isTraditional
+                    ? 'bg-rose-100/90 text-rose-700 border border-rose-200/60'
+                    : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
+                }`}
+              >
+                {item.status}
+              </span>
             </div>
           ))}
         </div>
@@ -499,48 +559,21 @@ export default function WhyChooseUs() {
      ────────────────────────────────────────────────────────────────── */
   const renderModule04 = (isMobile?: boolean) => {
     const isTraditional = mode === 'traditional';
-
-    const pillars = isTraditional
-      ? [
-          {
-            title: 'Multiple Middleman Layers',
-            desc: 'Non-technical account managers sit between you and developers.',
-            metric: '3 Buffer Layers',
-          },
-          {
-            title: '48h–72h Email Response Delay',
-            desc: 'Simple bug reports take days to translate into offshore tickets.',
-            metric: '3 Days Lag',
-          },
-          {
-            title: 'Surprise Change-Order Invoices',
-            desc: 'Every minor tweak is billed as an expensive out-of-scope addition.',
-            metric: '+$1,600 / Change',
-          },
-        ]
-      : [
-          {
-            title: 'Direct Senior Architect Access',
-            desc: 'Collaborate directly with Lead Architect Manthan Vaghasiya & senior fullstack engineers.',
-            metric: 'Zero Middlemen',
-          },
-          {
-            title: 'Dedicated Engineering War-Room',
-            desc: 'Private Slack channel or WhatsApp VIP squad with real-time PR & deployment updates.',
-            metric: 'Direct Squad',
-          },
-          {
-            title: '< 12-Minute Average Reply Time',
-            desc: 'Instant architectural guidance, rapid staging deployments, and proactive async walkthroughs.',
-            metric: '< 12m Turnaround',
-          },
-        ];
+    const pillars = isTraditional ? TRADITIONAL_SQUAD : SQUAD_PILLARS;
 
     return (
-      <div className={`w-full h-full rounded-3xl bg-white border ${
-        isTraditional ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]' : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.12)]'
-      } ${isMobile ? 'p-5' : 'p-6 sm:p-7'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5`}>
-        <div className={`absolute top-0 right-0 w-80 h-80 ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'} rounded-full blur-3xl pointer-events-none`} />
+      <div
+        className={`w-full h-full rounded-3xl bg-gradient-to-b from-white via-slate-50/30 to-slate-50/70 border ${
+          isTraditional
+            ? 'border-rose-200/90 shadow-[0_20px_50px_-15px_rgba(225,29,72,0.12)]'
+            : 'border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(55,122,155,0.1)]'
+        } ${isMobile ? 'p-5' : 'p-6 sm:p-7 lg:p-8'} relative overflow-hidden transition-all duration-500 flex flex-col justify-between gap-5 sm:gap-6`}
+      >
+        <div
+          className={`absolute top-0 right-0 w-80 h-80 ${
+            isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'
+          } rounded-full blur-3xl pointer-events-none`}
+        />
         <div aria-hidden="true" className="absolute top-3 left-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute top-3 right-3 text-slate-300 font-mono text-[10px] select-none pointer-events-none">+</div>
         <div aria-hidden="true" className="absolute bottom-3 right-3 text-slate-400 font-mono text-[9px] select-none pointer-events-none">
@@ -550,68 +583,63 @@ export default function WhyChooseUs() {
         {/* Header Block */}
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
-            }`}>
+            <div
+              className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold ${
+                isTraditional
+                  ? 'bg-rose-50 border border-rose-200/80 text-rose-700'
+                  : 'bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b]'
+              }`}
+            >
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>{isTraditional ? '✕ 04 // LAYERS OF NON-TECHNICAL MIDDLEMEN' : '04 // AGILITY & DIRECT COLLABORATION'}</span>
+              <span>{isTraditional ? '04 // MIDDLEMAN TELEPHONE GAME' : '04 // AGILITY & DIRECT SQUAD'}</span>
             </div>
 
-            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-              isTraditional ? 'bg-rose-50 border border-rose-200/80 text-rose-700' : 'bg-[#377a9b]/10 border border-[#377a9b]/20 text-[#377a9b]'
-            }`}>
+            <div
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold ${
+                isTraditional
+                  ? 'bg-rose-50 border border-rose-200 text-rose-700'
+                  : 'bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b]'
+              }`}
+            >
               <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-[#377a9b] animate-pulse'}`} />
-              <span>{isTraditional ? '48H–72H EMAIL DELAY' : '12M AVG ARCHITECT REPLY'}</span>
+              <span>{isTraditional ? '48H–72H EMAIL LAG' : '< 12M ARCHITECT REPLY'}</span>
             </div>
           </div>
 
-          <div className="flex items-baseline gap-3 mb-1.5">
-            <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl lg:text-3xl text-[#0F172A] tracking-tight">
-              {isTraditional ? 'The Middleman Telephone Game.' : 'Direct Senior Engineers.'}
-            </h3>
-            <span className={`font-mono text-xs font-bold ${isTraditional ? 'text-rose-600' : 'text-slate-600 font-semibold'}`}>
-              {isTraditional ? '3 Layers of Middlemen' : 'Zero Middlemen'}
-            </span>
-          </div>
-          <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-xl">
+          <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight mb-2">
+            {isTraditional ? 'The Middleman Telephone Game.' : 'Direct Senior Engineers.'}
+          </h3>
+          <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
             {isTraditional
-              ? 'Non-technical account managers who do not write code sit between you and developers. Simple bug reports take 3 days to translate, and surprise change orders are billed for every tweak.'
-              : 'No non-technical account managers playing telephone. You get a direct, dedicated engineering war-room on Slack or WhatsApp with the senior architects writing and shipping your code.'}
+              ? 'Non-technical account managers sit between you and developers. Simple bug fixes take days to translate and invoices follow every request.'
+              : 'Zero non-technical account managers. You collaborate directly with Lead Architect Manthan Vaghasiya in a dedicated engineering war-room.'}
           </p>
         </div>
 
-        {/* 3 Collaboration Protocol Rows */}
-        <div className="space-y-2.5">
+        {/* 3 Crisp Engineering Telemetry Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           {pillars.map((item, idx) => (
             <div
               key={idx}
-              className={`p-3 rounded-2xl border transition-all flex items-start justify-between gap-3 ${
+              className={`p-3 rounded-xl border transition-all ${
                 isTraditional
-                  ? 'bg-rose-50/40 border-rose-200/80'
-                  : 'bg-slate-50/80 border-slate-200/80 hover:bg-slate-50'
+                  ? 'bg-rose-50/40 border-rose-200/70'
+                  : 'bg-slate-50/80 border-slate-200/70 hover:bg-slate-50'
               }`}
             >
-              <div className="flex items-start gap-2.5 min-w-0">
-                <div className={`w-5 h-5 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${
-                  isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-[#377a9b]/10 text-[#377a9b]'
-                }`}>
-                  {isTraditional ? <XCircle className="w-3 h-3 text-rose-600" /> : <CheckCircle2 className="w-3 h-3 text-[#377a9b]" />}
-                </div>
-                <div className="min-w-0">
-                  <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
-                    {item.title}
-                  </div>
-                  <p className="font-['Plus_Jakarta_Sans',sans-serif] text-[11px] text-slate-500 leading-relaxed mt-0.5">
-                    {item.desc}
-                  </p>
-                </div>
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold truncate">
+                {item.category}
               </div>
-
-              <span className={`px-2 py-0.5 rounded-md font-mono text-[9.5px] font-bold shrink-0 ${
-                isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-[#377a9b]/10 text-[#377a9b]'
-              }`}>
+              <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A] mt-1 truncate">
+                {item.title}
+              </div>
+              <div
+                className={`text-[10px] font-mono font-bold mt-1.5 inline-block px-1.5 py-0.5 rounded ${
+                  isTraditional ? 'bg-rose-100 text-rose-700' : 'bg-[#377a9b]/10 text-[#377a9b]'
+                }`}
+              >
                 {item.metric}
-              </span>
+              </div>
             </div>
           ))}
         </div>
@@ -629,7 +657,7 @@ export default function WhyChooseUs() {
                   href="https://wa.me/919664736245?text=Hi%20Manthan%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Webiox."
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 font-mono text-[11px] font-bold transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 font-mono text-[11px] font-bold transition-all cursor-pointer shadow-2xs"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
                   <span>WhatsApp VIP Direct</span>
@@ -642,8 +670,8 @@ export default function WhyChooseUs() {
                   <ArrowRight className="w-3 h-3 text-[#377a9b]" />
                 </a>
               </div>
-              <span className="font-mono text-[10px] text-slate-500">
-                Direct to Lead Architect
+              <span className="font-mono text-[10px] text-slate-500 font-semibold">
+                Lead Architect: Manthan Vaghasiya
               </span>
             </>
           )}
@@ -834,7 +862,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* ════════════════════════════════════════════════════════════════════
-            DESKTOP: THE ARCHITECTURAL ENGINEERING CONSOLE (12-COL GRID)
+            DESKTOP: BALANCED 2x2 EXECUTIVE BENTO GRID
            ════════════════════════════════════════════════════════════════════ */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -843,12 +871,12 @@ export default function WhyChooseUs() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.24, ease: 'easeOut' }}
-            className="hidden lg:grid grid-cols-12 gap-7"
+            className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-7 items-stretch"
           >
-            <div className="lg:col-span-7">{renderModule01(false)}</div>
-            <div className="lg:col-span-5">{renderModule02(false)}</div>
-            <div className="lg:col-span-5">{renderModule03(false)}</div>
-            <div className="lg:col-span-7">{renderModule04(false)}</div>
+            <div className="w-full h-full">{renderModule01(false)}</div>
+            <div className="w-full h-full">{renderModule02(false)}</div>
+            <div className="w-full h-full">{renderModule03(false)}</div>
+            <div className="w-full h-full">{renderModule04(false)}</div>
           </motion.div>
         </AnimatePresence>
 
