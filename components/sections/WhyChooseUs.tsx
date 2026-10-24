@@ -133,40 +133,28 @@ const COMMAND_BAYS = [
     index: 0,
     num: '01',
     title: 'Edge Velocity',
-    subtitle: 'Sub-Second SLA',
     icon: Zap,
-    webioxMetric: '0.38s LCP',
-    traditionalMetric: '3.8s Lag',
   },
   {
     id: 'milestones',
     index: 1,
     num: '02',
     title: 'Milestone Escrow',
-    subtitle: 'Zero Scope Drift',
     icon: Clock,
-    webioxMetric: '100% Lock',
-    traditionalMetric: 'Hourly Drift',
   },
   {
     id: 'security',
     index: 2,
     num: '03',
     title: 'Zero-Trust Core',
-    subtitle: 'SOC-2 Ready WAF',
     icon: Shield,
-    webioxMetric: '0 CVEs',
-    traditionalMetric: '12 Exploits',
   },
   {
     id: 'squad',
     index: 3,
     num: '04',
     title: 'Direct Squad',
-    subtitle: 'Zero Middlemen',
     icon: MessageSquare,
-    webioxMetric: '< 12m Reply',
-    traditionalMetric: '48h Lag',
   },
 ];
 
@@ -401,18 +389,17 @@ export default function WhyChooseUs() {
           </div>
 
           {/* ── TOP ARCHITECTURAL CONTROLLER DOCK (4 BAYS) ── */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 p-1.5 sm:p-2 rounded-2xl bg-slate-100/90 border border-slate-200/80 mb-6 lg:mb-8 shadow-2xs">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 p-1 sm:p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/80 mb-5 lg:mb-6 shadow-2xs">
             {COMMAND_BAYS.map((bay) => {
               const Icon = bay.icon;
               const isActive = activeBay === bay.index;
-              const metric = isTraditional ? bay.traditionalMetric : bay.webioxMetric;
 
               return (
                 <button
                   key={bay.id}
                   type="button"
                   onClick={() => setActiveBay(bay.index)}
-                  className={`relative p-3 sm:p-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer flex flex-col justify-between gap-2.5 min-h-[72px] sm:min-h-[82px] active:scale-[0.99] ${
+                  className={`relative py-2 px-3 sm:py-2.5 sm:px-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer flex items-center gap-2 sm:gap-2.5 active:scale-[0.99] ${
                     isActive
                       ? isTraditional
                         ? 'bg-white text-rose-900 shadow-sm border border-rose-200 ring-2 ring-rose-400/20'
@@ -420,52 +407,30 @@ export default function WhyChooseUs() {
                       : 'text-slate-600 hover:text-[#0F172A] hover:bg-white/60'
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-1 w-full">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <div
-                        className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 ${
-                          isActive
-                            ? isTraditional
-                              ? 'bg-rose-600 text-white'
-                              : 'bg-[#377a9b] text-white shadow-2xs'
-                            : 'bg-slate-200/70 text-slate-600'
-                        }`}
-                      >
-                        <Icon className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="font-mono text-[11px] font-black text-slate-400">
-                        {bay.num}
-                      </span>
-                    </div>
-
-                    <span
-                      className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${
-                        isActive
-                          ? isTraditional
-                            ? 'bg-rose-100 text-rose-700'
-                            : 'bg-emerald-50 text-emerald-800 border border-emerald-200/70'
-                          : 'bg-slate-100 text-slate-500'
-                      }`}
-                    >
-                      {metric}
-                    </span>
+                  <div
+                    className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${
+                      isActive
+                        ? isTraditional
+                          ? 'bg-rose-600 text-white'
+                          : 'bg-[#377a9b] text-white shadow-2xs'
+                        : 'bg-slate-200/70 text-slate-600'
+                    }`}
+                  >
+                    <Icon className="w-3 h-3" />
                   </div>
-
-                  <div>
-                    <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13.5px] truncate">
-                      {bay.title}
-                    </div>
-                    <div className="font-mono text-[10px] text-slate-500 truncate mt-0.5">
-                      {bay.subtitle}
-                    </div>
-                  </div>
+                  <span className="font-mono text-[10.5px] font-black text-slate-400 shrink-0">
+                    {bay.num}
+                  </span>
+                  <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] truncate text-[#0F172A]">
+                    {bay.title}
+                  </span>
                 </button>
               );
             })}
           </div>
 
           {/* ── WIDESCREEN LIVE SIMULATION STAGE (2-COLUMN ARCHITECTURAL CONSOLE) ── */}
-          <div className="relative min-h-[440px]">
+          <div className="relative">
             <AnimatePresence mode="wait">
               {/* ─────────────────────────────────────────────────────────────
                   BAY 01: SUB-SECOND EDGE VELOCITY & INFRASTRUCTURE
@@ -477,25 +442,25 @@ export default function WhyChooseUs() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.22, ease: 'easeOut' }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-stretch"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-start"
                 >
                   {/* Left Column (5 Cols): Narrative, Speed Metrics & Tech Specs */}
-                  <div className="lg:col-span-5 flex flex-col justify-between gap-6">
+                  <div className="lg:col-span-5 flex flex-col gap-3.5">
                     <div>
-                      <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
                         <div
-                          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold ${
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
                             isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b]'
                           }`}
                         >
-                          {isTraditional ? <AlertTriangle className="w-3.5 h-3.5 text-rose-600" /> : <Zap className="w-3.5 h-3.5 text-[#377a9b]" />}
+                          {isTraditional ? <AlertTriangle className="w-3 h-3 text-rose-600" /> : <Zap className="w-3 h-3 text-[#377a9b]" />}
                           <span>{isTraditional ? 'MONOLITHIC ORIGIN LAG' : 'EDGE INFRASTRUCTURE ENGINE'}</span>
                         </div>
 
                         <div
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold ${
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
                             isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-emerald-50 border border-emerald-200/90 text-emerald-800'
@@ -506,10 +471,10 @@ export default function WhyChooseUs() {
                         </div>
                       </div>
 
-                      <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl text-[#0F172A] tracking-tight mb-3">
+                      <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight mb-1.5">
                         {isTraditional ? 'Monolithic Infrastructure Lag.' : 'Sub-Second Edge Infrastructure.'}
                       </h3>
-                      <p className="text-slate-600 text-xs sm:text-[14px] leading-relaxed mb-4">
+                      <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                         {isTraditional
                           ? 'Legacy WordPress and PHP monoliths with 30+ unpatched plugins. Uncached database queries create 850ms TTFB bottlenecks and sluggish page transitions that hurt search rankings.'
                           : 'Next.js 16 App Router paired with multi-region Edge Redis caching. Zero cold starts, instant client transitions, and verified sub-400ms LCP on every device.'}
@@ -517,13 +482,13 @@ export default function WhyChooseUs() {
                     </div>
 
                     {/* Production Speed Hero Metrics Bar */}
-                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
-                      <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                        <span className="font-mono text-[10.5px] text-slate-500 uppercase tracking-wider font-semibold">
+                    <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-2">
+                      <div className="flex items-center justify-between pb-1.5 border-b border-slate-100">
+                        <span className="font-mono text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
                           {isTraditional ? 'Largest Contentful Paint (LCP)' : 'Production LCP Content Paint'}
                         </span>
                         <span
-                          className={`text-[10.5px] font-mono font-bold px-2 py-0.5 rounded-md ${
+                          className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md ${
                             isTraditional ? 'bg-rose-100 text-rose-800' : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
                           }`}
                         >
@@ -533,29 +498,29 @@ export default function WhyChooseUs() {
 
                       <div className="flex items-baseline justify-between">
                         <span
-                          className={`font-['Plus_Jakarta_Sans',sans-serif] font-black text-4xl sm:text-5xl tracking-tight ${
+                          className={`font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl tracking-tight ${
                             isTraditional ? 'text-rose-600' : 'text-[#377a9b]'
                           }`}
                         >
                           {isTraditional ? '3.8s' : '0.38s'}
                         </span>
 
-                        <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                          <div className="px-2.5 py-1.5 rounded-lg bg-slate-50 border border-slate-200/60">
-                            <div className="text-[8.5px] font-mono text-slate-400 uppercase">TTFB</div>
-                            <div className={`font-mono font-bold text-[12px] ${isTraditional ? 'text-rose-600' : 'text-slate-900'}`}>
+                        <div className="grid grid-cols-3 gap-1.5 text-center text-xs">
+                          <div className="px-2 py-1 rounded-lg bg-slate-50 border border-slate-200/60">
+                            <div className="text-[8px] font-mono text-slate-400 uppercase">TTFB</div>
+                            <div className={`font-mono font-bold text-[11.5px] ${isTraditional ? 'text-rose-600' : 'text-slate-900'}`}>
                               {currentPoP.ttfb}
                             </div>
                           </div>
-                          <div className="px-2.5 py-1.5 rounded-lg bg-slate-50 border border-slate-200/60">
-                            <div className="text-[8.5px] font-mono text-slate-400 uppercase">Bundle</div>
-                            <div className={`font-mono font-bold text-[12px] ${isTraditional ? 'text-rose-600' : 'text-slate-900'}`}>
+                          <div className="px-2 py-1 rounded-lg bg-slate-50 border border-slate-200/60">
+                            <div className="text-[8px] font-mono text-slate-400 uppercase">Bundle</div>
+                            <div className={`font-mono font-bold text-[11.5px] ${isTraditional ? 'text-rose-600' : 'text-slate-900'}`}>
                               {isTraditional ? '2.4 MB' : '~78 KB'}
                             </div>
                           </div>
-                          <div className="px-2.5 py-1.5 rounded-lg bg-slate-50 border border-slate-200/60">
-                            <div className="text-[8.5px] font-mono text-slate-400 uppercase">CWV</div>
-                            <div className={`font-mono font-bold text-[12px] ${isTraditional ? 'text-rose-600' : 'text-emerald-700'}`}>
+                          <div className="px-2 py-1 rounded-lg bg-slate-50 border border-slate-200/60">
+                            <div className="text-[8px] font-mono text-slate-400 uppercase">CWV</div>
+                            <div className={`font-mono font-bold text-[11.5px] ${isTraditional ? 'text-rose-600' : 'text-emerald-700'}`}>
                               {isTraditional ? '48' : '99'}
                             </div>
                           </div>
@@ -566,12 +531,12 @@ export default function WhyChooseUs() {
                     {/* Bottom 3-Pill Tech Badges */}
                     <div className="flex flex-wrap items-center gap-1.5">
                       {(isTraditional
-                        ? ['Uncached Apache / PHP', 'Blocking 3rd-Party Scripts', 'Single Origin Host']
+                        ? ['Uncached Apache / PHP', 'Blocking Scripts', 'Single Origin Host']
                         : ['Next.js 16 Partial Prerendering', 'Edge Redis Invalidation', 'Cloudflare Enterprise CDN']
                       ).map((item, idx) => (
                         <span
                           key={idx}
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-semibold border ${
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold border ${
                             isTraditional
                               ? 'bg-rose-50/80 border-rose-200/80 text-rose-800'
                               : 'bg-white border-slate-200/90 text-slate-700 shadow-2xs'
@@ -585,10 +550,10 @@ export default function WhyChooseUs() {
                   </div>
 
                   {/* Right Column (7 Cols): Global PoP Selector & Live Route Tracer HUD */}
-                  <div className="lg:col-span-7 flex flex-col justify-between gap-4">
+                  <div className="lg:col-span-7 flex flex-col gap-3">
                     {/* Global PoP Selector Bar */}
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center justify-between text-[11px] font-mono font-bold text-slate-600 uppercase tracking-wider">
+                    <div className="flex flex-col gap-1.5">
+                      <div className="flex items-center justify-between text-[10.5px] font-mono font-bold text-slate-600 uppercase tracking-wider">
                         <span className="flex items-center gap-1.5">
                           <Globe className="w-3.5 h-3.5 text-[#377a9b]" />
                           <span>Simulate Global Edge PoP</span>
@@ -602,7 +567,7 @@ export default function WhyChooseUs() {
                             key={pop.id}
                             type="button"
                             onClick={() => setSelectedPoP(pop.id as any)}
-                            className={`py-2 px-2.5 rounded-xl text-center transition-all cursor-pointer flex flex-col items-center justify-center ${
+                            className={`py-1.5 px-2 rounded-xl text-center transition-all cursor-pointer flex flex-col items-center justify-center ${
                               selectedPoP === pop.id
                                 ? isTraditional
                                   ? 'bg-rose-500 text-white shadow-xs font-bold'
@@ -610,10 +575,10 @@ export default function WhyChooseUs() {
                                 : 'text-slate-600 hover:text-slate-900'
                             }`}
                           >
-                            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold leading-tight">
+                            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[11.5px] font-bold leading-tight">
                               {pop.label}
                             </span>
-                            <span className="font-mono text-[10px] opacity-80 mt-0.5">
+                            <span className="font-mono text-[9.5px] opacity-80 mt-0.5">
                               {pop.ttfb}
                             </span>
                           </button>
@@ -622,11 +587,11 @@ export default function WhyChooseUs() {
                     </div>
 
                     {/* Dark Obsidian Route Tracer HUD */}
-                    <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] border border-slate-800 text-white shadow-lg space-y-3.5">
-                      <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                        <div className="flex items-center gap-2">
+                    <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] border border-slate-800 text-white shadow-lg space-y-2.5">
+                      <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                        <div className="flex items-center gap-1.5">
                           <Terminal className="w-3.5 h-3.5 text-sky-400" />
-                          <span className="font-mono text-xs font-bold text-slate-200">
+                          <span className="font-mono text-[11px] font-bold text-slate-200">
                             LIVE PACKET ROUTE TRACER
                           </span>
                         </div>
@@ -635,15 +600,15 @@ export default function WhyChooseUs() {
                           type="button"
                           onClick={handlePingTest}
                           disabled={isPinging}
-                          className="px-2.5 py-1 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 font-mono text-[10.5px] font-bold transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-50"
+                          className="px-2 py-0.5 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 font-mono text-[10px] font-bold transition-all cursor-pointer flex items-center gap-1 disabled:opacity-50"
                         >
                           <Activity className={`w-3 h-3 ${isPinging ? 'animate-spin' : ''}`} />
-                          <span>{isPinging ? 'Pinging PoP...' : 'Ping Active PoP ⚡'}</span>
+                          <span>{isPinging ? 'Pinging PoP...' : 'Ping PoP ⚡'}</span>
                         </button>
                       </div>
 
                       {/* Route Path Flow Visualization */}
-                      <div className="space-y-2 font-mono text-xs">
+                      <div className="space-y-1.5 font-mono text-[11.5px]">
                         <div className="flex items-center justify-between text-slate-300">
                           <span className="flex items-center gap-1.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
@@ -672,7 +637,7 @@ export default function WhyChooseUs() {
                       </div>
 
                       {/* Bottom Protocol Readout */}
-                      <div className="pt-2.5 border-t border-white/10 flex items-center justify-between font-mono text-[10.5px] text-slate-400">
+                      <div className="pt-2 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-slate-400">
                         <span>PROTOCOL: HTTP/3 (QUIC)</span>
                         <span className={isTraditional ? 'text-rose-400 font-bold' : 'text-emerald-400 font-bold'}>
                           {isTraditional ? 'Origin Bottleneck Detected ✕' : 'Zero Cold Starts Guarantee ✓'}
@@ -693,25 +658,25 @@ export default function WhyChooseUs() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.22, ease: 'easeOut' }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-stretch"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-start"
                 >
                   {/* Left Column (5 Cols): Narrative & Escrow Sign-Off Console */}
-                  <div className="lg:col-span-5 flex flex-col justify-between gap-6">
+                  <div className="lg:col-span-5 flex flex-col gap-3.5">
                     <div>
-                      <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
                         <div
-                          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold ${
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
                             isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-amber-50 border border-amber-200/80 text-amber-800'
                           }`}
                         >
-                          <Clock className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-600' : 'text-amber-600'}`} />
+                          <Clock className={`w-3 h-3 ${isTraditional ? 'text-rose-600' : 'text-amber-600'}`} />
                           <span>{isTraditional ? 'HOURLY BILLING DRAIN' : 'MILESTONE ESCROW PROTOCOL'}</span>
                         </div>
 
                         <div
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold ${
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
                             isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-amber-50 border border-amber-200/80 text-amber-800'
@@ -722,10 +687,10 @@ export default function WhyChooseUs() {
                         </div>
                       </div>
 
-                      <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl text-[#0F172A] tracking-tight mb-3">
+                      <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight mb-1.5">
                         {isTraditional ? 'The Hourly Billing Trap.' : 'Sprint Milestone Vault.'}
                       </h3>
-                      <p className="text-slate-600 text-xs sm:text-[14px] leading-relaxed mb-4">
+                      <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                         {isTraditional
                           ? 'Agencies drag projects for months with open-ended hourly billing. Scope creeps continuously, deadlines slip, and unexpected change-order invoices pile up without verified deliverables.'
                           : 'Delivery locked into verified 14-day sprint cycles. Milestones unlock strictly after staging QA sign-off — 0% scope creep and zero surprise fees guaranteed.'}
@@ -734,7 +699,7 @@ export default function WhyChooseUs() {
 
                     {/* Interactive Cryptographic Escrow Vault Status Bar */}
                     <div
-                      className={`p-4 rounded-2xl border transition-all space-y-3 ${
+                      className={`p-3.5 rounded-2xl border transition-all space-y-2.5 ${
                         isTraditional
                           ? 'bg-rose-50 border-rose-200'
                           : qaApproved
@@ -753,7 +718,7 @@ export default function WhyChooseUs() {
                                 : 'bg-amber-500'
                             }`}
                           />
-                          <span className="font-mono text-[11px] font-bold">
+                          <span className="font-mono text-[10.5px] font-bold">
                             {isTraditional
                               ? 'HOURLY DRIFT RISK: UNLOCKED'
                               : qaApproved
@@ -766,7 +731,7 @@ export default function WhyChooseUs() {
                           <button
                             type="button"
                             onClick={() => setQaApproved((prev) => !prev)}
-                            className={`px-3 py-1 rounded-lg font-mono text-[10.5px] font-bold transition-all cursor-pointer shadow-2xs ${
+                            className={`px-2.5 py-0.5 rounded-lg font-mono text-[10px] font-bold transition-all cursor-pointer shadow-2xs ${
                               qaApproved
                                 ? 'bg-emerald-600 text-white hover:bg-emerald-700'
                                 : 'bg-amber-500 hover:bg-amber-600 text-white'
@@ -777,7 +742,7 @@ export default function WhyChooseUs() {
                         )}
                       </div>
 
-                      <div className="flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-slate-500 pt-2 border-t border-slate-200/60">
+                      <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-slate-500 pt-1.5 border-t border-slate-200/60">
                         <span>SIGN_HASH: {currentGate.hash}</span>
                         <span className="font-bold text-[#0F172A]">{currentGate.signOff}</span>
                       </div>
@@ -791,7 +756,7 @@ export default function WhyChooseUs() {
                       ).map((item, idx) => (
                         <span
                           key={idx}
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-semibold border ${
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold border ${
                             isTraditional
                               ? 'bg-rose-50/80 border-rose-200/80 text-rose-800'
                               : 'bg-white border-slate-200/90 text-slate-700 shadow-2xs'
@@ -805,13 +770,13 @@ export default function WhyChooseUs() {
                   </div>
 
                   {/* Right Column (7 Cols): 4-Stage Clickable Sprint Stepper */}
-                  <div className="lg:col-span-7 flex flex-col justify-between gap-3">
-                    <div className="flex items-center justify-between text-[11px] font-mono font-bold text-slate-600 uppercase tracking-wider mb-1">
+                  <div className="lg:col-span-7 flex flex-col gap-2.5">
+                    <div className="flex items-center justify-between text-[10.5px] font-mono font-bold text-slate-600 uppercase tracking-wider">
                       <span>Click Sprint Gate to Audit Deliverables:</span>
                       <span className="text-amber-600">Strict 14-Day Velocity</span>
                     </div>
 
-                    <div className="space-y-2.5">
+                    <div className="space-y-2">
                       {activeGates.map((gate, gIdx) => {
                         const isSelected = selectedGate === gIdx;
                         return (
@@ -819,7 +784,7 @@ export default function WhyChooseUs() {
                             key={gIdx}
                             type="button"
                             onClick={() => setSelectedGate(gIdx)}
-                            className={`w-full p-3 sm:p-3.5 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                            className={`w-full p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2.5 ${
                               isSelected
                                 ? isTraditional
                                   ? 'bg-rose-100/80 border-rose-300 ring-2 ring-rose-400/20'
@@ -827,9 +792,9 @@ export default function WhyChooseUs() {
                                 : 'bg-slate-50/70 border-slate-200/80 hover:bg-slate-100/80'
                             }`}
                           >
-                            <div className="flex items-center gap-3 min-w-0">
+                            <div className="flex items-center gap-2.5 min-w-0">
                               <span
-                                className={`w-7 h-7 rounded-lg font-mono text-[11px] font-black flex items-center justify-center shrink-0 ${
+                                className={`w-6 h-6 rounded-lg font-mono text-[10.5px] font-black flex items-center justify-center shrink-0 ${
                                   isSelected
                                     ? isTraditional
                                       ? 'bg-rose-600 text-white'
@@ -842,17 +807,17 @@ export default function WhyChooseUs() {
                                 {gate.num}
                               </span>
                               <div className="min-w-0">
-                                <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[14px] text-[#0F172A] truncate">
+                                <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A] truncate">
                                   {gate.name}
                                 </div>
-                                <div className="font-mono text-[10px] text-slate-500 truncate mt-0.5">
+                                <div className="font-mono text-[9.5px] text-slate-500 truncate mt-0.5">
                                   {gate.duration} &bull; {gate.deliverables[0]}
                                 </div>
                               </div>
                             </div>
 
                             <span
-                              className={`px-2.5 py-1 rounded-md font-mono text-[10.5px] font-bold shrink-0 ${
+                              className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${
                                 isTraditional
                                   ? 'bg-rose-100 text-rose-700 border border-rose-200/60'
                                   : isSelected
@@ -867,11 +832,11 @@ export default function WhyChooseUs() {
                       })}
                     </div>
 
-                    <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-mono">
-                      <span className="text-slate-500 text-[11px]">
+                    <div className="pt-2 border-t border-slate-200/70 flex items-center justify-between text-xs font-mono">
+                      <span className="text-slate-500 text-[10.5px]">
                         {isTraditional ? 'Uncapped Scope Overruns' : '0% Scope Drift Guarantee'}
                       </span>
-                      <span className={`font-bold text-[11px] ${isTraditional ? 'text-rose-600' : 'text-[#377a9b]'}`}>
+                      <span className={`font-bold text-[10.5px] ${isTraditional ? 'text-rose-600' : 'text-[#377a9b]'}`}>
                         {isTraditional ? 'Surprise Change-Orders ✕' : 'QA Staging Sign-Off Required ✓'}
                       </span>
                     </div>
@@ -889,25 +854,25 @@ export default function WhyChooseUs() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.22, ease: 'easeOut' }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-stretch"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-start"
                 >
                   {/* Left Column (5 Cols): Narrative & Security Metrics */}
-                  <div className="lg:col-span-5 flex flex-col justify-between gap-6">
+                  <div className="lg:col-span-5 flex flex-col gap-3.5">
                     <div>
-                      <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
                         <div
-                          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold ${
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
                             isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
                           }`}
                         >
-                          <Shield className={`w-3.5 h-3.5 ${isTraditional ? 'text-rose-600' : 'text-emerald-600'}`} />
+                          <Shield className={`w-3 h-3 ${isTraditional ? 'text-rose-600' : 'text-emerald-600'}`} />
                           <span>{isTraditional ? 'VULNERABLE SHARED HOSTING' : 'ZERO-TRUST DEFENSE HUD'}</span>
                         </div>
 
                         <div
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold ${
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
                             isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
@@ -918,10 +883,10 @@ export default function WhyChooseUs() {
                         </div>
                       </div>
 
-                      <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl text-[#0F172A] tracking-tight mb-3">
+                      <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight mb-1.5">
                         {isTraditional ? 'Zero-Trust Neglected.' : 'Hardened Zero-Trust Core.'}
                       </h3>
-                      <p className="text-slate-600 text-xs sm:text-[14px] leading-relaxed mb-4">
+                      <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                         {isTraditional
                           ? 'Outdated CMS setups running unpatched third-party plugins on shared hosts. Secrets stored in plaintext and zero DDoS edge protection leave sensitive business data exposed.'
                           : 'Hardened TypeScript architectures with automated CI/CD audits, cryptographic session encryption, and enterprise Layer 7 Cloudflare edge firewalls.'}
@@ -929,13 +894,13 @@ export default function WhyChooseUs() {
                     </div>
 
                     {/* Metric Cockpit */}
-                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-2.5">
-                      <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                        <span className="font-mono text-[10.5px] text-slate-500 uppercase tracking-wider font-semibold">
+                    <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-2">
+                      <div className="flex items-center justify-between pb-1.5 border-b border-slate-100">
+                        <span className="font-mono text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
                           Security Posture & Compliance
                         </span>
                         <span
-                          className={`text-[10.5px] font-mono font-bold px-2 py-0.5 rounded-md ${
+                          className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md ${
                             isTraditional ? 'bg-rose-100 text-rose-800' : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
                           }`}
                         >
@@ -944,15 +909,15 @@ export default function WhyChooseUs() {
                       </div>
 
                       <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/60">
-                          <div className="text-[9px] font-mono text-slate-400 uppercase">DDoS Challenge</div>
-                          <div className={`font-mono font-bold text-sm ${isTraditional ? 'text-rose-600' : 'text-slate-900'}`}>
+                        <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/60">
+                          <div className="text-[8.5px] font-mono text-slate-400 uppercase">DDoS Challenge</div>
+                          <div className={`font-mono font-bold text-xs sm:text-[13px] ${isTraditional ? 'text-rose-600' : 'text-slate-900'}`}>
                             {isTraditional ? 'Unprotected' : '< 100k req/s'}
                           </div>
                         </div>
-                        <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/60">
-                          <div className="text-[9px] font-mono text-slate-400 uppercase">Vulnerability Surface</div>
-                          <div className={`font-mono font-bold text-sm ${isTraditional ? 'text-rose-600' : 'text-emerald-700'}`}>
+                        <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/60">
+                          <div className="text-[8.5px] font-mono text-slate-400 uppercase">Vulnerability Surface</div>
+                          <div className={`font-mono font-bold text-xs sm:text-[13px] ${isTraditional ? 'text-rose-600' : 'text-emerald-700'}`}>
                             {isTraditional ? '12+ Unpatched' : '0 CVEs'}
                           </div>
                         </div>
@@ -967,7 +932,7 @@ export default function WhyChooseUs() {
                       ).map((item, idx) => (
                         <span
                           key={idx}
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10.5px] font-mono font-semibold border ${
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold border ${
                             isTraditional
                               ? 'bg-rose-50/80 border-rose-200/80 text-rose-800'
                               : 'bg-white border-slate-200/90 text-slate-700 shadow-2xs'
@@ -981,7 +946,7 @@ export default function WhyChooseUs() {
                   </div>
 
                   {/* Right Column (7 Cols): Layer Switcher & Dark Threat HUD Terminal */}
-                  <div className="lg:col-span-7 flex flex-col justify-between gap-4">
+                  <div className="lg:col-span-7 flex flex-col gap-3">
                     {/* Layer Switcher Tabs */}
                     <div className="grid grid-cols-3 gap-1 p-1 rounded-2xl bg-slate-100/90 border border-slate-200/90">
                       {[
@@ -996,7 +961,7 @@ export default function WhyChooseUs() {
                             key={tab.id}
                             type="button"
                             onClick={() => setSecurityTab(tab.id as any)}
-                            className={`py-2 px-1 rounded-xl text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                            className={`py-1.5 px-1 rounded-xl text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                               isTabActive
                                 ? isTraditional
                                   ? 'bg-rose-500 text-white shadow-xs font-bold'
@@ -1004,8 +969,8 @@ export default function WhyChooseUs() {
                                 : 'text-slate-500 hover:text-slate-900'
                             }`}
                           >
-                            <Icon className={`w-3.5 h-3.5 ${isTabActive ? (isTraditional ? 'text-white' : 'text-emerald-600') : 'text-slate-400'}`} />
-                            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs truncate">{tab.label}</span>
+                            <Icon className={`w-3 h-3 ${isTabActive ? (isTraditional ? 'text-white' : 'text-emerald-600') : 'text-slate-400'}`} />
+                            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[11.5px] truncate">{tab.label}</span>
                           </button>
                         );
                       })}
@@ -1013,24 +978,24 @@ export default function WhyChooseUs() {
 
                     {/* Dark Obsidian Threat Mitigation Telemetry HUD */}
                     <div
-                      className={`p-4 sm:p-5 rounded-2xl border transition-all ${
+                      className={`p-3.5 sm:p-4 rounded-2xl border transition-all ${
                         isTraditional
                           ? 'bg-rose-50 border-rose-200 text-rose-950'
                           : 'bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] border-slate-800 text-white shadow-lg'
                       }`}
                     >
-                      <div className="flex items-center justify-between gap-3 pb-3 mb-3 border-b border-white/10">
+                      <div className="flex items-center justify-between gap-3 pb-2 mb-2 border-b border-white/10">
                         <div>
-                          <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm text-white">
+                          <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-white">
                             {currentSec.title}
                           </div>
-                          <div className="font-mono text-[10.5px] text-slate-400 truncate mt-0.5">
+                          <div className="font-mono text-[9.5px] text-slate-400 truncate mt-0.5">
                             {currentSec.subtitle}
                           </div>
                         </div>
 
                         <span
-                          className={`px-2.5 py-1 rounded-md font-mono text-[10.5px] font-bold shrink-0 ${
+                          className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${
                             isTraditional
                               ? 'bg-rose-200 text-rose-800'
                               : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
@@ -1041,24 +1006,24 @@ export default function WhyChooseUs() {
                       </div>
 
                       {/* Active Rules List */}
-                      <div className="space-y-2">
+                      <div className="space-y-1.5">
                         {currentSec.rules.map((rule, rIdx) => (
-                          <div key={rIdx} className="flex items-start gap-2.5">
+                          <div key={rIdx} className="flex items-start gap-2">
                             <div
-                              className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
+                              className={`w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
                                 isTraditional ? 'bg-rose-200 text-rose-700' : 'bg-emerald-500/20 text-emerald-400'
                               }`}
                             >
                               {isTraditional ? <XCircle className="w-2.5 h-2.5" /> : <Check className="w-2.5 h-2.5 stroke-[3]" />}
                             </div>
-                            <span className="font-mono text-[11.5px] text-slate-300 leading-snug">
+                            <span className="font-mono text-[10.5px] text-slate-300 leading-snug">
                               {rule}
                             </span>
                           </div>
                         ))}
                       </div>
 
-                      <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between font-mono text-[10.5px] text-slate-400">
+                      <div className="pt-2 mt-2 border-t border-white/10 flex items-center justify-between font-mono text-[9.5px] text-slate-400">
                         <span>METRIC AUDIT: {currentSec.metric}</span>
                         <span className={isTraditional ? 'text-rose-400' : 'text-emerald-400'}>
                           {isTraditional ? 'Exploit Risk: HIGH' : 'Exploit Risk: ZERO'}
@@ -1079,25 +1044,25 @@ export default function WhyChooseUs() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.22, ease: 'easeOut' }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-stretch"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-start"
                 >
                   {/* Left Column (5 Cols): Narrative & Lead Architect Card */}
-                  <div className="lg:col-span-5 flex flex-col justify-between gap-6">
+                  <div className="lg:col-span-5 flex flex-col gap-3.5">
                     <div>
-                      <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
                         <div
-                          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold ${
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
                             isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b]'
                           }`}
                         >
-                          <MessageSquare className="w-3.5 h-3.5" />
+                          <MessageSquare className="w-3 h-3" />
                           <span>{isTraditional ? 'MIDDLEMAN TELEPHONE GAME' : 'DIRECT SQUAD WAR-ROOM'}</span>
                         </div>
 
                         <div
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold ${
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
                             isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b]'
@@ -1108,10 +1073,10 @@ export default function WhyChooseUs() {
                         </div>
                       </div>
 
-                      <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl text-[#0F172A] tracking-tight mb-3">
+                      <h3 className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-xl sm:text-2xl text-[#0F172A] tracking-tight mb-1.5">
                         {isTraditional ? 'The Middleman Telephone Game.' : 'Direct Senior Engineers.'}
                       </h3>
-                      <p className="text-slate-600 text-xs sm:text-[14px] leading-relaxed mb-4">
+                      <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                         {isTraditional
                           ? 'Non-technical account managers sit between you and developers. Simple bug fixes take days to translate through tickets and surprise change invoices follow every minor tweak.'
                           : 'Zero non-technical account managers. You collaborate directly with Lead Architect Manthan Vaghasiya in a dedicated engineering war-room.'}
@@ -1119,22 +1084,22 @@ export default function WhyChooseUs() {
                     </div>
 
                     {/* Senior Architect Live Status Card */}
-                    <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-100/90 border border-slate-200/90">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#377a9b] to-[#0284c7] text-white flex items-center justify-center font-bold font-mono text-sm shadow-xs">
+                    <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-100/90 border border-slate-200/90">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#377a9b] to-[#0284c7] text-white flex items-center justify-center font-bold font-mono text-xs shadow-xs">
                           MV
                         </div>
                         <div>
-                          <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs sm:text-[13px] text-[#0F172A]">
+                          <div className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs text-[#0F172A]">
                             Manthan Vaghasiya
                           </div>
-                          <div className="font-mono text-[10px] text-slate-500">
+                          <div className="font-mono text-[9.5px] text-slate-500">
                             Lead Architect &bull; Surat Headquarters
                           </div>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 font-mono text-[10px] font-bold">
+                      <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 font-mono text-[9.5px] font-bold">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                         <span>Available Now</span>
                       </div>
@@ -1146,14 +1111,14 @@ export default function WhyChooseUs() {
                         href="https://wa.me/919664736245?text=Hi%20Manthan%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Webiox."
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 font-mono text-[11px] font-bold transition-all cursor-pointer shadow-2xs"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 font-mono text-[10.5px] font-bold transition-all cursor-pointer shadow-2xs"
                       >
-                        <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                        <MessageCircle className="w-3 h-3 text-emerald-600" />
                         <span>WhatsApp VIP Direct</span>
                       </a>
                       <a
                         href="/contact"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200/80 text-slate-700 font-mono text-[11px] font-bold transition-all cursor-pointer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/80 text-slate-700 font-mono text-[10.5px] font-bold transition-all cursor-pointer"
                       >
                         <span>Request Slack War-Room</span>
                         <ArrowRight className="w-3 h-3 text-[#377a9b]" />
@@ -1162,15 +1127,15 @@ export default function WhyChooseUs() {
                   </div>
 
                   {/* Right Column (7 Cols): Interactive War-Room Chat Stream Preview */}
-                  <div className="lg:col-span-7 flex flex-col justify-between gap-3">
+                  <div className="lg:col-span-7 flex flex-col gap-2.5">
                     <div className="rounded-2xl border border-slate-200/90 bg-white shadow-xs overflow-hidden">
                       {/* Channel Selector Header */}
-                      <div className="flex items-center justify-between px-3.5 py-2.5 bg-slate-50 border-b border-slate-200/80">
+                      <div className="flex items-center justify-between px-3 py-2 bg-slate-50 border-b border-slate-200/80">
                         <div className="flex items-center gap-1.5">
                           <button
                             type="button"
                             onClick={() => setChatChannel('slack')}
-                            className={`px-3 py-1 rounded-lg font-mono text-[11px] font-bold transition-all cursor-pointer ${
+                            className={`px-2.5 py-0.5 rounded-lg font-mono text-[10.5px] font-bold transition-all cursor-pointer ${
                               chatChannel === 'slack'
                                 ? 'bg-[#377a9b] text-white shadow-2xs'
                                 : 'text-slate-600 hover:text-slate-900'
@@ -1181,7 +1146,7 @@ export default function WhyChooseUs() {
                           <button
                             type="button"
                             onClick={() => setChatChannel('whatsapp')}
-                            className={`px-3 py-1 rounded-lg font-mono text-[11px] font-bold transition-all cursor-pointer ${
+                            className={`px-2.5 py-0.5 rounded-lg font-mono text-[10.5px] font-bold transition-all cursor-pointer ${
                               chatChannel === 'whatsapp'
                                 ? 'bg-emerald-600 text-white shadow-2xs'
                                 : 'text-slate-600 hover:text-slate-900'
@@ -1191,52 +1156,52 @@ export default function WhyChooseUs() {
                           </button>
                         </div>
 
-                        <span className="font-mono text-[10px] text-slate-400">
+                        <span className="font-mono text-[9.5px] text-slate-400">
                           {chatChannel === 'slack' ? '2 Senior Engineers' : 'Direct VIP Uplink'}
                         </span>
                       </div>
 
                       {/* Chat Messages Log */}
-                      <div className="p-4 space-y-3 font-['Plus_Jakarta_Sans',sans-serif]">
+                      <div className="p-3 space-y-2 font-['Plus_Jakarta_Sans',sans-serif]">
                         {chatChannel === 'slack' ? (
                           <>
-                            <div className="flex items-start gap-2.5">
-                              <span className="w-6 h-6 rounded-md bg-[#377a9b] text-white font-mono text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                            <div className="flex items-start gap-2">
+                              <span className="w-5 h-5 rounded-md bg-[#377a9b] text-white font-mono text-[9px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                                 MV
                               </span>
                               <div>
-                                <div className="flex items-baseline gap-2">
-                                  <span className="font-bold text-xs text-[#0F172A]">Manthan Vaghasiya</span>
-                                  <span className="font-mono text-[9.5px] text-slate-400">10:42 AM</span>
+                                <div className="flex items-baseline gap-1.5">
+                                  <span className="font-bold text-[11.5px] text-[#0F172A]">Manthan Vaghasiya</span>
+                                  <span className="font-mono text-[9px] text-slate-400">10:42 AM</span>
                                 </div>
-                                <p className="text-xs text-slate-600 leading-snug mt-0.5">
+                                <p className="text-[11px] text-slate-600 leading-snug mt-0.5">
                                   PR #142 deployed to edge staging. Cache invalidation verified, TTFB 28ms across all regions.
                                 </p>
                               </div>
                             </div>
 
-                            <div className="flex items-start gap-2.5">
-                              <span className="w-6 h-6 rounded-md bg-slate-200 text-slate-700 font-mono text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                            <div className="flex items-start gap-2">
+                              <span className="w-5 h-5 rounded-md bg-slate-200 text-slate-700 font-mono text-[9px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                                 YOU
                               </span>
                               <div>
-                                <div className="flex items-baseline gap-2">
-                                  <span className="font-bold text-xs text-[#0F172A]">Founder / Partner</span>
-                                  <span className="font-mono text-[9.5px] text-slate-400">10:45 AM</span>
+                                <div className="flex items-baseline gap-1.5">
+                                  <span className="font-bold text-[11.5px] text-[#0F172A]">Founder / Partner</span>
+                                  <span className="font-mono text-[9px] text-slate-400">10:45 AM</span>
                                 </div>
-                                <p className="text-xs text-slate-600 leading-snug mt-0.5">
+                                <p className="text-[11px] text-slate-600 leading-snug mt-0.5">
                                   Tested on mobile Safari — instantaneous navigation! Approving sprint gate.
                                 </p>
                               </div>
                             </div>
                           </>
                         ) : (
-                          <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 text-emerald-950 space-y-1">
+                          <div className="p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-200 text-emerald-950 space-y-0.5">
                             <div className="flex items-center justify-between">
-                              <span className="font-bold text-xs text-emerald-800">Manthan Vaghasiya (WhatsApp VIP)</span>
-                              <span className="font-mono text-[9.5px] text-slate-400">09:26 AM</span>
+                              <span className="font-bold text-[11.5px] text-emerald-800">Manthan Vaghasiya (WhatsApp VIP)</span>
+                              <span className="font-mono text-[9px] text-slate-400">09:26 AM</span>
                             </div>
-                            <p className="text-xs text-slate-700 leading-relaxed">
+                            <p className="text-[11px] text-slate-700 leading-relaxed">
                               "Good morning! Staging database schema updated with Redis idempotency keys. Live staging preview ready for review."
                             </p>
                           </div>
@@ -1244,11 +1209,11 @@ export default function WhyChooseUs() {
                       </div>
                     </div>
 
-                    <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-mono">
-                      <span className="text-slate-500 text-[11px]">
+                    <div className="pt-2 border-t border-slate-200/70 flex items-center justify-between text-xs font-mono">
+                      <span className="text-slate-500 text-[10.5px]">
                         {isTraditional ? 'Average Response: 48h–72h' : 'Direct Architect Response SLA'}
                       </span>
-                      <span className={`font-bold text-[11px] ${isTraditional ? 'text-rose-600' : 'text-emerald-700'}`}>
+                      <span className={`font-bold text-[10.5px] ${isTraditional ? 'text-rose-600' : 'text-emerald-700'}`}>
                         {isTraditional ? 'Delayed Support Tickets ✕' : '< 12m Average Reply Time ✓'}
                       </span>
                     </div>
@@ -1259,31 +1224,31 @@ export default function WhyChooseUs() {
           </div>
 
           {/* ── PERSISTENT REAL-TIME BENCHMARK MATRIX (BOTTOM TELEMETRY STRIP) ── */}
-          <div className="mt-8 pt-5 border-t border-slate-200/80 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-            <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-              <div className="text-[9.5px] font-mono text-slate-400 uppercase font-semibold">LCP Speed</div>
-              <div className="font-mono font-bold text-xs sm:text-[13px] text-[#0F172A] mt-0.5">
+          <div className="mt-6 pt-4 border-t border-slate-200/80 grid grid-cols-2 md:grid-cols-4 gap-2.5 text-center">
+            <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/70">
+              <div className="text-[9px] font-mono text-slate-400 uppercase font-semibold">LCP Speed</div>
+              <div className="font-mono font-bold text-xs sm:text-[12.5px] text-[#0F172A] mt-0.5">
                 0.38s <span className="text-slate-400 font-normal">vs 3.8s</span>
               </div>
             </div>
 
-            <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-              <div className="text-[9.5px] font-mono text-slate-400 uppercase font-semibold">Scope Integrity</div>
-              <div className="font-mono font-bold text-xs sm:text-[13px] text-emerald-700 mt-0.5">
+            <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/70">
+              <div className="text-[9px] font-mono text-slate-400 uppercase font-semibold">Scope Integrity</div>
+              <div className="font-mono font-bold text-xs sm:text-[12.5px] text-emerald-700 mt-0.5">
                 100% Escrow <span className="text-slate-400 font-normal">vs Drift</span>
               </div>
             </div>
 
-            <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-              <div className="text-[9.5px] font-mono text-slate-400 uppercase font-semibold">Vulnerabilities</div>
-              <div className="font-mono font-bold text-xs sm:text-[13px] text-[#377a9b] mt-0.5">
+            <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/70">
+              <div className="text-[9px] font-mono text-slate-400 uppercase font-semibold">Vulnerabilities</div>
+              <div className="font-mono font-bold text-xs sm:text-[12.5px] text-[#377a9b] mt-0.5">
                 0 CVEs <span className="text-slate-400 font-normal">vs 12+ Bugs</span>
               </div>
             </div>
 
-            <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-              <div className="text-[9.5px] font-mono text-slate-400 uppercase font-semibold">Squad Uplink</div>
-              <div className="font-mono font-bold text-xs sm:text-[13px] text-[#0F172A] mt-0.5">
+            <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/70">
+              <div className="text-[9px] font-mono text-slate-400 uppercase font-semibold">Squad Uplink</div>
+              <div className="font-mono font-bold text-xs sm:text-[12.5px] text-[#0F172A] mt-0.5">
                 Direct MV <span className="text-slate-400 font-normal">vs Middlemen</span>
               </div>
             </div>
