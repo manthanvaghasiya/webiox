@@ -504,7 +504,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#377a9b]/20 selection:text-[#377a9b] overflow-x-hidden w-full max-w-full">
+      <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#377a9b]/20 selection:text-[#377a9b] overflow-x-clip w-full max-w-full">
         {/* Facebook Pixel Fallback for non-JS browsers (Valid in body per HTML5 spec) */}
         <noscript>
           <img
@@ -523,7 +523,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Header />
-        <main id="main-content" className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
+        <main id="main-content" className="flex-1 w-full max-w-full">{children}</main>
         <Footer />
       </body>
     </html>

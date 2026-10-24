@@ -68,7 +68,7 @@ html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
   background: #F9FAFB;
   color: #090D16;
