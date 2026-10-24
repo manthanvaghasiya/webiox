@@ -193,15 +193,15 @@ export default function WhyChooseUs() {
       metric: isTraditional ? 'Crashes > 400 req/s' : '< 100k req/s Screened',
       rules: isTraditional
         ? [
-            'Shared Apache host with zero rate limiting',
-            'Vulnerable to brute-force credential stuffing',
-            'Origin IP exposed in DNS records without proxy',
-          ]
+          'Shared Apache host with zero rate limiting',
+          'Vulnerable to brute-force credential stuffing',
+          'Origin IP exposed in DNS records without proxy',
+        ]
         : [
-            'Automated Layer 7 challenge for malicious bots',
-            'Global Anycast DNS routed to nearest edge PoP',
-            'Origin IP masked behind Cloudflare Enterprise proxy',
-          ],
+          'Automated Layer 7 challenge for malicious bots',
+          'Global Anycast DNS routed to nearest edge PoP',
+          'Origin IP masked behind Cloudflare Enterprise proxy',
+        ],
     },
     auth: {
       title: 'Zero-Knowledge JWT & RBAC',
@@ -210,15 +210,15 @@ export default function WhyChooseUs() {
       metric: isTraditional ? 'Plaintext in .env' : 'AES-256 KMS Vault',
       rules: isTraditional
         ? [
-            'Hardcoded database credentials in git commits',
-            'Plaintext session cookies vulnerable to XSS',
-            'Zero role-based route protection middleware',
-          ]
+          'Hardcoded database credentials in git commits',
+          'Plaintext session cookies vulnerable to XSS',
+          'Zero role-based route protection middleware',
+        ]
         : [
-            'HMAC SHA-256 stateless session signatures',
-            'Role-based access control (RBAC) middleware',
-            'AES-256 automated key rotation in AWS/Cloudflare KMS',
-          ],
+          'HMAC SHA-256 stateless session signatures',
+          'Role-based access control (RBAC) middleware',
+          'AES-256 automated key rotation in AWS/Cloudflare KMS',
+        ],
     },
     cicd: {
       title: 'OWASP Automated CI/CD Audits',
@@ -227,15 +227,15 @@ export default function WhyChooseUs() {
       metric: isTraditional ? '38 Unpatched Plugins' : '100% Tree-Shaken',
       rules: isTraditional
         ? [
-            '38 unpatched third-party plugins with known CVEs',
-            'No automated dependency scanners in deploy pipeline',
-            'Manual unencrypted FTP uploads with zero audit trail',
-          ]
+          '38 unpatched third-party plugins with known CVEs',
+          'No automated dependency scanners in deploy pipeline',
+          'Manual unencrypted FTP uploads with zero audit trail',
+        ]
         : [
-            'Automated Dependabot & Snyk security scans',
-            'Zero vulnerable third-party dependencies',
-            'Deterministic lockfile verification before build',
-          ],
+          'Automated Dependabot & Snyk security scans',
+          'Zero vulnerable third-party dependencies',
+          'Deterministic lockfile verification before build',
+        ],
     },
   };
 
@@ -280,11 +280,10 @@ export default function WhyChooseUs() {
               <button
                 type="button"
                 onClick={() => setMode('contrast')}
-                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 ${
-                  mode === 'contrast'
+                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 ${mode === 'contrast'
                     ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-[#377a9b]/20'
                     : 'text-slate-500 hover:text-[#0F172A]'
-                }`}
+                  }`}
               >
                 <SlidersHorizontal className="w-3.5 h-3.5 text-[#377a9b]" />
                 <span>Direct Contrast View</span>
@@ -298,11 +297,10 @@ export default function WhyChooseUs() {
               <button
                 type="button"
                 onClick={() => setMode('webiox')}
-                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
-                  mode === 'webiox'
+                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${mode === 'webiox'
                     ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-emerald-500/20'
                     : 'text-slate-500 hover:text-[#0F172A]'
-                }`}
+                  }`}
               >
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 <span>The Webiox Standard</span>
@@ -316,11 +314,10 @@ export default function WhyChooseUs() {
               <button
                 type="button"
                 onClick={() => setMode('traditional')}
-                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
-                  mode === 'traditional'
+                className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-['Plus_Jakarta_Sans',sans-serif] font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${mode === 'traditional'
                     ? 'bg-white text-[#0F172A] shadow-xs border border-slate-200/80 ring-2 ring-rose-500/20'
                     : 'text-slate-500 hover:text-[#0F172A]'
-                }`}
+                  }`}
               >
                 <XCircle className="w-3.5 h-3.5 text-rose-500" />
                 <span>Traditional Agency Way</span>
@@ -339,22 +336,19 @@ export default function WhyChooseUs() {
             A single, expansive interactive studio eliminating generic card layouts.
            ════════════════════════════════════════════════════════════════════ */}
         <div
-          className={`w-full rounded-3xl bg-gradient-to-b from-white/95 via-slate-50/70 to-white/95 backdrop-blur-xl border ${
-            isTraditional
+          className={`w-full rounded-3xl bg-gradient-to-b from-white/95 via-slate-50/70 to-white/95 backdrop-blur-xl border ${isTraditional
               ? 'border-rose-200/90 shadow-[0_25px_70px_-20px_rgba(225,29,72,0.12)]'
               : 'border-slate-200/90 shadow-[0_25px_70px_-20px_rgba(55,122,155,0.14)] hover:border-[#377a9b]/50'
-          } p-5 sm:p-7 lg:p-9 relative overflow-hidden transition-all duration-500`}
+            } p-5 sm:p-7 lg:p-9 relative overflow-hidden transition-all duration-500`}
         >
           {/* Subtle Ambient Studio Glows */}
           <div
-            className={`absolute top-0 right-0 w-[32rem] h-[32rem] ${
-              isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'
-            } rounded-full blur-3xl pointer-events-none`}
+            className={`absolute top-0 right-0 w-[32rem] h-[32rem] ${isTraditional ? 'bg-rose-500/8' : 'bg-[#377a9b]/8'
+              } rounded-full blur-3xl pointer-events-none`}
           />
           <div
-            className={`absolute bottom-0 left-0 w-96 h-96 ${
-              isTraditional ? 'bg-rose-500/5' : 'bg-[#ffc312]/6'
-            } rounded-full blur-3xl pointer-events-none`}
+            className={`absolute bottom-0 left-0 w-96 h-96 ${isTraditional ? 'bg-rose-500/5' : 'bg-[#ffc312]/6'
+              } rounded-full blur-3xl pointer-events-none`}
           />
 
           {/* ── TOP ARCHITECTURAL CONTROLLER DOCK (4 BAYS) ABOVE HORIZONTAL DIVIDER ── */}
@@ -369,22 +363,20 @@ export default function WhyChooseUs() {
                     key={bay.id}
                     type="button"
                     onClick={() => setActiveBay(bay.index)}
-                    className={`relative py-2 px-3 sm:py-2.5 sm:px-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer flex items-center gap-2 sm:gap-2.5 active:scale-[0.99] ${
-                      isActive
+                    className={`relative py-2 px-3 sm:py-2.5 sm:px-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer flex items-center gap-2 sm:gap-2.5 active:scale-[0.99] ${isActive
                         ? isTraditional
                           ? 'bg-white text-rose-900 shadow-sm border border-rose-200 ring-2 ring-rose-400/20'
                           : 'bg-white text-[#0F172A] shadow-sm border border-slate-200/90 ring-2 ring-[#377a9b]/20'
                         : 'text-slate-600 hover:text-[#0F172A] hover:bg-white/60'
-                    }`}
+                      }`}
                   >
                     <div
-                      className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${
-                        isActive
+                      className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${isActive
                           ? isTraditional
                             ? 'bg-rose-600 text-white'
                             : 'bg-[#377a9b] text-white shadow-2xs'
                           : 'bg-slate-200/70 text-slate-600'
-                      }`}
+                        }`}
                     >
                       <Icon className="w-3 h-3" />
                     </div>
@@ -420,22 +412,20 @@ export default function WhyChooseUs() {
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <div
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b]'
-                          }`}
+                            }`}
                         >
                           {isTraditional ? <AlertTriangle className="w-3 h-3 text-rose-600" /> : <Zap className="w-3 h-3 text-[#377a9b]" />}
                           <span>{isTraditional ? 'MONOLITHIC ORIGIN LAG' : 'EDGE INFRASTRUCTURE ENGINE'}</span>
                         </div>
 
                         <div
-                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-emerald-50 border border-emerald-200/90 text-emerald-800'
-                          }`}
+                            }`}
                         >
                           <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500 animate-pulse'}`} />
                           <span>{isTraditional ? '850MS ORIGIN DELAY' : 'SUB-SECOND EDGE ACTIVE'}</span>
@@ -459,9 +449,8 @@ export default function WhyChooseUs() {
                           {isTraditional ? 'Largest Contentful Paint (LCP)' : 'Production LCP Content Paint'}
                         </span>
                         <span
-                          className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md ${
-                            isTraditional ? 'bg-rose-100 text-rose-800' : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
-                          }`}
+                          className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md ${isTraditional ? 'bg-rose-100 text-rose-800' : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
+                            }`}
                         >
                           {isTraditional ? 'Fails CWV Audits ✕' : 'Passes Core Web Vitals ✓'}
                         </span>
@@ -469,9 +458,8 @@ export default function WhyChooseUs() {
 
                       <div className="flex items-baseline justify-between">
                         <span
-                          className={`font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl tracking-tight ${
-                            isTraditional ? 'text-rose-600' : 'text-[#377a9b]'
-                          }`}
+                          className={`font-['Plus_Jakarta_Sans',sans-serif] font-black text-3xl sm:text-4xl tracking-tight ${isTraditional ? 'text-rose-600' : 'text-[#377a9b]'
+                            }`}
                         >
                           {isTraditional ? '3.8s' : '0.38s'}
                         </span>
@@ -507,11 +495,10 @@ export default function WhyChooseUs() {
                       ).map((item, idx) => (
                         <span
                           key={idx}
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold border ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold border ${isTraditional
                               ? 'bg-rose-50/80 border-rose-200/80 text-rose-800'
                               : 'bg-white border-slate-200/90 text-slate-700 shadow-2xs'
-                          }`}
+                            }`}
                         >
                           <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-[#377a9b]'}`} />
                           <span>{item}</span>
@@ -538,13 +525,12 @@ export default function WhyChooseUs() {
                             key={pop.id}
                             type="button"
                             onClick={() => setSelectedPoP(pop.id as any)}
-                            className={`py-1.5 px-2 rounded-xl text-center transition-all cursor-pointer flex flex-col items-center justify-center ${
-                              selectedPoP === pop.id
+                            className={`py-1.5 px-2 rounded-xl text-center transition-all cursor-pointer flex flex-col items-center justify-center ${selectedPoP === pop.id
                                 ? isTraditional
                                   ? 'bg-rose-500 text-white shadow-xs font-bold'
                                   : 'bg-white text-[#377a9b] shadow-xs border border-slate-200 font-bold'
                                 : 'text-slate-600 hover:text-slate-900'
-                            }`}
+                              }`}
                           >
                             <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[11.5px] font-bold leading-tight">
                               {pop.label}
@@ -636,22 +622,20 @@ export default function WhyChooseUs() {
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <div
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-amber-50 border border-amber-200/80 text-amber-800'
-                          }`}
+                            }`}
                         >
                           <Clock className={`w-3 h-3 ${isTraditional ? 'text-rose-600' : 'text-amber-600'}`} />
                           <span>{isTraditional ? 'HOURLY BILLING DRAIN' : 'MILESTONE ESCROW PROTOCOL'}</span>
                         </div>
 
                         <div
-                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-amber-50 border border-amber-200/80 text-amber-800'
-                          }`}
+                            }`}
                         >
                           <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-amber-500'}`} />
                           <span>{isTraditional ? 'UNCAPPED SCOPE DRIFT' : '100% ESCROW SLA LOCK'}</span>
@@ -670,31 +654,29 @@ export default function WhyChooseUs() {
 
                     {/* Interactive Cryptographic Escrow Vault Status Bar */}
                     <div
-                      className={`p-3.5 rounded-2xl border transition-all space-y-2.5 ${
-                        isTraditional
+                      className={`p-3.5 rounded-2xl border transition-all space-y-2.5 ${isTraditional
                           ? 'bg-rose-50 border-rose-200'
                           : qaApproved
-                          ? 'bg-emerald-50 border-emerald-300 text-emerald-950 shadow-sm'
-                          : 'bg-slate-100/90 border-slate-200/90 text-slate-800'
-                      }`}
+                            ? 'bg-emerald-50 border-emerald-300 text-emerald-950 shadow-sm'
+                            : 'bg-slate-100/90 border-slate-200/90 text-slate-800'
+                        }`}
                     >
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <div className="flex items-center gap-2">
                           <span
-                            className={`w-2 h-2 rounded-full ${
-                              isTraditional
+                            className={`w-2 h-2 rounded-full ${isTraditional
                                 ? 'bg-rose-500'
                                 : qaApproved
-                                ? 'bg-emerald-500 animate-ping'
-                                : 'bg-amber-500'
-                            }`}
+                                  ? 'bg-emerald-500 animate-ping'
+                                  : 'bg-amber-500'
+                              }`}
                           />
                           <span className="font-mono text-[10.5px] font-bold">
                             {isTraditional
                               ? 'HOURLY DRIFT RISK: UNLOCKED'
                               : qaApproved
-                              ? 'ESCROW RELEASED: STAGING APPROVED ✓'
-                              : 'ESCROW STATUS: 100% LOCKED IN STAGING QA'}
+                                ? 'ESCROW RELEASED: STAGING APPROVED ✓'
+                                : 'ESCROW STATUS: 100% LOCKED IN STAGING QA'}
                           </span>
                         </div>
 
@@ -702,11 +684,10 @@ export default function WhyChooseUs() {
                           <button
                             type="button"
                             onClick={() => setQaApproved((prev) => !prev)}
-                            className={`px-2.5 py-0.5 rounded-lg font-mono text-[10px] font-bold transition-all cursor-pointer shadow-2xs ${
-                              qaApproved
+                            className={`px-2.5 py-0.5 rounded-lg font-mono text-[10px] font-bold transition-all cursor-pointer shadow-2xs ${qaApproved
                                 ? 'bg-emerald-600 text-white hover:bg-emerald-700'
                                 : 'bg-amber-500 hover:bg-amber-600 text-white'
-                            }`}
+                              }`}
                           >
                             {qaApproved ? 'Sign-Off Verified ✓' : 'Simulate QA Sign-Off ⚡'}
                           </button>
@@ -727,11 +708,10 @@ export default function WhyChooseUs() {
                       ).map((item, idx) => (
                         <span
                           key={idx}
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold border ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold border ${isTraditional
                               ? 'bg-rose-50/80 border-rose-200/80 text-rose-800'
                               : 'bg-white border-slate-200/90 text-slate-700 shadow-2xs'
-                          }`}
+                            }`}
                         >
                           <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-amber-500'}`} />
                           <span>{item}</span>
@@ -755,25 +735,23 @@ export default function WhyChooseUs() {
                             key={gIdx}
                             type="button"
                             onClick={() => setSelectedGate(gIdx)}
-                            className={`w-full p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2.5 ${
-                              isSelected
+                            className={`w-full p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2.5 ${isSelected
                                 ? isTraditional
                                   ? 'bg-rose-100/80 border-rose-300 ring-2 ring-rose-400/20'
                                   : 'bg-white border-[#377a9b]/50 shadow-xs ring-2 ring-[#377a9b]/15'
                                 : 'bg-slate-50/70 border-slate-200/80 hover:bg-slate-100/80'
-                            }`}
+                              }`}
                           >
                             <div className="flex items-center gap-2.5 min-w-0">
                               <span
-                                className={`w-6 h-6 rounded-lg font-mono text-[10.5px] font-black flex items-center justify-center shrink-0 ${
-                                  isSelected
+                                className={`w-6 h-6 rounded-lg font-mono text-[10.5px] font-black flex items-center justify-center shrink-0 ${isSelected
                                     ? isTraditional
                                       ? 'bg-rose-600 text-white'
                                       : 'bg-[#377a9b] text-white shadow-2xs'
                                     : isTraditional
-                                    ? 'bg-rose-100 text-rose-700'
-                                    : 'bg-white text-slate-700 border border-slate-200'
-                                }`}
+                                      ? 'bg-rose-100 text-rose-700'
+                                      : 'bg-white text-slate-700 border border-slate-200'
+                                  }`}
                               >
                                 {gate.num}
                               </span>
@@ -788,13 +766,12 @@ export default function WhyChooseUs() {
                             </div>
 
                             <span
-                              className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${
-                                isTraditional
+                              className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${isTraditional
                                   ? 'bg-rose-100 text-rose-700 border border-rose-200/60'
                                   : isSelected
-                                  ? 'bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold'
-                                  : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
-                              }`}
+                                    ? 'bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold'
+                                    : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
+                                }`}
                             >
                               {gate.status}
                             </span>
@@ -832,22 +809,20 @@ export default function WhyChooseUs() {
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <div
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
-                          }`}
+                            }`}
                         >
                           <Shield className={`w-3 h-3 ${isTraditional ? 'text-rose-600' : 'text-emerald-600'}`} />
                           <span>{isTraditional ? 'VULNERABLE SHARED HOSTING' : 'ZERO-TRUST DEFENSE HUD'}</span>
                         </div>
 
                         <div
-                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-emerald-50 border border-emerald-200/80 text-emerald-800'
-                          }`}
+                            }`}
                         >
                           <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500'}`} />
                           <span>{isTraditional ? '12 KNOWN EXPLOITS' : '0 CVE VULNERABILITIES'}</span>
@@ -871,9 +846,8 @@ export default function WhyChooseUs() {
                           Security Posture & Compliance
                         </span>
                         <span
-                          className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md ${
-                            isTraditional ? 'bg-rose-100 text-rose-800' : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
-                          }`}
+                          className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md ${isTraditional ? 'bg-rose-100 text-rose-800' : 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
+                            }`}
                         >
                           {isTraditional ? 'High Risk Surface ✕' : 'SOC-2 Ready Architecture ✓'}
                         </span>
@@ -903,11 +877,10 @@ export default function WhyChooseUs() {
                       ).map((item, idx) => (
                         <span
                           key={idx}
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold border ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold border ${isTraditional
                               ? 'bg-rose-50/80 border-rose-200/80 text-rose-800'
                               : 'bg-white border-slate-200/90 text-slate-700 shadow-2xs'
-                          }`}
+                            }`}
                         >
                           <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-emerald-500'}`} />
                           <span>{item}</span>
@@ -932,13 +905,12 @@ export default function WhyChooseUs() {
                             key={tab.id}
                             type="button"
                             onClick={() => setSecurityTab(tab.id as any)}
-                            className={`py-1.5 px-1 rounded-xl text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                              isTabActive
+                            className={`py-1.5 px-1 rounded-xl text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${isTabActive
                                 ? isTraditional
                                   ? 'bg-rose-500 text-white shadow-xs font-bold'
                                   : 'bg-white text-emerald-800 shadow-xs border border-slate-200 font-bold'
                                 : 'text-slate-500 hover:text-slate-900'
-                            }`}
+                              }`}
                           >
                             <Icon className={`w-3 h-3 ${isTabActive ? (isTraditional ? 'text-white' : 'text-emerald-600') : 'text-slate-400'}`} />
                             <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[11.5px] truncate">{tab.label}</span>
@@ -949,11 +921,10 @@ export default function WhyChooseUs() {
 
                     {/* Dark Obsidian Threat Mitigation Telemetry HUD */}
                     <div
-                      className={`p-3.5 sm:p-4 rounded-2xl border transition-all ${
-                        isTraditional
+                      className={`p-3.5 sm:p-4 rounded-2xl border transition-all ${isTraditional
                           ? 'bg-rose-50 border-rose-200 text-rose-950'
                           : 'bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] border-slate-800 text-white shadow-lg'
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center justify-between gap-3 pb-2 mb-2 border-b border-white/10">
                         <div>
@@ -966,11 +937,10 @@ export default function WhyChooseUs() {
                         </div>
 
                         <span
-                          className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${
-                            isTraditional
+                          className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold shrink-0 ${isTraditional
                               ? 'bg-rose-200 text-rose-800'
                               : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                          }`}
+                            }`}
                         >
                           {currentSec.status}
                         </span>
@@ -981,9 +951,8 @@ export default function WhyChooseUs() {
                         {currentSec.rules.map((rule, rIdx) => (
                           <div key={rIdx} className="flex items-start gap-2">
                             <div
-                              className={`w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                                isTraditional ? 'bg-rose-200 text-rose-700' : 'bg-emerald-500/20 text-emerald-400'
-                              }`}
+                              className={`w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${isTraditional ? 'bg-rose-200 text-rose-700' : 'bg-emerald-500/20 text-emerald-400'
+                                }`}
                             >
                               {isTraditional ? <XCircle className="w-2.5 h-2.5" /> : <Check className="w-2.5 h-2.5 stroke-[3]" />}
                             </div>
@@ -1022,22 +991,20 @@ export default function WhyChooseUs() {
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <div
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b]'
-                          }`}
+                            }`}
                         >
                           <MessageSquare className="w-3 h-3" />
                           <span>{isTraditional ? 'MIDDLEMAN TELEPHONE GAME' : 'DIRECT SQUAD WAR-ROOM'}</span>
                         </div>
 
                         <div
-                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${
-                            isTraditional
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold ${isTraditional
                               ? 'bg-rose-50 border border-rose-200 text-rose-700'
                               : 'bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b]'
-                          }`}
+                            }`}
                         >
                           <span className={`w-1.5 h-1.5 rounded-full ${isTraditional ? 'bg-rose-500' : 'bg-[#377a9b] animate-pulse'}`} />
                           <span>{isTraditional ? '48H–72H EMAIL LAG' : '< 12M ARCHITECT REPLY'}</span>
@@ -1106,22 +1073,20 @@ export default function WhyChooseUs() {
                           <button
                             type="button"
                             onClick={() => setChatChannel('slack')}
-                            className={`px-2.5 py-0.5 rounded-lg font-mono text-[10.5px] font-bold transition-all cursor-pointer ${
-                              chatChannel === 'slack'
+                            className={`px-2.5 py-0.5 rounded-lg font-mono text-[10.5px] font-bold transition-all cursor-pointer ${chatChannel === 'slack'
                                 ? 'bg-[#377a9b] text-white shadow-2xs'
                                 : 'text-slate-600 hover:text-slate-900'
-                            }`}
+                              }`}
                           >
                             #slack-war-room
                           </button>
                           <button
                             type="button"
                             onClick={() => setChatChannel('whatsapp')}
-                            className={`px-2.5 py-0.5 rounded-lg font-mono text-[10.5px] font-bold transition-all cursor-pointer ${
-                              chatChannel === 'whatsapp'
+                            className={`px-2.5 py-0.5 rounded-lg font-mono text-[10.5px] font-bold transition-all cursor-pointer ${chatChannel === 'whatsapp'
                                 ? 'bg-emerald-600 text-white shadow-2xs'
                                 : 'text-slate-600 hover:text-slate-900'
-                            }`}
+                              }`}
                           >
                             WhatsApp VIP Squad
                           </button>
