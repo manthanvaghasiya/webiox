@@ -25,7 +25,6 @@ interface Stage {
   number: string;
   title: string;
   tagline: string;
-  duration: string;
   icon: LucideIcon;
   overview: string;
   deliverables: { title: string; desc: string }[];
@@ -39,7 +38,6 @@ const STAGES: Stage[] = [
     number: '01',
     title: 'Architectural Blueprint & UX Spec',
     tagline: 'System Foundation & Design System',
-    duration: 'Sprint 01 // Day 1–14',
     icon: Compass,
     overview:
       'We never write code in the dark. We map your complete domain model, design tokenized Figma design systems, and define strict API contracts before engineering begins.',
@@ -65,7 +63,6 @@ const STAGES: Stage[] = [
     number: '02',
     title: 'Fullstack Core Engine & CI/CD',
     tagline: 'High-Velocity Engineering',
-    duration: 'Sprint 02 // Day 15–28',
     icon: Code2,
     overview:
       'Our senior architects construct your core application on Next.js 16 App Router with server actions, stateless JWT auth, and automated GitHub Actions deployment pipelines.',
@@ -91,7 +88,6 @@ const STAGES: Stage[] = [
     number: '03',
     title: 'Penetration QA & Edge Hardening',
     tagline: 'Security & Core Web Vitals',
-    duration: 'Sprint 03 // Day 29–42',
     icon: ShieldCheck,
     overview:
       'We put every build through rigorous OWASP vulnerability audits, automated penetration screening, and Core Web Vitals optimization to guarantee sub-400ms load times.',
@@ -117,7 +113,6 @@ const STAGES: Stage[] = [
     number: '04',
     title: 'Zero-Downtime Launch & Hypercare',
     tagline: 'Production Cutover & 30D SLA',
-    duration: 'Sprint 04 // Day 43–56',
     icon: Rocket,
     overview:
       'We orchestrate zero-downtime DNS cutovers with pre-warmed Edge caches, followed by 30 days of direct senior developer hypercare and SLA monitoring.',
@@ -215,12 +210,9 @@ export default function Process() {
                   </div>
 
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2 mb-1">
+                    <div className="mb-1">
                       <span className="font-mono text-[10.5px] font-bold text-[#377a9b]">
                         STAGE_{stage.number}
-                      </span>
-                      <span className="font-mono text-[10px] text-slate-500 font-medium">
-                        {stage.duration}
                       </span>
                     </div>
 
@@ -368,12 +360,9 @@ export default function Process() {
 
                   {/* Stage Text */}
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2 mb-1">
+                    <div className="mb-1">
                       <span className="font-mono text-[10.5px] font-bold text-[#377a9b]">
                         STAGE_{stage.number}
-                      </span>
-                      <span className="font-mono text-[10px] text-slate-600 font-medium">
-                        {stage.duration}
                       </span>
                     </div>
 
