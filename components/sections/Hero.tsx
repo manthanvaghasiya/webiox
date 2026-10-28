@@ -47,6 +47,13 @@ export default function Hero() {
           {/* ── Dynamic Kinetic Heading (Smooth Vertical Word Rotator - Painted instantly for LCP) ── */}
           <div className="w-full max-w-5xl mx-auto mb-4 px-2">
             <h1 className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-[28px] xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] leading-[1.18] tracking-[-0.025em] text-[#0F172A] text-center [text-wrap:balance]">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#377a9b]/10 border border-[#377a9b]/25 text-[#377a9b] text-xs sm:text-[13px] md:text-sm font-bold tracking-wide mb-3 sm:mb-4 shadow-2xs mx-auto">
+                <span className="w-2 h-2 rounded-full bg-[#377a9b] animate-pulse" />
+                <span>Webiox Digital Solutions</span>
+                <span className="text-slate-300">|</span>
+                <span className="text-slate-600 font-medium hidden xs:inline">Official Engineering Agency</span>
+              </span>
+              <br />
               <span className="inline-block">Developing</span>{' '}
               <span className="inline-flex justify-center min-w-[155px] xs:min-w-[190px] sm:min-w-[270px] md:min-w-[340px] relative h-[1.22em] overflow-hidden align-top text-[#377a9b]">
                 <AnimatePresence mode="popLayout" initial={false}>
@@ -92,17 +99,16 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context - Painted instantly for LCP) ── */}
           {/* ── 3. Two-Tier Strategic Subheadline (Punchy Bold + Supporting Context) ── */}
           <div className="max-w-2xl mx-auto mb-6 sm:mb-8 text-center px-2">
             <h2 className="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-sm xs:text-base sm:text-lg md:text-[19px] text-[#1E293B] leading-snug mb-2 sm:mb-3">
-              Engineering high-performance web platforms, mobile apps & enterprise software.
+              Webiox engineers high-performance web platforms, mobile apps & enterprise software.
             </h2>
             <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs sm:text-[14.5px] text-[#64748B] leading-relaxed hidden sm:block">
-              Whether you&apos;re already an industry leader or striving to become one — connect with us. We build high-impact web platforms, modernize your digital profile, and engineer the technology that turns your business into a market leader.
+              Whether you&apos;re already an industry leader or striving to become one — partner with Webiox. We build high-impact web platforms, modernize your digital profile, and engineer the technology that turns your business into a market leader.
             </p>
             <p className="font-['Plus_Jakarta_Sans',sans-serif] font-normal text-xs text-[#64748B] leading-relaxed sm:hidden">
-              We partner with visionary founders to engineer custom digital flagships, native mobile apps, and autonomous AI systems designed to scale.
+              Webiox partners with visionary founders to engineer custom digital flagships, native mobile apps, and autonomous AI systems designed to scale.
             </p>
           </div>
 

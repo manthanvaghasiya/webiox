@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { motion, useInView, Variants } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import {
-  ArrowUpRight,
   ArrowRight,
   Mail,
   Phone,
@@ -18,8 +17,6 @@ import {
   ArrowUp,
   Sparkles,
   ShieldCheck,
-  Clock,
-  Send,
 } from 'lucide-react';
 
 /* ─── Navigation Data ─── */
@@ -103,14 +100,6 @@ export default function Footer() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-60px' });
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
-  const [deskEmail, setDeskEmail] = React.useState('');
-
-  React.useEffect(() => {
-    const user = 'manthanvaghasiya';
-    const domain = 'webiox.tech';
-    setDeskEmail(`${user}@${domain}`);
-  }, []);
 
   if (pathname?.startsWith('/admin')) {
     return null;
@@ -194,7 +183,7 @@ export default function Footer() {
                 </Link>
 
                 <a
-                  href="https://wa.me/919664736245"
+                  href="https://wa.me/919664736245?text=Hi%20Manthan%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Webiox."
                   target="_blank"
                   rel="noopener noreferrer me"
                   aria-label="Connect with Webiox on direct WhatsApp VIP"
@@ -231,11 +220,11 @@ export default function Footer() {
           >
             {/* Brand Block (4 cols) */}
             <motion.div variants={itemAnim} className="lg:col-span-4">
-              <Link href="/" className="inline-flex items-center gap-3 mb-5 group">
+              <Link href="/" aria-label="Webiox Digital Solutions Home" className="inline-flex items-center gap-3 mb-5 group">
                 <div className="relative w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/15 transition-colors border border-white/10">
                   <Image
                     src="/logo_without_background.png"
-                    alt="Webiox Logo"
+                    alt="Webiox Digital Solutions Logo"
                     width={28}
                     height={28}
                     className="object-contain"
@@ -247,7 +236,7 @@ export default function Footer() {
               </Link>
 
               <p className="text-slate-400 font-['Plus_Jakarta_Sans',sans-serif] text-sm leading-relaxed mb-6 max-w-sm">
-                Premier digital engineering studio. We build ultra-fast web flagships, mobile applications, custom software architectures, and autonomous AI systems for market leaders.
+                Webiox Digital Solutions (webiox.tech) is an independent premier digital engineering studio. We build ultra-fast web flagships, mobile applications, custom software architectures, and autonomous AI systems for market leaders.
               </p>
 
               {/* Social Channels */}
@@ -294,14 +283,14 @@ export default function Footer() {
                 Direct Engineering Desk
               </h3>
               <div className="flex flex-col gap-3.5 text-sm font-['Plus_Jakarta_Sans',sans-serif]">
-                <Link
-                  href="/contact"
+                <a
+                  href="mailto:manthanvaghasiya@webiox.tech"
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
-                  aria-label="Contact Lead Architect"
+                  aria-label="Email Lead Architect"
                 >
                   <Mail className="w-4 h-4 text-[#377a9b] shrink-0" />
-                  <span className="truncate">Contact Lead Architect</span>
-                </Link>
+                  <span className="truncate">manthanvaghasiya@webiox.tech</span>
+                </a>
                 <a
                   href="tel:+919664736245"
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
@@ -309,12 +298,18 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-[#ffc312] shrink-0" />
                   <span>+91 96647 36245</span>
                 </a>
-                <address className="not-italic flex items-start gap-3 text-slate-400 leading-relaxed">
-                  <MapPin className="w-4 h-4 text-[#377a9b] shrink-0 mt-1" />
+                <a
+                  href="https://share.google/QRrJWd4R7VcAIxN9S"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group leading-relaxed"
+                  aria-label="View Webiox office location on Google Maps"
+                >
+                  <MapPin className="w-4 h-4 text-[#377a9b] group-hover:text-[#ffc312] shrink-0 mt-1 transition-colors" />
                   <span>
                     The Palladium, Yogi Chowk, Surat 395010, Gujarat, India
                   </span>
-                </address>
+                </a>
               </div>
             </motion.div>
           </motion.div>
@@ -332,10 +327,6 @@ export default function Footer() {
               <span>•</span>
               <Link href="/terms" className="hover:text-white transition-colors">
                 Terms of Service
-              </Link>
-              <span>•</span>
-              <Link href="/terms" className="hover:text-white transition-colors">
-                Editorial & Code Standards
               </Link>
               <span>•</span>
               <button

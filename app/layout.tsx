@@ -37,12 +37,22 @@ const zain = Zain({
 export const metadata: Metadata = {
   metadataBase: new URL('https://webiox.tech'),
   title: {
-    default: "Webiox | Web Development, Apps & Software Architecture",
+    default: "Webiox™ Digital Solutions | Web Development & Software Engineering Agency",
     template: "%s | Webiox"
   },
-  description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, software architecture, and autonomous AI systems.",
+  description: "Webiox (Webiox Digital Solutions, webiox.tech) is an independent premier digital engineering studio delivering custom web development, mobile applications, software architecture, and autonomous AI systems.",
   keywords: [
     "Webiox",
+    "webiox",
+    "Webiox Digital Solutions",
+    "Webiox Digital Solution",
+    "Webiox Tech",
+    "Webiox Agency",
+    "Webiox Official Website",
+    "Webiox Software",
+    "Webiocs",
+    "Webiox Surat",
+    "Webiox India",
     "webiox.tech",
     "Webiox Digital Solutions",
     "Webiox Tech",
@@ -64,6 +74,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Webiox Digital Solutions", url: "https://webiox.tech" }],
   creator: "Webiox",
   publisher: "Webiox Digital Solutions",
+  verification: {
+    google: 'google5d72deae26469a48',
+  },
   alternates: {
     canonical: '/',
     languages: {
@@ -72,8 +85,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Webiox | Web Development, Apps & Software Architecture",
-    description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, software architecture, and autonomous AI systems.",
+    title: "Webiox™ Digital Solutions | Web Development & Software Engineering Agency",
+    description: "Webiox (Webiox Digital Solutions, webiox.tech) is an independent premier digital engineering studio delivering custom web development, mobile applications, software architecture, and autonomous AI systems.",
     url: 'https://webiox.tech',
     siteName: 'Webiox Digital Solutions',
     locale: 'en_US',
@@ -89,8 +102,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Webiox | Web Development, Apps & Software Architecture",
-    description: "Webiox is a premier digital engineering studio delivering custom web development, mobile apps, software architecture, and autonomous AI systems.",
+    title: "Webiox™ Digital Solutions | Web Development & Software Engineering Agency",
+    description: "Webiox (Webiox Digital Solutions, webiox.tech) is an independent premier digital engineering studio delivering custom web development, mobile applications, software architecture, and autonomous AI systems.",
     site: '@webiox_tech',
     creator: '@webiox_tech',
     images: ['/logo_without_background512.png'],
@@ -125,8 +138,17 @@ const jsonLdGraph = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ProfessionalService",
-      "additionalType": "https://schema.org/Organization",
+      "@type": ["Organization", "ProfessionalService"],
+      "brand": {
+        "@type": "Brand",
+        "name": "Webiox",
+        "alternateName": [
+        "Webiox Digital Solutions",
+        "Webiox Tech",
+        "webiox.tech"
+      ],
+        "url": "https://webiox.tech"
+      },
       "@id": "https://webiox.tech/#organization",
       "name": "Webiox",
       "legalName": "Webiox Digital Solutions",
@@ -136,7 +158,8 @@ const jsonLdGraph = {
         "Webiox Digital",
         "webiox.tech",
         "Webiocs",
-        "Webiox Digital Solutions"
+        "Webiox Digital Solutions",
+        "Webiox Digital Solution"
       ],
       "url": "https://webiox.tech",
       "logo": {
@@ -390,7 +413,11 @@ const jsonLdGraph = {
       "@id": "https://webiox.tech/#website",
       "url": "https://webiox.tech",
       "name": "Webiox",
-      "alternateName": "Webiox Digital Solutions",
+      "alternateName": [
+        "Webiox Digital Solutions",
+        "Webiox Tech",
+        "webiox.tech"
+      ],
       "publisher": {
         "@id": "https://webiox.tech/#organization"
       },
@@ -507,6 +534,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#F9FAFB] selection:bg-[#377a9b]/20 selection:text-[#377a9b] overflow-x-clip w-full max-w-full">
         {/* Facebook Pixel Fallback for non-JS browsers (Valid in body per HTML5 spec) */}
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             height="1"
             width="1"

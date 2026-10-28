@@ -9,13 +9,7 @@ import {
   X,
   ArrowUpRight,
   ChevronDown,
-  Sparkles,
   MessageCircle,
-  Phone,
-  ArrowRight,
-  Briefcase,
-  FileText,
-  Mail,
 } from 'lucide-react';
 
 interface SubLink {
@@ -48,7 +42,6 @@ const NAV_LINKS: readonly NavLink[] = [
   },
 ] as const;
 
-const BRAND_TEAL = '#377a9b';
 
 const mobileDrawerVariants: Variants = {
   hidden: {
@@ -77,18 +70,17 @@ export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [prevPath, setPrevPath] = useState(pathname);
   const [pillDropdownOpen, setPillDropdownOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const pillDropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (pathname?.startsWith('/admin')) {
-    return null;
+  // Auto-close mobile menu on route change during render
+  if (prevPath !== pathname) {
+    setPrevPath(pathname);
+    setMobileOpen(false);
   }
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -96,11 +88,6 @@ export default function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
 
   // Lock body scroll when mobile menu is open + close on Escape
   useEffect(() => {
@@ -118,7 +105,11 @@ export default function Header() {
   }, [mobileOpen]);
 
   const isActive = (href: string) =>
-    mounted ? (href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)) : false;
+    Boolean(pathname && (href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)));
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <>
@@ -144,12 +135,13 @@ export default function Header() {
           {/* Brand Logo (left) */}
           <Link
             href="/"
-            aria-label="Webiox Home"
+            aria-label="Webiox Digital Solutions - Home"
+            title="Webiox - Digital Engineering Studio"
             className="relative flex items-center hover:opacity-85 active:scale-95 transition-transform shrink-0 cursor-pointer py-1"
           >
             <Image
               src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
-              alt="Webiox"
+              alt="Webiox Digital Solutions"
               width={116}
               height={26}
               priority
@@ -181,6 +173,7 @@ export default function Header() {
                     <button
                       type="button"
                       aria-expanded={pillDropdownOpen}
+                      onClick={() => setPillDropdownOpen((v) => !v)}
                       className={[
                         'inline-flex items-center gap-1 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-colors cursor-pointer',
                         active
@@ -212,6 +205,7 @@ export default function Header() {
                               <li key={child.href}>
                                 <Link
                                   href={child.href}
+                                  onClick={() => setPillDropdownOpen(false)}
                                   className={[
                                     'flex items-center justify-between px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg mx-1 transition-colors',
                                     childActive
@@ -323,7 +317,7 @@ export default function Header() {
               >
                 <Image
                   src="/WEBIOX_NAME_WITH_LOG-removebg-preview.png"
-                  alt="Webiox"
+                  alt="Webiox Digital Solutions"
                   width={116}
                   height={26}
                   priority
